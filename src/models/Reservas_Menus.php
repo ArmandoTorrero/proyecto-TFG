@@ -3,7 +3,7 @@
 
     class Menus extends EmptyModel{
         public function __construct() {
-            parent::__construct('menus'); 
+            parent::__construct('reservas-menus'); 
         }
         
     }
