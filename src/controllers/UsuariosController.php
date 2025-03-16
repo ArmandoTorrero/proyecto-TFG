@@ -14,12 +14,22 @@
          * Cerrar sesión
          * @return void
          */
-        function logout() {
+        public function logout() {
             session_start(); 
             session_unset(); // Elimina todas las variables de sesión
             session_destroy(); // Destruye la sesión completamente
-            header(''); // Reddireccion
+            header(''); // Reddireccion a la landing page
             exit;
+        }
+
+        /**
+         * Obtener el rol de un usuario
+         * @param int $id_usuario
+         * @return array
+         */
+        public function UserRol($id_usuario) {
+            return $this->usuariosModel->getUserRol($id_usuario);
+            
         }
 
         /**
@@ -93,7 +103,7 @@
                     echo "Credenciales incorrectas" ?? ''; 
                 }
             }else {
-                session_start(); 
+                session_start(); // !! Cambiar, el session_start() deberia ser en el index
                 require 'VIEWS/user_login.php'; 
             }
         }
