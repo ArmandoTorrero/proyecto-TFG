@@ -11,6 +11,7 @@
             <a href="http://" target="_blank" rel="noopener noreferrer">Peliculas</a>
         </article>
     </section>
+    <script src="../../PUBLIC/JS/script.js"></script>
 
 <?php 
     $content = ob_get_clean(); 
