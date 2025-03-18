@@ -16,9 +16,32 @@
 }
 
 .hero-section{
+    
     width: 100vw;
     height: 42vw;
     background-image: url(../ASSETS/hero-image.jpg);
     background-position: center;
+}
+
+.content{
+    width: 60%;
     border: 1px solid blue;
+    & h1, p{
+        color:var(--blanco); 
+    }
+
+    & h1{
+        font-family: var(--titulos);
+        font-size: 4vw;
+    }
+
+    & p{
+        width: 60%;
+        font-family: var(--texto-enlaces-botones);
+    }
+
+    & a{
+        color: var(--blanco);
+        text-decoration: none;
+    }
 }
