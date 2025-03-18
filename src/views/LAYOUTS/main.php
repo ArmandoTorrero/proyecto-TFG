@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
@@ -19,12 +19,12 @@
     <body>
         <nav>
             <a href="#" target="_self">CineFlow</a>
-            <article class="enlace">
+            <article class="enlaces">
                 <a href="#" target="_blank">Comida y bebida</a>
                 <a href="#" target="_blank">Nuestros planes</a>
                 <a href="#" target="_blank">Peliculas</a>
             </article>
-            <a href="" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-user"></i></a>
+            <a href="" target="_blank" rel="noopener noreferrer"><i class="bi bi-person"></i></a>
         </nav>
     </body>
 </html>

@@ -7,16 +7,43 @@
     --blanco: #fefffe; 
     --gris: #f2f4f7; 
     --azul: #1e90ff; 
+    --cineflow: 'Lobster'; 
+    --titulos: 'Poppins'; 
+    --texto-enlaces-botones: 'Montserrat'; 
 }
 
 nav{
     display: flex;
     justify-content: space-between;
-    padding: 20px 10px;
+    align-items: center;
+    padding: 10px 20px;
     background-color: var(--negro);
 
     & a{
         color: var(--blanco);
         text-decoration: none;
+
+        & i{
+            font-size: 1.9em;
+        }
+
+        &:first-of-type{
+            font-family: var(--cineflow);
+            border: 1px solid green;
+        }
+
+    }
+
+    & .enlaces{
+        display: flex;
+        justify-content: space-between;
+        width: 25%;
+        border: 1px solid blue;
+
+        & a{
+            font-family: var(--texto-enlaces-botones);
+            font-weight: 500;
+        }
     }
 }
+
