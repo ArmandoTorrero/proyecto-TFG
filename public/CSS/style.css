@@ -1,8 +1,10 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; 
+}
 
+:root{
     --negro: #010100; 
     --blanco: #fefffe; 
     --gris: #f2f4f7; 
@@ -19,6 +21,7 @@ nav{
     padding: 10px 20px;
     background-color: var(--negro);
 
+    /*Estilos para todos los enlaces*/
     & a{
         color: var(--blanco);
         text-decoration: none;
@@ -26,14 +29,15 @@ nav{
         & i{
             font-size: 1.9em;
         }
-
-        &:first-of-type{
-            font-family: var(--cineflow);
-            border: 1px solid green;
-        }
-
     }
 
+    /*Estilos para el primer enlace*/
+    a.nombre-cine{
+        font-family: var(--cineflow);
+        font-size: 1.3vw;
+    }
+
+    /*Estilos especificos para el contenedor de los enlaces principales*/
     & .enlaces{
         display: flex;
         justify-content: space-between;
@@ -46,4 +50,69 @@ nav{
         }
     }
 }
+
+
+footer{padding: 10px;}
+
+.services{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    padding: 5px;
+    .single-service{
+        display: flex;
+        flex-flow: column nowrap;
+        width: 30%;
+        & h1{
+            font-family: var(--titulos);
+            font-size: 1.6vw;
+        }
+
+        & a{
+            color: var(--negro);
+            font-family: var(--texto-enlaces-botones);
+            text-decoration: none;
+        }
+    }
+}
+
+hr{
+    height: 3px;
+    background-color: var(--negro);
+}
+
+.politics-RRSS{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid blue;
+    font-family: var(--texto-enlaces-botones);
+    font-size: 1.2vw;
+
+    & .web-politics > a, .RRSS > a{
+        color: var(--negro);
+        text-decoration: none;
+    }
+
+    & .web-politics{
+        display: flex;
+        justify-content: space-between;
+        width: 30%;
+        border: 1px solid blue;
+    }
+
+    & .RRSS{
+        display: flex;
+        justify-content: space-between;
+        width: 10%;
+        border: 1px solid blue;
+
+        & a{
+            font-size: 1.5vw;
+        }
+    }
+}
+
+
 
