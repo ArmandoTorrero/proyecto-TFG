@@ -18,7 +18,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px 30px;
     background-color: var(--negro);
 
     /*Estilos para todos los enlaces*/
@@ -67,6 +67,7 @@ footer{
     justify-content: space-between;
     width: 40%;
     padding: 5px;
+
     .single-service{
         display: flex;
         flex-flow: column nowrap;
@@ -81,6 +82,11 @@ footer{
             color: var(--negro);
             font-family: var(--texto-enlaces-botones);
             text-decoration: none;
+            transition: color .15s ease-in;
+
+            &:hover{
+                color: var(--azul);
+            }
         }
     }
 }
