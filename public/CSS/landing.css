@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+:root{
+    --negro: #010100; 
+    --blanco: #fefffe; 
+    --gris: #f2f4f7; 
+    --azul: #1e90ff; 
+    --cineflow: 'Lobster'; 
+    --titulos: 'Poppins'; 
+    --texto-enlaces-botones: 'Montserrat'; 
+}
+
+.hero-section{
+    width: 100vw;
+    height: 42vw;
+    background-image: url(../ASSETS/hero-image.jpg);
+    background-position: center;
+    border: 1px solid blue;
+}

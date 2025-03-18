@@ -1,8 +1,12 @@
 <?php  
     ob_start(); 
 ?>
-    
-
+    <head>
+        <link rel="stylesheet" href="../../PUBLIC/CSS/landing.css">
+    </head>
+    <section class="hero-section">
+        
+    </section>
 
 <?php 
     $content = ob_get_clean(); 
