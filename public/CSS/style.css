@@ -25,6 +25,11 @@ nav{
     & a{
         color: var(--blanco);
         text-decoration: none;
+        transition: color .15s ease-in;
+
+        &:hover{
+            color: var(--azul);
+        }
 
         & i{
             font-size: 1.9em;
@@ -41,8 +46,7 @@ nav{
     & .enlaces{
         display: flex;
         justify-content: space-between;
-        width: 25%;
-        border: 1px solid blue;
+        width: 27%;
 
         & a{
             font-family: var(--texto-enlaces-botones);
@@ -51,9 +55,13 @@ nav{
     }
 }
 
+/*Estilos generales para el footer*/
+footer{
+    padding: 10px;
+    background-color: var(--gris);
+}
 
-footer{padding: 10px;}
-
+/*Estilos para la primera seccion del footer*/
 .services{
     display: flex;
     justify-content: space-between;
@@ -69,6 +77,7 @@ footer{padding: 10px;}
         }
 
         & a{
+            padding: 5px;
             color: var(--negro);
             font-family: var(--texto-enlaces-botones);
             text-decoration: none;
@@ -81,32 +90,35 @@ hr{
     background-color: var(--negro);
 }
 
+/*Estilos para la segunda seccion del footer*/
 .politics-RRSS{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 10px;
-    border: 2px solid blue;
+    padding: 15px;
     font-family: var(--texto-enlaces-botones);
     font-size: 1.2vw;
 
     & .web-politics > a, .RRSS > a{
         color: var(--negro);
         text-decoration: none;
+        transition: color .15s ease-in;
+
+        &:hover{
+            color: var(--azul);
+        }
     }
 
     & .web-politics{
         display: flex;
         justify-content: space-between;
         width: 30%;
-        border: 1px solid blue;
     }
 
     & .RRSS{
         display: flex;
         justify-content: space-between;
-        width: 10%;
-        border: 1px solid blue;
+        width: 7%;
 
         & a{
             font-size: 1.5vw;
