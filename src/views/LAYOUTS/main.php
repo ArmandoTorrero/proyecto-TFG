@@ -13,7 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../../../public/CSS/style.css">
+        <link rel="stylesheet" href="../../PUBLIC/CSS/style.css">
         <title>Cineflow</title>
     </head>
     <body>
@@ -27,6 +27,8 @@
             <a class="user-icon" href="#" target="_blank" rel="noopener noreferrer"><i class="bi bi-person"></i></a>
         </nav>
 
+        <!-- Aquí se incluirá el contenido de las vistas -->
+         <?php echo $content?>
 
         <footer>
             <section class="services">
