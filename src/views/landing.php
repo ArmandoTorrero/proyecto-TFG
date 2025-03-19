@@ -33,7 +33,7 @@
 
             <article class="img-container">
                 <article class="content-button">
-                    <h1>Comida y bebida</h1>
+                    <h1>Compra tus tickets</h1>
                     <button class="button-enlace">
                         <a href="http://" target="_blank" rel="noopener noreferrer">Explorar</a>
                     </button>
@@ -42,7 +42,7 @@
 
             <article class="img-container">
                 <article class="content-button">
-                    <h1>Comida y bebida</h1>
+                    <h1>Nuestros planes</h1>
                     <button class="button-enlace">
                         <a href="http://" target="_blank" rel="noopener noreferrer">Explorar</a>
                     </button>
@@ -50,6 +50,28 @@
             </article>
 
         </section>
+    </section>
+
+    <section class="comprar-tickets">
+
+        <article class="comprar-entradas-content">
+
+            <h1>Compra tus entradas facilmente</h1>
+            <p>Compra fácil de entradasExplore nuestro sencillo proceso de compra de entradas, 
+                donde puede seleccionar sus asientos preferidos y elegir entre varias opciones de 
+                pago para asegurar su experiencia cinematográfica.</p>
+        </article>
+        <article class="comprar-tickets-btns">
+
+            <button>
+                <a href="http://" target="_blank" rel="noopener noreferrer">Comprar entradas</a>
+            </button>
+            <button>
+                <a href="http://" target="_blank" rel="noopener noreferrer">Leer mas</a>
+            </button>
+
+        </article>
+
     </section>
 
 

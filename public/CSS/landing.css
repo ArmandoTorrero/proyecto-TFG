@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 :root{
@@ -25,11 +24,15 @@ p,a{
     font-family: var(--texto-enlaces-botones);
 }
 
+a{
+    text-decoration: none;
+}
+
 .hero-section{
-    width: 100vw;
     height: 90vh;
     background-image: url(../ASSETS/hero-image.jpg);
-    background-position: center;
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
 }
 
 /*Estilos para el contenido del hero-section*/
@@ -71,14 +74,11 @@ p,a{
 
 /*Estilos para el apartado de servicioss*/
 .nuestros-servicios{
-    width: 100vw;
     background-color: var(--blanco);
 }
 
 .nuestros-servicios-title{
-    width: 100%;
     padding: 20px;
-
     & h1{
         font-size: 1.5vw;
     }
@@ -87,9 +87,9 @@ p,a{
 /*Estilos para el el contenedor que almacena los servicios*/
 .nuestros-servicios-containers{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 100%;
-    padding: 10px;
+    padding: 10px 0px;
     
     /*Estilos por cada contenedor individual*/
     & .img-container{
@@ -99,14 +99,25 @@ p,a{
         width: 30%;
         height: 25vw;
         border-radius: 10px;
-        background-image: url(../ASSETS/palomitas.jpeg);
         background-size: cover;
         background-repeat: no-repeat;
+
+        &:first-of-type{
+            background-image: url(../ASSETS/palomitas.jpeg);
+        }
+
+        &:nth-of-type(2){
+            background-image: url(../ASSETS/cine-tickets.webp);
+        }
+
+        &:last-of-type{
+            background-image: url(../ASSETS/cine-tickets.webp);
+        }
         
     }
 }
 
-/*Estilos para el contenedor que contiene el titulo del servicio y su respetivo boton*/
+/* Estilos para el contenedor que contiene el titulo del servicio y su respetivo boton */
 .img-container > .content-button{
     display: flex;
     flex-flow: column nowrap;
@@ -138,5 +149,72 @@ p,a{
         }
     }
 
-    
+}
+
+/* Estilos para el contenedor de 'comprar entradas'*/
+
+.comprar-tickets{
+    padding: 3vw 20px;
+    background-color: var(--negro);
+}
+
+.comprar-entradas-content{
+    padding: 20px 0px;
+    color: var(--blanco);
+
+    & h1{
+        font-size: 2.5vw;
+    }
+
+    & p{
+        width: 60%;
+        font-size: 1.2vw;
+    }
+}
+
+.comprar-tickets-btns{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 20%;
+    padding: 20px 0px;
+
+    button{
+        padding: 13px 15px;
+        border-radius: 5px;
+
+        &:first-of-type{
+            background-color: var(--blanco);
+            
+            & a{
+                color: var(--negro);
+                transition: color .15s ease-in;
+
+                &:hover{
+                    color: var(--azul);
+                }
+            }
+        }
+
+        &:last-of-type{
+            border: 1px solid var(--blanco);
+            background-color: var(--negro);
+            transition: all .50s ease-in;          
+
+            
+            & a{
+                color: var(--blanco);      
+                transition: all .50s ease-in;          
+            }
+        }
+    }    
+}
+
+.comprar-tickets-btns > button:last-of-type:hover{
+    border: none;
+    background-color: var(--blanco);
+
+    a{
+        color: var(--negro);
+    }
 }
