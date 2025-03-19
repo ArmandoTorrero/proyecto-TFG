@@ -19,6 +19,3 @@
     }
 ?>
 
-<head>
-    <link rel="stylesheet" href="/public/CSS/landing.css">
-</head>

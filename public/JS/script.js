@@ -1,6 +1,6 @@
 async function getPersonajes() {
     try {
-        let response = await fetch('https://magicloops.dev/api/loop/80403407-e7ef-41d2-b041-acd03160acf5/run?dummy=value');
+        let response = await fetch('https://magicloops.dev/api/loop/f0813363-8f69-41e9-8d9a-f26ebc510821/run?query=Get+movie+info');
         let data = await response.json();
         console.log(data);
         
