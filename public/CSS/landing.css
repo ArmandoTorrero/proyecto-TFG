@@ -15,6 +15,8 @@
     --texto-enlaces-botones: 'Montserrat'; 
 }
 
+/*Estilos para los h1, p y a para no tener que repetirlo continuamente*/
+
 h1{
     font-family: var(--titulos);
 }
@@ -25,11 +27,12 @@ p,a{
 
 .hero-section{
     width: 100vw;
-    height: 91vh;
+    height: 90vh;
     background-image: url(../ASSETS/hero-image.jpg);
     background-position: center;
 }
 
+/*Estilos para el contenido del hero-section*/
 .content{
    padding: 20px;
 
@@ -45,7 +48,7 @@ p,a{
         color: var(--blanco);
     }
 
-    & .enlace{
+    & .button-enlace{
         width: min-content;
         padding: 10px 15px; 
         border-radius: 7px;
@@ -66,28 +69,29 @@ p,a{
     }
 }
 
+/*Estilos para el apartado de servicioss*/
 .nuestros-servicios{
     width: 100vw;
-    border: 1px solid blue;
     background-color: var(--blanco);
 }
 
 .nuestros-servicios-title{
     width: 100%;
     padding: 20px;
-    border: 1px solid green;    
 
     & h1{
         font-size: 1.5vw;
     }
 }
 
+/*Estilos para el el contenedor que almacena los servicios*/
 .nuestros-servicios-containers{
     display: flex;
     justify-content: space-around;
     width: 100%;
     padding: 10px;
     
+    /*Estilos por cada contenedor individual*/
     & .img-container{
         display: flex;
         justify-content: center;
@@ -102,26 +106,28 @@ p,a{
     }
 }
 
+/*Estilos para el contenedor que contiene el titulo del servicio y su respetivo boton*/
 .img-container > .content-button{
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 
     & h1{
+        margin: 0% 0% 10%;
         font-size: 1.5vw;
     }
 
-    & .enlace{
+    & .button-enlace{
         width: min-content;
         padding: 10px 15px; 
+        border: none;
         border-radius: 7px;
         background-color: var(--gris);
-
-    
-
+        box-shadow: 2px 4px 4px 1px rgba(0,0,0,0.75);
         & a{
-            font-size: 0.8vw;
+            font-size: 0.9vw;
             color: var(--negro);
             text-decoration: none;
             transition: color .15s ease-in;

@@ -39,14 +39,14 @@ nav{
     /*Estilos para el primer enlace*/
     a.nombre-cine{
         font-family: var(--cineflow);
-        font-size: 1.3vw;
+        font-size: 1.7vw;
     }
 
     /*Estilos especificos para el contenedor de los enlaces principales*/
     & .enlaces{
         display: flex;
         justify-content: space-between;
-        width: 27%;
+        width: 30%;
 
         & a{
             font-family: var(--texto-enlaces-botones);
@@ -78,7 +78,7 @@ footer{
         }
 
         & a{
-            padding: 5px;
+            padding: 5px 0px;
             color: var(--negro);
             font-family: var(--texto-enlaces-botones);
             text-decoration: none;
@@ -103,7 +103,7 @@ hr{
     align-items: center;
     padding: 15px;
     font-family: var(--texto-enlaces-botones);
-    font-size: 1.2vw;
+    font-size: 1vw;
 
     & .web-politics > a, .RRSS > a{
         color: var(--negro);
@@ -127,7 +127,7 @@ hr{
         width: 7%;
 
         & a{
-            font-size: 1.5vw;
+            font-size: 1.3vw;
         }
     }
 }

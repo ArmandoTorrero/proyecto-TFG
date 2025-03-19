@@ -8,9 +8,9 @@
         <article class="content">
             <h1>Experimenta la <i>Magia</i> <br> del cine</h1>
             <p>Sumérgete en la magia del cine y vive historias inolvidables en la gran pantalla. Desde clásicos atemporales hasta los últimos estrenos, tu próxima aventura te espera. ¡Reserva tus entradas ahora!</p>
-            <article class="enlace">
-                <a href="">Peliculas</a>
-            </article>
+            <button class="button-enlace">
+                <a href="http://" target="_blank" rel="noopener noreferrer">Peliculas</a>
+            </button>
         </article>
     </section>
 
@@ -25,30 +25,30 @@
             <article class="img-container">
                 <article class="content-button">
                     <h1>Comida y bebida</h1>
-                    <div class="enlace">
-                        <a href="">Explorar</a>
-                    </div>
+                    <button class="button-enlace">
+                        <a href="http://" target="_blank" rel="noopener noreferrer">Explorar</a>
+                    </button>
                 </article>
             </article>
 
             <article class="img-container">
                 <article class="content-button">
                     <h1>Comida y bebida</h1>
-                    <div class="enlace">
-                        <a href="">Explorar</a>
-                    </div>
+                    <button class="button-enlace">
+                        <a href="http://" target="_blank" rel="noopener noreferrer">Explorar</a>
+                    </button>
                 </article>
             </article>
 
             <article class="img-container">
                 <article class="content-button">
                     <h1>Comida y bebida</h1>
-                    <div class="enlace">
-                        <a href="">Explorar</a>
-                    </div>
+                    <button class="button-enlace">
+                        <a href="http://" target="_blank" rel="noopener noreferrer">Explorar</a>
+                    </button>
                 </article>
             </article>
-            
+
         </section>
     </section>
 
@@ -59,5 +59,4 @@
 <?php 
     $content = ob_get_clean(); 
     require __DIR__ . '/../views/LAYOUTS/main.php';
-    echo __DIR__; 
 ?>
