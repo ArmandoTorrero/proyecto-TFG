@@ -15,6 +15,14 @@
     --texto-enlaces-botones: 'Montserrat'; 
 }
 
+h1{
+    font-family: var(--titulos);
+}
+
+p,a{
+    font-family: var(--texto-enlaces-botones);
+}
+
 .hero-section{
     width: 100vw;
     height: 91vh;
@@ -26,7 +34,6 @@
    padding: 20px;
 
     & h1{
-        font-family: var(--titulos);
         font-size: 4vw;
         color: var(--blanco);
     }
@@ -34,7 +41,6 @@
     & p{
         width: 40%;
         margin: 1% 0% 2%;
-        font-family: var(--texto-enlaces-botones);
         font-size: 1.2vw;
         color: var(--blanco);
     }
@@ -49,7 +55,6 @@
 
         & a{
             font-size: 0.8vw;
-            font-family: var(--texto-enlaces-botones);
             color: var(--negro);
             text-decoration: none;
             transition: color .15s ease-in;
@@ -59,4 +64,73 @@
             }
         }
     }
+}
+
+.nuestros-servicios{
+    width: 100vw;
+    border: 1px solid blue;
+    background-color: var(--blanco);
+}
+
+.nuestros-servicios-title{
+    width: 100%;
+    padding: 20px;
+    border: 1px solid green;    
+
+    & h1{
+        font-size: 1.5vw;
+    }
+}
+
+.nuestros-servicios-containers{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 10px;
+    
+    & .img-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        height: 25vw;
+        border-radius: 10px;
+        background-image: url(../ASSETS/palomitas.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        
+    }
+}
+
+.img-container > .content-button{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    & h1{
+        font-size: 1.5vw;
+    }
+
+    & .enlace{
+        width: min-content;
+        padding: 10px 15px; 
+        border-radius: 7px;
+        background-color: var(--gris);
+
+    
+
+        & a{
+            font-size: 0.8vw;
+            color: var(--negro);
+            text-decoration: none;
+            transition: color .15s ease-in;
+
+            &:hover{
+                color: var(--azul);
+            }
+        }
+    }
+
+    
 }

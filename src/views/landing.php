@@ -13,6 +13,47 @@
             </article>
         </article>
     </section>
+
+    <section class="nuestros-servicios">
+
+        <article class="nuestros-servicios-title">
+            <h1>Nuestros servicios</h1>
+        </article>
+
+        <section class="nuestros-servicios-containers">
+
+            <article class="img-container">
+                <article class="content-button">
+                    <h1>Comida y bebida</h1>
+                    <div class="enlace">
+                        <a href="">Explorar</a>
+                    </div>
+                </article>
+            </article>
+
+            <article class="img-container">
+                <article class="content-button">
+                    <h1>Comida y bebida</h1>
+                    <div class="enlace">
+                        <a href="">Explorar</a>
+                    </div>
+                </article>
+            </article>
+
+            <article class="img-container">
+                <article class="content-button">
+                    <h1>Comida y bebida</h1>
+                    <div class="enlace">
+                        <a href="">Explorar</a>
+                    </div>
+                </article>
+            </article>
+            
+        </section>
+    </section>
+
+
+
     <script src="../../PUBLIC/JS/script.js"></script>
 
 <?php 
