@@ -2,7 +2,7 @@
     ob_start(); 
 ?>
     <head>
-        <link rel="stylesheet" href="../../PUBLIC/CSS/landing.css">
+        <link rel="stylesheet" href="public/CSS/landing.css">
     </head>
     <section class="hero-section">
         <article class="content">
@@ -54,7 +54,7 @@
 
 
 
-    <script src="../../PUBLIC/JS/script.js"></script>
+    <script src="public/JS/script.js"></script>
 
 <?php 
     $content = ob_get_clean(); 

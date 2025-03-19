@@ -1,11 +1,24 @@
 <?php 
     require_once 'core/router.php';
-    $router = new Router();
+    require_once __DIR__ . '/src/controllers/PeliculasController.php'; 
 
-    $router->add('/', 'PeliculasController@index');
+    $route = $_GET['route'] ?? 'landing';
+    
+    $peliculasController = new PeliculasController();
 
-    echo __DIR__; 
-
-
-    $router->dispatch($_SERVER['REQUEST_URI']);
+    switch ($route) {
+        case 'landing':
+            $peliculasController->index();
+            break;
+        case 'label':
+            # code...
+            break;
+        default:
+            # code...
+            break;
+    }
 ?>
+
+<head>
+    <link rel="stylesheet" href="/public/CSS/landing.css">
+</head>

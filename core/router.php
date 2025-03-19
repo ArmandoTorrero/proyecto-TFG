@@ -36,7 +36,7 @@
         private function executeAction(string $controllerAction): void {
             list($controllerName, $methodName) = explode('@', $controllerAction);
     
-            $controllerFile = __DIR__ . '/../src/controllers' . $controllerName . '.php';
+            $controllerFile = __DIR__ . '/src/controllers' . $controllerName . '.php';
     
             if (file_exists($controllerFile)) {
                 require_once $controllerFile;
