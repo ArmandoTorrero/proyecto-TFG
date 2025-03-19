@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+:root{
+    --negro: #010100; 
+    --blanco: #fefffe; 
+    --gris: #f2f4f7; 
+    --azul: #1e90ff; 
+    --cineflow: 'Lobster'; 
+    --titulos: 'Poppins'; 
+    --texto-enlaces-botones: 'Montserrat'; 
+}
+
+.izquierda-derecha{
+    height: 90vh;
+}
+
+.izquierda{
+    border: 1px solid blue;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 50%;
+    height: 90vh;
+    background-color: var(--azul);
+
+    & h1{
+        margin: 7% 0% 3%;
+        font-size: 2.5vw;
+        color: var(--blanco);
+    }
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.label-input{
+    display: flex;
+    flex-flow: column nowrap;  
+    width: 90%;
+    margin: 2% 0%;
+    padding: 10px 5px;
+
+    & label{
+        margin: 0% 0% 5%;
+        font-size: 1.3vw;
+        color: var(--blanco);
+    }
+
+    & input{
+        padding: 8px 0px;
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.85);
+        box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5)
+    }
+    
+}
+
+button.login{
+    width: 90%;
+    margin: 5% 0%;
+    padding: 8px 0px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--negro);
+    color: var(--blanco);
+    font-size: 1.1vw;
+}
+
+
+
+.izquierda-enlaces{
+    display: flex;
+    flex-flow: column nowrap;
+}
+

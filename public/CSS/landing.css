@@ -16,17 +16,6 @@
 
 /*Estilos para los h1, p y a para no tener que repetirlo continuamente*/
 
-h1{
-    font-family: var(--titulos);
-}
-
-p,a{
-    font-family: var(--texto-enlaces-botones);
-}
-
-a{
-    text-decoration: none;
-}
 
 .hero-section{
     height: 90vh;

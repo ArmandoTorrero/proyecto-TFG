@@ -14,6 +14,18 @@
     --texto-enlaces-botones: 'Montserrat'; 
 }
 
+h1{
+    font-family: var(--titulos);
+}
+
+p,a,label,button{
+    font-family: var(--texto-enlaces-botones);
+}
+
+a{
+    text-decoration: none;
+}
+
 nav{
     display: flex;
     justify-content: space-between;

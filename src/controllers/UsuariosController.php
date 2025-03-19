@@ -104,7 +104,7 @@
                 }
             }else {
                 session_start(); // !! Cambiar, el session_start() deberia ser en el index
-                require 'VIEWS/user_login.php'; 
+                require __DIR__ . '/../views/login.php'; 
             }
         }
 
