@@ -5,7 +5,7 @@
 
 
 
-    $route = $_GET['route'] ?? 'user/register';
+    $route = $_GET['route'] ?? 'landing';
     
     $peliculasController = new PeliculasController();
     $usuariosController = new UsuariosController();

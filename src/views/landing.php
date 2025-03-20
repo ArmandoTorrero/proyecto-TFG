@@ -4,6 +4,8 @@
     <head>
         <link rel="stylesheet" href="public/CSS/landing.css">
     </head>
+
+    <!-- Hero section -->
     <section class="hero-section">
         <article class="content">
             <h1>Experimenta la <i>Magia</i> <br> del cine</h1>
@@ -13,6 +15,8 @@
             </button>
         </article>
     </section>
+
+    <!-- Nuestros servicios -->
 
     <section class="nuestros-servicios">
 
@@ -52,6 +56,12 @@
         </section>
     </section>
 
+    <!-- Cartelera -->
+
+    <section id="cartelera"></section>
+
+    <!-- Comprar tickets -->
+
     <section class="comprar-tickets">
 
         <article class="comprar-entradas-content">
@@ -76,7 +86,8 @@
 
 
 
-    <script src="public/JS/script.js"></script>
+    <script type="module" src="public/JS/script.js"></script>
+    <script type="module" src="public/JS/components.js"></script>
 
 <?php 
     $content = ob_get_clean(); 

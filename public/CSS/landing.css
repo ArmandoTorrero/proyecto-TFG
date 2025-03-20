@@ -140,6 +140,49 @@
 
 }
 
+/*Estilos para la seccion de la cartelera*/
+
+#cartelera{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 10px;
+    margin: 3vw 0vw;
+    background-color: var(--gris);
+    transition: all 1s ease 0s;
+
+}
+
+.movie-card{
+    margin: 2% 3%;
+    transition: all 1s ease 0s;
+
+
+    & img{
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    & .movie-content{
+        & h2{
+            font-family: var(--texto-enlaces-botones);
+            font-weight: 600;
+        }
+
+        & a{
+            color: var(--negro);
+        }
+    }
+}
+
+#carterlera:hover{
+    box-shadow: 5px 5px 30px 10px rgba(0, 0, 0, 0.5); 
+    opacity: 1;
+}
+
+#cartelera:hover > .movie-card:not(:hover){
+    opacity: 0.5;
+}
+
 /* Estilos para el contenedor de 'comprar entradas'*/
 
 .comprar-tickets{
@@ -165,7 +208,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 18%;
+    width: 15%;
     padding: 20px 0px;
 
     button{
