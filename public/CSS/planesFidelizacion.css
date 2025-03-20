@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+:root{
+    --negro: #010100; 
+    --blanco: #fefffe; 
+    --gris: #f2f4f7; 
+    --azul: #1e90ff; 
+    --cineflow: 'Lobster'; 
+    --titulos: 'Poppins'; 
+    --texto-enlaces-botones: 'Montserrat'; 
+}
+
+
+body{
+    background-image: url(../ASSETS/cine.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+header{
+    text-align: center;
+
+    & h1{
+        font-size: 2vw;
+        color: var(--blanco);
+    }
+
+    & h3{
+        color: var(--blanco);
+        font-family: var(--texto-enlaces-botones);
+        font-size: 1.2vw;
+        font-weight: 400;
+
+    }
+}
+
+
+.plan-container{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    width: 20vw;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.logoName-plan-precio{
+    text-align: center;
+
+    color: var(--blanco);
+
+    & h2{
+        font-family: var(--cineflow);
+        font-weight:lighter;
+    }
+
+    & h1{
+        font-size: 1.5vw;
+        font-family: var(--texto-enlaces-botones); 
+    }
+
+    & p{
+        margin: 5% 0% 12%;
+        font-size: 1.2vw;
+        font-weight: 600;
+    }
+}
+
+.beneficios{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center; 
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+
+    & li{
+        font-family: var(--texto-enlaces-botones);
+        font-weight: bold;
+        color: var(--blanco);
+    }
+}
+

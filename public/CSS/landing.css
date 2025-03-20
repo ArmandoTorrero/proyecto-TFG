@@ -170,6 +170,11 @@
 
         & a{
             color: var(--negro);
+            transition: color .15s ease-in;
+
+            &:hover{
+                color: var(--azul);
+            }
         }
     }
 }
