@@ -72,7 +72,7 @@
                 }            
     
             } else { // si no se reciben cosas por POST mostramos el formulario
-                require 'VIEWS/user_registro.php'; 
+                require __DIR__ . '/../views/registro.php'; 
             }
         }
 

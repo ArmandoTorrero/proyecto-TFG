@@ -5,7 +5,7 @@
 
 
 
-    $route = $_GET['route'] ?? 'user/login';
+    $route = $_GET['route'] ?? 'user/register';
     
     $peliculasController = new PeliculasController();
     $usuariosController = new UsuariosController();
@@ -16,6 +16,9 @@
             break;
         case 'user/login':
             $usuariosController->login();
+            break;
+        case 'user/register':
+            $usuariosController->create();
             break;
         default:
             echo "404";
