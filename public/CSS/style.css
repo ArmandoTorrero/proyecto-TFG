@@ -58,7 +58,7 @@ nav{
     & .enlaces{
         display: flex;
         justify-content: space-between;
-        width: 25%;
+        width: 27%;
 
         & a{
             font-family: var(--texto-enlaces-botones);

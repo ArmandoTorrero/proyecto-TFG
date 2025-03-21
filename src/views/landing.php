@@ -60,6 +60,27 @@
 
     <section id="cartelera"></section>
 
+    <!-- Sección de comida -->
+    
+    <section class="opciones-deliciosas">
+
+        <article class="menus-header">
+
+            <section class="menus-titles">
+                <h1>Opciones deliciosas</h1>
+                <p>Explora nuestros deliciosos snacks y <br>
+                refrescantes bebidas para tu noche de pelicula.</p>
+            </section>
+            <section class="menu-enlace">
+                <a href="http://" target="_blank">Ver menus</a>
+            </section> 
+             
+        </article>
+
+        <article class="menus-container"></article>
+
+    </section>
+
     <!-- Comprar tickets -->
 
     <section class="comprar-tickets">
@@ -84,6 +105,7 @@
 
     </section>
 
+    
 
 
     <script type="module" src="public/JS/script.js"></script>

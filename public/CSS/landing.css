@@ -61,7 +61,7 @@
     }
 }
 
-/*Estilos para el apartado de servicioss*/
+/* Estilos para el apartado de servicios */
 .nuestros-servicios{
     background-color: var(--blanco);
 }
@@ -106,7 +106,7 @@
     }
 }
 
-/* Estilos para el contenedor que contiene el titulo del servicio y su respetivo boton */
+/* Estilos para el contenedor que contiene el titulo del servicio y su respectivo boton */
 .img-container > .content-button{
     display: flex;
     flex-flow: column nowrap;
@@ -144,7 +144,7 @@
 
 #cartelera{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 10px;
     margin: 3vw 0vw;
     background-color: var(--gris);
@@ -188,6 +188,44 @@
     opacity: 0.5;
 }
 
+/* Estilos para el contenedor de los menus */
+
+.opciones-deliciosas{
+    display: flex;
+    flex-direction: column;
+}
+
+.menus-header{
+    display: flex;
+    align-items: center;
+    
+    & .menus-titles{
+        width: 50%;
+        border: 1px solid green;
+        & h1{
+            font-size: 2.5vw;
+        }
+
+        & p{
+            font-size: 1vw;
+        }
+    }
+
+    & .menu-enlace{
+        display: flex;
+        justify-content: flex-end;
+        width: 50%;
+        margin: 0% 5%;
+        border: 1px solid blue;
+
+        & a{
+            padding: 10px;
+            border: 1px solid var(--negro);
+            border-radius: 5px;
+        }
+    }
+}
+
 /* Estilos para el contenedor de 'comprar entradas'*/
 
 .comprar-tickets{
@@ -213,7 +251,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 15%;
+    width: 18%;
     padding: 20px 0px;
 
     button{
