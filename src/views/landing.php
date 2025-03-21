@@ -109,7 +109,7 @@
 
 
     <script type="module" src="public/JS/script.js"></script>
-    <script type="module" src="public/JS/components.js"></script>
+    <script type="module" src="public/JS/components/movieCards.js"></script>
 
 <?php 
     $content = ob_get_clean(); 

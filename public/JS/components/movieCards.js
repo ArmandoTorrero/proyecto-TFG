@@ -4,7 +4,7 @@
  *
  * @param {*} pelicula
  */
-function createMovieCard(pelicula) {
+ function createMovieCard(pelicula) {
     let movieContainer = document.createElement('article'); // creamos el contenedor de la pelicula
 
     movieContainer.classList.add('movie-card'); // le añadimos la clase movie-card
