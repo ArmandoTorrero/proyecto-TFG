@@ -201,7 +201,8 @@
     
     & .menus-titles{
         width: 50%;
-        border: 1px solid green;
+        padding: 1%;
+
         & h1{
             font-size: 2.5vw;
         }
@@ -215,13 +216,21 @@
         display: flex;
         justify-content: flex-end;
         width: 50%;
-        margin: 0% 5%;
-        border: 1px solid blue;
+        margin: 0% 3.5%;
 
         & a{
-            padding: 10px;
+            padding: 15px 15px;
             border: 1px solid var(--negro);
             border-radius: 5px;
+            color: var(--negro);
+            transition: all .35s ease-in;          
+
+
+            &:hover{
+                border: none;
+                background-color: var(--negro);
+                color: var(--blanco);
+            }
         }
     }
 }
@@ -251,7 +260,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 18%;
+    width: 16%;
     padding: 20px 0px;
 
     button{

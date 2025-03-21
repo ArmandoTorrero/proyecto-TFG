@@ -105,8 +105,6 @@
 
     </section>
 
-    
-
 
     <script type="module" src="public/JS/script.js"></script>
     <script type="module" src="public/JS/components/movieCards.js"></script>
