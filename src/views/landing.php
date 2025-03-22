@@ -108,6 +108,7 @@
 
     <script type="module" src="public/JS/script.js"></script>
     <script type="module" src="public/JS/components/movieCards.js"></script>
+    <script type="module" src="public/JS/components/apiKEY.js"></script>
 
 <?php 
     $content = ob_get_clean(); 
