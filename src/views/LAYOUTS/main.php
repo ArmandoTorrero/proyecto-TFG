@@ -18,7 +18,7 @@
     </head>
     <body>
         <nav>
-            <a class="nombre-cine" href="#" target="_self">CineFlow</a>
+            <a class="nombre-cine" href="/TFG/" target="_self">CineFlow</a>
             <article class="enlaces">
                 <a href="#" target="_blank">Comida y bebida</a>
                 <a href="#" target="_blank">Nuestros planes</a>

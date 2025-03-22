@@ -4,23 +4,23 @@ import { APIKEY } from "../components/apiKEY";
 /**
  *Funcion para coseguir la informacion de una pelicula
  *
- * @param {*} pelicula
+ * @param {*} id
  */
-export async function getMovieInfo(pelicula){
+export async function getMovieInfo(id){
     
     try {
-        const detailsResponse = await fetch(`https://api.themoviedb.org/3/movie/${pelicula.id}?api_key=${APIKEY}&language=es-ES`)
+        const detailsResponse = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${APIKEY}&language=es-ES`)
 
         let details = await detailsResponse.json()
 
         const posterURL = `https://image.tmdb.org/t/p/w500${details.poster_path}`;
         const title = details.original_title; 
         const duracion = details.runtime; 
+        const resumen = details.overview; 
 
-        const info = {img: posterURL, titulo: title, duracion: duracion}
+        const info = {img: posterURL, titulo: title, duracion: duracion, descripcion: resumen}
 
-        return info; 
-        
+        return info;                 
 
 
     } catch (error) {
@@ -32,11 +32,15 @@ export async function getMovieInfo(pelicula){
 
 
 /**
- *Funcion para crear la carta de la pelicula
+ *Funcion para crear la carta de una pelicula
  *
- * @param {*} pelicula
+ * @export
+ * @param {*} titulo
+ * @param {*} duracion
+ * @param {*} img
+ * @return {*} 
  */
- export function createMovieCard(titulo,duracion,img) {
+export function createMovieCard(titulo,duracion,img) {
     let movieContainer = document.createElement('article'); // creamos el contenedor de la pelicula
 
     movieContainer.classList.add('movie-card'); // le añadimos la clase movie-card
@@ -61,7 +65,7 @@ export async function getMovieInfo(pelicula){
 
     // creamos el parrafo para la duracion de la pelicula
     let movieDuration = document.createElement('p');
-    movieDuration.textContent = duracion;
+    movieDuration.textContent = `${duracion} min`;
 
     // añadimos los elementos al contenedor de la pelicula
     movieContent.append(movieTitle,reservarEnlace,movieDuration);

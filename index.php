@@ -4,6 +4,8 @@
     $router = new Router();
 
     $router->add('/', 'PeliculasController@index');
+    $router->add('/singleMovie','PeliculasController@singleMovie'); 
+    
     $router->add('/login', 'UsuariosController@login');
 
      $requestUri = isset($_GET['url']) ? '/' . trim($_GET['url'], '/') : '/';

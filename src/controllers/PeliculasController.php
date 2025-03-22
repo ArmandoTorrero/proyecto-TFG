@@ -11,6 +11,11 @@
         public function index() {
             require __DIR__ . '/../views/landing.php';
         }
+
+        public function singleMovie() {
+            require __DIR__ . '/../views/singleMovie.php';
+
+        }
     }
 
 

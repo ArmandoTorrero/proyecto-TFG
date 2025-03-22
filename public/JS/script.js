@@ -18,11 +18,10 @@ async function getMovies() {
         let carteleraContainer = document.getElementById("cartelera")
 
         peliculas.forEach(pelicula => {
-            getMovieInfo(pelicula).then(info => carteleraContainer.appendChild(createMovieCard(info.titulo, info.duracion, info.img))); 
+            getMovieInfo(pelicula.id).then(info => carteleraContainer.appendChild(createMovieCard(info.titulo, info.duracion, info.img))); 
+            
             
         });
-
-
         
     } catch (error) {
         console.error(error);
