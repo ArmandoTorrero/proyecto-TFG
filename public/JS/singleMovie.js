@@ -1,5 +1,5 @@
 import { APIKEY } from "../JS/components/apiKEY"
-import { getMovieInfo } from "../JS/components/movieCards";
+import { getMovieInfo, getMovieVideos } from "../JS/components/movieCards";
 
 let imgURL; 
 let seccion_arriba = document.getElementById("arriba")
@@ -15,6 +15,8 @@ getMovieInfo(822119).then(info => {
     titulo_pelicula.textContent = info.titulo
     descripcion_pelicula.textContent = info.descripcion
 })
+
+getMovieVideos(822119)
 
 
 

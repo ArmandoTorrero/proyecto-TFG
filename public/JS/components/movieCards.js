@@ -30,6 +30,26 @@ export async function getMovieInfo(id){
 }
 
 
+export async function getMovieVideos(id) {
+    
+    try {
+        const videosResponse = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${APIKEY}&language=es-ES`)
+        let data = await videosResponse.json()
+        let videos = data.results
+        let encontrado = false
+
+        const trailer = videos.find(video => video.type === 'Trailer' && video.site === 'YouTube')
+        const traileURL = `https://www.youtube.com/watch?v=${trailer.key}`;
+        return traileURL; 
+
+
+    } catch (error) {
+        console.error(error);
+        
+    }
+    
+}
+
 
 /**
  *Funcion para crear la carta de una pelicula
