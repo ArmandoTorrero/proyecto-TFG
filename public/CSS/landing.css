@@ -235,6 +235,37 @@
     }
 }
 
+.menus-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 10px;
+    margin: 3vw 0vw;
+    
+    & .food-card{
+
+        & .menu-content{
+            h2{
+                font-family: var(--texto-enlaces-botones);
+                font-size: 2vw;
+                
+            }
+
+            p{
+                font-size: 1.3vw;
+            }
+        }
+
+        & .food-img{
+            width: 100%;
+            height: 30vw;
+            border-radius: 5px;
+            background-image: url('../ASSETS/palomitas.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+}
+
 /* Estilos para el contenedor de 'comprar entradas'*/
 
 .comprar-tickets{

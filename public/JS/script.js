@@ -1,5 +1,6 @@
-import { createMovieCard, getMovieInfo } from "../JS/components/movieCards";
 import { APIKEY } from "../JS/components/apiKEY"
+import { createMovieCard, getMovieInfo } from "../JS/components/movieCards";
+import { createFoodCard } from "../JS/components/foodCard";
 
 
 // API flujo: 
@@ -7,6 +8,7 @@ import { APIKEY } from "../JS/components/apiKEY"
 // 2º hacer fetch a la url en especifico de esa pelicula para sacar la duracion
 // 3º hacer fetch a otra url en especifico de la pelicula para sacar la imagen
 
+// funcion para la cartelera
 async function getMovies() {
     try {
         
@@ -29,10 +31,14 @@ async function getMovies() {
 
 getMovies()
 
+function foodSection() {
+    let menusContainer = document.querySelector(".menus-container")
 
+    let precios = ['2$','3$','5$']
 
+    precios.forEach(precio => {
+        menusContainer.append(createFoodCard('Palomitas',precio))
+    });
+}
 
-
-
-
-
+foodSection()
