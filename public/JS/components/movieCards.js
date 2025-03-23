@@ -12,13 +12,15 @@ export async function getMovieInfo(id){
         const detailsResponse = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${APIKEY}&language=es-ES`)
 
         let details = await detailsResponse.json()
+        
 
         const posterURL = `https://image.tmdb.org/t/p/w500${details.poster_path}`;
+        const posterHorizontalURL = `https://image.tmdb.org/t/p/w500${details.backdrop_path}`; 
         const title = details.original_title; 
         const duracion = details.runtime; 
         const resumen = details.overview; 
 
-        const info = {img: posterURL, titulo: title, duracion: duracion, descripcion: resumen}
+        const info = {poster: posterURL, posterHorizontaL: posterHorizontalURL, titulo: title, duracion: duracion, descripcion: resumen}
 
         return info;                 
 
@@ -36,7 +38,6 @@ export async function getMovieVideos(id) {
         const videosResponse = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${APIKEY}&language=es-ES`)
         let data = await videosResponse.json()
         let videos = data.results
-        let encontrado = false
 
         const trailer = videos.find(video => video.type === 'Trailer' && video.site === 'YouTube')
         const traileURL = `https://www.youtube.com/embed/${trailer.key}`;
