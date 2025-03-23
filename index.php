@@ -8,7 +8,9 @@
     
     $router->add('/login', 'UsuariosController@login');
 
-     $requestUri = isset($_GET['url']) ? '/' . trim($_GET['url'], '/') : '/';
+    $router->add('/food','MenusController@index'); 
+
+    $requestUri = isset($_GET['url']) ? '/' . trim($_GET['url'], '/') : '/';
 // Simulación de petición
     $router->dispatch($requestUri);
 

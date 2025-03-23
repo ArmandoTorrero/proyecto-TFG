@@ -30,7 +30,7 @@
                 <article class="content-button">
                     <h1>Comida y bebida</h1>
                     <button class="button-enlace">
-                        <a href="http://" target="_blank" rel="noopener noreferrer">Explorar</a>
+                        <a href="/TFG/food" target="_blank" rel="noopener noreferrer">Explorar</a>
                     </button>
                 </article>
             </article>
