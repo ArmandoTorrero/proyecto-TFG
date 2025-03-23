@@ -39,7 +39,8 @@ export async function getMovieVideos(id) {
         let encontrado = false
 
         const trailer = videos.find(video => video.type === 'Trailer' && video.site === 'YouTube')
-        const traileURL = `https://www.youtube.com/watch?v=${trailer.key}`;
+        const traileURL = `https://www.youtube.com/embed/${trailer.key}`;
+
         return traileURL; 
 
 

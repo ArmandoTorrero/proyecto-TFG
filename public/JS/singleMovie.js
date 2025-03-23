@@ -3,7 +3,7 @@ import { getMovieInfo, getMovieVideos } from "../JS/components/movieCards";
 
 let imgURL; 
 let seccion_arriba = document.getElementById("arriba")
-let seccion_abajo_img = document.querySelector("#abajo > article > .img")
+let seccion_abajo_img = document.querySelector("#abajo > section > .img")
 let titulo_pelicula = document.querySelector('.text > h1')
 let descripcion_pelicula = document.querySelector('.text > p')
 
@@ -16,7 +16,12 @@ getMovieInfo(822119).then(info => {
     descripcion_pelicula.textContent = info.descripcion
 })
 
-getMovieVideos(822119)
+getMovieVideos(822119).then(url => {
+    
+    let iframe = document.getElementsByTagName("iframe")[0]
+    iframe.src = url
+    
+})
 
 
 

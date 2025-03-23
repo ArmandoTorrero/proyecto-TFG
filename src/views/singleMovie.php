@@ -15,17 +15,35 @@
 
         <section id="abajo">
 
-            <article class="movie-logo-title-description">
+            <section class="movie-logo-title-description">
                 <article class="img"></article>
                 <article class="text">
                     <h1></h1>
                     <p></p>
                 </article>
-            </article>
+            </section>
 
-            <article class="trailer">
+            <section class="trailer">
                 <iframe src="" frameborder="0" allowfullscreen ></iframe>
-            </article>
+            </section>
+
+            <section class="select-date-time">
+
+                <article class="select-date-section">
+                    <label for="fecha">Seleccionar fecha</label>
+                    <select name="date" id="fecha">Selecciona una fecha</select>
+                </article>
+
+                <article class="select-time-section">
+                    <label for="hora">Elija una hora</label>
+                    <article class="times-buttons">
+                        <button><a href="http://" target="_blank" rel="noopener noreferrer">21:30</a></button>
+                        <button><a href="http://" target="_blank" rel="noopener noreferrer">21:30</a></button>
+                        <button><a href="http://" target="_blank" rel="noopener noreferrer">21:30</a></button>
+                    </article>
+                </article>
+
+            </section>
 
         </section>
     </main>
