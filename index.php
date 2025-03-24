@@ -5,6 +5,8 @@
 
     $router->add('/', 'PeliculasController@index');
     $router->add('/singleMovie','PeliculasController@singleMovie'); 
+    $router->add('/prueba','PeliculasController@prueba'); 
+
     
     $router->add('/login', 'UsuariosController@login');
 

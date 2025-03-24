@@ -16,6 +16,17 @@
             require __DIR__ . '/../views/singleMovie.php';
 
         }
+
+        public function prueba() {
+            
+            $mensaje = []; 
+            for ($i=0; $i < 3; $i++) { 
+                 $mensaje[] = $i; 
+                 
+            }
+
+            echo json_encode($mensaje); 
+        }
     }
 
 

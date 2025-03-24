@@ -29,7 +29,7 @@ async function getMovies() {
     }
 } 
 
-getMovies()
+
 
 function foodSection() {
     let menusContainer = document.querySelector(".menus-container")
@@ -41,4 +41,23 @@ function foodSection() {
     });
 }
 
-foodSection()
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    getMovies()
+    foodSection()
+})
+
+async function prueba() {
+    try {
+        let response = await fetch('/TFG/prueba')
+        let data = await response.json()
+        console.log(data);
+        
+    } catch (error) {
+        console.error(error);
+        
+    }
+}
+
+prueba()
