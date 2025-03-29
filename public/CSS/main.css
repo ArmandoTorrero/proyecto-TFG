@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+:root{
+    --negro: #010100; 
+    --blanco: #fefffe; 
+    --gris: #f2f4f7; 
+    --verde: #2ECC71; 
+    --logo: 'Lobster'; 
+    --titulos: 'Bebas Neue'; 
+    --no_titulos: 'Lato'; 
+}
+
+body{
+    background-color: var(--gris);
+}
+
+a{
+    text-decoration: none;
+}
+
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    background-color: var(--blanco);
+    padding: 2vw 3vw;
+
+    & h1{
+        font-family: var(--logo);
+        font-weight: 300;
+    }
+
+}
+
+.links{
+    display: none;
+}
+
+.nav-links{
+    display: flex;
+    align-items: center;
+
+    a{
+        color: var(--negro);
+        font-size: 2.3rem;
+    }
+
+    & article{
+        margin-left: 5vw; 
+    }
+}
+
+
+/*Estilos del menu hamburguesa*/
+.menu-hamburguesa{  
+    position: relative;
+    z-index: 2;  
+    overflow: hidden;
+    
+    & input{
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        z-index: 2;
+        opacity: 0;
+    }
+
+    & div{
+        width: 40px;
+        height: 5px;
+        margin: 5px 0px;
+        border-radius: 20px;
+        background-color: var(--negro);
+    }
+}
+
+
+/*Logica del desplegable*/
+.desplegable{
+    position: absolute;
+    z-index: 1;
+    width: 100vw;
+    height: 200vh;
+    background-color: green;
+    transform: translateX(100%);
+    transition: all .25s linear 0s;
+
+}
+
+body:has(nav > .nav-links > .menu-hamburguesa > input:checked){
+    & nav > .desplegable{
+        transform: translateX(0%);
+    }
+}
