@@ -46,6 +46,7 @@
          <?php echo $content?>
 
         <footer>
+
             <section class="enviar-email">
 
                 <article class="enviar-email-content">
@@ -59,7 +60,28 @@
                 </article>
 
             </section>
+
             <hr>
+
+            <section class="footer-links">
+
+                <h1>SpoortBooking</h1>
+                <article class="links-1">
+                    <a href="#">Inicio</a>
+                    <a href="#">Contactanos</a>
+                    <a href="#">Preguntas y respuestas</a>
+                </article>
+                <article class="links-2">
+                    <a href="#">Terminos y condiciones</a>
+                    <a href="#">Politica de privacidad</a>
+                    <a href="#">Politica de protección de datos</a>
+                </article>
+                <article class="RRSS">
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#"><i class="bi bi-envelope"></i></a>
+                </article>
+            </section>
         </footer>
     </body>
 </html>

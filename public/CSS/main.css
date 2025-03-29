@@ -158,3 +158,44 @@ footer{
         color: var(--blanco);
     }
 }
+
+
+hr{
+    margin: 4vw auto;
+    width: 85%;
+    height: 3px;
+    background-color: var(--negro);
+}
+
+
+.footer-links > h1{
+    font-family: var(--logo);
+    font-weight: 300;
+    text-align: center;
+}
+
+.links-1, .links-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+
+    & a{
+        margin: 2vw 0vw;
+        font-family: var(--no_titulos);
+        color: var(--negro);
+    }
+}
+
+.RRSS{
+    display: flex;
+    justify-content: space-between;
+    margin: 2vw auto;
+    width: 25%;
+
+    & a{
+        font-size: 1.6rem;
+        color: var(--negro);
+    }
+}
