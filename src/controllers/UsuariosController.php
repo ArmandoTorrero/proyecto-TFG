@@ -22,6 +22,11 @@
             exit;
         }
 
+        public function landingPage() {
+            require __DIR__ . '/../views/landing.php';
+        }
+
+
         /**
          * Obtener el rol de un usuario
          * @param int $id_usuario

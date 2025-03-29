@@ -3,6 +3,7 @@
     
     $router = new Router();
 
+    $router->add('/', 'UsuariosController@landingPage'); 
     $router->add('/login','UsuariosController@login'); 
 
     $requestUri = isset($_GET['url']) ? '/' . trim($_GET['url'], '/') : '/';

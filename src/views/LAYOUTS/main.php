@@ -13,53 +13,19 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="public/CSS/style.css">
-        <title>Cineflow</title>
+        <link rel="stylesheet" href="public/CSS/main.css">
+        <title>SportBooking</title>
     </head>
     <body>
         <nav>
-            <a class="nombre-cine" href="/TFG/" target="_self">CineFlow</a>
-            <article class="enlaces">
-                <a href="#" target="_blank">Comida y bebida</a>
-                <a href="#" target="_blank">Nuestros planes</a>
-                <a href="#" target="_blank">Peliculas</a>
-            </article>
-            <a class="user-icon" href="#" target="_blank" rel="noopener noreferrer"><i class="bi bi-person"></i></a>
+            
         </nav>
 
         <!-- Aquí se incluirá el contenido de las vistas -->
          <?php echo $content?>
 
         <footer>
-            <section class="services">
-                <article class="single-service">
-                    <h1>Peliculas</h1>
-                    <a href="#" target="_blank" >Explorar</a>
-                </article>
-                <article class="single-service">
-                    <h1>Menus</h1>
-                    <a href="#" target="_blank" >Snacks</a>
-                    <a href="#" target="_blank">Bebidas</a>
-                    <a href="#" target="_blank">Menus combinados</a>
-                </article>
-                <article class="single-service">
-                    <h1>Suscripciones</h1>
-                    <a href="#" target="_blank" >Empezar</a>
-                </article>
-            </section>
-            <hr>
-            <section class="politics-RRSS">
-                <p>&copy 2025 CineFlow</p>
-                <article class="web-politics">
-                    <a href="#" target="_blank">Terminos y condiciones</a>
-                    <a href="#" target="_blank">Politica de privacidad</a>
-                </article>
-                <article class="RRSS">
-                    <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
-                    <a href="#" target="_blank"><i class="bi bi-youtube"></i></a>
-                    <a href="#" target="_blank"><i class="bi bi-twitter"></i></a>
-                </article>
-            </section>
+            
         </footer>
     </body>
 </html>
