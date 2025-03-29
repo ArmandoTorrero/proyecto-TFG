@@ -3,14 +3,7 @@
     
     $router = new Router();
 
-    $router->add('/', 'PeliculasController@index');
-    $router->add('/singleMovie','PeliculasController@singleMovie'); 
-    $router->add('/prueba','PeliculasController@prueba'); 
-
-    
-    $router->add('/login', 'UsuariosController@login');
-
-    $router->add('/food','MenusController@index'); 
+    $router->add('/login','UsuariosController@login'); 
 
     $requestUri = isset($_GET['url']) ? '/' . trim($_GET['url'], '/') : '/';
 // Simulación de petición

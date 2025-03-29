@@ -1,5 +1,5 @@
 <?php 
-    require_once __DIR__ . '/../models/Usuarios.php';
+    require_once __DIR__ . '/../models/usuario.php';
     require_once __DIR__ . '/../../core/validator.php';
     
 
