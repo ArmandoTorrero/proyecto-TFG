@@ -62,7 +62,7 @@ nav{
     position: relative;
     z-index: 2;  
     overflow: hidden;
-    
+
     & input{
         width: 40px;
         height: 40px;
@@ -96,5 +96,65 @@ nav{
 body:has(nav > .nav-links > .menu-hamburguesa > input:checked){
     & nav > .desplegable{
         transform: translateX(0%);
+    }
+}
+
+
+
+/*
+------------------------------------
+-------------- FOOTER ---------------
+------------------------------------
+*/
+
+
+footer{
+    background-color: var(--blanco);
+}
+
+.enviar-email-content{
+    padding: 15px 0px;
+    text-align: center;
+
+    & h1{
+        font-family: var(--titulos);
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+
+    & p{
+        font-family: var(--no_titulos);
+    }
+
+}
+
+.input-button{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0px;
+
+    & input{
+        margin: 0vw 1.5vw;
+        padding: 7px 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--negro);
+
+        &::placeholder{
+            font-family: var(--no_titulos);
+        }
+    }
+
+    & button{
+        margin: 0vw 1.5vw;
+        padding: 7px 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--verde);
+        font-family: var(--no_titulos);
+        font-weight: bold;
+        color: var(--blanco);
     }
 }

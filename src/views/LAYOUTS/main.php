@@ -46,7 +46,20 @@
          <?php echo $content?>
 
         <footer>
-            
+            <section class="enviar-email">
+
+                <article class="enviar-email-content">
+                    <h1>TE MANTENEMOS INFORMADO</h1>
+                    <p>Introduce tu email para enviarte nuevas novedades</p>
+                </article>
+
+                <article class="input-button">
+                    <input type="email" name="email" id="email" placeholder="Introduce tu email">
+                    <button type="submit">Enviar</button>
+                </article>
+
+            </section>
+            <hr>
         </footer>
     </body>
 </html>
