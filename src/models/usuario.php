@@ -3,7 +3,7 @@
 
     class Usuarios extends EmptyModel{
         public function __construct() {
-            parent::__construct('usuarios'); 
+            parent::__construct('usuario'); 
         }
 
         /**
