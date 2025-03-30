@@ -1,0 +1,50 @@
+:root{
+    --negro: #010100; 
+    --blanco: #fefffe; 
+    --gris: #f2f4f7; 
+    --verde: #2ECC71; 
+    --logo: 'Lobster'; 
+    --titulos: 'Bebas Neue'; 
+    --no_titulos: 'Lato'; 
+}
+
+.hero{
+
+    background-image: url(../ASSETS/campo-futbol.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+    text-align: center;
+    
+    h1,p{
+        margin: 2vw auto;
+        color: var(--blanco);
+    }
+
+    h1{
+        width: 70%;
+        font-family: var(--titulos);
+        font-size: 2.3rem;
+        font-weight: 300;
+
+    }
+
+    p{
+        width: 90%;
+        font-family: var(--no_titulos);
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+    button{
+        margin: 2vw 0vw 4vw;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--verde);
+        font-family: var(--no_titulos);
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: var(--blanco);
+    }
+}

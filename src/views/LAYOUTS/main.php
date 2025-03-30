@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,5 +84,8 @@
                 </article>
             </section>
         </footer>
+
+
+        <script src="https://kit.fontawesome.com/bee72e8c16.js" crossorigin="anonymous"></script>
     </body>
 </html>
