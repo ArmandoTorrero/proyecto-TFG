@@ -12,7 +12,7 @@
         <button>Reservar</button>
     </section>
 
-    <main class="content">
+    <section class="content">
         <h1>Experimente la reserva en línea sin complicaciones  para tus actividades deportivas favoritas</h1>
         <section class="content">
 
@@ -38,7 +38,13 @@
             </article>
 
         </section>
-    </main>
+    </section>
+
+    <section class="reservar-section">
+        <h1>Reserva tu campo deportivo hoy</h1>
+        <p>¡Únete a nosotros ahora para reservar fácilmente tus campos deportivos favoritos y disfrutar del juego!</p>
+        <button>Reservar</button>
+    </section>
     
 
     <script type="module" src="public/JS/script.js"></script>

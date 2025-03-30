@@ -53,11 +53,11 @@
 
 /*Estilos para el main*/
 
-main{
+section.content{
     text-align: center;
 }
 
-main > h1{
+section.content > h1{
     width: 80%;
     margin: 2vw auto;
     font-family: var(--titulos);
@@ -65,7 +65,7 @@ main > h1{
     font-weight: 500;
 }
 
-main  .single-content{
+section.content  .single-content{
     width: 60%;
     margin: 5vw auto;
 
@@ -86,4 +86,38 @@ main  .single-content{
     a{
         color: var(--negro);
     }
+}
+
+.reservar-section{
+    background-image: url(../ASSETS/tenis.jpeg);   
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: var(--blanco);
+}
+
+.reservar-section > h1{
+    margin: 4vw 0vw 2vw;
+    font-family: var(--titulos);
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.reservar-section > p{
+    width: 70%;
+    margin:3vw auto; 
+    font-family: var(--no_titulos);
+    font-size: 1.2rem;
+}
+
+.reservar-section > button{
+    margin: 2vw 0vw 4vw;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--verde);
+        font-family: var(--no_titulos);
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: var(--blanco);
 }
