@@ -8,6 +8,8 @@
     --no_titulos: 'Lato'; 
 }
 
+
+/*Estilos para el hero*/
 .hero{
 
     background-image: url(../ASSETS/campo-futbol.jpg);
@@ -46,5 +48,42 @@
         font-size: 1.1rem;
         font-weight: bold;
         color: var(--blanco);
+    }
+}
+
+/*Estilos para el main*/
+
+main{
+    text-align: center;
+}
+
+main > h1{
+    width: 80%;
+    margin: 2vw auto;
+    font-family: var(--titulos);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+main  .single-content{
+    width: 60%;
+    margin: 5vw auto;
+
+    & .icon > i{
+        font-size: 2rem;
+        overflow: hidden;
+    }
+
+    h1,p,a{
+        margin: 2vw 0vw;
+        font-family: var(--no_titulos);
+    }
+
+    h1{
+        font-weight: bold;
+    }
+
+    a{
+        color: var(--negro);
     }
 }

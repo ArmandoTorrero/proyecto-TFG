@@ -20,21 +20,21 @@
                 <article class="icon"><i class="fa-solid fa-futbol"></i></article>
                 <h1>Elige entre opciones de fútbol, ​​pádel, tenis y baloncesto.</h1>
                 <p>Reserva tu campo sin esfuerzo y disfruta de una gran variedad de deportes.</p>
-                <a href="#" target="_self" ></a>
+                <a href="#" target="_self" >Reservar ></a>
             </article>
 
             <article class="single-content">
                 <article class="icon"><i class="fa-solid fa-futbol"></i></article>
                 <h1>Elige entre opciones de fútbol, ​​pádel, tenis y baloncesto.</h1>
                 <p>Reserva tu campo sin esfuerzo y disfruta de una gran variedad de deportes.</p>
-                <a href="#" target="_self" ></a>
+                <a href="#" target="_self" >Reservar ></a>
             </article>
 
             <article class="single-content">
                 <article class="icon"><i class="fa-solid fa-futbol"></i></article>
                 <h1>Elige entre opciones de fútbol, ​​pádel, tenis y baloncesto.</h1>
                 <p>Reserva tu campo sin esfuerzo y disfruta de una gran variedad de deportes.</p>
-                <a href="#" target="_self" ></a>
+                <a href="#" target="_self" >Reservar ></a>
             </article>
 
         </section>
