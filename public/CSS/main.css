@@ -29,9 +29,9 @@ nav{
     justify-content: space-between;
     align-items: center;    
     background-color: var(--blanco);
-    padding: 2vw 3vw;
 
     & h1{
+        padding: 10px;
         font-family: var(--logo);
         font-weight: 300;
     }
@@ -45,6 +45,7 @@ nav{
 .nav-links{
     display: flex;
     align-items: center;
+    padding: 10px;
 
     a{
         color: var(--negro);

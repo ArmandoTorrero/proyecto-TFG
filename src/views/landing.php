@@ -45,6 +45,12 @@
         <p>¡Únete a nosotros ahora para reservar fácilmente tus campos deportivos favoritos y disfrutar del juego!</p>
         <button>Reservar</button>
     </section>
+
+    <section class="PyR-section">
+        <h1>PREGUNTAS Y RESPUESTAS</h1>
+        <p>Encuentre respuestas a sus preguntas sobre reservas, pagos y cancelaciones aquí.</p>
+        <button>Consultar</button>
+    </section>
     
 
     <script type="module" src="public/JS/script.js"></script>
