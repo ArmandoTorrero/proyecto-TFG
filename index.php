@@ -9,8 +9,8 @@
 
     $router->add('/pagarCampo','ReservasController@pagarCampo'); 
 
-
-    $router->add('/reservarCampo', 'CamposController@index'); 
+    $router->add('/camposDeportivos', 'CamposController@index'); 
+    $router->add('/reservarCampo','CamposController@reservarCampo'); 
 
     $requestUri = isset($_GET['url']) ? '/' . trim($_GET['url'], '/') : '/';
 // Simulación de petición

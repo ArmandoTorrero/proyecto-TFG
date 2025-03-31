@@ -9,6 +9,10 @@
         }
 
         public function index() {
+            require __DIR__ . '/../views/camposDeportivos.php';
+        }
+
+        public function reservarCampo() {
             require __DIR__ . '/../views/reservarCampo.php';
         }
 
