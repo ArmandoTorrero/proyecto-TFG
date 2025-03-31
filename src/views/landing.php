@@ -9,7 +9,7 @@
     <section class="hero">
         <h1>RESERVAR CAMPOS DEPORTIVOS MAS FACIL QUE NUNCA</h1>
         <p>Descubre la máxima comodidad al reservar campos deportivos de fútbol, ​​pádel, tenis y baloncesto. Nuestra plataforma intuitiva te permite reservar tu plaza en tan solo unos clics.</p>
-        <button>Reservar</button>
+        <button><a href="/TFG/reservarCampo" target="_self">Reservar</a></button>
     </section>
 
     <section class="content">
@@ -43,7 +43,7 @@
     <section class="reservar-section">
         <h1>Reserva tu campo deportivo hoy</h1>
         <p>¡Únete a nosotros ahora para reservar fácilmente tus campos deportivos favoritos y disfrutar del juego!</p>
-        <button>Reservar</button>
+        <button><a href="/TFG/reservarCampo" target="_self">Reservar</a></button>
     </section>
 
     <section class="PyR-section">

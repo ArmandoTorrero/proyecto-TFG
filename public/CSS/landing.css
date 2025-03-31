@@ -48,6 +48,10 @@
         font-size: 1.3rem;
         font-weight: bold;
         color: var(--blanco);
+
+        a{
+            color: var(--blanco);
+        }
     }
 }
 
@@ -131,6 +135,10 @@ section.content  .single-content{
         font-size: 1.3rem;
         font-weight: bold;
         color: var(--blanco);
+
+        a{
+            color: var(--blanco);
+        }
 }
 
 
