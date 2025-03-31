@@ -26,15 +26,15 @@
     h1{
         width: 70%;
         font-family: var(--titulos);
-        font-size: 2.3rem;
+        font-size: 3rem;
         font-weight: 300;
 
     }
 
     p{
-        width: 90%;
+        width: 80%;
         font-family: var(--no_titulos);
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         font-weight: 500;
     }
 
@@ -45,7 +45,7 @@
         border-radius: 5px;
         background-color: var(--verde);
         font-family: var(--no_titulos);
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         font-weight: bold;
         color: var(--blanco);
     }
@@ -59,15 +59,15 @@ section.content{
 
 section.content > h1{
     width: 80%;
-    margin: 2vw auto;
+    margin: 2vw auto 0vw;
     font-family: var(--titulos);
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: 500;
 }
 
 section.content  .single-content{
     width: 60%;
-    margin: 5vw auto;
+    margin: 3vw auto 5vw;
 
     & .icon > i{
         font-size: 2rem;
@@ -81,6 +81,11 @@ section.content  .single-content{
 
     h1{
         font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    p,a{
+        font-size: 1.3rem;
     }
 
     a{
@@ -105,7 +110,7 @@ section.content  .single-content{
 .reservar-section > h1{
     margin: 4vw 0vw 2vw;
     font-family: var(--titulos);
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 500;
 }
 
@@ -113,7 +118,7 @@ section.content  .single-content{
     width: 70%;
     margin:3vw auto; 
     font-family: var(--no_titulos);
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 .reservar-section > button{
@@ -123,7 +128,7 @@ section.content  .single-content{
         border-radius: 5px;
         background-color: var(--verde);
         font-family: var(--no_titulos);
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         font-weight: bold;
         color: var(--blanco);
 }

@@ -119,12 +119,14 @@ footer{
 
     & h1{
         font-family: var(--titulos);
-        font-weight: bold;
+        font-weight: 500;
+        font-size: 2rem;
         letter-spacing: 2px;
     }
 
     & p{
         font-family: var(--no_titulos);
+        font-size: 1.3rem;
     }
 
 }
@@ -142,6 +144,7 @@ footer{
         border: none;
         border-radius: 5px;
         background-color: var(--negro);
+        font-size: 1.4rem;
 
         &::placeholder{
             font-family: var(--no_titulos);
@@ -149,13 +152,14 @@ footer{
     }
 
     & button{
-        margin: 0vw 1.5vw;
-        padding: 7px 10px;
+        margin: 0vw 1.2vw;
+        padding: 7px 15px;
         border: none;
         border-radius: 5px;
         background-color: var(--verde);
         font-family: var(--no_titulos);
         font-weight: bold;
+        font-size: 1.4rem;
         color: var(--blanco);
     }
 }
@@ -172,6 +176,7 @@ hr{
 .footer-links > h1{
     font-family: var(--logo);
     font-weight: 300;
+    font-size: 1.7rem;
     text-align: center;
 }
 
@@ -185,6 +190,7 @@ hr{
     & a{
         margin: 2vw 0vw;
         font-family: var(--no_titulos);
+        font-size: 1.4rem;
         color: var(--negro);
     }
 }
