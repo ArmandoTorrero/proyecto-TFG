@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+:root{
+    --negro: #010100; 
+    --blanco: #fefffe; 
+    --gris: #f2f4f7; 
+    --verde: #2ECC71; 
+    --logo: 'Lobster'; 
+    --titulos: 'Bebas Neue'; 
+    --no_titulos: 'Lato'; 
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content h1{
+    margin: 3vw 0vw;
+    text-align: center;
+    font-family: var(--titulos);
+    font-size: 2.5rem; 
+    font-weight: 500;
+    color: var(--negro);
+}
+
+.content select{
+    padding: 7px 15px;
+    border: none;
+    border-radius: 7px;
+    background-color: var(--verde);
+}
+
+.horarios{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:center;
+    align-items: center;
+    width: 50%;
+    margin: 3vw 0vw;
+
+    .hora{
+        margin: 1vw 1.5vw;
+        padding: 7px 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--verde);
+        
+        a{
+            font-family: var(--titulos); 
+            font-size: 2rem;
+            font-weight: 400; 
+            color: white;
+        }
+    }
+}

@@ -11,6 +11,7 @@
 
     $router->add('/camposDeportivos', 'CamposController@index'); 
     $router->add('/reservarCampo','CamposController@reservarCampo'); 
+    $router->add('/horarios','CamposController@mandarHorarios'); 
 
     $requestUri = isset($_GET['url']) ? '/' . trim($_GET['url'], '/') : '/';
 // Simulación de petición

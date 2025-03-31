@@ -14,6 +14,15 @@
 
         public function reservarCampo() {
             require __DIR__ . '/../views/reservarCampo.php';
+            $horarios = ['16:00', '17:00', '18:00']; 
+
+            echo json_encode($horarios); 
+        }
+
+        public function mandarHorarios() {
+            $horarios = ['16:00', '17:00', '18:00'];  
+
+            echo json_encode($horarios); 
         }
 
     }
