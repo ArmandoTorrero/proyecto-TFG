@@ -7,6 +7,8 @@
     $router->add('/registro','UsuariosController@create'); 
     $router->add('/login','UsuariosController@login'); 
 
+    $router->add('/pagarCampo','ReservasController@pagarCampo'); 
+
 
     $router->add('/reservarCampo', 'CamposController@index'); 
 
