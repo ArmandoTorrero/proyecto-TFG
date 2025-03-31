@@ -5,9 +5,8 @@
         <link rel="stylesheet" href="public/CSS/registro.css">
     </head>
 
-    <section class="izquierda-derecha">
-
-        <section class="izquierda">
+    <main>
+        <section class="form-container">
             <h1>Registrar usuario</h1>
 
             <form action="" method="post">
@@ -29,20 +28,18 @@
                     <input type="text" name="tlf" id="tlf">
                 </article>
 
-                <button type="submit" class="login">Registrar usuario</button>
+                <button type="submit" class="enviar">Registrar usuario</button>
 
             </form>
 
-            <article class="izquierda-enlaces">
-                <a href="" target="_self">¿Ya estas registrado? Inicia sesión</a>
-                <a href="" target="_self">Entrar como invitado</a>
+            <article class="enlaces">
+                <a href="#" target="_self">¿Ya estas registrado? Inicia sesión</a>
+                <a href="#" target="_self">Entrar como invitado</a>
             </article>
 
         </section>
+    </main>
 
-        <section class="derecha"></section>
-
-    </section>
 
 <?php 
     $content = ob_get_clean(); 

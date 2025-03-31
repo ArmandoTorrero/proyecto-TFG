@@ -4,6 +4,7 @@
     $router = new Router();
 
     $router->add('/', 'UsuariosController@landingPage'); 
+    $router->add('/registro','UsuariosController@create'); 
     $router->add('/login','UsuariosController@login'); 
 
 

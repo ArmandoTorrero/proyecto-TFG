@@ -3,39 +3,35 @@
 ?>
 
     <head>
-        <link rel="stylesheet" href="public/CSS/login.css">
+        <link rel="stylesheet" href="public/CSS/registro.css">
     </head>
 
-    <section class="izquierda-derecha">
-
-        <section class="izquierda">
-            <h1>Iniciar sesion</h1>
+    <main>
+        <section class="form-container">
+            <h1>Iniciar sesión</h1>
 
             <form action="" method="post">
 
                 <article class="label-input">
                     <label for="">Correo</label>
-                    <input type="email" name="correo" id="correo">
+                    <input type="email" name="email" id="email">
                 </article>
                 <article class="label-input">
                     <label for="">Contraseña</label>
-                    <input type="email" name="passwd" id="passwd">
+                    <input type="password" name="paswd" id="passwd">
                 </article>
 
-                <button type="submit" class="login">Iniciar sesión</button>
+                <button type="submit" class="enviar">iniciar sesión</button>
 
             </form>
 
-            <article class="izquierda-enlaces">
-                <a href="" target="_self">¿No tienes cuenta? Crea una aqui</a>
-                <a href="" target="_self">Entrar como invitado</a>
+            <article class="enlaces">
+                <a href="#" target="_self">¿Mo tienes cuenta? Crea una aqui</a>
+                <a href="#" target="_self">Entrar como invitado</a>
             </article>
 
         </section>
-
-        <section class="derecha"></section>
-
-    </section>
+    </main>
 
 <?php 
     $content = ob_get_clean(); 
