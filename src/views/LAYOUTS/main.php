@@ -40,7 +40,7 @@
             </section>
 
             <section class="desplegable"></section>
-
+                
         </nav>
 
         <!-- Aquí se incluirá el contenido de las vistas -->

@@ -15,7 +15,7 @@ getHoras().then(horas => {
     horas.forEach(horario => {
         const boton = crearBoton("hora")
         const enlace = document.createElement("a"); 
-        enlace.href = "#"; 
+        enlace.href = "/TFG/pagarCampo"; 
         enlace.target = "_self"; 
         enlace.textContent = horario; 
 

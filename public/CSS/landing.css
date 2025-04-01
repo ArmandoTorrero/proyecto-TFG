@@ -55,7 +55,11 @@
     }
 }
 
-/*Estilos para el main*/
+/*
+------------------------
+----------MAIN----------
+------------------------
+*/
 
 section.content{
     text-align: center;
@@ -131,7 +135,7 @@ section.content  .single-content{
         padding: 8px 15px;
         border: none;
         border-radius: 5px;
-        background-color: var(--verde);
+        background-color: var(--negro);
         font-family: var(--no_titulos);
         font-size: 1.3rem;
         font-weight: bold;
@@ -158,14 +162,14 @@ section.content  .single-content{
         margin: 6vw 0vw 0vw;
         font-family: var(--titulos);
         font-weight: 500;
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
 
     p{
         width: 70%;
         margin: .5vw auto 0vw;
         font-family: var(--no_titulos);
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 
     button{
@@ -176,6 +180,7 @@ section.content  .single-content{
         background-color: var(--negro);
         font-family: var(--no_titulos);
         font-weight: 400; 
+        font-size: 1.3rem;
         color: var(--blanco);
         box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 50%);
     }
