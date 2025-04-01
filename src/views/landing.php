@@ -13,7 +13,7 @@
     </section>
 
     <section class="content">
-        <h1>Experimente la reserva en línea sin complicaciones  para tus actividades deportivas favoritas</h1>
+        <h1>Experimenta la reserva en línea sin complicaciones para tus actividades deportivas favoritas</h1>
         <section class="content">
 
             <article class="single-content">

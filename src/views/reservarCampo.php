@@ -10,8 +10,7 @@
         <article class="content">
 
             <h1>Grupo Junta del puerto, 2</h1>
-            <select name="jugadores" id="jugadores"></select>
-
+            
             <section class="horarios"></section>
 
         </article>

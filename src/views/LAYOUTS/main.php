@@ -21,7 +21,7 @@
     <body>
         <nav>
 
-            <h1>SpoortBooking</h1>
+            <a href="/TFG/">SpoortBooking</a>
 
             <section class="links">
                 <a href="#">Lorem</a>

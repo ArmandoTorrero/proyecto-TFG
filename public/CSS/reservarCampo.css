@@ -31,12 +31,7 @@
     color: var(--negro);
 }
 
-.content select{
-    padding: 7px 15px;
-    border: none;
-    border-radius: 7px;
-    background-color: var(--verde);
-}
+
 
 .horarios{
     display: flex;

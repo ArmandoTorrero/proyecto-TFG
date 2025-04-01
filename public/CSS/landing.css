@@ -107,8 +107,9 @@ section.content  .single-content{
     background-image: url(../ASSETS/tenis.jpeg);   
     background-size: cover;
     background-repeat: no-repeat;
-    text-align: center;
+    background-position: center;
     color: var(--blanco);
+    text-align: center;
 }
 
 .reservar-section > h1{
