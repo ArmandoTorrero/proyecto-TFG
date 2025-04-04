@@ -2,210 +2,169 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 :root{
-    --negro: #010100; 
-    --blanco: #fefffe; 
-    --gris: #f2f4f7; 
-    --verde: #2ECC71; 
-    --logo: 'Lobster'; 
-    --titulos: 'Bebas Neue'; 
-    --no_titulos: 'Lato'; 
+    --logo:'Dancing Script'; 
+    --titulos: 'Bebas Neue';
+    --fondoBody: #fff; 
+    --colorTitulos: #010100;
+    --colorTitulos2: #fff; 
+    --colorTexto: #010100;
+    --colortexto2: #fff;
+    --fondoBotones: #2462EB; 
+    --fondoFooter: #111827; 
 }
 
+
+/*
+-------------------------------------
+----------ESTILOS GENERALES----------
+-------------------------------------
+*/
 body{
-    background-color: var(--gris);
+    overflow-x: hidden;
+}
+
+h1{
+    font-family: var(--titulos);
+    font-weight: 500;
+    font-size: 2.5rem;
+}
+
+h2,h3,p,a{
+    font-family: 'Montserrat'; 
+    font-weight: 400;
 }
 
 a{
     text-decoration: none;
 }
 
-
-nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;    
-    background-color: var(--blanco);
-
-    & a{
-        padding: 10px;
-        font-family: var(--logo);
-        font-size: 2rem;
-        font-weight: 300;
-        color: var(--negro);
-    }
-
+.logo{
+    font-family: 'Dancing Script';
 }
-
-.links{
-    display: none;
-}
-
-.nav-links{
-    display: flex;
-    align-items: center;
-    padding: 10px;
-
-    a{
-        color: var(--negro);
-        font-size: 2.3rem;
-    }
-
-    & article{
-        margin-left: 2vw; 
-    }
-}
-
-
-/*Estilos del menu hamburguesa*/
-.menu-hamburguesa{  
-    position: relative;
-    overflow: hidden;
-
-    & input{
-        width: 40px;
-        height: 40px;
-        position: absolute;
-        z-index: 10;
-        opacity: 0;
-    }
-
-    & div{
-        position: relative;
-        z-index: 9;
-        width: 40px;
-        height: 5px;
-        margin: 5px 0px;
-        border-radius: 20px;
-        background-color: var(--negro);
-    }
-}
-
-
-/*Logica del desplegable*/
-.desplegable{
-    position: absolute;
-    z-index: 1;
-    width: 100vw;
-    height: 200vh;
-    background-color: blue;
-    transform: translateX(200%);
-    transition: all .25s linear 0s;
-
-}
-
-body:has(nav > .nav-links > .menu-hamburguesa > input:checked){
-    & nav > .desplegable{
-        transform: translateX(0%);
-    }
-}
-
 
 
 /*
-------------------------------------
--------------- FOOTER ---------------
-------------------------------------
+---------------------------------------
+----------ESTILOS PARA EL NAV----------
+---------------------------------------
 */
-
-
-footer{
-    background-color: var(--blanco);
-}
-
-.enviar-email-content{
-    padding: 15px 0px;
-    text-align: center;
-
-    & h1{
-        font-family: var(--titulos);
-        font-weight: 500;
-        font-size: 2rem;
-        letter-spacing: 2px;
-    }
-
-    & p{
-        font-family: var(--no_titulos);
-        font-size: 1.3rem;
-    }
-
-}
-
-.input-button{
-
+nav{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 0px;
+    justify-content: space-between;
 
-    & input{
-        margin: 0vw 1.5vw;
-        padding: 7px 10px;
-        border: none;
-        border-radius: 5px;
-        background-color: var(--negro);
-        font-size: 1.4rem;
+    a.logo{
+        margin: 0 2%;
+        color: var(--colorTexto);
+        font-size: 2.3rem;
+    }
 
-        &::placeholder{
-            font-family: var(--no_titulos);
+    .menu-hamburguesa{
+        margin: 0 2%;
+        position: relative;
+
+        input{
+            position: absolute;
+            z-index: 3;
+            opacity:0;
+            width: 50px;
+            height: 50px;
+        }
+
+        div{
+            position: relative;
+            z-index: 2;
+            width: 50px;
+            height: 5px;
+            border-radius: 20px;
+            background-color: var(--colorTexto);
+            margin: 8px auto;
+            
         }
     }
 
-    & button{
-        margin: 0vw 1.2vw;
-        padding: 7px 15px;
-        border: none;
-        border-radius: 5px;
-        background-color: var(--verde);
-        font-family: var(--no_titulos);
-        font-weight: bold;
-        font-size: 1.4rem;
-        color: var(--blanco);
-    }
 }
 
-
-hr{
-    margin: 4vw auto;
-    width: 85%;
-    height: 3px;
-    background-color: var(--negro);
+.desplegable{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    transform: translateX(200%);
+    width: 100vw;
+    height: 100vh;
+    background-color: blue;
 }
 
-
-.footer-links > h1{
-    font-family: var(--logo);
-    font-weight: 300;
-    font-size: 1.7rem;
-    text-align: center;
+body:has(.menu-hamburguesa input:checked){
+    overflow-y: hidden;
 }
 
-.links-1, .links-2{
+body:has(.menu-hamburguesa input:checked) .desplegable{
+    transform: translateX(0);
+
+}
+
+/*
+--------------------------
+----------FOOTER----------
+--------------------------
+*/
+
+footer{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10px 0px;
+    background-color: var(--fondoFooter);
+    text-align: center;
 
-    & a{
-        margin: 2vw 0vw;
-        font-family: var(--no_titulos);
-        font-size: 1.4rem;
-        color: var(--negro);
+    h2{
+        margin: 10% 0 0;
+        font-size: 2rem;
+        font-weight: bold;
     }
-}
 
-.RRSS{
-    display: flex;
-    justify-content: space-between;
-    margin: 2vw auto;
-    width: 25%;
+    i{
+        font-size: 3rem;
+    }
 
-    & a{
-        font-size: 2.4rem;
-        color: var(--negro);
+    h2,i{
+        color: var(--fondoBotones);
+    }
+
+    a{
+        font-size: 1.4rem;
+        font-weight: 200;
+        color: var(--colortexto2);
+    }
+    
+    hr{
+        width: 90%;
+        height: 4px;
+        background-color: #fff;
+        
+    }
+
+    .links-1,.links-2{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin: 8% 0%;
+
+        a{
+            margin: 3% 0;
+        }
+    }
+
+    .RRSS{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .derechos{
+        color: var(--colortexto2);
     }
 }
