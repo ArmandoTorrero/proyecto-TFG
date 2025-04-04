@@ -14,6 +14,38 @@
         </button>
     </section>
 
+    <!--Info -->
+
+    <section class="info">
+
+        <h1>Encuentra y <b>reserva</b> tu campo perfecto</h1>
+        <p class="descripcion">Ofrecemos la forma más sencilla y rápida de disfrutar del deporte sin complicaciones</p>
+
+        <section class="containers">
+            
+            <article class="container">
+                <i class="fa-solid fa-clock"></i>
+                <h2>Reservas al instante</h2>
+                <p>Reserva tu instalación deportiva favorita en cuestión de segundos, sin llamadas ni desplazamientos.</p>
+            </article>
+    
+            <article class="container">
+                <i class="fa-solid fa-clock"></i>
+                <h2>Reservas al instante</h2>
+                <p>Reserva tu instalación deportiva favorita en cuestión de segundos, sin llamadas ni desplazamientos.</p>
+            </article>
+    
+            <article class="container">
+                <i class="fa-solid fa-clock"></i>
+                <h2>Reservas al instante</h2>
+                <p>Reserva tu instalación deportiva favorita en cuestión de segundos, sin llamadas ni desplazamientos.</p>
+            </article>
+            
+        </section>
+
+
+    </section>
+
     <script type="module" src="public/JS/script.js"></script>
     
 
