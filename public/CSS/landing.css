@@ -1,187 +1,62 @@
-:root{
-    --negro: #010100; 
-    --blanco: #fefffe; 
-    --gris: #f2f4f7; 
-    --verde: #2ECC71; 
-    --logo: 'Lobster'; 
-    --titulos: 'Bebas Neue'; 
-    --no_titulos: 'Lato'; 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-/*Estilos para el hero*/
-.hero{
-
-    background-image: url(../ASSETS/campo-futbol.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: right;
-    text-align: center;
-    
-    h1,p{
-        margin: 2vw auto;
-        color: var(--blanco);
-    }
-
-    h1{
-        width: 70%;
-        font-family: var(--titulos);
-        font-size: 3rem;
-        font-weight: 300;
-
-    }
-
-    p{
-        width: 80%;
-        font-family: var(--no_titulos);
-        font-size: 1.3rem;
-        font-weight: 500;
-    }
-
-    button{
-        margin: 2vw 0vw 4vw;
-        padding: 8px 15px;
-        border: none;
-        border-radius: 5px;
-        background-color: var(--verde);
-        font-family: var(--no_titulos);
-        font-size: 1.3rem;
-        font-weight: bold;
-        color: var(--blanco);
-
-        a{
-            color: var(--blanco);
-        }
-    }
+:root{
+    --logo:'Dancing Script'; 
+    --titulos: 'Bebas Neue';
+    --fondoBody: #fff; 
+    --colorTitulos: #010100;
+    --colorTitulos2: #fff; 
+    --colorTexto: #010100;
+    --colortexto2: #fff;
+    --fondoBotones: #2462EB; 
+    --fondoFooter: #111827; 
+    --fondoHeroSection: #EFF4FE; 
 }
 
 /*
 ------------------------
-----------MAIN----------
+----------HERO----------
 ------------------------
 */
 
-section.content{
+.hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--fondoHeroSection);
+    padding: 5% 0% 8%;
     text-align: center;
 }
 
-section.content > h1{
-    width: 80%;
-    margin: 2vw auto 0vw;
-    font-family: var(--titulos);
-    font-size: 2.5rem;
-    font-weight: 500;
+.hero > h1{
+    width: 70%;
+    font-size: 3rem;
+    color: var(--colorTexto);
+
+    b{
+        color: var(--fondoBotones);
+        font-weight: normal;
+    }
 }
 
-section.content  .single-content{
-    width: 60%;
-    margin: 3vw auto 5vw;
+.hero > p{
+    width: 90%;
+    font-size: 1.2rem;
+}
 
-    & .icon > i{
-        font-size: 2rem;
-        overflow: hidden;
-    }
-
-    h1,p,a{
-        margin: 2vw 0vw;
-        font-family: var(--no_titulos);
-    }
-
-    h1{
-        font-weight: bold;
-        font-size: 1.5rem;
-    }
-
-    p,a{
-        font-size: 1.3rem;
-    }
+.hero > button{
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--fondoBotones);
 
     a{
-        color: var(--negro);
-    }
-}
-
-
-/*
-----------------------------
-----------RESERVAR----------
-----------------------------
-*/
-.reservar-section{
-    background-image: url(../ASSETS/tenis.jpeg);   
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: var(--blanco);
-    text-align: center;
-}
-
-.reservar-section > h1{
-    margin: 4vw 0vw 2vw;
-    font-family: var(--titulos);
-    font-size: 2.5rem;
-    font-weight: 500;
-}
-
-.reservar-section > p{
-    width: 70%;
-    margin:3vw auto; 
-    font-family: var(--no_titulos);
-    font-size: 1.4rem;
-}
-
-.reservar-section > button{
-    margin: 2vw 0vw 4vw;
-        padding: 8px 15px;
-        border: none;
-        border-radius: 5px;
-        background-color: var(--negro);
-        font-family: var(--no_titulos);
         font-size: 1.3rem;
         font-weight: bold;
-        color: var(--blanco);
-
-        a{
-            color: var(--blanco);
-        }
-}
-
-
-/*
------------------------------------------
-----------PREGUNTAS Y RESPUESTAS---------
------------------------------------------
-*/
-
-
-.PyR-section{
-    background-color: var(--gris);
-    text-align: center;
-
-    h1{
-        margin: 6vw 0vw 0vw;
-        font-family: var(--titulos);
-        font-weight: 500;
-        font-size: 2.5rem;
-    }
-
-    p{
-        width: 70%;
-        margin: .5vw auto 0vw;
-        font-family: var(--no_titulos);
-        font-size: 1.4rem;
-    }
-
-    button{
-        margin: 5vw 0vw;
-        padding:7px 15px;
-        border: none;
-        border-radius: 5px;
-        background-color: var(--negro);
-        font-family: var(--no_titulos);
-        font-weight: 400; 
-        font-size: 1.3rem;
-        color: var(--blanco);
-        box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 50%);
+        color: var(--colortexto2);
     }
 }
