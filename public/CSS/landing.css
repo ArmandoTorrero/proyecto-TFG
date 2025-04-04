@@ -121,3 +121,98 @@
     }
 
 }
+
+/*
+------------------------------------
+---------PISTAS DESTACADAS----------
+------------------------------------
+*/
+
+.pistas-destacadas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3% 0% 5%;
+    background-color: #F9FAFB; 
+
+    h1, .descripcion{
+        text-align: center;
+        margin: 2% 0;
+    }
+
+    h1{
+        font-size: 3rem;
+    }
+
+    .descripcion{
+        width: 80%;
+        margin-bottom: 4%;
+        font-size: 1.4rem;
+    }
+}
+
+.pista{
+    width: 80vw;
+    border-radius: 10px;
+    background-color: var(--fondoBody);
+    position: relative;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.pista .img{
+    width: 100%;
+    height: 300px;
+    border-radius: 10px 10px 0px 0px;
+    background-image: url('../ASSETS/campo-futbol4.jpeg');
+}
+
+.pista .content{
+    padding: 2% 5%;
+    
+}
+
+.pista .content > h2{
+    margin: 2% 0;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.pista .content > .precio-button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p.precio{
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--fondoBotones);
+    }
+
+    button.ver-detalles{
+        padding: 8px 15px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        background-color: var(--fondoBody);
+        a{
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--colortexto);
+        }
+    }
+        
+    
+}
+
+.pista .categoria{
+    width: min-content;
+    padding: 5px 15px;
+    border-radius: 20px;
+    background-color: var(--fondoBotones);
+    color: var(--colortexto2);
+    font-size: 1.1rem;
+    font-weight: bold;
+    position: absolute;
+    top: 4%;
+    right: 4%;
+
+}

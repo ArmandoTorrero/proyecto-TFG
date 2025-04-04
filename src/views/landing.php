@@ -43,6 +43,33 @@
             
         </section>
 
+    </section>
+
+    <section class="pistas-destacadas">
+        <h1>Instalaciones destacadas</h1>
+        <p class="descripcion" >Descubre algunas de nuestras mejores instalaciones deportivas</p>
+
+        <section class="pistas">
+
+            <article class="pista">
+
+                <article class="img"></article>
+
+                <section class="content">
+                    <h2>Grupo Junta del Puerto</h2>
+    
+                    <article class="precio-button">
+                        <p class="precio">10€/hora</p>
+                        <button class="ver-detalles" >
+                            <a href="#" target="_self">Ver detalles</a>
+                        </button>
+                    </article>
+                </section>
+                <p class="categoria">Futbol</p>
+
+            </article>
+
+        </section>
 
     </section>
 
