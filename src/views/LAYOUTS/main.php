@@ -24,6 +24,12 @@
 
             <a href="/TFG/" class="logo">CampoLibre</a>
 
+            <article class="nav-links">
+                <a href="#" target="_self">Modalidades</a>
+                <a href="#" target="_self">Campos</a>
+                <a href="#" target="_self">Contactanos</a>
+            </article>
+
             <article class="menu-hamburguesa">
                 <input type="checkbox">
                 <div></div>
@@ -32,7 +38,9 @@
             </article>
 
             <section class="desplegable">
-                <a href="">galletas</a>
+                <a href="#" target="_self">Modalidades</a>
+                <a href="#" target="_self">Campos</a>
+                <a href="#" target="_self">Contactanos</a>
             </section>
                 
         </nav>
@@ -46,19 +54,19 @@
 
                 <h2>CampoLibre</h2>
                 <article class="links-1">
-                    <a href="/TFG/">Inicio</a>
-                    <a href="#">Contactanos</a>
-                    <a href="#">Preguntas y respuestas</a>
+                    <a href="/TFG/" target="_self">Inicio</a>
+                    <a href="#" target="_self">Contactanos</a>
+                    <a href="#" target="_self">Preguntas y respuestas</a>
                 </article>
                 <article class="links-2">
-                    <a href="#">Terminos y condiciones</a>
-                    <a href="#">Politica de privacidad</a>
-                    <a href="#">Politica de protección de datos</a>
+                    <a href="#" target="_self">Terminos y condiciones</a>
+                    <a href="#" target="_self">Politica de privacidad</a>
+                    <a href="#" target="_self">Politica de protección de datos</a>
                 </article>
                 <article class="RRSS">
-                    <a href=""><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href=""><i class="fa-solid fa-envelope"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_self"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" target="_self"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="#" target="_self"><i class="fa-brands fa-instagram"></i></a>
                 </article>
 
             </section>

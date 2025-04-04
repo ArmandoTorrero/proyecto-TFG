@@ -54,11 +54,20 @@ a{
 nav{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     a.logo{
         margin: 0 2%;
         color: var(--colorTexto);
         font-size: 2.3rem;
+    }
+
+    .nav-links{
+        display: none;
+        a{
+            color: var(--colorTexto);
+            font-size: 1.3rem;
+        }
     }
 
     .menu-hamburguesa{
@@ -77,10 +86,10 @@ nav{
             position: relative;
             z-index: 2;
             width: 50px;
-            height: 5px;
+            height: 6px;
             border-radius: 20px;
             background-color: var(--colorTexto);
-            margin: 8px auto;
+            margin: 7px auto;
             
         }
     }
@@ -88,17 +97,30 @@ nav{
 }
 
 .desplegable{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--fondoFooter);
     position: absolute;
     z-index: 1;
     top: 0;
     transform: translateX(200%);
-    width: 100vw;
-    height: 100vh;
-    background-color: blue;
+    transition: all .3s ease-in-out;
+
+    a{
+        margin: 1% 2%;
+        font-size: 1.5rem;
+        color: var(--colortexto2);
+    }
 }
 
 body:has(.menu-hamburguesa input:checked){
     overflow-y: hidden;
+
+    nav > .menu-hamburguesa > div{
+        background-color: var(--colortexto2);
+    }
 }
 
 body:has(.menu-hamburguesa input:checked) .desplegable{
