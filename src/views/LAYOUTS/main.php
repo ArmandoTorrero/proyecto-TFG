@@ -38,7 +38,7 @@
             </article>
 
             <section class="desplegable">
-                <a href="#" target="_self">Modalidades</a>
+                <a href="/TFG/modalidades" target="_self">Modalidades</a>
                 <a href="#" target="_self">Campos</a>
                 <a href="#" target="_self">Contactanos</a>
             </section>

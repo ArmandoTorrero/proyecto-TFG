@@ -16,6 +16,11 @@
             require __DIR__ . '/../views/camposDeportivos.php';
         }
 
+
+        public function modalidades() {
+            require __DIR__ . '/../views/modalidades.php';
+        }
+
         /**
          * Funcion que devuelve la vista de un campo deportivo
          * @return void

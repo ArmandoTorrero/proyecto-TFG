@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --logo:'Dancing Script'; 
+    --titulos: 'Bebas Neue';
+    --fondoBody: #fff; 
+    --colorTitulos: #010100;
+    --colorTitulos2: #fff; 
+    --colorTexto: #010100;
+    --colortexto2: #fff;
+    --fondoBotones: #2462EB; 
+    --fondoFooter: #111827; 
+}
+
+
+main{
+    padding: 5% 0%;
+}
+
+
+/*
+---------------------------
+----------CONTENT----------
+---------------------------
+*/
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.content > h1{
+    width: 90%;
+    font-size: 3rem;
+    color: var(--colorTexto);
+
+    b{
+        color: var(--fondoBotones);
+    }
+}
+
+.content > p{
+    width: 90%;
+    font-size: 1.2rem;
+}
+
+/*
+-----------------------------
+---------- CAMPOS -----------
+-----------------------------
+*/
+
+.campos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: 2% 0;
+    border: 1px solid green;
+    text-align: center;
+}
+
+.campo > .img{
+    width: 100%; 
+    height: 300px;
+    background-image: url('../ASSETS/campo-futbol.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+
+.campo h2{
+    margin: 2% 0;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--colorTexto);
+}
+
+.campo p{
+    width: 80%;
+    margin: 2% 0;
+    font-size: 1.5rem;
+    color: var(--colorTexto);
+}
+
+.campo button{
+    margin: 2% 0;
+    padding: 15px 30px;
+    border: 3px solid var(--fondoBotones);
+    border-radius: 5px;
+    background-color: var(--fondoBody);
+    box-shadow: 2px 5px 5px 0px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+
+    a{
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--fondoBotones);
+    }
+}

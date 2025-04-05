@@ -33,7 +33,7 @@
 }
 
 .hero > h1{
-    width: 70%;
+    width: 100%;
     font-size: 3rem;
     color: var(--colorTexto);
 
@@ -45,7 +45,7 @@
 
 .hero > p{
     width: 90%;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .hero > button{
@@ -55,7 +55,7 @@
     background-color: var(--fondoBotones);
 
     a{
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         font-weight: bold;
         color: var(--colortexto2);
     }
@@ -93,12 +93,19 @@
     }
 }
 
+.info .containers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .info  .container{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 15px 0px;
-    margin: 5% 0;
+    width: 80%;
+    padding: 15px 10px;
+    margin: 3% 0;
     border-radius: 5px;
     background-color: #F9FAFB;
     
@@ -117,7 +124,7 @@
     }
 
     p{
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
 
 }
@@ -193,6 +200,7 @@
         border-radius: 8px;
         border: 1px solid rgba(0, 0, 0, 0.2);
         background-color: var(--fondoBody);
+
         a{
             font-size: 1rem;
             font-weight: bold;
@@ -225,7 +233,7 @@
     background-color: var(--fondoBotones);
 
     a{
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         font-weight: bold;
         color: var(--colortexto2);
     }
@@ -247,15 +255,15 @@
     padding: 5% 0% 8%;
 
     h1{
-        width: 70%;
-        font-size: 3.5rem;
+        width: 90%;
+        font-size: 3rem;
         color: var(--colortexto2);
     }
 
     p{
         width: 90%;
         color: var(--colortexto2);
-        font-size: 1.4rem;
+        font-size: 1.1rem;
     }
 }
 
@@ -263,7 +271,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 60%;
+    width: 70%;
     margin: 5% 0 0;
 }
 
@@ -274,7 +282,7 @@
     background-color: var(--fondoBody);
     margin: 2% 0%;
     a{
-        font-size: 1.4rem;
+        font-size: 1.1rem;
         font-weight: bold;
         color: var(--fondoBotones);
     }
