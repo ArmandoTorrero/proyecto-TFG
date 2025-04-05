@@ -35,7 +35,7 @@
             </form>
 
             <article class="enlaces">
-                <p>¿No tienes una cuenta? <a href="#" target="_self" >Crea una aqui</a></p>
+                <p>¿No tienes una cuenta? <a href="/TFG/registro" target="_self" >Crea una aqui</a></p>
             </article>
 
 

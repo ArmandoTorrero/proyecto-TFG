@@ -7,6 +7,11 @@
 
     <main>
         <section class="form-container">
+
+            <article class="icon">
+                <i class="fa-solid fa-user"></i>
+            </article>
+
             <h1>Registrar usuario</h1>
 
             <form action="" method="post">
@@ -23,9 +28,20 @@
                     <label for="">Contraseña</label>
                     <input type="password" name="paswd" id="passwd">
                 </article>
+
                 <article class="label-input">
                     <label for="">Telefono</label>
                     <input type="text" name="tlf" id="tlf">
+                </article>
+
+                <article class="militar">
+                    <input type="checkbox" name="militar" id="checkbox-militar">
+                    <label for="">Soy militar</label>
+                </article>
+
+                <article class="label-input" id="input-militar" >
+                    <label for="">Escriba su codigo militar</label>
+                    <input type="text" name="id_militar" id="id_milita">
                 </article>
 
                 <button type="submit" class="enviar">Registrar usuario</button>
@@ -33,12 +49,14 @@
             </form>
 
             <article class="enlaces">
-                <a href="#" target="_self">¿Ya estas registrado? Inicia sesión</a>
-                <a href="#" target="_self">Entrar como invitado</a>
+                <p>¿Ya estas registrado? <a href="/TFG/login" target="_self">Inicia sesión</a></p>
             </article>
 
         </section>
     </main>
+
+
+    <script type="module" src="public/JS/registro.js"></script>
 
 
 <?php 
