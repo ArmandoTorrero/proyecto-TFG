@@ -2,57 +2,78 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 :root{
-    --negro: #010100; 
-    --blanco: #fefffe; 
-    --gris: #f2f4f7; 
-    --verde: #2ECC71; 
-    --logo: 'Lobster'; 
-    --titulos: 'Bebas Neue'; 
-    --no_titulos: 'Lato'; 
+    --logo:'Dancing Script'; 
+    --titulos: 'Bebas Neue';
+    --fondoBody: #fff; 
+    --colorTitulos: #010100;
+    --colorTitulos2: #fff; 
+    --colorTexto: #010100;
+    --colortexto2: #fff;
+    --fondoBotones: #2462EB; 
+    --fondoFooter: #111827; 
 }
+
+
+.reservar{
+    background-color: var(--fondoBotones);
+}
+
 
 .content{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
 .content h1{
-    margin: 3vw 0vw;
-    text-align: center;
-    font-family: var(--titulos);
-    font-size: 2.5rem; 
-    font-weight: 500;
-    color: var(--negro);
+    padding: 7% 0 0%;
+    color: var(--colorTitulos2);
 }
 
+.content select{
+    margin: 7% 0 10%;
+    padding: 7px 20px;
+    border: none;
+    border-radius: 5px;
+    color: var(--fondoBotones);
+    font-size: 1rem;
+    font-weight: bold;
+}
 
-
-.horarios{
+.content .horarios{
     display: flex;
-    flex-flow: row wrap;
-    justify-content:center;
+    justify-content: space-around;
     align-items: center;
-    width: 50%;
-    margin: 3vw 0vw;
+    width: 60% ;
+    margin: 0 0 8%;
 
     .hora{
-        margin: 1vw 1.5vw;
-        padding: 7px 15px;
-        border: none;
+        padding: 6px 12px;
+        border: none; 
         border-radius: 5px;
-        background-color: var(--verde);
-        
+        background-color: var(--fondoBody);
+        margin: 2% 0%;
+
         a{
-            font-family: var(--titulos); 
-            font-size: 2rem;
-            font-weight: 400; 
-            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--fondoBotones);
         }
     }
 }
+
+.content .finalizar-reserva{
+    margin: 0% 0% 5%;
+    padding: 5px 20px;
+    border: none; 
+    border-radius: 5px;
+    background-color: var(--fondoBody);
+    font-weight: bold;
+    color: var(--fondoBotones);
+    box-shadow: 2px 5px 2px 0px rgba(0, 0, 0, 0.4);
+    
+}
+

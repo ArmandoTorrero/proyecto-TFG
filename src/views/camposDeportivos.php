@@ -12,7 +12,7 @@
             <div class="img"></div>
             <h2>Grupo Junta del Puerto</h2>
             <button>
-                <a href="" target="_self">Reservar</a>
+                <a href="/TFG/reservarCampo" target="_self">Reservar</a>
             </button>
         </article>
 

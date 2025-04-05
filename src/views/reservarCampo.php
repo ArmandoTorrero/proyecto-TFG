@@ -9,9 +9,15 @@
 
         <article class="content">
 
-            <h1>Grupo Junta del puerto, 2</h1>
+            <h1>Grupo Junta del puerto</h1>
+
+            <select name="fecha" id="fehca">
+                <option value="">Elige una fecha</option>
+            </select>
             
             <section class="horarios"></section>
+
+            <button type="submit" class="finalizar-reserva" >Finalizar reserva</button>
 
         </article>
 
