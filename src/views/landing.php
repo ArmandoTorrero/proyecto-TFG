@@ -46,6 +46,7 @@
     </section>
 
     <section class="pistas-destacadas">
+
         <h1>Instalaciones destacadas</h1>
         <p class="descripcion" >Descubre algunas de nuestras mejores instalaciones deportivas</p>
 
@@ -71,6 +72,23 @@
 
         </section>
 
+        <button class="ver-campos">
+            <a href="/TFG/camposDeportivos" target="_self">Ver campos</a>
+        </button>
+
+    </section>
+
+    <section class="pre-footer">
+        <h1>¡Comienza a disfrutar del deporte hoy mismo!</h1>
+        <p>Reserva tu primera instalación deportiva en minutos y descubre lo fácil que es con CampoLibre.</p>
+        <article class="buttons">
+            <button>
+                <a href="#" target="_self">Iniciar sesión</a>
+            </button>
+            <button>
+                <a href="#" target="_self">Ver campos</a>
+            </button>
+        </article>
     </section>
 
     <script type="module" src="public/JS/script.js"></script>
