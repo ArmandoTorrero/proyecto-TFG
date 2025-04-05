@@ -2,96 +2,105 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 :root{
-    --negro: #010100; 
-    --blanco: #fefffe; 
-    --gris: #f2f4f7; 
-    --verde: #2ECC71; 
-    --logo: 'Lobster'; 
-    --titulos: 'Bebas Neue'; 
-    --no_titulos: 'Lato'; 
+    --logo:'Dancing Script'; 
+    --titulos: 'Bebas Neue';
+    --fondoBody: #fff; 
+    --colorTitulos: #010100;
+    --colorTitulos2: #fff; 
+    --colorTexto: #010100;
+    --colortexto2: #fff;
+    --fondoBotones: #2462EB; 
+    --fondoFooter: #111827; 
 }
 
 main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-image: url('../ASSETS/balon-futbol2.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 .form-container{
-    
-    width: 50vw;
-    margin: 2vw auto;
-    
-}
-
-.form-container > h1{
-    text-align: center;
-    font-family: var(--titulos);
-    font-size: 2.5rem; 
-    font-weight: 500;
-    color: var(--blanco);
-}
-
-.form-container .label-input{
     display: flex;
     flex-direction: column;
-    width: 35vw;
-    margin: 1vw 0vw;
+    align-items: center;
+    width: 80%;
+    margin: 5% 0%;
+    padding: 20px 0px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
 
-    label{
-        margin: 2vw 0vw;
-        font-family: var(--no_titulos);
+.icon{
+    padding: 15px 20px;
+    border-radius: 100%;
+    background-color: var(--fondoBotones);
+
+    i{
+        color: var(--colortexto2);
         font-size: 1.4rem;
-        color: var(--blanco);
     }
-
-    input{
-        padding: 12px 0px;
-        border: none;
-        border-radius: 5px;
-        background-color: rgba(255, 255, 255, 70%);
-
-        &:focus{
-            border: none;
-        }
-    }
-
 }
 
-.form-container .enviar{
-    margin: 2vw auto;
-    padding: 10px 30px;
-    border: none;
-    border-radius: 10px;
-    background-color: var(--negro);
-    font-family: var(--no_titulos);
-    font-size: 1.3rem;
-    color: var(--blanco);
-    cursor: pointer;
+.form-container h2{
+    margin: 5% 0;
+    font-size: 2rem;
+    font-weight: bold;
 }
-
-
 
 form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 70%;
 }
 
-.form-container .enlaces{
+.label-input{
     display: flex;
     flex-direction: column;
-    text-align: center;
+    margin: 20px 0;
+}
+
+.passwd{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 
     a{
-        margin: 1vw 0vw;
-        font-family: var(--no_titulos); 
-        color: var(--blanco);
-        font-size: 1.3rem;
+        font-size: 0.8rem;
     }
 }
+
+.label-input label{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.label-input input{
+    padding: 3px 0px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.enviar{
+    width: 100%;
+    margin: 5px 0px;
+    padding: 5px 0px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--fondoBotones);
+    font-weight: bold;
+    color: var(--colortexto2);
+}
+
+.enlaces{
+    margin: 10px 0px;
+    font-weight: bold;
+}
+

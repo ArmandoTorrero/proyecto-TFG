@@ -7,8 +7,14 @@
     </head>
 
     <main>
+
         <section class="form-container">
-            <h1>Iniciar sesión</h1>
+
+            <article class="icon">
+                <i class="fa-solid fa-user"></i>
+            </article>
+
+            <h2>Iniciar sesión</h2>
 
             <form action="" method="post">
 
@@ -17,18 +23,21 @@
                     <input type="email" name="email" id="email">
                 </article>
                 <article class="label-input">
-                    <label for="">Contraseña</label>
+                    <article class="passwd">
+                        <label for="">Contraseña</label>
+                        <a href="#" target="_self" >¿Olvidaste la contraseña?</a>
+                    </article>
                     <input type="password" name="paswd" id="passwd">
                 </article>
 
-                <button type="submit" class="enviar">iniciar sesión</button>
+                <button type="submit" class="enviar">Iniciar sesión</button>
 
             </form>
 
             <article class="enlaces">
-                <a href="#" target="_self">¿Mo tienes cuenta? Crea una aqui</a>
-                <a href="#" target="_self">Entrar como invitado</a>
+                <p>¿No tienes una cuenta? <a href="#" target="_self" >Crea una aqui</a></p>
             </article>
+
 
         </section>
     </main>

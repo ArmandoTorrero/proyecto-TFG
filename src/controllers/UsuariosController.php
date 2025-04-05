@@ -108,7 +108,6 @@
                     echo "Credenciales incorrectas" ?? ''; 
                 }
             }else {
-                session_start(); // !! Cambiar, el session_start() deberia ser en el index
                 require __DIR__ . '/../views/login.php'; 
             }
         }
