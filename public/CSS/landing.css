@@ -49,13 +49,13 @@
 }
 
 .hero > button{
-    padding: 8px 15px;
+    padding: 6px 10px;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     background-color: var(--fondoBotones);
 
     a{
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-weight: bold;
         color: var(--colortexto2);
     }
@@ -102,29 +102,30 @@
 .info  .container{
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 80%;
-    padding: 15px 10px;
+    padding: 15px 20px;
     margin: 3% 0;
     border-radius: 5px;
     background-color: #F9FAFB;
+    text-align: left;
     
     h2,p,i{
         margin: 2% 0;
     }
 
     i{
-        font-size: 5rem;
+        font-size: 3rem;
         color: var(--fondoBotones);
     }
 
 
     h2{
+        font-size: 1.2rem;
         font-weight: 600;
     }
 
     p{
-        font-size: 1.1rem;
+        font-size: 0.9rem;
     }
 
 }
@@ -148,13 +149,13 @@
     }
 
     h1{
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     .descripcion{
         width: 80%;
         margin-bottom: 4%;
-        font-size: 1.4rem;
+        font-size: 1.1rem;
     }
 }
 
@@ -181,7 +182,7 @@
 .pista .content > h2{
     margin: 2% 0;
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .pista .content > .precio-button{
@@ -190,19 +191,19 @@
     align-items: center;
 
     p.precio{
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: bold;
         color: var(--fondoBotones);
     }
 
     button.ver-detalles{
-        padding: 8px 15px;
+        padding: 6px 10px;
         border-radius: 8px;
         border: 1px solid rgba(0, 0, 0, 0.2);
         background-color: var(--fondoBody);
 
         a{
-            font-size: 1rem;
+            font-size: 0.8rem;
             font-weight: bold;
             color: var(--colortexto);
         }
@@ -227,13 +228,13 @@
 
 .pistas-destacadas .ver-campos{
     margin: 7% 0;
-    padding: 8px 20px;
+    padding: 6px 15px;
     border: none;
     border-radius: 8px;
     background-color: var(--fondoBotones);
 
     a{
-        font-size: 1.1rem;
+        font-size: 0.9rem;
         font-weight: bold;
         color: var(--colortexto2);
     }
@@ -250,7 +251,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--fondoBotones);
+    background: rgb(36,98,235);
+    background: linear-gradient(90deg, rgba(36,98,235,1) 0%, rgba(42,36,235,1) 100%);
     text-align: center;
     padding: 5% 0% 8%;
 

@@ -2,76 +2,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 :root{
-    --negro: #010100; 
-    --blanco: #fefffe; 
-    --gris: #f2f4f7; 
-    --verde: #2ECC71; 
-    --logo: 'Lobster'; 
-    --titulos: 'Bebas Neue'; 
-    --no_titulos: 'Lato'; 
-}
-
-
-.campos{
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-    background-image: url('../ASSETS/campo-futbol2.jpeg');
-    background-size: 100% 100%;
-}
-
-.campo{
-    padding: 15px;
-    margin: 3vw 0vw;
-    border-radius: 5px;
-    background-color: rgb(1, 1, 0, 0.5);
-    box-shadow: 0px 4px 5px 5px rgba(255, 255, 255, 25%);
-}
-
-.img-campo{
-    width: 60vw;
-    height: 30vw;
-    margin: 2vw 0vw 5vw;
-    border-radius: 5px;
-    background-image: url('../ASSETS/campo-futbol.jpg');
-    background-size: cover;
-}
-
-.campo-content{
-
-    h1{
-        margin: 1vw 0vw;
-        font-family: var(--titulos);
-        font-size: 2.4rem;
-        font-weight: 500;
-        color: var(--blanco);
-    }
-
-    a,p{
-        font-family: var(--no_titulos);
-        font-size: 1.4rem;
-    }
-
-    button{
-        margin: 1vw 0vw;
-        padding: 8px 15px;
-        border: none;
-        border-radius: 5px;
-        background-color: var(--verde);
-        font-weight: bold; 
-        
-        & a{
-            color: var(--blanco);
-        }
-    }
-
-    p{
-        margin: 1vw 0vw;
-        color: var(--verde);
-    }
+    --logo:'Dancing Script'; 
+    --titulos: 'Bebas Neue';
+    --fondoBody: #fff; 
+    --colorTitulos: #010100;
+    --colorTitulos2: #fff; 
+    --colorTexto: #010100;
+    --colortexto2: #fff;
+    --fondoBotones: #2462EB; 
+    --fondoFooter: #111827; 
+    --fondoHeroSection: #EFF4FE; 
 }
