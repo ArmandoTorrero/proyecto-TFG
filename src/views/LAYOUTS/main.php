@@ -30,12 +30,18 @@
                 <a href="#" target="_self">Contactanos</a>
             </article>
 
+            <article class="registro">
+                <a href="/TFG/registro" target="_self">Registrate</a>
+            </article>
+
             <article class="menu-hamburguesa">
                 <input type="checkbox">
                 <div></div>
                 <div></div>
                 <div></div>
             </article>
+
+           
 
             <section class="desplegable">
                 <a href="/TFG/modalidades" target="_self">Modalidades</a>
@@ -53,22 +59,27 @@
 
             <section class="footer-links">
 
-                <h2>CampoLibre</h2>
-                <article class="links-1">
-                    <a href="/TFG/" target="_self">Inicio</a>
-                    <a href="#" target="_self">Contactanos</a>
-                    <a href="#" target="_self">Preguntas y respuestas</a>
+                <article class="footer-content">
+
+                    <h2>CampoLibre</h2>
+    
+                    <article class="links-1">
+                        <a href="/TFG/" target="_self">Inicio</a>
+                        <a href="#" target="_self">Contactanos</a>
+                        <a href="#" target="_self">Preguntas y respuestas</a>
+                    </article>
+                    <article class="links-2">
+                        <a href="#" target="_self">Terminos y condiciones</a>
+                        <a href="#" target="_self">Politica de privacidad</a>
+                        <a href="#" target="_self">Politica de protección de datos</a>
+                    </article>
+                    <article class="RRSS">
+                        <a href="#" target="_self"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" target="_self"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="#" target="_self"><i class="fa-brands fa-instagram"></i></a>
+                    </article>  
                 </article>
-                <article class="links-2">
-                    <a href="#" target="_self">Terminos y condiciones</a>
-                    <a href="#" target="_self">Politica de privacidad</a>
-                    <a href="#" target="_self">Politica de protección de datos</a>
-                </article>
-                <article class="RRSS">
-                    <a href="#" target="_self"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#" target="_self"><i class="fa-solid fa-envelope"></i></a>
-                    <a href="#" target="_self"><i class="fa-brands fa-instagram"></i></a>
-                </article>
+
 
             </section>
 

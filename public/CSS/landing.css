@@ -25,14 +25,21 @@
 
 .hero{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     background-color: var(--fondoHeroSection);
     padding: 5% 0% 8%;
     text-align: center;
 }
 
-.hero > h1{
+.hero .hero-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.hero  h1{
     width: 100%;
     font-size: 3rem;
     color: var(--colorTexto);
@@ -43,12 +50,12 @@
     }
 }
 
-.hero > p{
+.hero  p{
     width: 90%;
     font-size: 1.1rem;
 }
 
-.hero > button{
+.hero  button{
     padding: 6px 10px;
     border: none;
     border-radius: 5px;
@@ -298,4 +305,10 @@
         font-weight: bold;
         color: var(--fondoBotones);
     }
+}
+
+@media screen and (min-width: 768px) {
+    
+
+    
 }
