@@ -2,23 +2,26 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 :root{
-    --negro: #010100; 
-    --blanco: #fefffe; 
-    --gris: #f2f4f7; 
-    --verde: #2ECC71; 
-    --logo: 'Lobster'; 
-    --titulos: 'Bebas Neue'; 
-    --no_titulos: 'Lato'; 
+    --logo:'Dancing Script'; 
+    --titulos: 'Bebas Neue';
+    --fondoBody: #fff; 
+    --colorTitulos: #010100;
+    --colorTitulos2: #fff; 
+    --colorTexto: #010100;
+    --colortexto2: #fff;
+    --fondoBotones: #2462EB; 
+    --fondoFooter: #111827; 
 }
 
 main{
+    padding: 20px 0px;
     background-image: url('../ASSETS/campo-futbol4.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 .form-container{
@@ -31,10 +34,9 @@ main{
 
 .form-container > h1{
     text-align: center;
-    font-family: var(--titulos);
     font-size: 2.5rem; 
     font-weight: 500;
-    color: var(--blanco);
+    color: var(--colortexto2);
 }
 
 .form-container .label-input{
@@ -45,21 +47,20 @@ main{
 
     label{
         margin: 1vw 0vw;
-        font-family: var(--no_titulos);
-        font-size: 1.4rem;
-        color: var(--blanco);
+        font-size: 1.2rem;
+        color: var(--colortexto2);
     }
 
     input{
-        padding: 12px 5px;
-        border: 2px solid var(--negro);
+        padding: 5px;
+        border: 1px solid var(--colorTexto);
         border-radius: 5px;
-        background-color: var(--blanco); 
+        background-color: var(--colortexto2); 
 
         &::placeholder{
             font-family: var(--no_titulos);
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
     }
 
@@ -67,14 +68,13 @@ main{
 
 .form-container .confirmar{
     margin: 2vw auto;
-    padding: 10px 30px;
+    padding: 7px 15px;
     border: none;
     border-radius: 5px;
-    background-color: var(--verde);
-    font-family: var(--no_titulos);
+    background-color: var(--fondoBotones);
     font-weight: bold;
-    font-size: 1.3rem;
-    color: var(--blanco);
+    font-size: 1rem;
+    color: var(--colortexto2);
     cursor: pointer;
 }
 

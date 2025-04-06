@@ -32,7 +32,7 @@ h1{
     font-size: 2.5rem;
 }
 
-h2,h3,p,a{
+h2,h3,p,a,label{
     font-family: 'Montserrat'; 
     font-weight: 400;
 }
