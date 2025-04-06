@@ -112,6 +112,10 @@
             }
         }
 
+        public function PyR() {
+            require __DIR__ . '/../views/PyR.php';
+        }
+
 
     }
 ?>

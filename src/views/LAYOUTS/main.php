@@ -39,8 +39,9 @@
 
             <section class="desplegable">
                 <a href="/TFG/modalidades" target="_self">Modalidades</a>
-                <a href="#" target="_self">Campos</a>
+                <a href="/TFG/camposDeportivos" target="_self">Campos</a>
                 <a href="#" target="_self">Contactanos</a>
+                <a href="/TFG/PyR" target="_self">Preguntas y respuestas</a>
             </section>
                 
         </nav>
@@ -80,5 +81,6 @@
 
 
         <script src="https://kit.fontawesome.com/bee72e8c16.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
