@@ -20,15 +20,19 @@
                 <article class="label-input">
                     <label for="">Nombre usuario</label>
                     <input type="text" name="username" id="username">
+                    <span class="userSpan">El nombre de usuario debe tener entre 3 y 15 caracteres</span>
                 </article>
+                
                 <article class="label-input">
                     <label for="">Correo</label>
-                    <input type="email" name="email" id="email">
+                    <input type="email" name="correo" id="email">
                 </article>
+
                 <article class="label-input">
                     <label for="">Contraseña</label>
                     <input type="password" name="paswd" id="passwd">
                 </article>
+
 
                 <article class="label-input">
                     <label for="">Telefono</label>
@@ -45,7 +49,7 @@
                     <input type="text" name="id_militar" id="id_milita">
                 </article>
 
-                <button type="submit" class="enviar">Registrar usuario</button>
+                <button type="submit" class="enviar disabled" disabled >Registrar usuario</button>
 
             </form>
 
