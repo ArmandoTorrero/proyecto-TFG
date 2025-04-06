@@ -77,12 +77,13 @@ main{
     border-radius: 5px;
     background-image: url('../ASSETS/campo-futbol.jpg');
     background-size: cover; 
+    background-position: center;
     background-repeat: no-repeat;
 }
 
 .campo h2{
     margin: 2% 0;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: var(--colorTexto);
 }
@@ -90,7 +91,7 @@ main{
 .campo p{
     width: 80%;
     margin: 2% 0;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--colorTexto);
 }
 
@@ -113,11 +114,17 @@ main{
 
 @media screen  and (min-width: 1200px){
 
+    main{
+        width: 80%;
+        margin: 0 auto;
+    }
+
     /*
     ---------------------------
     ----------CONTENT----------
     ---------------------------
     */
+    
 
     .content{
         flex-direction: row;
@@ -129,12 +136,10 @@ main{
         }
 
         h1{
-            font-size: 4rem;
+            font-size: 3rem;
         }
 
-        p{
-            font-size: 1.2rem;
-        }
+        
     }
 
     /*
@@ -142,5 +147,30 @@ main{
     ---------- CAMPOS -----------
     -----------------------------
     */
+
+
+    .campos{
+        flex-flow: row wrap;
+        justify-content: space-around;
+    }
+
+    .campo{
+        align-items: flex-start;
+        width: 30%;
+        text-align: left;
+
+        button{
+            transition: all 0.5s ease;
+
+            &:hover{
+                background-color: var(--fondoBotones);
+                
+                a{
+                    color: var(--colortexto2);
+                }
+            }
+        }
+        
+    }
 
 }
