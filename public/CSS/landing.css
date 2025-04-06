@@ -40,7 +40,6 @@
 }
 
 .hero  h1{
-    width: 100%;
     font-size: 3rem;
     color: var(--colorTexto);
 
@@ -56,14 +55,14 @@
 }
 
 .hero  button{
-    padding: 6px 10px;
+    padding: 4px 25px;
     border: none;
     border-radius: 5px;
     background-color: var(--fondoBotones);
 
     a{
         font-size: 1rem;
-        font-weight: bold;
+        font-weight: 500;
         color: var(--colortexto2);
     }
 }
@@ -308,7 +307,33 @@
 }
 
 @media screen and (min-width: 768px) {
-    
 
+    .hero{
+        justify-content: space-around;
+        text-align: left;
+        padding: 2% 0;
+    }
+    
+    .hero .hero-content{
+        width: 40%;
+        align-items: flex-start;
+    }
+
+    .hero-content h1{
+        font-size: 4rem;
+    }
+
+    .hero-content p{
+        text-align: left;
+    }
+
+    .hero .img{
+        width: 22.5%; 
+        height: 30vw;
+        border-radius: 5px;
+        background-image: url('../ASSETS/basket.webp');
+        background-size: cover;
+        background-position: center;
+    }
     
 }
