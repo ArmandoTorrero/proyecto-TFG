@@ -26,17 +26,20 @@
                 <article class="label-input">
                     <label for="">Correo</label>
                     <input type="email" name="correo" id="email">
+                    <span class="emailSpan">El email no es valido</span>
                 </article>
 
                 <article class="label-input">
                     <label for="">Contraseña</label>
-                    <input type="password" name="paswd" id="passwd">
+                    <input type="password" name="passwd" id="passwd">
+                    <span class="passwdSpan">La contraseña debe de tener minimo 5 caracteres</span>
                 </article>
 
 
                 <article class="label-input">
                     <label for="">Telefono</label>
                     <input type="text" name="tlf" id="tlf">
+                    <span class="tlfSpan">El numero de telefono debe de tener 9 numeros</span>
                 </article>
 
                 <article class="militar">
@@ -46,7 +49,7 @@
 
                 <article class="label-input" id="input-militar" >
                     <label for="">Escriba su codigo militar</label>
-                    <input type="text" name="id_militar" id="id_milita">
+                    <input type="text" name="id_militar" id="id_militar">
                 </article>
 
                 <button type="submit" class="enviar disabled" disabled >Registrar usuario</button>

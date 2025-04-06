@@ -12,27 +12,47 @@ class Validador {
         return document.querySelector(classSpan); 
     }
 
-    validarInput(input,regex,span) {
-
-        input.addEventListener("change", () => {
-            
-            if (regex.test(input.value)) {
-                input.style.borderColor = "green"; 
-                this.btn.disabled = false; 
-                this.btn.classList.remove("disabled"); 
-                span.style.opacity = 0; 
-                return 1; 
-            }else{
-                input.style.borderColor = "red";
-                this.btn.disabled = true; 
-                this.btn.classList.add("disabled");
-                span.style.opacity = 1; 
-                return -1; 
-                 
-            }
-            
-        });
+    validarInput(input, regex, span) {
+        if (regex.test(input.value)) {
+            input.style.borderColor = "green";
+            span.style.opacity = 0
+            this.btn.disabled = false;
+            this.btn.classList.remove("disabled");
+            input.dataset.validado = "true";  // << NUEVO
+        } else {
+            input.style.borderColor = "red";
+            span.style.opacity = 1
+            this.btn.disabled = true;
+            this.btn.classList.add("disabled");
+            input.dataset.validado = "false"; // << NUEVO
+        }
+    
+        this.comprobarInputs(); // << NUEVO
     }
+    
+    comprobarInputs() {
+        const inputs = document.querySelectorAll(".label-input input:not(#id_militar)");
+        let todosValidos = true;
+    
+        inputs.forEach(input => {
+            if (input.dataset.validado !== "true") {
+                todosValidos = false;
+            }
+        });
+    
+        if (todosValidos) {
+            console.log("validos");
+            
+            this.btn.disabled = false;
+            this.btn.classList.remove("disabled");
+        } else {
+            console.log("no validos");
+            
+            this.btn.disabled = true;
+            this.btn.classList.add("disabled");
+        }
+    }
+    
    
 }
 
