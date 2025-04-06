@@ -308,6 +308,12 @@
 
 @media screen and (min-width: 768px) {
 
+    /*
+    ------------------------
+    ----------HERO----------
+    ------------------------
+    */
+
     .hero{
         justify-content: space-around;
         text-align: left;
@@ -336,4 +342,44 @@
         background-position: center;
     }
     
+    /*
+    --------------------------------
+    ----------INFO SECTION----------
+    --------------------------------
+    */
+
+    .info{
+        padding: 3% 0%;
+    }
+
+    .info h1{
+        margin-bottom: 1%;
+    }
+
+    .info .descripcion{
+        margin-bottom: 0%;
+    }
+
+    .info .containers{
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+
+        .container{
+            width: 20%;
+            margin: 4% 2%;
+            transition: all 0.1s linear;
+
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+        
+    }
+
+    /*
+    ------------------------------------
+    ---------PISTAS DESTACADAS----------
+    ------------------------------------
+    */
 }
