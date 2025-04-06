@@ -1,0 +1,12 @@
+{
+    "name": "arman/tfg",
+    "description": "Proyecto TFG",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Armando Torrero Rebollar"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
