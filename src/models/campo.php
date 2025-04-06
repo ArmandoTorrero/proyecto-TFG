@@ -3,7 +3,7 @@
 
     class Campo extends EmptyModel{
         public function __construct() {
-            parent::__construct('campo'); 
+            parent::__construct('pista'); 
         }
     }
 ?>
