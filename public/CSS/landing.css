@@ -306,7 +306,7 @@
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1200px) {
 
     /*
     ------------------------
@@ -326,11 +326,18 @@
     }
 
     .hero-content h1{
-        font-size: 4rem;
+        font-size: 3.5rem;
     }
 
     .hero-content p{
         text-align: left;
+    }
+
+    .hero button{
+        transition: all 0.2s ease;
+            &:hover{
+                background-color: #0035a7;
+            }
     }
 
     .hero .img{

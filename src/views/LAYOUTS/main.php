@@ -25,7 +25,7 @@
             <a href="/TFG/" class="logo">CampoLibre</a>
 
             <article class="nav-links">
-                <a href="#" target="_self">Modalidades</a>
+                <a href="/TFG/modalidades" target="_self">Modalidades</a>
                 <a href="#" target="_self">Campos</a>
                 <a href="#" target="_self">Contactanos</a>
             </article>
