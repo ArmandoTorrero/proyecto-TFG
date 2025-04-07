@@ -1,6 +1,7 @@
-<?php 
+<?php
+    require_once __DIR__ . '/../../vendor/autoload.php';  
     require_once __DIR__ . '/../models/usuario.php';
-    require_once __DIR__ . '/../../core/utilities/validator.php';
+    use Core\utilities\Validador; 
     
 
     class UsuariosController{
@@ -44,36 +45,40 @@
         public function create() { 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') { // comprobamos que se envian cosas por POST 
     
-                // creacion de variables para hacer comprobaciones 
+                // Creacion de variables para hacer comprobaciones 
                 $encontrado = false; 
-                $valido = false; 
+                $valido = false;
+                
+                $valido = Validador::validarRegistrousuario($_POST["username"],$_POST["correo"],$_POST["passwd"],$_POST["tlf"]); 
+
+                echo $valido ? "Credenciales correctas" : "Las credenciales no son correctas"; 
     
-                if (Validador::validarEmail($_POST['correo']) && Validador::validarPassword($_POST['password']) ) {
-                    $valido = true; // si los parametros de la condicion estan correctos significa que son validos 
+                // if (Validador::validarEmail($_POST['correo']) && Validador::validarPassword($_POST['password']) ) {
+                //     $valido = true; // si los parametros de la condicion estan correctos significa que son validos 
     
-                    foreach ($this->usuariosModel->getAll() as $usuario) { // recorremos los usuarios de la base de datos para comprobar si el usuario ya existe 
-                        $encontrado = ($usuario['nombre'] == $_POST['nombre'] || $usuario['email'] == $_POST['correo']) ? true : false; 
-                        if ($encontrado){ // en caso de que el usuario ya exista se lo notificamos al usuario
-                            echo "El usuario ya se encuentra registrado en la base de datos";
-                            break; 
-                        }
+                //     foreach ($this->usuariosModel->getAll() as $usuario) { // recorremos los usuarios de la base de datos para comprobar si el usuario ya existe 
+                //         $encontrado = ($usuario['nombre'] == $_POST['nombre'] || $usuario['email'] == $_POST['correo']) ? true : false; 
+                //         if ($encontrado){ // en caso de que el usuario ya exista se lo notificamos al usuario
+                //             echo "El usuario ya se encuentra registrado en la base de datos";
+                //             break; 
+                //         }
                          
-                    }
+                //     }
     
-                    if (!$encontrado && $valido) { // si el usuario no existe y los datos son validos creamos el usuario en la base de datos y redirigimos al usuario a su perfil
-                        session_start(); // iniciamos una sesion con su nombre, otra para verificar que se ha logueado y su id de usuario
-                        $_SESSION['logueado'] = true; 
-                        $_SESSION['nombre-usuario'] = $_POST['nombre']; 
-                        $_SESSION['usuario-id'] = $this->usuariosModel->create(
-                            [
-                                'nombre' => $_POST['nombre'],
-                                'email' => $_POST['correo'],
-                                'passwd' => $_POST['password'],
-                            ]
-                        );
-                        header('Location: '); // redirijimos al usuario a 
-                    }
-                }            
+                //     if (!$encontrado && $valido) { // si el usuario no existe y los datos son validos creamos el usuario en la base de datos y redirigimos al usuario a su perfil
+                //         session_start(); // iniciamos una sesion con su nombre, otra para verificar que se ha logueado y su id de usuario
+                //         $_SESSION['logueado'] = true; 
+                //         $_SESSION['nombre-usuario'] = $_POST['nombre']; 
+                //         $_SESSION['usuario-id'] = $this->usuariosModel->create(
+                //             [
+                //                 'nombre' => $_POST['nombre'],
+                //                 'email' => $_POST['correo'],
+                //                 'passwd' => $_POST['password'],
+                //             ]
+                //         );
+                //         header('Location: '); // redirijimos al usuario a 
+                //     }
+                // }            
     
             } else { // si no se reciben cosas por POST mostramos el formulario
                 require __DIR__ . '/../views/registro.php'; 

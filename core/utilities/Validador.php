@@ -1,4 +1,6 @@
 <?php
+
+    namespace Core\utilities; 
     class Validador{
 
         public static function validarNombre($nombre) {
@@ -79,15 +81,12 @@
         }
 
 
-        public static function existeUsuario($array_usuarios, $userName, $correo) {
+        public static function existeUsuario($array_usuarios, $correo) {
             $encontrado = false; 
 
             foreach ($array_usuarios as $usuario) {
-                $encontrado = ($usuario['nombre'] == $userName || $usuario['email'] == $correo) ? true : false; 
-                if ($encontrado){ // en caso de que el usuario ya exista se lo notificamos al usuario
-                    return $encontrado; 
-                    break; 
-                }
+                return $usuario['email'] == $correo ? true : false; 
+                
             }
         }
 

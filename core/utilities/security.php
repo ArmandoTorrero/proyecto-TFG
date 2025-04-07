@@ -1,4 +1,6 @@
 <?php
+
+    namespace Core\Utilities;
     class Security{
         
         public static function comprobarInactividad() { // funcion para comprobar la inactividad de un usuario
