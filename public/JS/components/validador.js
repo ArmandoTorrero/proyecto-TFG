@@ -13,6 +13,7 @@ class Validador {
     }
 
     validarInput(input, regex, span) {
+
         if (regex.test(input.value)) {
             input.style.borderColor = "green";
             span.style.opacity = 0
@@ -31,29 +32,28 @@ class Validador {
     }
     
     comprobarInputs() {
+
         const inputs = document.querySelectorAll(".label-input input:not(#id_militar)");
+
         let todosValidos = true;
-    
+            
         inputs.forEach(input => {
             if (input.dataset.validado !== "true") {
                 todosValidos = false;
             }
         });
-    
-        if (todosValidos) {
-            console.log("validos");
             
+        if (todosValidos) {            
             this.btn.disabled = false;
             this.btn.classList.remove("disabled");
+            return true
         } else {
-            console.log("no validos");
-            
             this.btn.disabled = true;
             this.btn.classList.add("disabled");
+            return false; 
         }
     }
-    
-   
+
 }
 
 export default Validador; 

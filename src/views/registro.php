@@ -50,9 +50,10 @@
                 <article class="label-input" id="input-militar" >
                     <label for="">Escriba su codigo militar</label>
                     <input type="text" name="id_militar" id="id_militar">
+                    <span class="militarSpan">Identificacion incorrecta</span>
                 </article>
 
-                <button type="submit" class="enviar disabled" disabled >Registrar usuario</button>
+                <button type="submit" class="enviar disabled">Registrar usuario</button>
 
             </form>
 
