@@ -2,6 +2,7 @@
     require_once __DIR__ . '/../../vendor/autoload.php';  
     require_once __DIR__ . '/../models/usuario.php';
     use Core\utilities\Validador; 
+    use Core\utilities\Sessions; 
     
 
     class UsuariosController{
@@ -45,40 +46,29 @@
         public function create() { 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') { // comprobamos que se envian cosas por POST 
     
-                // Creacion de variables para hacer comprobaciones 
-                $encontrado = false; 
-                $valido = false;
                 
+                // guardamos las comprobaciones en variables
                 $valido = Validador::validarRegistrousuario($_POST["username"],$_POST["correo"],$_POST["passwd"],$_POST["tlf"]); 
+                $encontrado = Validador::existeUsuario($this->usuariosModel->getAll(),$_POST["correo"]);
+                
+                // si ambas comprobaciones son correctas creamos las sesiones y creamos el usuario
+                 if ($valido && !$encontrado) {
+                    Sessions::crearSesionLogueado(); 
+                    Sessions::crearSesionUsername($_POST["username"]); 
+                    Sessions::crearSesionIdUsuario($this->usuariosModel->create(
+                        [
+                            'nombre' => $_POST["username"], 
+                            'email' => $_POST["correo"],
+                            'passwd' => $_POST["passwd"], 
+                            'tlf' => $_POST["tlf"],
+                            'codigo_militar' => $_POST["id_militar"] ?? '', 
+                            'rol_id' => 1
+                        ]
+                    )); 
 
-                echo $valido ? "Credenciales correctas" : "Las credenciales no son correctas"; 
-    
-                // if (Validador::validarEmail($_POST['correo']) && Validador::validarPassword($_POST['password']) ) {
-                //     $valido = true; // si los parametros de la condicion estan correctos significa que son validos 
-    
-                //     foreach ($this->usuariosModel->getAll() as $usuario) { // recorremos los usuarios de la base de datos para comprobar si el usuario ya existe 
-                //         $encontrado = ($usuario['nombre'] == $_POST['nombre'] || $usuario['email'] == $_POST['correo']) ? true : false; 
-                //         if ($encontrado){ // en caso de que el usuario ya exista se lo notificamos al usuario
-                //             echo "El usuario ya se encuentra registrado en la base de datos";
-                //             break; 
-                //         }
-                         
-                //     }
-    
-                //     if (!$encontrado && $valido) { // si el usuario no existe y los datos son validos creamos el usuario en la base de datos y redirigimos al usuario a su perfil
-                //         session_start(); // iniciamos una sesion con su nombre, otra para verificar que se ha logueado y su id de usuario
-                //         $_SESSION['logueado'] = true; 
-                //         $_SESSION['nombre-usuario'] = $_POST['nombre']; 
-                //         $_SESSION['usuario-id'] = $this->usuariosModel->create(
-                //             [
-                //                 'nombre' => $_POST['nombre'],
-                //                 'email' => $_POST['correo'],
-                //                 'passwd' => $_POST['password'],
-                //             ]
-                //         );
-                //         header('Location: '); // redirijimos al usuario a 
-                //     }
-                // }            
+                    header('Location: /TFG/perfil'); 
+                 }
+                          
     
             } else { // si no se reciben cosas por POST mostramos el formulario
                 require __DIR__ . '/../views/registro.php'; 

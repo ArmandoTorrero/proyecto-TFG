@@ -1,8 +1,8 @@
 <?php  
-    ob_start(); 
+    ob_start();
+    echo $_SESSION["nombre_usuario"];  
 ?>
 
-hola
 
 <?php 
     $content = ob_get_clean(); 

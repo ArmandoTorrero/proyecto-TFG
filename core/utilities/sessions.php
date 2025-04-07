@@ -5,19 +5,19 @@
 
 
         public static function crearSesionLogueado()   {
-            return $_SESSION['logueado'] = true; 
+            $_SESSION['logueado'] = true; 
         }
 
         public static function crearSesionUsername($username) {
-            return $_SESSION['nombre-usuario'] = $username; 
+            $_SESSION['nombre_usuario'] = $username; 
         }
 
         public static function crearSesionRol($id_rol) {
-            return $_SESSION['rol'] = $id_rol; 
+            $_SESSION['rol'] = $id_rol; 
         }
 
-        public function crearSesionIdUsuario($id) {
-            return $_SESSION['id_usuario'] = $id; 
+        public static function crearSesionIdUsuario($id) {
+            $_SESSION['id_usuario'] = $id; 
         }
     }
 

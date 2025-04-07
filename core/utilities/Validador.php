@@ -86,7 +86,7 @@
 
             foreach ($array_usuarios as $usuario) {
                 return $usuario['email'] == $correo ? true : false; 
-                
+                break; 
             }
         }
 
