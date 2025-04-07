@@ -1,5 +1,23 @@
 <?php
     class Validador{
+
+        public static function validarNombre($nombre) {
+            $patter_nombre = '/^[a-zA-Z0-9]{3,15}$/'; 
+
+            if (empty($nombre)) {
+                echo "El nombre no puede estar vacio"; 
+                return false; 
+            }else {
+                if (!preg_match($patter_nombre, $nombre)) {
+                    echo "El nombre debe de tener entre 3 y 15 caracteres"; 
+                    return false; 
+                }else {
+                    return true; 
+                }
+            }
+        }
+
+
         public static function validarEmail($correo) { // funcion para validar email
             if (empty($correo)) {
                 echo "el email no puede estar vacio"; 
@@ -27,7 +45,6 @@
                     return true; 
                 }
             }
-            
         }
 
         public static function validarTelefono($n_telefono) {
@@ -56,6 +73,23 @@
             }
         }
 
+
+        public static function validarRegistrousuario($userName,$correo,$password,$telefono) {
+            return (self::validarNombre($userName) && self::validarEmail($correo) && self::validarPassword($password) && self::validarTelefono($telefono)); 
+        }
+
+
+        public static function existeUsuario($array_usuarios, $userName, $correo) {
+            $encontrado = false; 
+
+            foreach ($array_usuarios as $usuario) {
+                $encontrado = ($usuario['nombre'] == $userName || $usuario['email'] == $correo) ? true : false; 
+                if ($encontrado){ // en caso de que el usuario ya exista se lo notificamos al usuario
+                    return $encontrado; 
+                    break; 
+                }
+            }
+        }
 
 
     }

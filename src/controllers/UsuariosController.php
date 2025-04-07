@@ -1,6 +1,6 @@
 <?php 
     require_once __DIR__ . '/../models/usuario.php';
-    require_once __DIR__ . '/../../core/validator.php';
+    require_once __DIR__ . '/../../core/utilities/validator.php';
     
 
     class UsuariosController{
@@ -64,7 +64,6 @@
                         session_start(); // iniciamos una sesion con su nombre, otra para verificar que se ha logueado y su id de usuario
                         $_SESSION['logueado'] = true; 
                         $_SESSION['nombre-usuario'] = $_POST['nombre']; 
-                        $_SESSION['rol'] = $_POST['id_perfil']; 
                         $_SESSION['usuario-id'] = $this->usuariosModel->create(
                             [
                                 'nombre' => $_POST['nombre'],
@@ -72,7 +71,7 @@
                                 'passwd' => $_POST['password'],
                             ]
                         );
-                        header('Location: '); // redirijimos al usuario a la landing page
+                        header('Location: '); // redirijimos al usuario a 
                     }
                 }            
     
@@ -115,6 +114,12 @@
         public function PyR() {
             require __DIR__ . '/../views/PyR.php';
         }
+
+        public function perfil() {
+            require __DIR__ . '/../views/perfil_usuario.php';
+        }
+
+        
 
 
     }

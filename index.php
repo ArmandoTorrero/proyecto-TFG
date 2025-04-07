@@ -9,6 +9,7 @@
     $router->add('/registro','UsuariosController@create'); 
     $router->add('/login','UsuariosController@login'); 
     $router->add('/PyR','UsuariosController@PyR');
+    $router->add('/perfil', 'UsuariosController@perfil'); 
 
     $router->add('/pagarCampo','ReservasController@pagarCampo'); 
 
