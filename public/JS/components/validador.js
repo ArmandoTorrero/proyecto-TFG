@@ -19,34 +19,42 @@ class Validador {
             span.style.opacity = 0
             this.btn.disabled = false;
             this.btn.classList.remove("disabled");
-            input.dataset.validado = "true";  // << NUEVO
+            input.dataset.validado = "true";  
         } else {
             input.style.borderColor = "red";
             span.style.opacity = 1
             this.btn.disabled = true;
             this.btn.classList.add("disabled");
-            input.dataset.validado = "false"; // << NUEVO
+            input.dataset.validado = "false"; 
         }
     
-        this.comprobarInputs(); // << NUEVO
+        this.comprobarInputs(); 
     }
     
-    comprobarInputs() {
-
+    comprobarInputs(checkboxMarcado = false) {
         const inputs = document.querySelectorAll(".label-input input:not(#id_militar)");
-
+        const inputMilitar = document.getElementById("id_militar");
+        
         let todosValidos = true;
-            
+        
+        // Verificar inputs regulares
         inputs.forEach(input => {
             if (input.dataset.validado !== "true") {
                 todosValidos = false;
             }
         });
-            
+        
+        // Si el checkbox está marcado, verificar también el input militar
+        if (checkboxMarcado) {
+            if (inputMilitar.dataset.validado !== "true") {
+                todosValidos = false;
+            }
+        }
+        
         if (todosValidos) {            
             this.btn.disabled = false;
             this.btn.classList.remove("disabled");
-            return true
+            return true;
         } else {
             this.btn.disabled = true;
             this.btn.classList.add("disabled");

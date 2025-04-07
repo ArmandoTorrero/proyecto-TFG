@@ -53,7 +53,7 @@
                     <span class="militarSpan">Identificacion incorrecta</span>
                 </article>
 
-                <button type="submit" class="enviar disabled">Registrar usuario</button>
+                <button type="submit" class="enviar disabled" disabled >Registrar usuario</button>
 
             </form>
 
