@@ -48,7 +48,7 @@
     
                 
                 // guardamos las comprobaciones en variables
-                $valido = Validador::validarRegistrousuario($_POST["username"],$_POST["correo"],$_POST["passwd"],$_POST["tlf"]); 
+                $valido = Validador::validarRegistroUsuario($_POST["username"],$_POST["correo"],$_POST["passwd"],$_POST["tlf"]); 
                 $encontrado = Validador::existeUsuario($this->usuariosModel->getAll(),$_POST["correo"]);
                 
                 // si ambas comprobaciones son correctas creamos las sesiones y creamos el usuario
@@ -82,25 +82,27 @@
          */
         public function login() { 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
                 // comprobamos que el email y la contraseña son validos
-                if (Validador::validarEmail($_POST['correo']) && Validador::validarPassword($_POST['password'])) { 
+                // if (Validador::validarEmail($_POST['correo']) && Validador::validarPassword($_POST['password'])) { 
     
-                    // comprobamos que el usuario este en la base de datos 
-                    foreach ($this->usuariosModel->getAll() as $usuario) {
-                        $encontrado = ($usuario['email'] == $_POST['correo'] && $usuario['password'] == $_POST['password']) ? true : false; // variable para comprobar que el usuario existe
-                        if ($encontrado) { // si el usuario existe iniciamos una sesion con su nombre, otra para verificar que se ha logueado y su id de usuario
-                            session_start(); 
-                            $_SESSION['logueado'] = true; 
-                            $_SESSION['usuario-id'] = $usuario['id']; 
-                            $_SESSION['nombre-usuario'] = $usuario['nombre'];
-                            $_SESSION['rol'] = $usuario['id_perfil']; 
-                            header('Location: '); // redirijimos al usuario a la landing page
-                            exit; 
-                        }
-                    }
+                //     // comprobamos que el usuario este en la base de datos 
+                //     foreach ($this->usuariosModel->getAll() as $usuario) {
+                //         $encontrado = ($usuario['email'] == $_POST['correo'] && $usuario['password'] == $_POST['password']) ? true : false; // variable para comprobar que el usuario existe
+                //         if ($encontrado) { // si el usuario existe iniciamos una sesion con su nombre, otra para verificar que se ha logueado y su id de usuario
+                //             session_start(); 
+                //             $_SESSION['logueado'] = true; 
+                //             $_SESSION['usuario-id'] = $usuario['id']; 
+                //             $_SESSION['nombre-usuario'] = $usuario['nombre'];
+                //             $_SESSION['rol'] = $usuario['id_perfil']; 
+                //             header('Location: '); // redirijimos al usuario a la landing page
+                //             exit; 
+                //         }
+                //     }
     
-                    echo "Credenciales incorrectas" ?? ''; 
-                }
+                //     echo "Credenciales incorrectas" ?? ''; 
+                // }
             }else {
                 require __DIR__ . '/../views/login.php'; 
             }

@@ -76,8 +76,12 @@
         }
 
 
-        public static function validarRegistrousuario($userName,$correo,$password,$telefono) {
+        public static function validarRegistroUsuario($userName,$correo,$password,$telefono) {
             return (self::validarNombre($userName) && self::validarEmail($correo) && self::validarPassword($password) && self::validarTelefono($telefono)); 
+        }
+
+        public static function validarLoginUsuario($correo,$password) {
+            return (self::validarEmail($correo) && self::validarPassword($password)); 
         }
 
 

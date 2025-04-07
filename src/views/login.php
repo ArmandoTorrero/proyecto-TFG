@@ -20,7 +20,8 @@
 
                 <article class="label-input">
                     <label for="">Correo</label>
-                    <input type="email" name="email" id="email">
+                    <input type="email" name="correo" id="correo">
+                    <span class="emailSpan">El email no es valido</span>
                 </article>
                 <article class="label-input">
                     <article class="passwd">
@@ -28,9 +29,10 @@
                         <a href="#" target="_self" >¿Olvidaste la contraseña?</a>
                     </article>
                     <input type="password" name="paswd" id="passwd">
+                    <span class="passwdSpan">La contraseña debe de tener minimo 5 caracteres</span>
                 </article>
 
-                <button type="submit" class="enviar">Iniciar sesión</button>
+                <button type="submit" class="enviar disabled" disabled >Iniciar sesión</button>
 
             </form>
 
@@ -49,6 +51,8 @@
             </button>
         </section>
     </main>
+
+    <script type="module" src="public/JS/login.js"></script>
 
 <?php 
     $content = ob_get_clean(); 

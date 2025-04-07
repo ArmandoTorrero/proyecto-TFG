@@ -187,3 +187,11 @@ form{
     
 }
 
+.verde{
+    border: 1px solid green;
+}
+
+.rojo{
+    border: 1px solid red;
+}
+
