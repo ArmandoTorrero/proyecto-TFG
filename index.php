@@ -12,12 +12,12 @@
     $router->add('/perfil', 'UsuariosController@perfil'); 
     $router->add('/logueado','UsuariosController@estaLogueado'); 
 
-    $router->add('/pagarCampo','ReservasController@pagarCampo'); 
-
     $router->add('/modalidades','CamposController@modalidades'); 
     $router->add('/camposDeportivos', 'CamposController@index'); 
     $router->add('/reservarCampo','CamposController@reservarCampo'); 
-    $router->add('/horarios', 'CamposController@mandarHorarios'); 
+    $router->add('/pagarCampo','ReservasController@pagarCampo'); 
+    $router->add('/horarios', 'CamposController@mandarHorarios');
+    $router->add('/getCampos', 'CamposController@getCampos');  
 
     $requestUri = isset($_GET['url']) ? '/' . trim($_GET['url'], '/') : '/';
 // Simulación de petición

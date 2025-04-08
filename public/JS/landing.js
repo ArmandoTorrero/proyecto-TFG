@@ -29,5 +29,6 @@ logueado().then((data) => {
     modificarLandingPage(data.rol)
     
 }).catch((err) => {
+    console.log(err);
     
 });

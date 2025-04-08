@@ -27,8 +27,11 @@
          */
         public function reservarCampo() {
             require __DIR__ . '/../views/reservarCampo.php';
-             
-            
+        }
+
+        public function getCampos() {
+            $campos = ['campos' => $this->campoModel->getAll()]; 
+            echo json_encode($campos); 
         }
 
         /**
