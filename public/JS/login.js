@@ -1,50 +1,70 @@
 import Validador from "./components/validador";
 
-function validarInput(input,span,button,regex) {
-    let inputsValidados = 0; 
-
-    input.addEventListener("input", () => {
+function validarInput(input,span,regex) {
+    
         if (regex.test(input.value)) {
             input.style.borderColor = "green"; 
             span.style.opacity = 0; 
-            (inputsValidados == 0 || inputsValidados == 1) ? inputsValidados++ : ''
-            if (inputsValidados == 2) {
-                button.disabled = false; 
-                button.classList.remove("disabled")
-            }
-            console.log(inputsValidados);
+            return true; 
             
         }else{
             input.style.borderColor = "red"; 
             span.style.opacity = 1; 
-            inputsValidados == 0 ? inputsValidados = 0 : inputsValidados--; 
-            button.classList.add("disabled")
-    
-            console.log(inputsValidados);
+            return false; 
             
         }
-    })
     
 }
 
+let inputsValidados = 0; 
 
 document.addEventListener("DOMContentLoaded", ()=>{
     const buttonSubmit = document.querySelector(".enviar");
 
-    // validar el email 
+    // recogemos el input y el span del email
     const inputEmail = document.getElementById("correo")
     const spanEmail = document.querySelector(".emailSpan")
     let emailRegex = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/; 
 
-    validarInput(inputEmail,spanEmail,buttonSubmit,emailRegex)
 
-
-    // validar contraseña
+    // recogemos el input y el span de la contraseña
     const inputPasswd = document.getElementById("passwd")
     const spanPasswd = document.querySelector(".passwdSpan")
     let passwdRegex = /^.{5,}$/; 
 
-    validarInput(inputPasswd,spanPasswd,buttonSubmit,passwdRegex); 
+
+    // variables para comprobar si estan validados los inputs
+    let emailValidado = false; 
+    let passwdValidada = false; 
+
+    // evento para el email para comprobar si esta validado y poder activar el boton 
+    inputEmail.addEventListener("input", () => {
+        emailValidado = validarInput(inputEmail,spanEmail,emailRegex); 
+        
+        if (emailValidado && passwdValidada) {
+            buttonSubmit.disabled = false; 
+            buttonSubmit.classList.remove("disabled"); 
+        }else{
+            buttonSubmit.disabled = true; 
+            buttonSubmit.classList.add("disabled");
+        }
+    })
+
+    // evento para el password  para comprobar si esta validado y poder activar el boton 
+    inputPasswd.addEventListener("input", () => {
+        passwdValidada = validarInput(inputPasswd,spanPasswd,passwdRegex);  
+        
+        
+        if (emailValidado && passwdValidada) {
+            buttonSubmit.disabled = false; 
+            buttonSubmit.classList.remove("disabled"); 
+        }else{
+            buttonSubmit.disabled = true; 
+            buttonSubmit.classList.add("disabled");
+        }
+    })
+
+    
 })
 
 

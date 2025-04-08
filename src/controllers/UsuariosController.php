@@ -78,6 +78,7 @@
                     )); 
 
                     header('Location: /TFG/perfil'); 
+                    exit(); 
                  }
 
                  echo "Este usuario ya esta registrado"; 
@@ -105,6 +106,8 @@
                         $_POST["passwd"]
                     ); 
                 }
+
+                echo !$encontrado ? 'Usuario no encontrado' : ''; 
 
 
                 // comprobamos que el email y la contraseña son validos
