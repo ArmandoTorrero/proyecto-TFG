@@ -19,7 +19,8 @@
 
 .campos-container{
     display: flex;
-    flex-direction: column;
+    flex-flow: column wrap;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -121,6 +122,10 @@
 }
 
 @media screen and (min-width: 1200px){
+
+    .campos-container{
+        flex-flow: row wrap;
+    }
 
     .campo{
         width: 25%;

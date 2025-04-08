@@ -1,6 +1,6 @@
 <?php 
     require_once __DIR__ . '/../models/campo.php';
-
+    use Core\utilities\Sessions; 
     class CamposController{
         private $campoModel; 
 
@@ -16,7 +16,10 @@
             require __DIR__ . '/../views/camposDeportivos.php';
         }
 
-
+        /**
+         * Funcion para mostrar la vista de las diferentes modalidades que hay
+         * @return void
+         */
         public function modalidades() {
             require __DIR__ . '/../views/modalidades.php';
         }
@@ -26,9 +29,16 @@
          * @return void
          */
         public function reservarCampo() {
+            // Sessions::crearSesionIdCampo($_GET["id_campo"] ?? ''); 
+            $_SESSION["id_campo"] = $_GET["id_campo"]; 
+
             require __DIR__ . '/../views/reservarCampo.php';
         }
 
+        /**
+         * Funcion para enviar al JS todos los campos de la BBDD
+         * @return void
+         */
         public function getCampos() {
             $campos = ['campos' => $this->campoModel->getAll()]; 
             echo json_encode($campos); 

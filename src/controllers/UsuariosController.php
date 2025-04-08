@@ -4,7 +4,6 @@
     use Core\utilities\Validador; 
     use Core\utilities\Sessions; 
     use Core\Utilities\Security;
-use Random\Engine\Secure;
 
     class UsuariosController{
         private $usuariosModel; 

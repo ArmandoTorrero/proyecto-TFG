@@ -26,7 +26,7 @@
 
             <article class="nav-links">
                 <a href="/TFG/modalidades" target="_self">Modalidades</a>
-                <a href="#" target="_self">Campos</a>
+                <a href="/TFG/camposDeportivos" target="_self">Campos</a>
                 <a href="#" target="_self">Contactanos</a>
             </article>
 

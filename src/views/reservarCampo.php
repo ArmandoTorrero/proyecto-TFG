@@ -1,5 +1,6 @@
 <?php  
     ob_start(); 
+    echo $_SESSION["id_campo"]; 
 ?>
     <head>
         <link rel="stylesheet" href="public/CSS/reservarCampo.css">

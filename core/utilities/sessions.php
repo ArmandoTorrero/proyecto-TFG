@@ -2,8 +2,6 @@
 
     namespace Core\utilities;   
     class Sessions{
-
-
         public static function crearSesionLogueado()   {
             $_SESSION['logueado'] = true; 
         }
@@ -18,6 +16,10 @@
 
         public static function crearSesionIdUsuario($id) {
             $_SESSION['id_usuario'] = $id; 
+        }
+
+        public static function crearSesionIdCampo($id) {
+            $_SESSION['id_campo'] = $id;  
         }
     }
 

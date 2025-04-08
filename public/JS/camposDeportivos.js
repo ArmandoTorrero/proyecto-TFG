@@ -14,7 +14,7 @@ async function getCampos() {
     
 }
 
-function cartaCampo(nombre,precio,disponible) {
+function cartaCampo(id,nombre,precio,disponible) {
     // creamos la carta
     let card = document.createElement("article"); 
     card.classList.add("campo"); 
@@ -41,7 +41,7 @@ function cartaCampo(nombre,precio,disponible) {
     // creamos el boton y el enalce
     let button = document.createElement("button"); 
     let enlace = document.createElement("a"); 
-    enlace.href = "https://www.youtube.com/"; 
+    enlace.href = `/TFG/reservarCampo?id_campo=${id}`; // pasamos por parametro el id del campo para poder trabajar con sus horarios en su pagina
     enlace.target = "_self";
     enlace.textContent = "Reservar"
 
@@ -61,8 +61,10 @@ function cartaCampo(nombre,precio,disponible) {
 
 getCampos().then(array_campos => {
     array_campos.forEach(campo => {
+        console.log(campo);
+        
         const camposContainer = document.querySelector(".campos-container"); 
-        camposContainer.appendChild(cartaCampo(campo.nombre, campo.precio_hora, campo.disponible))
+        camposContainer.appendChild(cartaCampo(campo.id,campo.nombre, campo.precio_hora, campo.disponible))
     });
     
 })
