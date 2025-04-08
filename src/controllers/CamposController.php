@@ -1,11 +1,14 @@
 <?php 
-    require_once __DIR__ . '/../models/campo.php';
     use Core\utilities\Sessions; 
+    require_once __DIR__ . '/../models/campo.php';
+    require_once __DIR__ . '/../models/franja_horaria.php';  
     class CamposController{
         private $campoModel; 
+        private $franjaHorariaModel; 
 
         public function __construct(){
             $this->campoModel = new Campo();
+            $this->franjaHorariaModel = new FranjaHoraria(); 
         }
 
         /**
@@ -49,9 +52,8 @@
          * @return void
          */
         public function mandarHorarios() {
-            $horarios = ['16:00', '17:00', '18:00'];  
-
-            echo json_encode($horarios); 
+            $horarios = $this->franjaHorariaModel->getHorariosById($_SESSION["id_campo"]); 
+            echo json_encode($horarios);
         }
 
     }

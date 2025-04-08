@@ -77,3 +77,37 @@
     
 }
 
+@media screen and (min-width: 1200px){
+
+    .reservar{
+        display: flex;
+    }
+
+    .img{
+        width: 50%;
+        height: 80vh;
+        background-image: url('../ASSETS/pista-atletismo.jpeg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .content{
+        justify-content: space-evenly;
+        width: 50%;
+    }
+
+    .content h1{
+        margin: 0;
+    }
+
+    .content select{
+        margin: 0;
+    }
+
+    .content .horarios{
+        width: 50%;
+        margin: 0;
+
+    }
+}
+
