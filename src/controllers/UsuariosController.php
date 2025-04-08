@@ -48,18 +48,29 @@
     
                 
                 // guardamos las comprobaciones en variables
-                $valido = Validador::validarRegistroUsuario($_POST["username"],$_POST["correo"],$_POST["passwd"],$_POST["tlf"]); 
-                $encontrado = Validador::existeUsuario($this->usuariosModel->getAll(),$_POST["correo"]);
+                $camposValidados = Validador::validarCamposRegistroUsuario(
+                    $_POST["username"],
+                    $_POST["correo"],
+                    $_POST["passwd"],
+                    $_POST["tlf"]
+                );
+                
+                
+                $usuarioEncontrado = Validador::existelUsuarioRegistro(
+                    $this->usuariosModel->getAll(),
+                    $_POST["correo"],
+                    $_POST["username"]
+                );
                 
                 // si ambas comprobaciones son correctas creamos las sesiones y creamos el usuario
-                 if ($valido && !$encontrado) {
+                 if ($camposValidados && !$usuarioEncontrado) {
                     Sessions::crearSesionLogueado(); 
                     Sessions::crearSesionUsername($_POST["username"]); 
                     Sessions::crearSesionIdUsuario($this->usuariosModel->create(
                         [
                             'nombre' => $_POST["username"], 
                             'email' => $_POST["correo"],
-                            'passwd' => $_POST["passwd"], 
+                            'passwd' => password_hash($_POST["passwd"], PASSWORD_DEFAULT), 
                             'tlf' => $_POST["tlf"],
                             'codigo_militar' => $_POST["id_militar"] ?? '', 
                             'rol_id' => 1
@@ -68,6 +79,8 @@
 
                     header('Location: /TFG/perfil'); 
                  }
+
+                 echo "Este usuario ya esta registrado"; 
                           
     
             } else { // si no se reciben cosas por POST mostramos el formulario
@@ -82,6 +95,16 @@
          */
         public function login() { 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+                $camposValidados = Validador::validarCamposLoginUsuario($_POST["correo"], $_POST["passwd"]); 
+
+                if ($camposValidados) {
+                    $encontrado = Validador::existeUsuarioLogin(
+                        $this->usuariosModel->getAll(), 
+                        $_POST["correo"], 
+                        $_POST["passwd"]
+                    ); 
+                }
 
 
                 // comprobamos que el email y la contraseña son validos

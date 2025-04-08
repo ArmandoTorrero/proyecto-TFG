@@ -1,6 +1,7 @@
 <?php
 
     namespace Core\utilities; 
+    use Core\utilities\Sessions; 
     class Validador{
 
         public static function validarNombre($nombre) {
@@ -75,23 +76,46 @@
             }
         }
 
+        public static function validarHash($password, $password_hash) {
+            return password_verify($password,$password_hash); 
+        }
 
-        public static function validarRegistroUsuario($userName,$correo,$password,$telefono) {
+
+        public static function validarCamposRegistroUsuario($userName,$correo,$password,$telefono) {
             return (self::validarNombre($userName) && self::validarEmail($correo) && self::validarPassword($password) && self::validarTelefono($telefono)); 
         }
 
-        public static function validarLoginUsuario($correo,$password) {
+        public static function validarCamposLoginUsuario($correo,$password) {
             return (self::validarEmail($correo) && self::validarPassword($password)); 
         }
 
 
-        public static function existeUsuario($array_usuarios, $correo) {
-            $encontrado = false; 
-
+        public static function existelUsuarioRegistro(array $array_usuarios, string $correo, string $userName): bool {
             foreach ($array_usuarios as $usuario) {
-                return $usuario['email'] == $correo ? true : false; 
-                break; 
+                if ($usuario['email'] === $correo) {
+                    echo 'Este correo ya existe en la base de datos'; 
+                    return true; // Email duplicado.
+                }
+                if ($usuario['nombre'] === $userName) {
+                    echo "Este nombre de usuario ya existe en la base de datos"; 
+                    return true; // Nombre de usuario duplicado.
+                }
             }
+            return false;
+        }
+
+        public static function existeUsuarioLogin($array_usuarios,$correo,$password) {
+            foreach ($array_usuarios as $usuario) {
+                if ($usuario['email'] == $correo && password_verify($password,$usuario['passwd'])){
+                    Sessions::crearSesionLogueado(); 
+                    Sessions::crearSesionIdUsuario($usuario['id']);  
+                    Sessions::crearSesionUsername($usuario['nombre']); 
+                    Sessions::crearSesionRol($usuario['rol_id']); 
+                    header('Location: /TFG/perfil '); 
+                }
+                
+            }
+            return false; 
         }
 
 
