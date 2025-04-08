@@ -41,8 +41,6 @@
                 <div></div>
             </article>
 
-           
-
             <section class="desplegable">
                 <a href="/TFG/modalidades" target="_self">Modalidades</a>
                 <a href="/TFG/camposDeportivos" target="_self">Campos</a>
