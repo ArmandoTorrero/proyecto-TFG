@@ -133,7 +133,7 @@
         </article>
     </section>
 
-    <script type="module" src="public/JS/script.js"></script>
+    <script type="module" src="public/JS/landing.js"></script>
     
 
 <?php 

@@ -12,7 +12,7 @@
          * @return array
          */
         public function getUserRol($id_usuario) {
-            $sql = "SELECT id_rol FROM usuarios WHERE id_usuario = :id_usuario";
+            $sql = "SELECT rol_id FROM usuario WHERE id = :id_usuario";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':id_usuario', $id_usuario);
             $stmt->execute();

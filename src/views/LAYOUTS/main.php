@@ -34,7 +34,7 @@
                 <a href="/TFG/registro" target="_self">Registrate</a>
             </article>
 
-            <article class="menu-hamburguesa">
+            <article class="menu-hamburguesa" id="menu-hamburguesa">
                 <input type="checkbox">
                 <div></div>
                 <div></div>
@@ -48,6 +48,7 @@
                 <a href="/TFG/camposDeportivos" target="_self">Campos</a>
                 <a href="#" target="_self">Contactanos</a>
                 <a href="/TFG/PyR" target="_self">Preguntas y respuestas</a>
+                <a href="/TFG/login" target="_self">Iniciar sesión</a>
             </section>
                 
         </nav>
@@ -90,7 +91,7 @@
             </section>
         </footer>
 
-
+        <script type="module" src="public/JS/main.js"></script>
         <script src="https://kit.fontawesome.com/bee72e8c16.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>

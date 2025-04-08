@@ -3,7 +3,8 @@
     require_once __DIR__ . '/../models/usuario.php';
     use Core\utilities\Validador; 
     use Core\utilities\Sessions; 
-    
+    use Core\Utilities\Security;
+use Random\Engine\Secure;
 
     class UsuariosController{
         private $usuariosModel; 
@@ -28,16 +29,6 @@
             require __DIR__ . '/../views/landing.php';
         }
 
-
-        /**
-         * Obtener el rol de un usuario
-         * @param int $id_usuario
-         * @return array
-         */
-        public function UserRol($id_usuario) {
-            return $this->usuariosModel->getUserRol($id_usuario);
-            
-        }
 
         /**
          * FUnción para que el usuario se registre
@@ -109,26 +100,6 @@
 
                 echo !$encontrado ? 'Usuario no encontrado' : ''; 
 
-
-                // comprobamos que el email y la contraseña son validos
-                // if (Validador::validarEmail($_POST['correo']) && Validador::validarPassword($_POST['password'])) { 
-    
-                //     // comprobamos que el usuario este en la base de datos 
-                //     foreach ($this->usuariosModel->getAll() as $usuario) {
-                //         $encontrado = ($usuario['email'] == $_POST['correo'] && $usuario['password'] == $_POST['password']) ? true : false; // variable para comprobar que el usuario existe
-                //         if ($encontrado) { // si el usuario existe iniciamos una sesion con su nombre, otra para verificar que se ha logueado y su id de usuario
-                //             session_start(); 
-                //             $_SESSION['logueado'] = true; 
-                //             $_SESSION['usuario-id'] = $usuario['id']; 
-                //             $_SESSION['nombre-usuario'] = $usuario['nombre'];
-                //             $_SESSION['rol'] = $usuario['id_perfil']; 
-                //             header('Location: '); // redirijimos al usuario a la landing page
-                //             exit; 
-                //         }
-                //     }
-    
-                //     echo "Credenciales incorrectas" ?? ''; 
-                // }
             }else {
                 require __DIR__ . '/../views/login.php'; 
             }
@@ -142,8 +113,24 @@
             require __DIR__ . '/../views/perfil_usuario.php';
         }
 
-        
+        /**
+         * Obtener el rol de un usuario
+         * @param int $id_usuario
+         * @return array
+         */
+        public function UserRol($id_usuario) {
+            return $this->usuariosModel->getUserRol($id_usuario);
+            
+        }
 
 
+        public function estaLogueado() {
+            if (Security::estaLogueado()) {
+                $rol = ['rol' => $this->UserRol($_SESSION["id_usuario"])['rol_id']]; 
+                echo json_encode($rol); 
+            }else{
+                echo json_encode(['rol' => false]); 
+            }
+        }
     }
 ?>

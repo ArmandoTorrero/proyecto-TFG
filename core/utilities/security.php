@@ -16,13 +16,21 @@
 
             $_SESSION["timeout"] = time(); 
         }
-        public static function comprobarSesion($logged) { // comprobar si el usuario ha iniciado sesion
+        public static function redirigirusuario($logged) { // comprobar si el usuario ha iniciado sesion
             if (isset($logged) && $logged) {
                 session_regenerate_id(); 
             }else {
                 header('');  
                 exit; 
             }
+        }
+
+        public static function estaLogueado() {
+            return (isset($_SESSION["logueado"]) && $_SESSION["logueado"]) ? true : false; 
+        }
+
+        public static function esAdmin() {
+            
         }
         
     }

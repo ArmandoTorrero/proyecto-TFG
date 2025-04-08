@@ -1,6 +1,7 @@
 <?php  
     ob_start();
     echo $_SESSION["nombre_usuario"];  
+    echo $_SESSION["id_usuario"]
 ?>
 
 

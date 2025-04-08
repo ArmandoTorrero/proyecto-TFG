@@ -10,6 +10,7 @@
     $router->add('/login','UsuariosController@login'); 
     $router->add('/PyR','UsuariosController@PyR');
     $router->add('/perfil', 'UsuariosController@perfil'); 
+    $router->add('/logueado','UsuariosController@estaLogueado'); 
 
     $router->add('/pagarCampo','ReservasController@pagarCampo'); 
 
