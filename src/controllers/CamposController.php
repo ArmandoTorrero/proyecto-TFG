@@ -34,6 +34,7 @@
         public function reservarCampo() {
             // Sessions::crearSesionIdCampo($_GET["id_campo"] ?? ''); 
             $_SESSION["id_campo"] = $_GET["id_campo"]; 
+            $_SESSION["nombre_campo"] = $_GET["nombre_campo"]; 
 
             require __DIR__ . '/../views/reservarCampo.php';
         }
@@ -52,8 +53,13 @@
          * @return void
          */
         public function mandarHorarios() {
-            $horarios = $this->franjaHorariaModel->getHorariosById($_SESSION["id_campo"]); 
+            $horarios = $this->franjaHorariaModel->getHorariosByPistaId($_SESSION["id_campo"]); 
             echo json_encode($horarios);
+        }
+
+        public function mandarNombreCampo() {
+            $campo = ['nombre' => $_SESSION["nombre_campo"]]; 
+            echo json_encode($campo); 
         }
 
     }

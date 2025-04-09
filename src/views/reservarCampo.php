@@ -10,7 +10,7 @@
 
         <article class="content">
 
-            <h1>Grupo Junta del puerto</h1>
+            <h1></h1>
 
             <select name="fecha" id="fehca">
                 <option value="">Elige una fecha</option>

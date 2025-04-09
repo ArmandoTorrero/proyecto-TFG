@@ -15,10 +15,13 @@
     $router->add('/modalidades','CamposController@modalidades'); 
     $router->add('/camposDeportivos', 'CamposController@index'); 
     $router->add('/reservarCampo','CamposController@reservarCampo'); 
+
     $router->add('/pagarCampo','ReservasController@pagarCampo'); 
     
     $router->add('/horarios', 'CamposController@mandarHorarios');
     $router->add('/getCampos', 'CamposController@getCampos');  
+    $router->add('/nombreCampo', 'CamposController@mandarNombreCampo');  
+
 
     $requestUri = isset($_GET['url']) ? '/' . trim($_GET['url'], '/') : '/';
 // Simulación de petición

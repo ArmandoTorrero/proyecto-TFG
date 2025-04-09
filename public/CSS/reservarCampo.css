@@ -45,7 +45,7 @@
 
 .content .horarios{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 60% ;
     margin: 0 0 8%;
@@ -55,7 +55,7 @@
         border: none; 
         border-radius: 5px;
         background-color: var(--fondoBody);
-        margin: 2% 0%;
+        margin: 2% 3%;
 
         a{
             font-size: 1.1rem;
@@ -107,7 +107,15 @@
     .content .horarios{
         width: 50%;
         margin: 0;
-
     }
+
+    .content .horarios .hora, .content .finalizar-reserva{
+        transition: all .25s ease 0s;
+
+            &:hover{
+                background-color: #e6e6e6;
+            }
+    }
+
 }
 

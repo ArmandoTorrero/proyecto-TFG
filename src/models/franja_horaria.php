@@ -6,8 +6,8 @@
             parent::__construct('franja_horaria'); 
         }
 
-        public function getHorariosById($id_campo) {
-            $sql = "SELECT hora_inicio FROM franja_horaria WHERE pista_id = :id_campo";
+        public function getHorariosByPistaId($id_campo) {
+            $sql = "SELECT * FROM franja_horaria WHERE pista_id = :id_campo";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':id_campo', $id_campo);
             $stmt->execute();

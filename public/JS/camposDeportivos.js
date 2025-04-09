@@ -41,7 +41,7 @@ function cartaCampo(id,nombre,precio,disponible) {
     // creamos el boton y el enalce
     let button = document.createElement("button"); 
     let enlace = document.createElement("a"); 
-    enlace.href = `/TFG/reservarCampo?id_campo=${id}`; // pasamos por parametro el id del campo para poder trabajar con sus horarios en su pagina
+    enlace.href = `/TFG/reservarCampo?id_campo=${id}&nombre_campo=${nombre}`; // pasamos por parametro el id del campo para poder trabajar con sus horarios en su pagina
     enlace.target = "_self";
     enlace.textContent = "Reservar"
 
