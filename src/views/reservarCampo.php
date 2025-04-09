@@ -1,6 +1,5 @@
 <?php  
     ob_start(); 
-    echo $_SESSION["id_campo"]; 
 ?>
     <head>
         <link rel="stylesheet" href="public/CSS/reservarCampo.css">
@@ -12,13 +11,14 @@
 
             <h1></h1>
 
-            <select name="fecha" id="fehca">
-                <option value="">Elige una fecha</option>
+            <select name="fecha" id="fecha">
+                <option value="" selected hidden >Elige una fecha</option>
+                <option value="">naranja</option>
+                <option value="">naranja</option>
+                <option value="">naranja</option>
             </select>
             
             <section class="horarios"></section>
-
-            <button type="submit" class="finalizar-reserva" >Finalizar reserva</button>
 
         </article>
 
