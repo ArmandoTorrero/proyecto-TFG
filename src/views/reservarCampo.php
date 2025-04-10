@@ -13,9 +13,6 @@
 
             <select name="fecha" id="fecha">
                 <option value="" selected hidden >Elige una fecha</option>
-                <option value="">naranja</option>
-                <option value="">naranja</option>
-                <option value="">naranja</option>
             </select>
             
             <section class="horarios"></section>
