@@ -48,23 +48,33 @@
             echo json_encode($campos); 
         }
 
-        /**
-         * Función para mandar el horario de un campo
-         * @return void
-         */
-        public function mandarHorarios() {
-            $horarios = $this->franjaHorariaModel->getHorariosByPistaId($_SESSION["id_campo"]); 
-            echo json_encode($horarios);
-        }
-
         public function mandarNombreCampo() {
             $campo = ['nombre' => $_SESSION["nombre_campo"]]; 
             echo json_encode($campo); 
         }
 
+        /**
+         * Mandar al JS las fechas dinamicas de un campo
+         * @return void
+         */
         public function mandarFechasCampo() {
             $fechas = ['fechas' => $this->franjaHorariaModel->getFechasByPistaId($_SESSION["id_campo"])]; 
             echo json_encode($fechas); 
+        }
+
+        public function mandarHorariosDinamicos() {
+            $datos = json_decode(file_get_contents("php://input"), true);
+
+            if ($datos) {
+                $fecha = $datos['fecha'];
+
+                echo json_encode([
+                    'horarios' => $this->franjaHorariaModel->getHorariosByPistaIdActualizados($_SESSION["id_campo"], $fecha)
+                ]);
+            } else {
+                echo json_encode(['error' => 'No se recibieron datos']);
+            }
+
         }
 
     }

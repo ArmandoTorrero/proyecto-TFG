@@ -57,6 +57,11 @@
         border-radius: 5px;
         background-color: var(--fondoBody);
         margin: 2% 3%;
+        transition: all .2s ease;
+
+        &:hover{
+            background-color: rgba(241, 241, 241, 0.7);
+        }
 
         a{
             font-size: 1.1rem;

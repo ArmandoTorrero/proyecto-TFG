@@ -21,10 +21,11 @@
     
     // Rutas que mandan json_encode
     $router->add('/logueado','UsuariosController@estaLogueado'); 
-    $router->add('/horarios', 'CamposController@mandarHorarios');
     $router->add('/getCampos', 'CamposController@getCampos');  
     $router->add('/nombreCampo', 'CamposController@mandarNombreCampo');  
     $router->add('/fechasCampo', 'CamposController@mandarFechasCampo'); 
+    $router->add('/horariosDinamicos', 'CamposController@mandarHorariosDinamicos'); 
+
 
 
     $requestUri = isset($_GET['url']) ? '/' . trim($_GET['url'], '/') : '/';

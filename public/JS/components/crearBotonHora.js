@@ -7,7 +7,7 @@ import { crearBoton } from "./boton";
  * @returns 
  */
 
-export function crearBtnHora(id_hora,hora_inicio) {
+export function crearBtnHora(id_hora,hora_inicio,disponible) {
 
     const boton = crearBoton("hora")
     
@@ -18,11 +18,12 @@ export function crearBtnHora(id_hora,hora_inicio) {
     enlace.textContent = hora_inicio; 
 
     // desactivo el enlace para que el usuario tenga que seleccionar una fecha y asi el boton se active 
-    boton.disabled = true; 
-    boton.style.backgroundColor = "rgba(255,255,255, 0.4)"; 
-    enlace.addEventListener("click", (ev) =>{
-        ev.preventDefault(); 
-    })
+    if (disponible != 1) {
+        boton.style.backgroundColor = "rgba(255,255,255, 0.4)"; 
+        enlace.addEventListener("click", (ev) =>{
+            ev.preventDefault(); 
+        })
+    }
 
     boton.appendChild(enlace); 
     

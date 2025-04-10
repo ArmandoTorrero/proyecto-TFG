@@ -15,7 +15,7 @@
                 <option value="" selected hidden >Elige una fecha</option>
             </select>
             
-            <section class="horarios"></section>
+            <section class="horarios" id="horarios"></section>
 
         </article>
 
