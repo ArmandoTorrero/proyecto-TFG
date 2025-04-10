@@ -1,4 +1,4 @@
-import { crearBoton } from "./components/boton";
+import { crearBtnHora } from "./components/crearBotonHora";
 
 // funcion asincrona para conseguir el horario de un campo
 async function getHoras() {
@@ -16,44 +16,35 @@ async function getNombreCampo() {
 }
 
 
-function cambiarSelect(btn) {
-    let select = document.getElementById("fecha");
-    console.log(select);
-    select.addEventListener("change", () => {
-        console.log("si");
+function cambiarSelect() {
+
+    // funcion para conseguir las fechas de un campo y poder mostrarlas en el 'select' mediante los 'options'
+    async function getFechas() {
+        const response = await fetch('/TFG/fechasCampo'); 
+        const data = await response.json(); 
+        return data; 
+    }
+
+    let select = document.getElementById("fecha")
+
+    getFechas().then(fechas => {
+        let array_fechas = fechas.fechas;
+        let array_fechas_formateado = [];   
+        
+        array_fechas.forEach(fecha => {            
+            array_fechas_formateado.push(fecha.fecha)
+        });
+        
+        let fechas_unicas = [...new Set(array_fechas_formateado)]; 
+        console.log(fechas_unicas);
+        
         
     })
 }
 
 cambiarSelect()
 
-/**
- * Crear el boton del horario del campo
- * @param {*} id_hora 
- * @param {*} hora_inicio 
- * @returns 
- */
-function crearBtnHora(id_hora,hora_inicio,disponible) {
 
-    const boton = crearBoton("hora")
-    const enlace = document.createElement("a"); 
-    enlace.href = `/TFG/pagarCampo?id_horario=${id_hora}`; 
-    enlace.target = "_self"; 
-    hora_inicio = `${hora_inicio.split(":")[0]}:${hora_inicio.split(":")[1]}`; 
-    enlace.textContent = hora_inicio; 
-
-    if (disponible != 1) {
-        boton.style.backgroundColor = 'rgb(255, 0, 0, 0.5)'; 
-        enlace.style.color = "#fff"
-        enlace.addEventListener("click", (ev) => {
-            ev.preventDefault(); 
-        })
-    }
-
-    boton.appendChild(enlace); 
-    
-    return boton; 
-}
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -68,8 +59,10 @@ document.addEventListener("DOMContentLoaded", () => {
         
         const horariosSection = document.getElementsByClassName("horarios")[0]
 
+        console.log(data);  
+        
         data.forEach(horario_info => {
-            horariosSection.appendChild(crearBtnHora(horario_info.id, horario_info.hora_inicio, horario_info.disponible))      
+            horariosSection.appendChild(crearBtnHora(horario_info.id, horario_info.hora_inicio))      
         });
         
     })

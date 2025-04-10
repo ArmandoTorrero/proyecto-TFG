@@ -62,5 +62,10 @@
             echo json_encode($campo); 
         }
 
+        public function mandarFechasCampo() {
+            $fechas = ['fechas' => $this->franjaHorariaModel->getFechasByPistaId($_SESSION["id_campo"])]; 
+            echo json_encode($fechas); 
+        }
+
     }
 ?>

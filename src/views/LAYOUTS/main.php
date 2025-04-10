@@ -31,7 +31,7 @@
             </article>
 
             <article class="registro">
-                <a href="/TFG/registro" target="_self">Registrate</a>
+                <a href="/TFG/login" target="_self">Iniciar sesion</a>
             </article>
 
             <article class="menu-hamburguesa" id="menu-hamburguesa">

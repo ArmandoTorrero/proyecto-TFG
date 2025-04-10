@@ -45,9 +45,10 @@
 
 .content .horarios{
     display: flex;
+    flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    width: 60% ;
+    width: 70% ;
     margin: 0 0 8%;
 
     .hora{
