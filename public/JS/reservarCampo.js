@@ -1,45 +1,7 @@
 import { crearBtnHora } from "./components/crearBotonHora";
 import { crearOption } from "./components/crearOption";
-import { quitarHorarios } from "./components/quitarHoras";
-
-
-// funcion asincrona para conseguir el nombre del campo
-async function getNombreCampo() {
-    const response = await fetch('/TFG/nombreCampo');
-    const data = await response.json(); 
-    return data
-}
-
-// funcion para conseguir las fechas actualizadas de un campo y poder mostrarlas en el 'select' mediante los 'options'
-async function getFechas() {
-    const response = await fetch('/TFG/fechasCampo'); 
-    const data = await response.json(); 
-    return data; 
-}
-
-async function horariosDinamicos(value) {
-    const datos = {
-        fecha: value 
-    }; 
-
-    try {
-        const response = await fetch('/TFG/horariosDinamicos', {
-            method: 'POST', 
-            headers: {
-                'Content-type':'application/JSON'
-            }, 
-            body: JSON.stringify(datos)
-        }); 
-
-        const data = await response.json()
-        return data; 
-                 
-
-    } catch (error) {
-        console.error('Error al enviar los datos: ' , error);
-        
-    }
-}
+import { getNombreCampo } from "./services/campo";
+import { getFechas, horariosDinamicos } from "./services/franja_horaria";
 
 
 

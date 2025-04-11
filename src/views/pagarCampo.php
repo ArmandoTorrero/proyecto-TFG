@@ -50,6 +50,7 @@
             <h1 class="nombreCampo"></h1>
             <p class="fecha"></p>
             <p class="hora_inicio"></p>
+            <p class="precio"></p>
         </section>
 
     </main>

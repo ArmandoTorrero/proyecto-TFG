@@ -21,6 +21,7 @@ use Core\utilities\Sessions;
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo "si"; 
             }else{
+                echo $_SESSION["id_horario"]; 
                 require __DIR__ . '/../views/pagarCampo.php';
             }
         }

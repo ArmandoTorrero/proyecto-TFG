@@ -48,9 +48,22 @@
             echo json_encode($campos); 
         }
 
+        /**
+         * Mandar el nombre del campo al JS
+         * @return void
+         */
         public function mandarNombreCampo() {
             $campo = ['nombre' => $_SESSION["nombre_campo"]]; 
             echo json_encode($campo); 
+        }
+
+        /**
+         * Mandar el precio del campo al JS
+         * @return void
+         */
+        public function mandarPrecioCampo() {
+            $precio = [$this->campoModel->getById($_SESSION["id_campo"])['precio_hora']];
+            echo json_encode($precio);  
         }
 
         /**

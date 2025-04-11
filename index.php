@@ -23,6 +23,7 @@
     $router->add('/logueado','UsuariosController@estaLogueado'); 
     $router->add('/getCampos', 'CamposController@getCampos');  
     $router->add('/nombreCampo', 'CamposController@mandarNombreCampo');  
+    $router->add('/precioCampo', 'CamposController@mandarPrecioCampo');      
     $router->add('/fechasCampo', 'CamposController@mandarFechasCampo'); 
     $router->add('/horariosDinamicos', 'CamposController@mandarHorariosDinamicos'); 
     $router->add('/horarioInfo', 'ReservasController@getHorarioInfo');

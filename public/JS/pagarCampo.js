@@ -1,3 +1,6 @@
+import { getHorarioInfo } from "./services/franja_horaria";
+import { getNombreCampo, getPrecioHora } from "./services/campo";
+
 function validarInput(input,span,regex) {
     
     if (regex.test(input.value)) {
@@ -13,32 +16,31 @@ function validarInput(input,span,regex) {
     }
 }
 
-function info(nombreCampo,fecha,hora) {
+function info(nombreCampo,fecha,hora,precio) {
     let titulo = document.querySelector(".nombreCampo"); 
     let p_fecha = document.querySelector("section.info > .fecha");
-    let p_hora = document.querySelector("section.info > .hora_inicio"); 
+    let p_hora = document.querySelector("section.info > .hora_inicio");
+    let p_precio = document.querySelector("section.info > .precio");
+     
 
     titulo.textContent = `Campo: ${nombreCampo}`; 
     p_fecha.textContent = `Fecha: ${fecha}`; 
     p_hora.textContent = `Hora: ${hora}`; 
-}
-
-async function getHorarioInfo() {
-    
-    try {
-        const response = await fetch('/TFG/horarioInfo'); 
-        const data = await response.json(); 
-        return data; 
-    } catch (error) {
-        console.log(error);
-    }
-    
+    p_precio.textContent = `Precio: ${precio}€`
 }
 
 getHorarioInfo().then(horario => {
     let horarioInfo = horario.info
+
+    getNombreCampo().then(nombreCampo => {
+
+        getPrecioHora().then(precio => {
+            info(nombreCampo.nombre,horarioInfo.fecha,horarioInfo.hora_inicio,precio[0])
+
+        })
+
+    })
     
-    info("galletas",horarioInfo.fecha,horarioInfo.hora_inicio)
 })
 
 const buttonConfirmar = document.querySelector(".form-container .confirmar")
