@@ -21,6 +21,10 @@
         public static function crearSesionIdCampo($id) {
             $_SESSION['id_campo'] = $id;  
         }
+
+        public static function crearSesionFranjaHorariaId($id) {
+            $_SESSION['id_horario'] = $id; 
+        }
     }
 
 ?>

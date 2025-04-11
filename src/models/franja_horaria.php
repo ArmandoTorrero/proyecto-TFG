@@ -5,15 +5,6 @@
         public function __construct() {
             parent::__construct('franja_horaria'); 
         }
-
-        public function getHorariosByPistaId($id_campo) {
-            $sql = "SELECT * FROM franja_horaria WHERE pista_id = :id_campo AND disponible = 1";
-            $stmt = $this->db->prepare($sql);
-            $stmt->bindParam(':id_campo', $id_campo);
-            $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
-
         public function getFechasByPistaId($id_campo) {
             $sql = "SELECT fecha FROM franja_horaria WHERE pista_id = :id_campo AND fecha >= CURDATE()"; 
             $stmt = $this->db->prepare($sql);
@@ -23,7 +14,7 @@
         }
 
          public function getHorariosByPistaIdActualizados($id_campo,$fecha) {
-            $sql = "SELECT * FROM franja_horaria WHERE pista_id = :id_campo AND disponible = 1 AND fecha = :fecha AND hora_inicio >= CURTIME()";
+            $sql = "SELECT * FROM franja_horaria WHERE pista_id = :id_campo AND disponible = 1 AND fecha = :fecha";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':id_campo', $id_campo);
             $stmt->bindParam(':fecha', $fecha);

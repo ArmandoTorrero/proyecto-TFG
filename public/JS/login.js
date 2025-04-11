@@ -1,4 +1,3 @@
-import Validador from "./components/validador";
 
 function validarInput(input,span,regex) {
     
@@ -16,7 +15,6 @@ function validarInput(input,span,regex) {
     
 }
 
-let inputsValidados = 0; 
 
 document.addEventListener("DOMContentLoaded", ()=>{
     const buttonSubmit = document.querySelector(".enviar");
@@ -63,8 +61,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
             buttonSubmit.classList.add("disabled");
         }
     })
-
-    
 })
 
 

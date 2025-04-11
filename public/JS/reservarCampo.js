@@ -85,24 +85,21 @@ function cambiarSelect() {
                 });
                 
             })
-
-            
-            
         })
     })
 }
 
-cambiarSelect()
 
 
 
 document.addEventListener("DOMContentLoaded", () => {
-
+    
     // Introducir el titulo del campo en el h1
     getNombreCampo().then(nombreCampo => {
         let titulo = document.querySelector(".content > h1")
         titulo.textContent = nombreCampo.nombre
     })
-
+    
+    cambiarSelect()
     
 })

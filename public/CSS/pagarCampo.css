@@ -64,6 +64,11 @@ main{
         }
     }
 
+    span{
+        opacity: 0;
+        color: red;
+    }
+
 }
 
 .form-container .confirmar{
@@ -71,7 +76,6 @@ main{
     padding: 7px 15px;
     border: none;
     border-radius: 5px;
-    background-color: var(--fondoBotones);
     font-weight: bold;
     font-size: 1rem;
     color: var(--colortexto2);
@@ -83,6 +87,48 @@ form{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.info{
+    display: none;
+}
+
+.disabled{
+    background-color: rgb(36, 98, 235, 0.5);
+}
+
+@media screen and (min-width: 1200px){
+
+    main{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-start;
+    }
+
+    .form-container{
+        width: 50vw;
+        margin: 0;
+    }
+
+    .form-container .label-input{
+        width: 25vw;
+        margin: 0.5vw auto;
+
+        label{
+            margin: 0.5vw 0vw;
+        }
+    }
+
+    .form-container .confirmar{
+        margin: 1vw auto;
+    }
+
+    .info{
+        border: 2px solid purple;
+        display: block;
+        width: 40vw;
+
+    }
 }
 
 

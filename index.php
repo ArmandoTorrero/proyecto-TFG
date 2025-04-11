@@ -25,6 +25,7 @@
     $router->add('/nombreCampo', 'CamposController@mandarNombreCampo');  
     $router->add('/fechasCampo', 'CamposController@mandarFechasCampo'); 
     $router->add('/horariosDinamicos', 'CamposController@mandarHorariosDinamicos'); 
+    $router->add('/horarioInfo', 'ReservasController@getHorarioInfo');
 
 
 
