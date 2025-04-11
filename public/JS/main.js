@@ -1,20 +1,4 @@
-
-/**
- *
- * Obtener el rol del usuario
- * @return {*} 
- */
-async function logueado () {
-    try {
-        let response = await fetch('/TFG/logueado'); 
-        let data = await response.json(); 
-        return data
-        
-    } catch (error) {
-        console.error(error);
-        
-    }
-}
+import { logueado } from "./services/usuario";
 
 /**
  * Modificar el desplegable del menu hamburguesa
@@ -42,12 +26,18 @@ function navUsuario() {
     cambiarBtnregistro()
 }
 
+function navAdministrador() {
+    
+}
+
 function modificarNav(rol) {
     rol == 1 ? navUsuario() : navAdministrador()
 }
 
 
 logueado().then(data => {
+    console.log(data);
+    
     modificarNav(data.rol)
     
 }) 

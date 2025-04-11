@@ -55,5 +55,9 @@ use Core\utilities\Validador;
         public function getHorarioInfo() {
             echo json_encode(["info" => $this->franjaHorariaModel->getById($_SESSION["id_horario"])]); 
         }
+
+        public function getReservasByUserId() {
+            echo json_encode(['reservas' => $this->reservasModel->getReservasByUserId($_SESSION["id_usuario"])]); 
+        }
     }
 ?>

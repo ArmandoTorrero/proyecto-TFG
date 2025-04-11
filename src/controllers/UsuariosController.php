@@ -122,7 +122,11 @@
             
         }
 
-
+        /**
+         * 
+         * Comprobar si un usuario esta logueado
+         * @return void
+         */
         public function estaLogueado() {
             if (Security::estaLogueado()) {
                 $rol = ['rol' => $this->UserRol($_SESSION["id_usuario"])['rol_id']]; 
