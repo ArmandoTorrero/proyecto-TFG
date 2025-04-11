@@ -120,5 +120,30 @@
         }
 
 
+        public static function validarNumTarjeta($numTarjeta) {
+            $patterTarjeta = '/^\d{4} ?\d{4} ?\d{4} ?\d{1,7}$/'; 
+            return preg_match($patterTarjeta, $numTarjeta);  
+        }
+
+        public static function validarFecha($fecha) {
+            $patterFecha = '/^(0[1-9]|1[0-2])\/\d{2}$/'; 
+            return preg_match($patterFecha, $fecha); 
+        }
+
+        public static function validarCVC($cvc) {
+            $patterCVC = '/^\d{3}$/'; 
+            return preg_match($patterCVC, $cvc); 
+        }
+
+        public static function validarTitular($titular) {
+            $patterTitular = '/^[A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ\s]{2,50}$/i'; 
+            return preg_match($patterTitular, $titular); 
+        }
+
+        public static function validarCamposTarjetaCredito($numTarjeta,$fecha,$cvc,$titular) {
+            return self::validarNumTarjeta($numTarjeta) && self::validarFecha($fecha) && self::validarCVC($cvc) && self::validarTitular($titular); 
+        }
+
+
     }
 ?>

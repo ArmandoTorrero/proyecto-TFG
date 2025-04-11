@@ -3,7 +3,7 @@
 
     class Reservas extends EmptyModel{
         public function __construct() {
-            parent::__construct('reservas'); 
+            parent::__construct('reserva'); 
         }
         
     }
