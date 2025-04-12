@@ -9,6 +9,7 @@
     $router->add('/', 'UsuariosController@landingPage'); 
     $router->add('/registro','UsuariosController@create'); 
     $router->add('/login','UsuariosController@login'); 
+    $router->add('/logout','UsuariosController@logout');     
     $router->add('/PyR','UsuariosController@PyR');
     $router->add('/perfil', 'UsuariosController@perfil'); 
     
@@ -22,6 +23,7 @@
     // Rutas que mandan json_encode
     $router->add('/logueado','UsuariosController@estaLogueado'); 
     $router->add('/getCampos', 'CamposController@getCampos');  
+    $router->add('/modalidadCampos','CamposController@getCamposByModalidad'); 
     $router->add('/nombreCampo', 'CamposController@mandarNombreCampo');  
     $router->add('/precioCampo', 'CamposController@mandarPrecioCampo');      
     $router->add('/fechasCampo', 'CamposController@mandarFechasCampo'); 

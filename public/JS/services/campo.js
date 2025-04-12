@@ -34,5 +34,14 @@ export async function getCampos() {
         console.error(error);
         
     }
-    
+}
+
+export async function getCamposByModalidadId() {
+    try {
+        const respose = await fetch('/TFG/modalidadCampos')
+        return await respose.json(); 
+    } catch (error) {
+        console.log(error);
+        
+    }
 }

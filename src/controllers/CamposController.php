@@ -75,6 +75,10 @@
             echo json_encode($fechas); 
         }
 
+        /**
+         * Mandar al JS mandar diferentes horarios en funcion de la fecha
+         * @return void
+         */
         public function mandarHorariosDinamicos() {
             $datos = json_decode(file_get_contents("php://input"), true);
 
@@ -88,6 +92,10 @@
                 echo json_encode(['error' => 'No se recibieron datos']);
             }
 
+        }
+
+        public function getCamposByModalidad() {
+            echo json_encode(['campos_modalidad' => $this->campoModel->getCamposByModalidad(1)]); 
         }
 
     }

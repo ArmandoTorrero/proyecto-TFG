@@ -17,13 +17,16 @@
          * @return void
          */
         public function logout() {
-            session_start(); 
             session_unset(); // Elimina todas las variables de sesión
             session_destroy(); // Destruye la sesión completamente
-            header(''); // Reddireccion a la landing page
+            header("/TFG/perfil"); // Reddireccion a la landing page
             exit;
         }
 
+        /**
+         * Mostrar landing page
+         * @return void
+         */
         public function landingPage() {
             require __DIR__ . '/../views/landing.php';
         }
@@ -104,22 +107,21 @@
             }
         }
 
+        /**
+         * 
+         * Funcion para mostar la vista de preguntas y respuestas
+         * @return void
+         */
         public function PyR() {
             require __DIR__ . '/../views/PyR.php';
         }
 
+        /**
+         * Funcion para mostrar el perfil del usuario
+         * @return void
+         */
         public function perfil() {
             require __DIR__ . '/../views/perfil_usuario.php';
-        }
-
-        /**
-         * Obtener el rol de un usuario
-         * @param int $id_usuario
-         * @return array
-         */
-        public function UserRol($id_usuario) {
-            return $this->usuariosModel->getUserRol($id_usuario);
-            
         }
 
         /**
@@ -129,7 +131,7 @@
          */
         public function estaLogueado() {
             if (Security::estaLogueado()) {
-                $rol = ['rol' => $this->UserRol($_SESSION["id_usuario"])['rol_id']]; 
+                $rol = ['rol' => $this->usuariosModel->getUserRol($_SESSION["id_usuario"])['rol_id']]; 
                 echo json_encode($rol); 
             }else{
                 echo json_encode(['rol' => false]); 

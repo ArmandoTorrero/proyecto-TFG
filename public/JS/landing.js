@@ -1,20 +1,4 @@
-
-/**
- *
- * Obtener el rol del usuario
- * @return {*} 
- */
-async function logueado () {
-    try {
-        let response = await fetch('/TFG/logueado'); 
-        let data = await response.json(); 
-        return data
-        
-    } catch (error) {
-        console.error(error);
-        
-    }
-}
+import { logueado } from "./services/usuario";
 
 function landingUsuario() {
     const preeFooterButtons = document.querySelector(".pre-footer > .buttons")
@@ -26,6 +10,7 @@ function modificarLandingPage(rol) {
 }
 
 logueado().then((data) => {
+    
     modificarLandingPage(data.rol)
     
 }).catch((err) => {

@@ -20,7 +20,9 @@ function cambiarBtnregistro() {
     
 }
 
-// Modificar el nav del usuario
+/**
+ * Modificar el nav del usuario
+ */
 function navUsuario() {
     modificarDesplegable()
     cambiarBtnregistro()
@@ -35,9 +37,7 @@ function modificarNav(rol) {
 }
 
 
-logueado().then(data => {
-    console.log(data);
-    
+logueado().then(data => {    
     modificarNav(data.rol)
     
 }) 
