@@ -21,7 +21,8 @@
     
     
     // Rutas que mandan json_encode
-    $router->add('/logueado','UsuariosController@estaLogueado'); 
+    $router->add('/logueado','UsuariosController@estaLogueado');
+    $router->add('/userInfo','UsuariosController@getUserInfo');     
     $router->add('/getCampos', 'CamposController@getCampos');  
     $router->add('/modalidadCampos','CamposController@getCamposByModalidad'); 
     $router->add('/nombreCampo', 'CamposController@mandarNombreCampo');  

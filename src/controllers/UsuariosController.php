@@ -137,5 +137,9 @@
                 echo json_encode(['rol' => false]); 
             }
         }
+
+        public function getUserInfo() {
+            echo json_encode(['info' => $this->usuariosModel->getById($_SESSION["id_usuario"])]); 
+        }
     }
 ?>

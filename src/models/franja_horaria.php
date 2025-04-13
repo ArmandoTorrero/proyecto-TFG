@@ -14,7 +14,11 @@
         }
 
          public function getHorariosByPistaIdActualizados($id_campo,$fecha) {
-            $sql = "SELECT * FROM franja_horaria WHERE pista_id = :id_campo AND disponible = 1 AND fecha = :fecha";
+            $sql = "SELECT * FROM franja_horaria WHERE pista_id = :id_campo 
+            AND disponible = 1 
+            AND fecha = :fecha 
+            AND fecha >= CURDATE()
+            AND hora_inicio >= CURTIME()";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':id_campo', $id_campo);
             $stmt->bindParam(':fecha', $fecha);

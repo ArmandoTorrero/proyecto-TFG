@@ -1,14 +1,15 @@
 <?php  
     ob_start();
-    echo $_SESSION["nombre_usuario"] ?? 'invitado';  
-    echo $_SESSION["id_usuario"] ?? ''; 
 ?>
     <head>
-
+        <link rel="stylesheet" href="public/CSS/perfil.css">
     </head>
     
     <main>
-        <a href="/TFG/logout">Cerrar Sesion</a>
+        <section class="user-info">
+            
+        </section>
+        <section class="user-reservas"></section>
     </main>
 
     <script type="module" src="public/JS/perfil.js"></script>
