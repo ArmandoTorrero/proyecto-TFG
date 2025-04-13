@@ -6,9 +6,7 @@
     </head>
     
     <main>
-        <section class="user-info">
-            
-        </section>
+        <section class="user-info"></section>
         <section class="user-reservas"></section>
     </main>
 

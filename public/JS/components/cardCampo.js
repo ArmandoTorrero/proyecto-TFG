@@ -1,3 +1,5 @@
+import { CrearEtiquetaConClase } from "./crearEtiqueta-Clase";
+
 /**
  * Funcion para crear la carta de un campo en la seccion 'campos'
  * @param {*} id 
@@ -49,4 +51,33 @@ export function cartaCampo(id,nombre,precio,disponible) {
     card.append(divImg,content,button); 
 
     return card; 
+}
+
+export function cardCampoReserva(nombre_campo,precio_hora,modalidad_id,fecha,hora_inicio) {
+    //creamos la carta y le asignamos su clase
+    let card = CrearEtiquetaConClase("article","card-reserva"); 
+
+    //creamos el div que tendra la imagen de fondo y le asignamos la clase
+    let divImg = CrearEtiquetaConClase("div","img-reserva");
+    divImg.style.height = "300px"; 
+    
+    if (modalidad_id == 1) {
+        divImg.style.backgroundImage = "url(../ASSETS/balon-futbol.jpeg)"; 
+    }
+    
+    // creamos la seccion de content y le asignamos una clase
+    let content = CrearEtiquetaConClase("section","content-reserva");
+    
+    // creamos los elementos de la clase content
+    let h1 = CrearEtiquetaConClase("h1","titulo").textContent = nombre_campo; 
+    let precio = CrearEtiquetaConClase("p","precio-reserva").textContent = precio_hora; 
+    let fechaReserva = CrearEtiquetaConClase("p","fecha-reserva").textContent = fecha; 
+    let hora_inicio_reserva = CrearEtiquetaConClase("p","hora_inicio").textContent = hora_inicio;
+    
+    content.append(h1,precio,fechaReserva,hora_inicio_reserva); 
+
+    card.append(divImg,content); 
+    
+    return card; 
+
 }

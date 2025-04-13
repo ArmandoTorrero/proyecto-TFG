@@ -32,3 +32,15 @@ main{
 .label-p{
     border: 1px solid blue;
 }
+
+.card-reserva{
+    border: 2px solid green;
+}
+
+
+
+@media screen and (min-width: 1200px){
+    main{
+        flex-direction: row;
+    }
+}
