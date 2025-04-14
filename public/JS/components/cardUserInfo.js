@@ -15,14 +15,25 @@ export function cardUserInfo(rol) {
             }
 
             for (let i = 0; i < array_user_info.length; i++) {
-                let label = document.createElement("label").textContent = array_user_info[i][0]; 
-                let p = document.createElement("p").textContent = array_user_info[i][1]; 
 
-                let label_p_container = document.createElement("article")
-                label_p_container.classList.add("label-p");
-                label_p_container.append(label,p); 
                 
-                userInfoSection.appendChild(label_p_container)
+                
+                let input = document.createElement("input")
+                input.id = array_user_info[i][0]; 
+                input.value = array_user_info[i][1]; 
+                
+                let label = document.createElement("label")
+                label.textContent = array_user_info[i][0];
+
+                let label_input_container = document.createElement("article")
+                label_input_container.classList.add("label-input");
+                label_input_container.append(label,input); 
+
+                if (array_user_info[i][0] == 'codigo_militar' && array_user_info[i][1] == "") {
+                    label_input_container.style.display = "none"
+                }
+                
+                userInfoSection.appendChild(label_input_container)
                 
             }            
             

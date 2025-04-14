@@ -6,8 +6,13 @@
     </head>
     
     <main>
-        <section class="user-info"></section>
-        <section class="user-reservas"></section>
+        <section class="user-info">
+            <h1>Datos de la cuenta</h1>
+        </section>
+        <section class="user-reservas">
+            <h1>Reservas</h1>
+            <section class="reservas-container"></section>
+        </section>
     </main>
 
     <script type="module" src="public/JS/perfil.js"></script>
