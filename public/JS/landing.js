@@ -2,13 +2,43 @@ import { cartaCampoDestacado } from "./components/campoDestacado";
 import { getCampos } from "./services/campo";
 import { logueado } from "./services/usuario";
 
+/**
+ * Modificar la landing cuando el usuario se registra
+ */
 function landingUsuario() {
     const preeFooterButtons = document.querySelector(".pre-footer > .buttons")
     preeFooterButtons.children[0].style.display = "none"; 
 }
 
+
+/**
+ * Modificar landing para el invitado
+ */
+function landingInvitado() {
+    const pistas_destacadas_enlaces = document.querySelectorAll(".precio-button > .ver-detalles > a")
+    
+    pistas_destacadas_enlaces.forEach(enlace => {
+        let button = enlace.parentElement;
+        button.textContent = "Inicia sesion para reservar"; 
+        button.style.backgroundColor = "red";
+        button.style.color = "#fff"; 
+        console.log(button);
+        
+        enlace.addEventListener("click", (ev) => {
+            enlace.href = "/TFG/login"; 
+        })
+        
+    });
+    
+}
+
 function modificarLandingPage(rol) {
-    rol == 1 ? landingUsuario() : ''; 
+
+    if (rol != false) {
+        rol == 1 ? landingUsuario() : ''; 
+    }else{
+        landingInvitado()
+    }
 }
 
 logueado().then((data) => {
@@ -35,8 +65,6 @@ getCampos().then(array_campos =>{
         let categoria = campo.children[2];        
 
         cartaCampoDestacado(array_campos[i].id, array_campos[i].nombre, array_campos[i].precio_hora, array_campos[i].modalidad_id,content_h2,campo_img,precio,enlace,categoria)
-        
-        
         
     }
 })

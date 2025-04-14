@@ -13,7 +13,7 @@
  */
 export function cartaCampoDestacado(id,nombreCampo,precio,categoria_id,h2,imgContainer,spanPrecio,enlace,categoriaParrafo) {
     h2.textContent = nombreCampo; 
-    spanPrecio.textContent = precio; 
+    spanPrecio.textContent = `${precio}€`; 
     enlace.href = `/TFG/reservarCampo?id_campo=${id}&nombre_campo=${nombreCampo}`; 
 
     switch (categoria_id) {

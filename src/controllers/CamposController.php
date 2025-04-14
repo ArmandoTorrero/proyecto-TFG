@@ -76,7 +76,7 @@
         }
 
         /**
-         * Mandar al JS mandar diferentes horarios en funcion de la fecha
+         * Mandar al JS diferentes horarios en funcion de la fecha
          * @return void
          */
         public function mandarHorariosDinamicos() {
