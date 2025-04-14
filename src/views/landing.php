@@ -63,16 +63,16 @@
                 <article class="img"></article>
 
                 <section class="content">
-                    <h2>Grupo Junta del Puerto</h2>
+                    <h2></h2>
     
                     <article class="precio-button">
-                        <span class="precio">10€/hora</span>
+                        <span class="precio"></span>
                         <button class="ver-detalles" >
-                            <a href="#" target="_self">Ver detalles</a>
+                            <a target="_self">Ver detalles</a>
                         </button>
                     </article>
                 </section>
-                <p class="categoria">Futbol</p>
+                <p class="categoria"></p>
 
             </article>
 
@@ -81,16 +81,16 @@
                 <article class="img"></article>
 
                 <section class="content">
-                    <h2>Grupo Junta del Puerto</h2>
+                    <h2></h2>
     
                     <article class="precio-button">
-                        <span class="precio">10€/hora</span>
+                        <span class="precio"></span>
                         <button class="ver-detalles" >
-                            <a href="#" target="_self">Ver detalles</a>
+                            <a target="_self">Ver detalles</a>
                         </button>
                     </article>
                 </section>
-                <p class="categoria">Futbol</p>
+                <p class="categoria"></p>
 
             </article>
 
@@ -99,16 +99,16 @@
                 <article class="img"></article>
 
                 <section class="content">
-                    <h2>Grupo Junta del Puerto</h2>
+                    <h2></h2>
     
                     <article class="precio-button">
-                        <span class="precio">10€/hora</span>
+                        <span class="precio"></span>
                         <button class="ver-detalles" >
-                            <a href="#" target="_self">Ver detalles</a>
+                            <a target="_self">Ver detalles</a>
                         </button>
                     </article>
                 </section>
-                <p class="categoria">Futbol</p>
+                <p class="categoria"></p>
 
             </article>
 
@@ -125,10 +125,10 @@
         <p>Reserva tu primera instalación deportiva en minutos y descubre lo fácil que es con CampoLibre.</p>
         <article class="buttons">
             <button>
-                <a href="#" target="_self">Iniciar sesión</a>
+                <a href="/TFG/login" target="_self">Iniciar sesión</a>
             </button>
             <button>
-                <a href="#" target="_self">Ver campos</a>
+                <a href="/TFG/camposDeportivos" target="_self">Ver campos</a>
             </button>
         </article>
     </section>

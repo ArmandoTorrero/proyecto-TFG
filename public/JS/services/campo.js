@@ -36,6 +36,10 @@ export async function getCampos() {
     }
 }
 
+/**
+ * Funcion que devuelve una lista ed campos segun su modalidad
+ * @returns 
+ */
 export async function getCamposByModalidadId() {
     try {
         const respose = await fetch('/TFG/modalidadCampos')

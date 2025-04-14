@@ -94,6 +94,10 @@
 
         }
 
+        /**
+         * Mandar al cliente una lista ed campos segun el id d ela modalidad
+         * @return void
+         */
         public function getCamposByModalidad() {
             echo json_encode(['campos_modalidad' => $this->campoModel->getCamposByModalidad(1)]); 
         }
