@@ -13,25 +13,20 @@ function landingUsuario() {
 
 /**
  * Modificar landing para el invitado
- */
+ */ 
 function landingInvitado() {
-    const pistas_destacadas_enlaces = document.querySelectorAll(".precio-button > .ver-detalles > a")
-    
-    pistas_destacadas_enlaces.forEach(enlace => {
-        let button = enlace.parentElement;
-        button.textContent = "Inicia sesion para reservar"; 
-        button.style.backgroundColor = "red";
-        button.style.color = "#fff"; 
-        console.log(button);
+     const pistas_destacadas_buttons = document.querySelectorAll(".precio-button > .ver-detalles")
+     pistas_destacadas_buttons.forEach(button => {
+        button.style.display = "none"; 
         
-        enlace.addEventListener("click", (ev) => {
-            enlace.href = "/TFG/login"; 
-        })
-        
-    });
-    
+     });
+     
 }
 
+/**
+ * Funcion para modificar la landing page en funcion del rol
+ * @param {*} rol 
+ */
 function modificarLandingPage(rol) {
 
     if (rol != false) {
@@ -62,6 +57,7 @@ getCampos().then(array_campos =>{
         let content_h2 = content.children[0];
         let precio = content.children[1].children[0];
         let enlace = content.children[1].children[1].children[0];
+        
         let categoria = campo.children[2];        
 
         cartaCampoDestacado(array_campos[i].id, array_campos[i].nombre, array_campos[i].precio_hora, array_campos[i].modalidad_id,content_h2,campo_img,precio,enlace,categoria)

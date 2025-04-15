@@ -97,16 +97,16 @@ main{
 
 .campo button{
     margin: 2% 0;
-    padding: 15px 30px;
-    border: 2px solid var(--fondoBotones);
+    padding: 10px 30px;
+    border: 1px solid var(--fondoBotones);
     border-radius: 5px;
     background-color: var(--fondoBody);
-    box-shadow: 2px 5px 2px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.4);
     cursor: pointer;
 
     a{
-        font-size: 1.2rem;
-        font-weight: 500;
+        font-size: 1rem;
+        font-weight: 300;
         color: var(--fondoBotones);
     }
 }

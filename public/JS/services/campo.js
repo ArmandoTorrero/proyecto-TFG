@@ -25,8 +25,8 @@ export async function getPrecioHora(){
 export async function getCampos() {
     
     try {
-        let response = await fetch("/TFG/getCampos")
-        let data = await response.json(); 
+        const response = await fetch("/TFG/getCampos")
+        const data = await response.json(); 
         
         return data.campos; 
 
@@ -37,15 +37,27 @@ export async function getCampos() {
 }
 
 /**
- * Funcion que devuelve una lista ed campos segun su modalidad
+ * Funcion que devuelve una lista de campos segun su modalidad
  * @returns 
  */
-export async function getCamposByModalidadId() {
+export async function getCamposByModalidadId(modalidad_id) {
+
+    const datos = {
+        id: modalidad_id
+    }    
+
     try {
-        const respose = await fetch('/TFG/modalidadCampos')
+        const respose = await fetch('/TFG/modalidadCampos', {
+            method: "POST",
+            headers: {
+                'Content-type':'application/JSON'
+            },
+            body: JSON.stringify(datos)
+        })
+
         return await respose.json(); 
     } catch (error) {
-        console.log(error);
+        console.log("Error al enviar los datos", error);
         
     }
 }

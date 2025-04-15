@@ -6,6 +6,13 @@
         <link rel="stylesheet" href="public/CSS/camposDeportivos.css">
     </head>
 
+    <select name="modalidad_id" id="modalidad_id">
+        <option value="" selected hidden >Elige una modalidad</option>
+        <option value="1">Futbol</option>
+        <option value="2">Tenis</option>
+        <option value="3">Padel</option>
+    </select>
+
     <section class="campos-container"></section>
 
     <section class="PyR">

@@ -125,6 +125,7 @@
 
     .campos-container{
         flex-flow: row wrap;
+        justify-content: center;
     }
 
     .campo{

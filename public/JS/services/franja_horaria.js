@@ -15,6 +15,7 @@ export async function getFechas() {
  * @returns 
  */
 export async function horariosDinamicos(value) {
+    
     const datos = {
         fecha: value 
     }; 

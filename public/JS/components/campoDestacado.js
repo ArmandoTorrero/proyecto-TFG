@@ -33,5 +33,4 @@ export function cartaCampoDestacado(id,nombreCampo,precio,categoria_id,h2,imgCon
         default:
             break;
     }
-
 }

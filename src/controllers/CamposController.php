@@ -99,7 +99,17 @@
          * @return void
          */
         public function getCamposByModalidad() {
-            echo json_encode(['campos_modalidad' => $this->campoModel->getCamposByModalidad(1)]); 
+
+            $datos = json_decode(file_get_contents("php://input"), true);
+
+            if ($datos) {
+                $modalidad_id = $datos['id']; 
+                echo json_encode(['campos_modalidad' => $this->campoModel->getCamposByModalidad($modalidad_id)]);
+            }else {
+                echo json_encode(['error' => 'No se recibieron datos']);
+            }
+
+             
         }
 
     }
