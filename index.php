@@ -12,6 +12,8 @@
     $router->add('/logout','UsuariosController@logout');     
     $router->add('/PyR','UsuariosController@PyR');
     $router->add('/perfil', 'UsuariosController@perfil'); 
+    $router->add('/politicaPrivacidad', 'UsuariosController@politicaPrivacidad'); 
+
     
     $router->add('/modalidades','CamposController@modalidades'); 
     $router->add('/camposDeportivos', 'CamposController@index'); 

@@ -31,6 +31,15 @@
             require __DIR__ . '/../views/landing.php';
         }
 
+        /**
+         * 
+         * Mostrar pagina de politica de privacidad
+         * @return void
+         */
+        public function politicaPrivacidad() {
+            require __DIR__ . '/../views/politica_privacidad.php';
+        }
+
 
         /**
          * FUnción para que el usuario se registre

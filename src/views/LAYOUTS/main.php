@@ -69,7 +69,7 @@
                     </article>
                     <article class="links-2">
                         <a href="#" target="_self">Terminos y condiciones</a>
-                        <a href="#" target="_self">Politica de privacidad</a>
+                        <a href="/TFG/politicaPrivacidad" target="_self">Politica de privacidad</a>
                         <a href="#" target="_self">Politica de protección de datos</a>
                     </article>
                     <article class="RRSS">
