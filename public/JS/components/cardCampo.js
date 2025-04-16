@@ -1,4 +1,5 @@
 import { CrearEtiquetaConClase } from "./crearEtiqueta-Clase";
+import { logueado } from "../services/usuario";
 
 /**
  * Funcion para crear la carta de un campo en la seccion 'campos'
@@ -48,7 +49,10 @@ export function cartaCampo(id,nombre,precio,disponible) {
     }
     button.appendChild(enlace);  
 
-    card.append(divImg,content,button); 
+    // si el usuario esta logueado se inserta el boton de 'reservar' sino se oculta
+    logueado().then(info => {
+        info.rol == false ? card.append(divImg,content) : card.append(divImg,content,button);
+    })
 
     return card; 
 }
@@ -102,5 +106,4 @@ export function cardCampoReserva(nombre_campo,precio_hora,modalidad_id,fecha,hor
     card.append(divImg,content); 
     
     return card; 
-
 }

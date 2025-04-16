@@ -7,8 +7,7 @@ getCampos().then(array_campos => {
         
         const camposContainer = document.querySelector(".campos-container"); 
         camposContainer.appendChild(cartaCampo(campo.id,campo.nombre, campo.precio_hora, campo.disponible))
-    });
-    
+    });    
 })
 
 
@@ -32,6 +31,7 @@ select.addEventListener("change", (ev) => {
     })
     
 })
+
 
 
 
