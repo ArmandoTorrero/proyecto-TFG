@@ -49,7 +49,7 @@ logueado().then((data) => {
 getCampos().then(array_campos =>{
     const pistas_destacadas_container = document.querySelectorAll(".pistas-destacadas > .pistas")[0]; 
 
-    for (let i = 0; i < pistas_destacadas_container.childElementCount; i++) {
+    for (let i = 0; i < 3; i++) {
 
         let campo = pistas_destacadas_container.children[i]
         let campo_img = campo.children[0]; 
