@@ -13,6 +13,9 @@
     $router->add('/PyR','UsuariosController@PyR');
     $router->add('/perfil', 'UsuariosController@perfil'); 
     $router->add('/politicaPrivacidad', 'UsuariosController@politicaPrivacidad'); 
+    $router->add('/terminosCondiciones', 'UsuariosController@terminosCondiciones');
+    $router->add('/contactanos', 'UsuariosController@contactanos');
+
 
     
     $router->add('/modalidades','CamposController@modalidades'); 
@@ -38,7 +41,7 @@
 
 
     $requestUri = isset($_GET['url']) ? '/' . trim($_GET['url'], '/') : '/';
-// Simulación de petición
+    // Simulación de petición
     $router->dispatch($requestUri);
 
 ?>

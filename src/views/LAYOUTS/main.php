@@ -27,7 +27,7 @@
             <article class="nav-links">
                 <a href="/TFG/modalidades" target="_self">Modalidades</a>
                 <a href="/TFG/camposDeportivos" target="_self">Campos</a>
-                <a href="#" target="_self">Contactanos</a>
+                <a href="/TFG/contactanos" target="_self">Contactanos</a>
             </article>
 
             <article class="registro">
@@ -64,11 +64,11 @@
     
                     <article class="links-1">
                         <a href="/TFG/" target="_self">Inicio</a>
-                        <a href="#" target="_self">Contactanos</a>
+                        <a href="/TFG/contactanos" target="_self">Contactanos</a>
                         <a href="#" target="_self">Preguntas y respuestas</a>
                     </article>
                     <article class="links-2">
-                        <a href="#" target="_self">Terminos y condiciones</a>
+                        <a href="/TFG/terminosCondiciones" target="_self">Terminos y condiciones</a>
                         <a href="/TFG/politicaPrivacidad" target="_self">Politica de privacidad</a>
                         <a href="#" target="_self">Politica de protección de datos</a>
                     </article>

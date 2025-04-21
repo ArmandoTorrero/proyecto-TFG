@@ -40,6 +40,24 @@
             require __DIR__ . '/../views/politica_privacidad.php';
         }
 
+        /**
+         * 
+         * Mostrar pagina de terminos y condiciones
+         * @return void
+         */
+        public function terminosCondiciones() {
+            require __DIR__ . '/../views/terminosCondiciones.php';
+        }
+
+        /**
+         * Mostrar pagina de contacto
+         * @return void
+         */
+        public function contactanos() {
+            require __DIR__ . '/../views/contactanos.php';
+
+        }
+
 
         /**
          * FUnción para que el usuario se registre
