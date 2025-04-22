@@ -14,6 +14,14 @@
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
+        public function getModalidadByIdCampo($id_campo) {
+            $sql = "SELECT modalidad_id FROM pista WHERE id = :id_campo";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':id_campo', $id_campo);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
         
     }
 

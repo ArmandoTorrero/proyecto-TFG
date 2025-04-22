@@ -92,9 +92,8 @@
     .img{
         width: 50%;
         height: 80vh;
-        background-image: url('../ASSETS/pista-atletismo.jpeg');
         background-size: cover;
-        background-position: center;
+        background-repeat: no-repeat;
     }
 
     .content{

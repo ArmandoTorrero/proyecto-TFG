@@ -34,7 +34,7 @@
         public function reservarCampo() {
             // Sessions::crearSesionIdCampo($_GET["id_campo"] ?? ''); 
             $_SESSION["id_campo"] = $_GET["id_campo"]; 
-            $_SESSION["nombre_campo"] = $_GET["nombre_campo"]; 
+            $_SESSION["nombre_campo"] = $_GET["nombre_campo"]; ; 
 
             require __DIR__ . '/../views/reservarCampo.php';
         }
@@ -95,7 +95,7 @@
         }
 
         /**
-         * Mandar al cliente una lista ed campos segun el id d ela modalidad
+         * Mandar al cliente una lista de campos segun el id de la modalidad
          * @return void
          */
         public function getCamposByModalidad() {
@@ -108,8 +108,11 @@
             }else {
                 echo json_encode(['error' => 'No se recibieron datos']);
             }
+        }
 
-             
+        public function getModalidadId() {
+            $modalidad_id = ['id_modalidad' => ($this->campoModel->getModalidadByIdCampo($_SESSION["id_campo"])[0]['modalidad_id'])]; 
+            echo json_encode($modalidad_id);
         }
 
     }

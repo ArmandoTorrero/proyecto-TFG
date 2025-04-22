@@ -1,6 +1,6 @@
 import { crearBtnHora } from "./components/crearBotonHora";
 import { crearOption } from "./components/crearOption";
-import { getNombreCampo } from "./services/campo";
+import { getNombreCampo, getModalidadId } from "./services/campo";
 import { getFechas, horariosDinamicos } from "./services/franja_horaria";
 
 
@@ -15,23 +15,34 @@ function cambiarSelect() {
         let array_fechas_formateado = [];   
         
         // creamos un array para meter todas las fechas incluso las repetidas 
-        array_fechas.forEach(fecha => {            
+        array_fechas.forEach(fecha => {                        
             array_fechas_formateado.push(fecha.fecha)
         });
-        
+    
         // creamos un array con las fechas sin repetir
         let fechas_unicas = [...new Set(array_fechas_formateado)];
 
-        // con la opcion 'crearOption()' por cada fecha unica creamos un option para el select 
-        fechas_unicas.forEach(fecha => {
-            select.appendChild(crearOption(fecha,fecha))
+        // Convertir cada fecha a formato europeo
+        let fechas_formato_europeo = fechas_unicas.map(fechaStr => {
+            let fecha = new Date(fechaStr);
+            let dia = String(fecha.getDate()).padStart(2, '0');
+            let mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Los meses van de 0 a 11
+            let año = fecha.getFullYear();
+            return `${dia}-${mes}-${año}`;
         });
+
+        
+        // con la opcion 'crearOption()' por cada fecha unica creamos un option para el select 
+        for (let i = 0; i < fechas_formato_europeo.length; i++) {
+            select.appendChild(crearOption(fechas_formato_europeo[i], fechas_unicas[i]))
+            
+        }        
 
         // recogemos la seccion de horarios
         const horariosSection = document.getElementById("horarios"); 
         
         // le añadimos un evento al select 
-        select.addEventListener("change", (ev) => {
+        select.addEventListener("change", (ev) => {            
 
             // cuando se seleccione una fecha en el option se mostraran los horarios de la fecha seleccionada 
             horariosDinamicos(ev.target.value).then(info => {
@@ -51,6 +62,28 @@ function cambiarSelect() {
     })
 }
 
+/**
+ * Funcion para cambiar la imagen del campo dependiendo de la modalidad
+ * @param {*} element 
+ */
+function changeImgByModalidadId(element) {
+    getModalidadId().then(info => {
+        let id_modalidad = info.id_modalidad;
+        console.log(id_modalidad);
+
+        // Cambiar la imagen según el id de modalidad
+        
+        switch (id_modalidad) {
+            case 1:
+                element.style.backgroundImage = "url('./PUBLIC/ASSETS/balon-futbol.jpeg')";
+                break;
+        
+            default:
+                break;
+        }
+        
+    })
+}
 
 
 
@@ -63,5 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     
     cambiarSelect()
+
+    let img = document.querySelector(".reservar > .img");
+    console.log(img);
     
+    changeImgByModalidadId(img)
 })

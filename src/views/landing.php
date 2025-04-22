@@ -115,7 +115,7 @@
         </section>
 
         <button class="ver-campos">
-            <a href="/TFG/camposDeportivos" target="_self">Ver campos</a>
+            <a href="/TFG/camposDeportivos" target="_self">Ver todos los campos</a>
         </button>
 
     </section>
@@ -128,7 +128,7 @@
                 <a href="/TFG/login" target="_self">Iniciar sesión</a>
             </button>
             <button>
-                <a href="/TFG/camposDeportivos" target="_self">Ver campos</a>
+                <a href="/TFG/camposDeportivos" target="_self">Ver todos los campos</a>
             </button>
         </article>
     </section>

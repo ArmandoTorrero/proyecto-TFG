@@ -45,6 +45,10 @@
     justify-content: space-around;
     align-items: center;
 
+    h2{
+        font-size: 0.9rem;
+    }
+
     span{
         color: var(--fondoBotones);
         font-weight: 500;

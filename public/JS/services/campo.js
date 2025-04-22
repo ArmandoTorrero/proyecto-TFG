@@ -61,3 +61,12 @@ export async function getCamposByModalidadId(modalidad_id) {
         
     }
 }
+
+/**
+ * Conseguir el id de la modalidad que hay en la sesion
+ * @returns 
+ */
+export async function getModalidadId() {
+    const response = await fetch('/TFG/modalidadId');
+    return await response.json();
+}
