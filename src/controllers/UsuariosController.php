@@ -58,6 +58,24 @@
 
         }
 
+        /**
+         * 
+         * Funcion para mostar la vista de preguntas y respuestas
+         * @return void
+         */
+        public function PyR() {
+            require __DIR__ . '/../views/PyR.php';
+        }
+
+        /**
+         * Funcion para mostrar el perfil del usuario
+         * @return void
+         */
+        public function perfil() {
+            require __DIR__ . '/../views/perfil_usuario.php';
+        }
+
+
 
         /**
          * FUnción para que el usuario se registre
@@ -134,22 +152,7 @@
             }
         }
 
-        /**
-         * 
-         * Funcion para mostar la vista de preguntas y respuestas
-         * @return void
-         */
-        public function PyR() {
-            require __DIR__ . '/../views/PyR.php';
-        }
 
-        /**
-         * Funcion para mostrar el perfil del usuario
-         * @return void
-         */
-        public function perfil() {
-            require __DIR__ . '/../views/perfil_usuario.php';
-        }
 
         /**
          * 

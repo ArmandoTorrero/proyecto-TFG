@@ -67,7 +67,7 @@
             <h1>Reserva tu pista deportiva favorita con campolibre</h1>
             <p>Entra en el mundo del deporte y la diversión. Con Campolibre podrás reservar tu pista deportiva favorita de forma rápida y sencilla.</p>
             <button>
-                <a href="/TFG/camposDeportivos" target="_self" >Ver campos</a>
+                <a href="/TFG/camposDeportivos" target="_self" >Ver todos los campos</a>
             </button>
         </section>
 

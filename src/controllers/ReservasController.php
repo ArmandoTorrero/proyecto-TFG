@@ -43,6 +43,9 @@ use Core\utilities\Validador;
                     $this->franjaHorariaModel->update([
                         'disponible' => 0
                     ], $_SESSION["id_horario"]);
+
+                    header('Location: /TFG/perfil'); 
+                    exit();
                     
                 }else {
                     echo "error"; 

@@ -4,7 +4,7 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url('../ASSETS/campo-futbol2.jpeg');
+    background-image: url('../ASSETS/balon-futbol2.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -80,7 +80,7 @@ form{
 }
 
 .label-input span{
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     color: red;
     opacity: 0;
 }
@@ -125,17 +125,12 @@ form{
 
     main{
         flex-direction: row;
-        justify-content: space-between;
-        width: 100vw;
-        background-image: url('../ASSETS/campo-futbol.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
+        background-image: none;
     }
 
     .form-container{
         width: 30%;
-        margin: 1% 0 1% 1%;
+        margin: 0%;
     }
 
     .bienvenida{
@@ -145,7 +140,11 @@ form{
         align-items: center;
         align-self: flex-start;
         width: 70%;
-        height: 100vh;
+        height: 92vh;
+        background-image: url('../ASSETS/balon-futbol2.jpeg');
+        background-position: center;
+        background-size: cover;
+        background-position: center;
         text-align: center;
     }
 
