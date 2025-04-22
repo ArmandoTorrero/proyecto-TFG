@@ -17,25 +17,29 @@
             <article class="campo">
                 <div class="img"></div>
                 <h2>Campos de futbol</h2>
-                <p>Experimente la emoción de jugar en nuestros campos de fútbol de primera calidad. </p>
+                <p>Experimenta la emoción de jugar en nuestros campos de fútbol de primera calidad. </p>
                 <button>
                     <a href="/TFG/camposModalidad?modalidad=1" target="_self">Explorar</a>
                 </button>
             </article>
 
             <article class="campo">
-                <div class="img"></div>
-                <h2>Campos de futbol</h2>
-                <p>Experimente la emoción de jugar en nuestros campos de fútbol de primera calidad. </p>
+                <div class="img">
+                    <p>Proximamente</p>
+                </div>
+                <h2>Campos de tenis</h2>
+                <p>Experimenta la emoción de jugar en nuestros campos de tenis de primera calidad. </p>
                 <button>
                     <a href="#" target="_self">Explorar</a>
                 </button>
             </article>
 
             <article class="campo">
-                <div class="img"></div>
-                <h2>Campos de futbol</h2>
-                <p>Experimente la emoción de jugar en nuestros campos de fútbol de primera calidad. </p>
+                <div class="img">
+                    <p>Proximamente</p>
+                </div>
+                <h2>Campos de padel</h2>
+                <p>Experimenta la emoción de jugar en nuestros campos de padel de primera calidad. </p>
                 <button>
                     <a href="#" target="_self">Explorar</a>
                 </button>

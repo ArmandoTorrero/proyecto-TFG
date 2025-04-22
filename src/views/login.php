@@ -44,7 +44,7 @@
         </section>
 
         <section class="bienvenida">
-            <h1>Reserva tu pista deportiva favorita con campolibre</h1>
+            <h1>Reserva tu pista deportiva favorita con CampoLibre</h1>
             <p>Entra en el mundo del deporte y la diversión. Con Campolibre podrás reservar tu pista deportiva favorita de forma rápida y sencilla.</p>
             <button>
                 <a href="/TFG/camposDeportivos" target="_self" >Ver todos los campos</a>

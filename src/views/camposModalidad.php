@@ -6,7 +6,9 @@
         <link rel="stylesheet" href="public/CSS/camposModalidad.css">
     </head>
 
-    <main></main>
+    <main>
+        <section class="campos-container"></section>
+    </main>
 
     <script type="module" src="public/JS/camposModalidad.js"></script>
 

@@ -32,14 +32,14 @@
                 <article class="label-input">
                     <label for="">Contraseña</label>
                     <input type="password" name="passwd" id="passwd">
-                    <span class="passwdSpan">La contraseña debe de tener minimo 5 caracteres</span>
+                    <span class="passwdSpan">La contraseña debe de tener mínimo 5 caracteres</span>
                 </article>
 
 
                 <article class="label-input">
-                    <label for="">Telefono</label>
+                    <label for="">Teléfono</label>
                     <input type="text" name="tlf" id="tlf">
-                    <span class="tlfSpan">El numero de telefono debe de tener 9 numeros</span>
+                    <span class="tlfSpan">El numero de teléfono debe de tener 9 numeros</span>
                 </article>
 
                 <article class="militar">
@@ -48,9 +48,9 @@
                 </article>
 
                 <article class="label-input" id="input-militar" >
-                    <label for="">Escriba su codigo militar</label>
+                    <label for="">Escriba su código militar</label>
                     <input type="text" name="id_militar" id="id_militar">
-                    <span class="militarSpan">Identificacion incorrecta</span>
+                    <span class="militarSpan">Identificación incorrecta</span>
                 </article>
 
                 <button type="submit" class="enviar disabled" disabled >Registrar usuario</button>
@@ -64,7 +64,7 @@
         </section>
 
         <section class="bienvenida">
-            <h1>Reserva tu pista deportiva favorita con campolibre</h1>
+            <h1>Reserva tu pista deportiva favorita con CampoLibre</h1>
             <p>Entra en el mundo del deporte y la diversión. Con Campolibre podrás reservar tu pista deportiva favorita de forma rápida y sencilla.</p>
             <button>
                 <a href="/TFG/camposDeportivos" target="_self" >Ver todos los campos</a>
