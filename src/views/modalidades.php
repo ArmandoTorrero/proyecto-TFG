@@ -19,7 +19,7 @@
                 <h2>Campos de futbol</h2>
                 <p>Experimente la emoción de jugar en nuestros campos de fútbol de primera calidad. </p>
                 <button>
-                    <a href="#" target="_self">Explorar</a>
+                    <a href="/TFG/camposModalidad?modalidad=1" target="_self">Explorar</a>
                 </button>
             </article>
 

@@ -110,9 +110,18 @@
             }
         }
 
-        public function getModalidadId() {
+        /**
+         * Devuelve al JS la modalidad del campo que ha seleccionado el usuario
+         * @return void
+         */
+        public function getModalidadIdByIdCampo() {
             $modalidad_id = ['id_modalidad' => ($this->campoModel->getModalidadByIdCampo($_SESSION["id_campo"])[0]['modalidad_id'])]; 
             echo json_encode($modalidad_id);
+        }
+
+
+        public function getModalidad() {
+            echo json_encode(['modalidad' => $_SESSION["modalidad"]]);
         }
 
     }

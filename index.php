@@ -15,6 +15,7 @@
     $router->add('/politicaPrivacidad', 'UsuariosController@politicaPrivacidad'); 
     $router->add('/terminosCondiciones', 'UsuariosController@terminosCondiciones');
     $router->add('/contactanos', 'UsuariosController@contactanos');
+    $router->add('/camposModalidad','UsuariosController@camposModalidad');
 
 
     
@@ -27,14 +28,18 @@
     
     // Rutas que mandan json_encode
     $router->add('/logueado','UsuariosController@estaLogueado');
-    $router->add('/userInfo','UsuariosController@getUserInfo');     
+    $router->add('/userInfo','UsuariosController@getUserInfo');  
+
     $router->add('/getCampos', 'CamposController@getCampos');  
     $router->add('/modalidadCampos','CamposController@getCamposByModalidad'); 
     $router->add('/nombreCampo', 'CamposController@mandarNombreCampo');  
     $router->add('/precioCampo', 'CamposController@mandarPrecioCampo');      
     $router->add('/fechasCampo', 'CamposController@mandarFechasCampo'); 
     $router->add('/horariosDinamicos', 'CamposController@mandarHorariosDinamicos'); 
-    $router->add('/modalidadId', 'CamposController@getModalidadId');
+    $router->add('/modalidadId', 'CamposController@getModalidadIdByIdCampo');
+    $router->add('/modalidad', 'CamposController@getModalidad');
+    
+
     $router->add('/horarioInfo', 'ReservasController@getHorarioInfo');
     $router->add('/reservasUsuario', 'ReservasController@getReservasByUserId');
     

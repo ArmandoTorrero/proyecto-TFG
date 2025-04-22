@@ -70,3 +70,13 @@ export async function getModalidadId() {
     const response = await fetch('/TFG/modalidadId');
     return await response.json();
 }
+
+
+/**
+ * Conseguir la modalidad de un campo a partir de la sesion creada al entrar a los campos de la pagina de 'modalidad'
+ * @returns 
+ */
+export async function modalidad() {
+    const response = await fetch("/TFG/modalidad"); 
+    return await response.json();         
+}
