@@ -8,7 +8,7 @@
 
 <main>
     <section class="title">
-        <h1>Terminos y condiciones</h1>
+        <h1>Términos y condiciones</h1>
     </section>
     <section class="info">
         

@@ -15,9 +15,11 @@
     $router->add('/PyR','UsuariosController@PyR');
     $router->add('/perfil', 'UsuariosController@perfil'); 
     $router->add('/politicaPrivacidad', 'UsuariosController@politicaPrivacidad'); 
+    $router->add('/politicaProteccionDatos', 'UsuariosController@politicaProteccionDatos'); 
     $router->add('/terminosCondiciones', 'UsuariosController@terminosCondiciones');
     $router->add('/contactanos', 'UsuariosController@contactanos');
     $router->add('/camposModalidad','UsuariosController@camposModalidad');
+
 
 
     

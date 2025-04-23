@@ -68,12 +68,12 @@
                     <article class="links-1">
                         <a href="/TFG/" target="_self">Inicio</a>
                         <a href="/TFG/contactanos" target="_self">Contactanos</a>
-                        <a href="#" target="_self">Preguntas y respuestas</a>
+                        <a href="/TFG/PyR" target="_self">Preguntas y respuestas</a>
                     </article>
                     <article class="links-2">
                         <a href="/TFG/terminosCondiciones" target="_self">Terminos y condiciones</a>
                         <a href="/TFG/politicaPrivacidad" target="_self">Politica de privacidad</a>
-                        <a href="#" target="_self">Politica de protección de datos</a>
+                        <a href="/TFG/politicaProteccionDatos" target="_self">Politica de protección de datos</a>
                     </article>
                     <article class="RRSS">
                         <a href="#" target="_self"><i class="fa-brands fa-whatsapp"></i></a>

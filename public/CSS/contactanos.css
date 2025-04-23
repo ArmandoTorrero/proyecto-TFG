@@ -97,11 +97,5 @@ main{
             color: #c5c4c4;
         }
     }
-    .info-contact-containers:hover .contact-container:not(:hover){
-        opacity: 0.5;
-    }
-
-    .contact-container:hover{
-        transform: scale(1.05);
-    }
+    
 }
