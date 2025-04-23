@@ -1,21 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root{
-    --logo:'Dancing Script'; 
-    --titulos: 'Bebas Neue';
-    --fondoBody: #fff; 
-    --colorTitulos: #010100;
-    --colorTitulos2: #fff; 
-    --colorTexto: #010100;
-    --colortexto2: #fff;
-    --fondoBotones: #2462EB; 
-    --fondoFooter: #111827; 
-}
-
 
 main{
     padding: 5% 0%;
