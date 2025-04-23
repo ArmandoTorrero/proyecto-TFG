@@ -1,4 +1,6 @@
 
+import { enviarDatosLogin } from "./components/enviarLogin.js"; 
+
 function validarInput(input,span,regex) {
     
         if (regex.test(input.value)) {
@@ -14,7 +16,6 @@ function validarInput(input,span,regex) {
         }
     
 }
-
 
 document.addEventListener("DOMContentLoaded", ()=>{
     const buttonSubmit = document.querySelector(".enviar");
@@ -61,6 +62,32 @@ document.addEventListener("DOMContentLoaded", ()=>{
             buttonSubmit.classList.add("disabled");
         }
     })
+
+
+    // evento para el submit del formulario
+    const form = document.getElementById("miForm"); 
+    form.addEventListener("submit", (ev) => {
+        ev.preventDefault(); 
+
+        const email = document.getElementById("correo").value;
+        const passwd = document.getElementById("passwd").value;
+        fetch("/TFG/validarLogin", {
+            method: "POST", 
+            body: JSON.stringify({
+                correo: email,
+                passwd: passwd
+            })
+        })
+        .then(respuesta => respuesta.text())
+        .then(info => {
+            console.log(info);
+            
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        })
+    })    
+
 })
 
 

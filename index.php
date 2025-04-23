@@ -8,7 +8,8 @@
 
     $router->add('/', 'UsuariosController@landingPage'); 
     $router->add('/registro','UsuariosController@create'); 
-    $router->add('/login','UsuariosController@login'); 
+    $router->add('/login','UsuariosController@login');
+    $router->add('/validarLogin','UsuariosController@validarDatosLogin');  
     $router->add('/logout','UsuariosController@logout');     
     $router->add('/PyR','UsuariosController@PyR');
     $router->add('/perfil', 'UsuariosController@perfil'); 

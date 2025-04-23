@@ -16,7 +16,7 @@
 
             <h2>Iniciar sesión</h2>
 
-            <form action="" method="post">
+            <form action="" method="post" id="miForm">
 
                 <article class="label-input">
                     <label for="">Correo</label>

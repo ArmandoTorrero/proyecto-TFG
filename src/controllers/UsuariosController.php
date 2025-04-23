@@ -137,6 +137,7 @@
         }
 
 
+
         /**
          * Función para que el usuario inicie sesión
          * @return void
@@ -144,20 +145,46 @@
         public function login() { 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-                $camposValidados = Validador::validarCamposLoginUsuario($_POST["correo"], $_POST["passwd"]); 
+                // $camposValidados = Validador::validarCamposLoginUsuario($_POST["correo"], $_POST["passwd"]); 
+
+                // if ($camposValidados) {
+                //     $encontrado = Validador::existeUsuarioLogin(
+                //         $this->usuariosModel->getAll(), 
+                //         $_POST["correo"], 
+                //         $_POST["passwd"]
+                //     ); 
+                // }
+
+                // !$encontrado ? 'usuario no encontrado' : ''; 
+                require __DIR__ . '/../views/login.php';
+
+            }else {
+                require __DIR__ . '/../views/login.php'; 
+            }
+        }
+
+
+        public function validarDatosLogin() {
+            $datos = json_decode(file_get_contents("php://input"), true);
+
+            if ($datos) {
+                $camposValidados = Validador::validarCamposLoginUsuario($datos["correo"], $datos["passwd"]); 
 
                 if ($camposValidados) {
                     $encontrado = Validador::existeUsuarioLogin(
                         $this->usuariosModel->getAll(), 
-                        $_POST["correo"], 
-                        $_POST["passwd"]
+                        $datos["correo"], 
+                        $datos["passwd"]
                     ); 
                 }
 
-                echo !$encontrado ? 'Usuario no encontrado' : ''; 
-
-            }else {
-                require __DIR__ . '/../views/login.php'; 
+                if ($encontrado) {
+                    echo json_encode(['existe' => true]); 
+                }else{
+                    echo json_encode(['existe' => false]); 
+                }
+            }else{
+                echo json_encode(['error' => 'No se han recibido datos']); 
             }
         }
 
@@ -180,5 +207,6 @@
         public function getUserInfo() {
             echo json_encode(['info' => $this->usuariosModel->getById($_SESSION["id_usuario"])]); 
         }
+
     }
 ?>

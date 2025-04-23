@@ -111,8 +111,8 @@
                     Sessions::crearSesionIdUsuario($usuario['id']);  
                     Sessions::crearSesionUsername($usuario['nombre']); 
                     Sessions::crearSesionRol($usuario['rol_id']); 
-                    header('Location: /TFG/perfil '); 
-                    exit(); 
+                    return true;
+                    break;  
                 }
                 
             }
