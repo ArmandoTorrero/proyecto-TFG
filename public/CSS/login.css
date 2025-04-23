@@ -10,6 +10,18 @@ main{
     background-position: center;
 }
 
+#alerta-verde{
+    position: absolute;
+    top: -10%;
+    transition: all 0.2s ease;
+}
+
+#alerta-roja{
+    position: absolute;
+    top: -10%;
+    transition: all 0.2s ease;
+}
+
 /*
 ---------------------------------------------------------------------------
 ----------PARTE DE LA DERECHA QUE SE MUESTRA EN ESTILO ESCRITORIO----------

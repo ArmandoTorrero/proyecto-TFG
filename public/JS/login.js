@@ -1,6 +1,4 @@
 
-import { enviarDatosLogin } from "./components/enviarLogin.js"; 
-
 function validarInput(input,span,regex) {
     
         if (regex.test(input.value)) {
@@ -78,9 +76,24 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 passwd: passwd
             })
         })
-        .then(respuesta => respuesta.text())
-        .then(info => {
-            console.log(info);
+        .then(respuesta => respuesta.json())
+        .then(result => {
+            console.log(result);
+            if (result.existe == true) {
+                let alert = document.getElementById("alerta-verde")
+                alert.style.top = "5%"; 
+                
+                setTimeout(() => {
+                     window.location.href = "/TFG/perfil"; 
+                }, 1000);
+                
+            }else{
+                let alert = document.getElementById("alerta-roja")
+                alert.style.top = "5%"; 
+                setTimeout(() => {
+                    alert.style.top = "-10%"; 
+                }, 1000);
+            }
             
         })
         .catch(error => {

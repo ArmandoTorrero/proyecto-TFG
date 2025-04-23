@@ -8,6 +8,14 @@
 
     <main>
 
+        <div class="alert alert-success" role="alert" id="alerta-verde">
+            Inicio de sesión correcto.
+        </div>
+
+        <div class="alert alert-danger" role="alert" id="alerta-roja">
+            Credenciales incorrectas.
+        </div>
+
         <section class="form-container">
 
             <article class="icon">
