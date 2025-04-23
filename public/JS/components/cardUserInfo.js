@@ -16,8 +16,6 @@ export function cardUserInfo(rol) {
 
             for (let i = 0; i < array_user_info.length; i++) {
 
-                
-                
                 let input = document.createElement("input")
                 input.id = array_user_info[i][0]; 
                 input.value = array_user_info[i][1]; 

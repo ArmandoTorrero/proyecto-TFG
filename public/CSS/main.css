@@ -5,7 +5,7 @@
 }
 
 :root{
-    --logo:'Dancing Script'; 
+    --logo:'Anton'; 
     --titulos: 'Bebas Neue';
     --fondoBody: #fff; 
     --colorTitulos: #010100;
@@ -46,7 +46,7 @@ b{
 }
 
 .logo{
-    font-family: 'Dancing Script';
+    font-family: 'Anton';
 }
 
 
@@ -118,10 +118,18 @@ nav{
 
     a{
         margin: 1% 2%;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         color: var(--colortexto2);
     }
+
+    a:last-of-type{
+        width: 29%;
+        padding: 2px 7px;
+        border-radius: 5px;
+        background-color: var(--fondoBotones);
+    }
 }
+
 
 body:has(.menu-hamburguesa input:checked){
     overflow-y: hidden;

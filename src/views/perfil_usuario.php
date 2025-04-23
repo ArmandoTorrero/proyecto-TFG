@@ -6,8 +6,17 @@
     </head>
     
     <main>
-        <section class="user-info">
-            <h1>Datos de la cuenta</h1>
+        <section class="izquierda-derecha">
+
+            <section class="user-info">
+                <h1>Datos de la cuenta</h1>
+            </section>
+
+            <section class="derecha">
+                <h1>Bienvenido a tu perfil</h1>
+                <p>Aqui veras tus datos personales y tus reservas realizadas</p>
+            </section>
+
         </section>
         <section class="user-reservas">
             <h1>Reservas</h1>
