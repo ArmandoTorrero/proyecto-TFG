@@ -49,6 +49,10 @@
             require __DIR__ . '/../views/terminosCondiciones.php';
         }
 
+        /**
+         * Mostrar pagina de politica de proteccion de datos
+         * @return void
+         */
         public function politicaProteccionDatos() {
             require __DIR__ . '/../views/politicaProtecciondatos.php';
         }
