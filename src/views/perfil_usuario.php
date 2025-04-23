@@ -7,7 +7,7 @@
     
     <main>
         <section class="izquierda-derecha">
-
+            
             <section class="user-info">
                 <h1>Datos de la cuenta</h1>
             </section>

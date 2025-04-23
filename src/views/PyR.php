@@ -11,12 +11,12 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Accordion Item #1
+                    1. ¿Cómo puedo reservar una pista deportiva?
                 </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        Puedes reservar pistas directamente desde nuestra plataforma online. Solo necesitas registrarte, seleccionar la instalación deportiva, elegir fecha y hora disponible, y completar el pago.
                     </div>
                 </div>
             </div>
@@ -24,12 +24,12 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Accordion Item #2
+                    2. ¿Cuál es el horario de apertura de las instalaciones?
                 </button>
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        Nuestras instalaciones están abiertas de lunes a sabado de 16:00 a 22:00 horas. Los horarios pueden variar en días festivos, por lo que te recomendamos consultar previamente las fechas.
                     </div>
                 </div>
             </div>
@@ -37,12 +37,12 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Accordion Item #3
+                    3. ¿Qué métodos de pago aceptan?
                 </button>
                 </h2>
                 <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        Aceptamos tarjetas de crédito/débito (Visa, MasterCard), transferencias bancarias, Bizum y PayPal.
                     </div>
                 </div>
             </div>
@@ -50,12 +50,12 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                    Accordion Item #4
+                    4. ¿Puedo cancelar o modificar una reserva?
                 </button>
                 </h2>
                 <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    Sí, puedes cancelar o modificar tu reserva con al menos 24 horas de antelación a través de tu área de cliente. Las cancelaciones dentro de las 24 horas previas podrían tener cargos adicionales.
                     </div>
                 </div>
             </div>
@@ -63,12 +63,12 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                    Accordion Item #5
+                    5. ¿Qué debo hacer si llego tarde a mi reserva?
                 </button>
                 </h2>
                 <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        Si llegas con más de 15 minutos de retraso, tu reserva podría ser cancelada sin reembolso. En caso de retraso, por favor contáctanos inmediatamente al número de soporte para que podamos ayudarte.
                     </div>
                 </div>
             </div>
@@ -76,12 +76,12 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                    Accordion Item #6
+                    6. ¿Ofrecen alquiler de equipamiento deportivo?
                 </button>
                 </h2>
                 <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        Sí, en nuestras instalaciones puedes alquilar todo el equipamiento necesario (raquetas, pelotas, redes, etc.) por un costo adicional. Puedes reservarlo al mismo tiempo que haces tu reserva de pista.
                     </div>
                 </div>
             </div>
@@ -89,12 +89,12 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                    Accordion Item #7
+                    7. ¿Cuanto tiempo hay para realizar la actividad deportiva?
                 </button>
                 </h2>
                 <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        El tiempo justo es de 1 hora, una vez finalizado ese tiempo, en caso de que la siguiente hora este libre los jugadores podran hablar con el delegado de la pista para poder alargar el tiempo de juego, pagando la cuota correspondiente, pero si no hay disponibilidad no se podra alargar el tiempo.
                     </div>
                 </div>
             </div>
