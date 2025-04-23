@@ -68,6 +68,8 @@ export function cartaCampo(id,nombre,precio,disponible) {
  * @returns 
  */
 export function cardCampoReserva(nombre_campo,precio_hora,modalidad_id,fecha,hora_inicio) {
+    console.log(fecha);
+    
     //creamos la carta y le asignamos su clase
     let card = CrearEtiquetaConClase("article","card-reserva"); 
 

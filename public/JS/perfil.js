@@ -8,7 +8,6 @@ logueado().then(info => {
 })
 
 getReservasByUserId().then(info => {
-    console.log(info.reservas.length);
     
     let reservas= document.querySelector(".reservas-container"); 
 

@@ -10,6 +10,11 @@ main{
     background-position: center;
 }
 
+/*
+--------------------------------------------------------------
+----------ESTILOS PARA EL ALERTA DE INICIO DE SESION----------
+--------------------------------------------------------------
+*/
 #alerta-verde, #alerta-roja{
     position: absolute;
     top: -10%;
@@ -156,6 +161,10 @@ form{
     main{
         flex-direction: row;
         background-image: none;
+    }
+
+    #alerta-verde, #alerta-roja{
+        left: 50%;
     }
 
     .form-container{
