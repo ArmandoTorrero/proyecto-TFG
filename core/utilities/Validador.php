@@ -85,25 +85,19 @@
             return (self::validarNombre($userName) && self::validarEmail($correo) && self::validarPassword($password) && self::validarTelefono($telefono)); 
         }
 
-        public static function validarCamposLoginUsuario($correo,$password) {
-            return (self::validarEmail($correo) && self::validarPassword($password)); 
-        }
-
-
         public static function existelUsuarioRegistro(array $array_usuarios, string $correo, string $userName): bool {
             foreach ($array_usuarios as $usuario) {
                 if ($usuario['email'] === $correo) {
-                    echo 'Este correo ya existe en la base de datos'; 
                     return true; // Email duplicado.
-                }
-                if ($usuario['nombre'] === $userName) {
-                    echo "Este nombre de usuario ya existe en la base de datos"; 
-                    return true; // Nombre de usuario duplicado.
+                    break;  
                 }
             }
             return false;
         }
 
+        public static function validarCamposLoginUsuario($correo,$password) {
+            return (self::validarEmail($correo) && self::validarPassword($password)); 
+        }
         public static function existeUsuarioLogin($array_usuarios,$correo,$password) {
             foreach ($array_usuarios as $usuario) {
                 if ($usuario['email'] == $correo && password_verify($password,$usuario['passwd'])){

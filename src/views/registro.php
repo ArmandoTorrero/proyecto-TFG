@@ -7,6 +7,8 @@
 
     <main>
 
+       
+
         <section class="form-container">
 
             <article class="icon">
@@ -15,7 +17,7 @@
 
             <h1>Registrar usuario</h1>
 
-            <form action="" method="post">
+            <form action="" method="post" id="miForm">
 
                 <article class="label-input">
                     <label for="">Nombre usuario</label>
@@ -54,6 +56,7 @@
                 </article>
 
                 <button type="submit" class="enviar disabled" disabled >Registrar usuario</button>
+                <span class="errorMsg">Error</span>
 
             </form>
 

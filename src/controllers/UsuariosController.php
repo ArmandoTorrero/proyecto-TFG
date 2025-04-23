@@ -91,10 +91,12 @@
          * @return void
          */
         public function create() { 
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') { // comprobamos que se envian cosas por POST 
-    
-                
-                // guardamos las comprobaciones en variables
+            require __DIR__ . '/../views/registro.php';
+        }
+
+        public function validarDatosRegidtro() {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
                 $camposValidados = Validador::validarCamposRegistroUsuario(
                     $_POST["username"],
                     $_POST["correo"],
@@ -102,38 +104,43 @@
                     $_POST["tlf"]
                 );
                 
-                
                 $usuarioEncontrado = Validador::existelUsuarioRegistro(
                     $this->usuariosModel->getAll(),
                     $_POST["correo"],
                     $_POST["username"]
-                );
-                
-                // si ambas comprobaciones son correctas creamos las sesiones y creamos el usuario
-                 if ($camposValidados && !$usuarioEncontrado) {
-                    Sessions::crearSesionLogueado(); 
-                    Sessions::crearSesionUsername($_POST["username"]); 
-                    Sessions::crearSesionIdUsuario($this->usuariosModel->create(
-                        [
-                            'nombre' => $_POST["username"], 
-                            'email' => $_POST["correo"],
-                            'passwd' => password_hash($_POST["passwd"], PASSWORD_DEFAULT), 
-                            'tlf' => $_POST["tlf"],
-                            'codigo_militar' => $_POST["id_militar"] ?? '', 
-                            'rol_id' => 1
-                        ]
-                    )); 
+               );
 
-                    header('Location: /TFG/perfil'); 
-                    exit(); 
-                 }
+                if (!$camposValidados) {
+                    echo json_encode(['exito' => false, 'mensaje' => 'Los campos no son válidos']);
+                    return;
+                }
 
-                 echo "Este usuario ya esta registrado"; 
-                          
-    
-            } else { // si no se reciben cosas por POST mostramos el formulario
-                require __DIR__ . '/../views/registro.php'; 
+                if ($usuarioEncontrado) {
+                    echo json_encode(['exito' => false, 'mensaje' => 'El usuario ya está registrado']);
+                    return;
+                }
+
+                Sessions::crearSesionLogueado(); 
+                Sessions::crearSesionUsername($_POST["username"]); 
+                Sessions::crearSesionIdUsuario($this->usuariosModel->create(
+                    [
+                        'nombre' => $_POST["username"], 
+                        'email' => $_POST["correo"],
+                        'passwd' => password_hash($_POST["passwd"], PASSWORD_DEFAULT), 
+                        'tlf' => $_POST["tlf"],
+                        'codigo_militar' => $_POST["id_militar"] ?? '', 
+                        'rol_id' => 1
+                    ]
+                )); 
+
+                // Enviar respuesta JSON indicando éxito
+                echo json_encode(['exito' => true, 'mensaje' => 'Usuario creado correctamente']);
+                return;
+
+            }else {
+                echo json_encode(['exito' => false, 'mensaje' => 'Error al enviar los datos']);
             }
+
         }
 
 
@@ -143,27 +150,14 @@
          * @return void
          */
         public function login() { 
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-                // $camposValidados = Validador::validarCamposLoginUsuario($_POST["correo"], $_POST["passwd"]); 
-
-                // if ($camposValidados) {
-                //     $encontrado = Validador::existeUsuarioLogin(
-                //         $this->usuariosModel->getAll(), 
-                //         $_POST["correo"], 
-                //         $_POST["passwd"]
-                //     ); 
-                // }
-
-                // !$encontrado ? 'usuario no encontrado' : ''; 
-                require __DIR__ . '/../views/login.php';
-
-            }else {
-                require __DIR__ . '/../views/login.php'; 
-            }
+            require __DIR__ . '/../views/login.php';             
         }
 
 
+        /**
+         * Validar los datos del login
+         * @return void
+         */
         public function validarDatosLogin() {
             $datos = json_decode(file_get_contents("php://input"), true);
 

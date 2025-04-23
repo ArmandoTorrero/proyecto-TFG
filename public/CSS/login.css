@@ -10,17 +10,13 @@ main{
     background-position: center;
 }
 
-#alerta-verde{
+#alerta-verde, #alerta-roja{
     position: absolute;
     top: -10%;
     transition: all 0.2s ease;
 }
 
-#alerta-roja{
-    position: absolute;
-    top: -10%;
-    transition: all 0.2s ease;
-}
+
 
 /*
 ---------------------------------------------------------------------------

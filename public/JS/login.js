@@ -79,19 +79,19 @@ document.addEventListener("DOMContentLoaded", ()=>{
         .then(respuesta => respuesta.json())
         .then(result => {
             console.log(result);
-            if (result.existe == true) {
-                let alert = document.getElementById("alerta-verde")
-                alert.style.top = "5%"; 
+            if (result.existe) {
+                let alerta_verde = document.getElementById("alerta-verde")
+                alerta_verde.style.top = "5%"; 
                 
                 setTimeout(() => {
                      window.location.href = "/TFG/perfil"; 
                 }, 1000);
                 
             }else{
-                let alert = document.getElementById("alerta-roja")
-                alert.style.top = "5%"; 
+                let alerta_roja = document.getElementById("alerta-roja")
+                alerta_roja.style.top = "5%"; 
                 setTimeout(() => {
-                    alert.style.top = "-10%"; 
+                    alerta_roja.style.top = "-10%"; 
                 }, 1000);
             }
             
