@@ -54,7 +54,7 @@ use Core\utilities\Validador;
                 require __DIR__ . '/../views/pagarCampo.php';
             }
         }
-
+        
         public function getHorarioInfo() {
             echo json_encode(["info" => $this->franjaHorariaModel->getById($_SESSION["id_horario"])]); 
         }

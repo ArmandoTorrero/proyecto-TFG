@@ -86,7 +86,7 @@
                 $fecha = $datos['fecha'];
 
                 echo json_encode([
-                    'horarios' => $this->franjaHorariaModel->getHorariosByPistaIdActualizados($_SESSION["id_campo"], $fecha)
+                    'horarios' => $this->franjaHorariaModel->getHorariosActualizadosByPistaId($_SESSION["id_campo"], $fecha)
                 ]);
             } else {
                 echo json_encode(['error' => 'No se recibieron datos']);

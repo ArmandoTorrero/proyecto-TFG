@@ -13,7 +13,7 @@
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
-         public function getHorariosByPistaIdActualizados($id_campo,$fecha) {
+         public function getHorariosActualizadosByPistaId($id_campo,$fecha) {
             $sql = "SELECT * FROM franja_horaria WHERE pista_id = :id_campo 
             AND disponible = 1 
             AND fecha = :fecha 

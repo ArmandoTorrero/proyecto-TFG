@@ -33,7 +33,6 @@
     // Rutas que mandan json_encode
     $router->add('/logueado','UsuariosController@estaLogueado');
     $router->add('/userInfo','UsuariosController@getUserInfo');  
-
     $router->add('/getCampos', 'CamposController@getCampos');  
     $router->add('/modalidadCampos','CamposController@getCamposByModalidad'); 
     $router->add('/nombreCampo', 'CamposController@mandarNombreCampo');  
@@ -42,8 +41,6 @@
     $router->add('/horariosDinamicos', 'CamposController@mandarHorariosDinamicos'); 
     $router->add('/modalidadId', 'CamposController@getModalidadIdByIdCampo');
     $router->add('/modalidad', 'CamposController@getModalidad');
-    
-
     $router->add('/horarioInfo', 'ReservasController@getHorarioInfo');
     $router->add('/reservasUsuario', 'ReservasController@getReservasByUserId');
     
