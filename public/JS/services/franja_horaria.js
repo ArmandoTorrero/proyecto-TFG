@@ -3,9 +3,13 @@
  * @returns 
  */
 export async function getFechas() {
-    const response = await fetch('/TFG/fechasCampo'); 
-    const data = await response.json(); 
-    return data; 
+    try {
+        const response = await fetch('/TFG/fechasCampo'); 
+        return await response.json(); 
+    } catch (error) {
+        console.log(error);
+        
+    } 
 }
 
 
@@ -48,8 +52,7 @@ export async function getHorarioInfo() {
     
     try {
         const response = await fetch('/TFG/horarioInfo'); 
-        const data = await response.json(); 
-        return data; 
+        return await response.json(); 
     } catch (error) {
         console.log(error);
     }

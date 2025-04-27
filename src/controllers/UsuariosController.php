@@ -83,16 +83,7 @@
             require __DIR__ . '/../views/perfil_usuario.php';
         }
 
-        /**
-         * Mostrar vista de los campos segun la modalidad que ha seleccionado el usuario
-         * @return void
-         */
-        public function camposModalidad() {
-            $_SESSION["modalidad"] = $_GET["modalidad"]; // guardamos la modalidad en la sesion para poder usarla en la extraccion de los campos segun su modalidad, con JS
-            require __DIR__ . '/../views/camposModalidad.php'; 
-        }
-
-
+    
 
         /**
          * FUnción para que el usuario se registre
@@ -102,7 +93,7 @@
             require __DIR__ . '/../views/registro.php';
         }
 
-        public function validarDatosRegidtro() {
+        public function validarDatosRegistro() {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $camposValidados = Validador::validarCamposRegistroUsuario(
@@ -186,7 +177,7 @@
                     echo json_encode(['existe' => false]); 
                 }
             }else{
-                echo json_encode(['error' => 'No se han recibido datos']); 
+                echo json_encode(['error' => 'No se han recibido datos']);  
             }
         }
 

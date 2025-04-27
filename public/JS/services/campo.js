@@ -3,9 +3,14 @@
  * @returns 
  */
 export async function getNombreCampo() {
-    const response = await fetch('/TFG/nombreCampo');
-    const data = await response.json(); 
-    return data
+    try {
+        const response = await fetch('/TFG/nombreCampo');
+        return await response.json(); 
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
 }
 
 /**
@@ -13,8 +18,13 @@ export async function getNombreCampo() {
  * @returns 
  */
 export async function getPrecioHora(){
-    const response = await fetch('/TFG/precioCampo'); 
-    return await response.json(); 
+    try {
+        const response = await fetch('/TFG/precioCampo'); 
+        return await response.json();
+    } catch (error) {
+        console.log(error);
+        
+    } 
 }
 
 
@@ -67,16 +77,26 @@ export async function getCamposByModalidadId(modalidad_id) {
  * @returns 
  */
 export async function getModalidadId() {
-    const response = await fetch('/TFG/modalidadId');
-    return await response.json();
+    try {
+        const response = await fetch('/TFG/modalidadId');
+        return await response.json();
+    } catch (error) {
+        console.log(error);
+        
+    }
 }
 
 
 /**
- * Conseguir la modalidad de un campo a partir de la sesion creada al entrar a los campos de la pagina de 'modalidad'
+ * Conseguir la modalidad de un campo a partir de la sesion creada al entrar a los campos de la pagina de 'modalidades'
  * @returns 
  */
 export async function modalidad() {
-    const response = await fetch("/TFG/modalidad"); 
-    return await response.json();         
+    try {
+        const response = await fetch("/TFG/modalidad"); 
+        return await response.json();  
+    } catch (error) {
+        console.log(error);
+        
+    }       
 }

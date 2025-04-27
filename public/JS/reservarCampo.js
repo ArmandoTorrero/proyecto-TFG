@@ -70,7 +70,6 @@ function cambiarSelect() {
 function changeImgByModalidadId(element) {
     getModalidadId().then(info => {
         let id_modalidad = info.id_modalidad;
-        console.log(id_modalidad);
 
         // Cambiar la imagen según el id de modalidad
         
@@ -99,7 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
     cambiarSelect()
 
     let img = document.querySelector(".reservar > .img");
-    console.log(img);
     
     changeImgByModalidadId(img)
 })

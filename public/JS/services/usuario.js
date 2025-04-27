@@ -15,6 +15,10 @@ export async function logueado () {
     }
 }
 
+/**
+ * Obtener informacion del usuario
+ * @returns 
+ */
 export async function userInfo() {
     try {
         const response = await fetch('/TFG/userInfo'); 

@@ -14,10 +14,10 @@ export function crearBtnHora(id_hora,hora_inicio,disponible) {
     const enlace = document.createElement("a"); 
     enlace.href = `/TFG/pagarCampo?id_horario=${id_hora}`; 
     enlace.target = "_self"; 
-    hora_inicio = `${hora_inicio.split(":")[0]}:${hora_inicio.split(":")[1]}`; 
+    hora_inicio = `${hora_inicio.split(":")[0]}:${hora_inicio.split(":")[1]}`; // le quito los segundos
     enlace.textContent = hora_inicio; 
 
-    // desactivo el enlace para que el usuario tenga que seleccionar una fecha y asi el boton se active 
+    // desactivo el enlace en caso de que la hora no este disponible 
     if (disponible != 1) {
         boton.style.backgroundColor = "rgba(255,255,255, 0.4)"; 
         enlace.addEventListener("click", (ev) =>{

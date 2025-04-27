@@ -8,7 +8,7 @@
 
     $router->add('/', 'UsuariosController@landingPage'); 
     $router->add('/registro','UsuariosController@create'); 
-    $router->add('/validarRegistro','UsuariosController@validarDatosRegidtro');
+    $router->add('/validarRegistro','UsuariosController@validarDatosRegistro');
     $router->add('/login','UsuariosController@login');
     $router->add('/validarLogin','UsuariosController@validarDatosLogin');  
     $router->add('/logout','UsuariosController@logout');     
@@ -18,15 +18,14 @@
     $router->add('/politicaProteccionDatos', 'UsuariosController@politicaProteccionDatos'); 
     $router->add('/terminosCondiciones', 'UsuariosController@terminosCondiciones');
     $router->add('/contactanos', 'UsuariosController@contactanos');
-    $router->add('/camposModalidad','UsuariosController@camposModalidad');
-
-
-
     
+    
+    
+    
+    $router->add('/camposModalidad','CamposController@camposModalidad');
     $router->add('/modalidades','CamposController@modalidades'); 
     $router->add('/camposDeportivos', 'CamposController@index'); 
     $router->add('/reservarCampo','CamposController@reservarCampo'); 
-    
     $router->add('/pagarCampo','ReservasController@pagarCampo'); 
     
     

@@ -28,10 +28,6 @@
         public static function estaLogueado() {
             return (isset($_SESSION["logueado"]) && $_SESSION["logueado"]) ? true : false; 
         }
-
-        public static function esAdmin() {
-            
-        }
         
     }
 

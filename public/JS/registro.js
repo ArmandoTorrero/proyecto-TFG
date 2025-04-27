@@ -79,6 +79,7 @@ checboxMilitar.addEventListener("change", () => {
 // evento para el submit del formulario
 
 const form = document.getElementById("miForm"); 
+let spanMsgError = document.querySelector(".errorMsg"); 
 
 form.addEventListener("submit", async (ev) => {
     ev.preventDefault(); 
@@ -92,20 +93,23 @@ form.addEventListener("submit", async (ev) => {
         })
 
         const result = await response.json();
-        let spanMsgError = document.querySelector(".errorMsg"); 
+        
 
         if (result.exito) {
             window.location.href = "/TFG/perfil";
         }else{
-            spanMsgError.textContent = result.mensaje
+            spanMsgError.textContent = result.mensaje;
+            spanMsgError.style.opacity = 1; 
+            setTimeout(() => {
+                spanMsgError.style.opacity = 0; 
+                spanMsgError.textContent = "";
+            }, 3000);
         }
 
         console.log(result);
 
     } catch (error) {
         console.error("Error al enviar el formulario:", error);
-
-        
     }
 
     
