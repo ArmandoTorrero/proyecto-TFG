@@ -18,6 +18,7 @@ function landingInvitado() {
      const pistas_destacadas_buttons = document.querySelectorAll(".precio-button > .ver-detalles")
      pistas_destacadas_buttons.forEach(button => {
         button.style.display = "none"; 
+        console.log(button);
         
      });
      

@@ -29,7 +29,7 @@
             <h2>Redes sociales</h2>
             <section class="RRSS-container">
                 <a href="#" target="_self"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="#" target="_self"><i class="fa-solid fa-envelope"></i></a>
+                <a href="#" target="_self"><i class="fa-brands fa-tiktok"></i></a>
                 <a href="#" target="_self"><i class="fa-brands fa-instagram"></i></a>
             </section>
         </article>

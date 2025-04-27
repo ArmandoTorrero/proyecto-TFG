@@ -17,7 +17,7 @@
 
     <section class="PyR">
         <h1>Todas tus dudas aclaradas</h1>
-        <p>En este apartado resolvemos las dudas acerca de temas de reenbolso, pagos y reserva de pistads deportivas</p>
+        <p>En este apartado resolvemos las dudas acerca de temas de reenbolso, pagos y reserva de pistas deportivas</p>
         <button>
             <a href="#" target="_self">Saber mas</a>
         </button>

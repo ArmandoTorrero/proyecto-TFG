@@ -53,6 +53,7 @@ function cambiarSelect() {
 
                 // por cada hora creamos un boton
                 horarios.forEach(horario_info => {
+                    console.log(horario_info);
                     horariosSection.appendChild(crearBtnHora(horario_info.id, horario_info.hora_inicio, horario_info.disponible))
                     
                 });
