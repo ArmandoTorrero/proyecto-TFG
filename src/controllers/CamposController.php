@@ -1,14 +1,11 @@
 <?php 
     use Core\utilities\Sessions; 
     require_once __DIR__ . '/../models/campo.php';
-    require_once __DIR__ . '/../models/franja_horaria.php';  
     class CamposController{
         private $campoModel; 
-        private $franjaHorariaModel; 
 
         public function __construct(){
             $this->campoModel = new Campo();
-            $this->franjaHorariaModel = new FranjaHoraria(); 
         }
 
         /**
@@ -83,33 +80,8 @@
             echo json_encode($precio);  
         }
 
-        /**
-         * Mandar al JS las fechas dinamicas de un campo
-         * @return void
-         */
-        public function mandarFechasCampo() {
-            $fechas = ['fechas' => $this->franjaHorariaModel->getFechasByPistaId($_SESSION["id_campo"])]; 
-            echo json_encode($fechas); 
-        }
 
-        /**
-         * Mandar al JS diferentes horarios en funcion de la fecha
-         * @return void
-         */
-        public function mandarHorariosDinamicos() {
-            $datos = json_decode(file_get_contents("php://input"), true);
-
-            if ($datos) {
-                $fecha = $datos['fecha'];
-
-                echo json_encode([
-                    'horarios' => $this->franjaHorariaModel->getHorariosActualizadosByPistaId($_SESSION["id_campo"], $fecha)
-                ]);
-            } else {
-                echo json_encode(['error' => 'No se recibieron datos']);
-            }
-
-        }
+        
 
         /**
          * Mandar al cliente una lista de campos segun el id de la modalidad
@@ -135,9 +107,5 @@
             $modalidad_id = ['id_modalidad' => ($this->campoModel->getModalidadByIdCampo($_SESSION["id_campo"])[0]['modalidad_id'])]; 
             echo json_encode($modalidad_id);
         }
-
-
-        
-
     }
 ?>

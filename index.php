@@ -10,7 +10,8 @@
     $router->add('/registro','UsuariosController@create'); 
     $router->add('/validarRegistro','UsuariosController@validarDatosRegistro');
     $router->add('/login','UsuariosController@login');
-    $router->add('/validarLogin','UsuariosController@validarDatosLogin');  
+    $router->add('/validarLogin','UsuariosController@validarDatosLogin');
+    $router->add('/editarUsuario', 'UsuariosController@editarUsuario');  
     $router->add('/logout','UsuariosController@logout');     
     $router->add('/PyR','UsuariosController@PyR');
     $router->add('/perfil', 'UsuariosController@perfil'); 
@@ -36,12 +37,12 @@
     $router->add('/modalidadCampos','CamposController@getCamposByModalidad'); 
     $router->add('/nombreCampo', 'CamposController@mandarNombreCampo');  
     $router->add('/precioCampo', 'CamposController@mandarPrecioCampo');      
-    $router->add('/fechasCampo', 'CamposController@mandarFechasCampo'); 
-    $router->add('/horariosDinamicos', 'CamposController@mandarHorariosDinamicos'); 
     $router->add('/modalidadId', 'CamposController@getModalidadIdByIdCampo');
     $router->add('/modalidad', 'CamposController@getModalidad');
-    $router->add('/horarioInfo', 'ReservasController@getHorarioInfo');
     $router->add('/reservasUsuario', 'ReservasController@getReservasByUserId');
+    $router->add('/horariosDinamicos', 'FranjaHorariaController@mandarHorariosDinamicos'); 
+    $router->add('/fechasCampo', 'FranjaHorariaController@mandarFechasCampo'); 
+    $router->add('/horarioInfo', 'FranjaHorariaController@getHorarioInfo');
     
 
 

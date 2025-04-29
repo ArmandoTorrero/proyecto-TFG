@@ -1,5 +1,5 @@
 
-function validarInput(input,span,regex) {
+function validarInput(input,span,regex) { // funcion para validar el input
     
         if (regex.test(input.value)) {
             input.style.borderColor = "green"; 
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         .then(result => {
             console.log(result);
             if (result.existe) {
-                let alerta_verde = document.getElementById("alerta-verde")
+                let alerta_verde = document.getElementById("alerta-verde"); 
                 alerta_verde.style.top = "5%"; 
                 
                 setTimeout(() => {

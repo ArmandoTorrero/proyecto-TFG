@@ -113,6 +113,10 @@
             return false; 
         }
 
+        public static function validarCamposEditarUsuario($userName,$correo,$telefono) {
+            return (self::validarNombre($userName) && self::validarEmail($correo) && self::validarTelefono($telefono)); 
+        }
+
 
         public static function validarNumTarjeta($numTarjeta) {
             $patterTarjeta = '/^\d{4} ?\d{4} ?\d{4} ?\d{1,7}$/'; 

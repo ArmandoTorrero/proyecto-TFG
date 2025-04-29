@@ -11,6 +11,8 @@ function cambiarSelect() {
     let select = document.getElementById("fecha")
     
     getFechas().then(fechas => {
+        console.log(fechas);
+        
         let array_fechas = fechas.fechas;
         let array_fechas_formateado = [];   
         
@@ -46,6 +48,7 @@ function cambiarSelect() {
 
             // cuando se seleccione una fecha en el option se mostraran los horarios de la fecha seleccionada 
             horariosDinamicos(ev.target.value).then(info => {
+                console.log(info);
 
                 let horarios = info.horarios; // recogemos toda la informacion de esa fecha
                 
@@ -53,7 +56,6 @@ function cambiarSelect() {
 
                 // por cada hora creamos un boton
                 horarios.forEach(horario_info => {
-                    console.log(horario_info);
                     horariosSection.appendChild(crearBtnHora(horario_info.id, horario_info.hora_inicio, horario_info.disponible))
                     
                 });

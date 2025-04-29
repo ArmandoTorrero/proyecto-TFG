@@ -57,7 +57,7 @@ checboxMilitar.addEventListener("change", () => {
             validador.comprobarInputs(true);
         }
 
-        inputMilitar.addEventListener("input", () => {
+        inputMilitar.addEventListener("input", () => { // validar el input militar con el regex
             if (regex_inpu_militar.test(inputMilitar.value)) {
                 contenedorInputMilitar.style.borderColor = "green";
                 contenedorInputMilitar.children[2].style.opacity = 0;
@@ -82,22 +82,23 @@ const form = document.getElementById("miForm");
 let spanMsgError = document.querySelector(".errorMsg"); 
 
 form.addEventListener("submit", async (ev) => {
-    ev.preventDefault(); 
+    ev.preventDefault(); // evitar el comportamiento por defecto del formulario
 
-    const formData = new FormData(form);
+    const formData = new FormData(form); // recogemos los datos del formulario
 
     try {
-        const response = await fetch('/TFG/validarRegistro', {
+        const response = await fetch('/TFG/validarRegistro', { // enviamos los datos al servidor
             method: 'POST',
             body: formData
         })
 
-        const result = await response.json();
+        const result = await response.json(); // convertimos la respuesta a json
         
 
-        if (result.exito) {
+        if (result.exito) { // si la respuesta es correcta, redirigimos a la pagina de perfil
             window.location.href = "/TFG/perfil";
-        }else{
+
+        }else{ // si la respuesta es incorrecta, mostramos el mensaje de error
             spanMsgError.textContent = result.mensaje;
             spanMsgError.style.opacity = 1; 
             setTimeout(() => {

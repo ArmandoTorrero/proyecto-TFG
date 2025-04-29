@@ -6,22 +6,16 @@
     </head>
     
     <main>
-        <section class="izquierda-derecha">
-            
-            <section class="user-info">
-                <h1>Datos de la cuenta</h1>
-            </section>
 
-            <section class="derecha">
-                <h1>Bienvenido a tu perfil</h1>
-                <p>Aqui veras tus datos personales y tus reservas realizadas</p>
-            </section>
+        <div class="alert alert-success" role="alert" id="alerta-verde"></div>
 
-        </section>
-        <section class="user-reservas">
-            <h1>Reservas</h1>
-            <section class="reservas-container"></section>
-        </section>
+        <div class="alert alert-danger" role="alert" id="alerta-roja"></div>
+
+        <aside>
+            <button><i class="fa-solid fa-user"></i>Detalles de la cuenta</button>
+            <button><i class="fa-solid fa-calendar-days"></i>Ver reservas</button>
+        </aside>
+        <section class="content"></section>
     </main>
 
     <script type="module" src="public/JS/perfil.js"></script>

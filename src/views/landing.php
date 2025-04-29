@@ -36,13 +36,13 @@
             </article>
     
             <article class="container">
-            <i class="fa-solid fa-calendar-days"></i>
+                <i class="fa-solid fa-calendar-days"></i>
                 <h2>Amplia disponibilidad</h2>
                 <p>Horarios flexibles de 16:00 a 22:00 para adaptarse a tu rutina diaria y permitirte disfrutar del deporte cuando quieras.</p>
             </article>
     
             <article class="container">
-            <i class="fa-solid fa-futbol"></i>
+                <i class="fa-solid fa-futbol"></i>
                 <h2>Variedad de deportes</h2>
                 <p>Accede a una amplia selección de instalaciones para diferentes deportes: fútbol, baloncesto, tenis, pádel y más.</p>
             </article>

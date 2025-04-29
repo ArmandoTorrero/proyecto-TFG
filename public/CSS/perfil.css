@@ -2,6 +2,113 @@
 main{
     display: flex;
     flex-direction: column;
+    height: 80vh;
+}
+
+#alerta-verde, #alerta-roja{
+    position: absolute;
+    top: -10%;
+    transition: all 0.2s ease;
+}
+
+aside{
+    border: 2px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.content{
+    border: 2px solid green;
+    width: 100%;
+    padding: 10px;
+}
+
+button{
+    width: 80%;
+    margin: 7px 0px;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+    transition: all 0.1s ease-in-out;
+
+    &:hover{
+        background-color: rgba(230, 230, 230, 1);
+    }
+
+    i{
+        margin: 0 7px;
+    }
+}
+
+
+.username{
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+form{
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px 0px;
+
+    button.btn-enviar{
+        width: 30%;
+        padding: 5px 0px;
+        background-color: var(--fondoBotones);
+        color: var(--colortexto2);
+        font-size: 0.9rem;
+        text-align: center;
+        transition: all 0.3s ease;
+
+            &:hover{
+                background-color: #0035a7;
+            }
+        
+    }
+}
+
+.input-label-container{
+    border: 2px solid green;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px 0;
+
+    label{
+        color: var(--colortexto1);
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    input{
+        margin: 5px 10px;
+        padding: 7px 15px;
+        border: none;
+        border-radius: 8px;
+        border: 1px solid rgba(208, 204, 204, 0.75);
+        background-color: rgba(255, 255, 255, .75);
+    }
+}
+
+
+
+@media screen and (min-width: 1000px){
+    #alerta-verde, #alerta-roja{
+        left: 50%;
+    }
+}
+
+/* main{
+    display: flex;
+    flex-direction: column;
     align-items: center;
     background-color: var(--fondoBotones);
 }
@@ -160,6 +267,4 @@ main{
         margin: 0px 15px;
     }
 
-
-
-}
+} */
