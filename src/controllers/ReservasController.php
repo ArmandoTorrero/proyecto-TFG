@@ -58,5 +58,9 @@ use Core\utilities\Validador;
         public function getReservasByUserId() {
             echo json_encode(['reservas' => $this->reservasModel->getReservasByUserId($_SESSION["id_usuario"])]); 
         }
+
+        public function getAllReservas() {
+            echo json_encode(['reservas' => $this->reservasModel->getInfoRservas()]); 
+        }
     }
 ?>

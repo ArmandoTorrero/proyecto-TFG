@@ -181,6 +181,20 @@ table {
     #alerta-verde, #alerta-roja{
         left: 50%;
     }
+
+    aside{
+        width: 30%;
+        border: 2px solid red;
+    }
+
+    .content{
+        width: 70%;
+        border: 2px solid green;
+    }
+
+    main{
+        flex-direction: row;
+    }
 }
 
 /* main{

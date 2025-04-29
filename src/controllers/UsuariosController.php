@@ -179,7 +179,7 @@ class UsuariosController
         $datos = json_decode(file_get_contents("php://input"), true);
 
         if ($datos) {
-            $camposValidados = Validador::validarCamposLoginUsuario($datos["correo"], $datos["passwd"]);
+            $camposValidados = Validador::validarCamposLoginUsuario($datos["correo"], password: $datos["passwd"]);
 
             if ($camposValidados) {
                 $encontrado = Validador::existeUsuarioLogin(
@@ -238,5 +238,9 @@ class UsuariosController
     public function getUserInfo()
     {
         echo json_encode(['info' => $this->usuariosModel->getById($_SESSION["id_usuario"])]);
+    }
+
+    public function getAllUsers() {
+        echo json_encode(['usuarios' => $this->usuariosModel->getAll()]);
     }
 }

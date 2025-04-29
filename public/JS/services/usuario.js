@@ -1,4 +1,3 @@
-
 /**
  *
  * Obtener el rol del usuario
@@ -26,5 +25,18 @@ export async function userInfo() {
     } catch (error) {
         console.log(error);
         
+    }
+}
+
+/**
+ * Obtener lista de usuarios
+ * @returns 
+ */
+export async function getUsuarios() {
+    try {
+        const response = await fetch('/TFG/usuarios');
+        return await response.json();
+    } catch (error) {
+        console.error(error);
     }
 }

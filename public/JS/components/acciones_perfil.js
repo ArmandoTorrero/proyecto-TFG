@@ -1,4 +1,13 @@
 import { cardUserInfo, reservasUsuario } from "./cardUserInfo.js";
+import * as Admin from "./admin.js";
+
+export function crearTituloSeccion(textoTitulo) {
+    const titulo = document.createElement("h1");
+    titulo.textContent = textoTitulo;
+    titulo.classList.add("titulo-perfil");
+    return titulo;
+    
+}
 
 
 /**
@@ -24,14 +33,6 @@ function perfil_usuario(rol) {
     });
 
 
-}
-
-/**
- * Función para el perfil de administrador
- */
-function perfil_admin() { 
-    console.log("soy un admin");
-    
 }
 
 
@@ -75,6 +76,16 @@ export function addBtnCerrarSesion(rol) {
     }
 }
 
+/**
+ * Función para el perfil de administrador
+ */
+function perfil_admin() { 
+
+    const content = document.querySelector(".content"); 
+    content.appendChild(Admin.mostrarTablaUsuarios()); // mostramos la tabla de usuarios    
+    Admin.AsideBtns(); 
+    
+}
 
 
 /**
@@ -82,6 +93,11 @@ export function addBtnCerrarSesion(rol) {
  * @param {*} rol 
  */
 export function cambiarPerfil(rol) {
-    rol != 2 ? perfil_usuario(rol) : perfil_admin();    
+    
+    if (rol == 2) {
+        perfil_admin();
+    }else{
+        perfil_usuario(rol);
+    }
 }
 

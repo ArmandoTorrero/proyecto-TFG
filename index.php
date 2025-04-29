@@ -20,19 +20,18 @@
     $router->add('/terminosCondiciones', 'UsuariosController@terminosCondiciones');
     $router->add('/contactanos', 'UsuariosController@contactanos');
     
-    
-    
-    
     $router->add('/camposModalidad','CamposController@camposModalidad');
     $router->add('/modalidades','CamposController@modalidades'); 
     $router->add('/camposDeportivos', 'CamposController@index'); 
     $router->add('/reservarCampo','CamposController@reservarCampo'); 
+    
     $router->add('/pagarCampo','ReservasController@pagarCampo'); 
     
     
     // Rutas que mandan json_encode
     $router->add('/logueado','UsuariosController@estaLogueado');
     $router->add('/userInfo','UsuariosController@getUserInfo');  
+    $router->add('/usuarios', 'UsuariosController@getAllUsers');
     $router->add('/getCampos', 'CamposController@getCampos');  
     $router->add('/modalidadCampos','CamposController@getCamposByModalidad'); 
     $router->add('/nombreCampo', 'CamposController@mandarNombreCampo');  
@@ -41,6 +40,7 @@
     $router->add('/modalidad', 'CamposController@getModalidad');
     $router->add('/reservasUsuario', 'ReservasController@getReservasByUserId');
     $router->add('/horariosDinamicos', 'FranjaHorariaController@mandarHorariosDinamicos'); 
+    $router->add('/reservas', 'ReservasController@getAllReservas');
     $router->add('/fechasCampo', 'FranjaHorariaController@mandarFechasCampo'); 
     $router->add('/horarioInfo', 'FranjaHorariaController@getHorarioInfo');
     
