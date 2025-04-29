@@ -17,8 +17,9 @@ function cambiarBtnregistro() {
     const btnRegistro = document.querySelector(".registro > a")
     btnRegistro.textContent = "Ver perfil"; 
     btnRegistro.href = "/TFG/perfil"; 
-    
 }
+
+
 
 /**
  * Modificar el nav del usuario
@@ -40,4 +41,4 @@ function modificarNav(rol) {
 logueado().then(data => {    
     modificarNav(data.rol)
     
-}) 
+})

@@ -23,8 +23,14 @@ class UsuariosController
     {
         session_unset(); // Elimina todas las variables de sesión
         session_destroy(); // Destruye la sesión completamente
-        header("/TFG/perfil"); // Reddireccion a la landing page
+        $this->landingPage(); // Reddireccion a la landing page
         exit;
+    }
+
+    public function cerrarSesion() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->logout(); 
+        }
     }
 
     /**

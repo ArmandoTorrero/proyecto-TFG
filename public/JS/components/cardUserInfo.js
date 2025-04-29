@@ -1,6 +1,7 @@
 import { userInfo } from "../services/usuario";
 import { crearBoton } from "../components/boton";
 import { alerta } from "../components/alerta";
+import { getReservasByUserId } from "../services/reservas";
 
 export function cardUserInfo(rol) {
 
@@ -9,7 +10,10 @@ export function cardUserInfo(rol) {
 
     // Comprobar si el rol es falso, si es así, no se mostrará la información del usuario
     if (!rol.rol) {
-        userInfoContainer.innerText = "Patata"
+        let titulo = document.createElement("h2");
+        titulo.textContent = "Inicia sesión para ver tu información";
+
+        userInfoContainer.appendChild(titulo)
     }else{
         userInfo().then(info => {
             
@@ -76,7 +80,7 @@ export function cardUserInfo(rol) {
 }
 
 /**
- * Función para crear un input
+ * Función para crear un input  
  * @param {*} name 
  * @param {*} type 
  * @returns 
@@ -138,4 +142,67 @@ function editarUsuarioForm(form) {
             
         }        
     })    
+}
+
+/**
+ * Función para mostrar las reservas del usuario.
+ * @param {*} rol 
+ */
+export function reservasUsuario(rol) {
+
+    const tabla_reservas_container = document.createElement("section");
+    tabla_reservas_container.classList.add("reservas-usuario-container");
+
+    if (!rol.rol) {
+        console.log('patata');
+    }else{
+
+        let tabla_reservas = document.createElement("table");
+        let thead = document.createElement("thead");
+        let tbody = document.createElement("tbody");
+        let tr_thead = document.createElement("tr");
+         
+
+        getReservasByUserId().then(reservas => {
+            let reservas_usuario = reservas.reservas; // recogemos las reservas del usuario
+            
+            let headers = ['Pista', 'Fecha', 'Hora', 'Precio'];
+
+            // Crear encabezados de la tabla
+            headers.forEach(header => {
+                let th = document.createElement("th");
+                th.textContent = header;
+                tr_thead.appendChild(th);
+            });
+            thead.appendChild(tr_thead);
+            tabla_reservas.appendChild(thead);
+
+            // Crear filas de la tabla con los datos de las reservas
+            reservas_usuario.forEach(reserva => {
+                let tr = document.createElement("tr");
+
+                let tdNombrePista = document.createElement("td");
+                tdNombrePista.textContent = reserva.nombre_pista;
+
+                let tdFecha = document.createElement("td");
+                tdFecha.textContent = reserva.fecha;
+
+                let tdHora = document.createElement("td");
+                tdHora.textContent = reserva.hora_inicio.slice(0, -3);
+
+                let tdPrecio = document.createElement("td");
+                tdPrecio.textContent = `${reserva.precio_hora}€`;
+
+                tr.append(tdNombrePista, tdFecha, tdHora, tdPrecio);
+                tbody.appendChild(tr);
+            });
+
+            tabla_reservas.appendChild(tbody);
+            tabla_reservas_container.append(tabla_reservas); // añadimos la tabla al contenedor            
+
+        })
+    }
+
+    return tabla_reservas_container; // devolvemos el contenedor con la tabla de reservas
+
 }

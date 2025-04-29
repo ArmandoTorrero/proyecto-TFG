@@ -2,7 +2,6 @@
 main{
     display: flex;
     flex-direction: column;
-    height: 80vh;
 }
 
 #alerta-verde, #alerta-roja{
@@ -11,24 +10,30 @@ main{
     transition: all 0.2s ease;
 }
 
+
+/*
+---------------------------------
+----------BARRA LATERAL----------
+---------------------------------
+*/
+
 aside{
-    border: 2px solid blue;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
+    padding: 0 10px;
 }
 
-.content{
-    border: 2px solid green;
-    width: 100%;
-    padding: 10px;
-}
-
+/*
+-----------------------------------------------
+----------BOTONES DE LA BARRA LATERAL----------
+-----------------------------------------------
+*/
 button{
     width: 80%;
     margin: 7px 0px;
-    padding: 8px 10px;
+    padding: 7px 10px;
     border: none;
     border-radius: 10px;
     background-color: transparent;
@@ -46,21 +51,41 @@ button{
     }
 }
 
+/*
+-----------------------------
+----------CONTENIDO----------
+-----------------------------
+*/
 
+.content{
+    width: 100%;
+    padding: 10px;
+}
+
+/*
+-------------------------------------
+----------NOMBRE DE USUARIO----------
+-------------------------------------
+*/
 .username{
     font-weight: 500;
     font-size: 1.4rem;
 }
 
+/*
+------------------------------
+----------FORMULARIO----------
+------------------------------
+*/
+
 form{
-    border: 2px solid red;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 5px 0px;
 
     button.btn-enviar{
-        width: 30%;
+        width: 40%;
         padding: 5px 0px;
         background-color: var(--fondoBotones);
         color: var(--colortexto2);
@@ -75,8 +100,31 @@ form{
     }
 }
 
+#formCerrarSesion{
+    width: 40%;
+    padding: 0;
+    border: none;
+
+    button{
+        padding: 5px 0;
+        background-color: red;
+        font-size: 0.8rem;
+        color: var(--colortexto2);
+        text-align: center;
+        transition: all 0.3s ease;
+
+            &:hover{
+                background-color: rgb(235, 1, 1);
+            }
+    }
+}
+
+/*
+---------------------------------------------------------
+----------CONTENEDOR QUE CONTIENE LABEL E INPUT----------
+---------------------------------------------------------
+*/
 .input-label-container{
-    border: 2px solid green;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -97,6 +145,35 @@ form{
         background-color: rgba(255, 255, 255, .75);
     }
 }
+
+
+/*
+-------------------------------------
+----------TABLA DE RESERVAS----------
+-------------------------------------
+*/
+
+table {
+    width: 100%;
+    border-collapse: separate;       /* Para permitir el border-radius */
+    border-spacing: 0;               /* Elimina el espacio entre celdas */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;                /* Necesario si hay fondo para ver el border-radius */
+  }
+
+  
+  table th,
+  table td {
+    padding: 10px;                   /* Padding interno */
+    border-bottom: 1px solid #ddd;
+
+  }
+  
+  table thead th {
+    border-bottom: 1px solid #ddd;
+    background-color: rgb(224, 224, 226);
+  }
 
 
 

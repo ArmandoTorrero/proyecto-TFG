@@ -1,14 +1,17 @@
 import { getReservasByUserId } from "./services/reservas";
 import { logueado } from "./services/usuario";
 import { cardCampoReserva } from "./components/cardCampo";
-import { cambiarPerfil } from "./components/acciones_perfil";
+import { cambiarPerfil, addBtnCerrarSesion } from "./components/acciones_perfil";
 
 
 document.addEventListener("DOMContentLoaded", () => {
     logueado().then(response => {        
         cambiarPerfil(response)
+        addBtnCerrarSesion(response.rol)
     })
 })
+
+
 
 
 

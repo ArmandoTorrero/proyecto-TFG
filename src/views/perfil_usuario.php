@@ -12,8 +12,8 @@
         <div class="alert alert-danger" role="alert" id="alerta-roja"></div>
 
         <aside>
-            <button><i class="fa-solid fa-user"></i>Detalles de la cuenta</button>
-            <button><i class="fa-solid fa-calendar-days"></i>Ver reservas</button>
+            <button id="btn_user_info" ><i class="fa-solid fa-user"></i>Detalles de la cuenta</button>
+            <button id="btn_user_reservas" ><i class="fa-solid fa-calendar-days"></i>Ver reservas</button>
         </aside>
         <section class="content"></section>
     </main>
