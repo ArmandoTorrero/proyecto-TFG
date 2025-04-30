@@ -19,22 +19,11 @@ function cambiarBtnregistro() {
     btnRegistro.href = "/TFG/perfil"; 
 }
 
-
-
-/**
- * Modificar el nav del usuario
- */
-function navUsuario() {
-    modificarDesplegable()
-    cambiarBtnregistro()
-}
-
-function navAdministrador() {
-    
-}
-
 function modificarNav(rol) {
-    rol == 1 ? navUsuario() : navAdministrador()
+    if (rol == 1 || rol == 2) { // si es admin o usuario
+        modificarDesplegable()
+        cambiarBtnregistro() 
+    }
 }
 
 

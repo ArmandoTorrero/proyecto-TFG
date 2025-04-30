@@ -6,6 +6,7 @@ main{
 
 #alerta-verde, #alerta-roja{
     position: absolute;
+    z-index: 3;
     top: -10%;
     transition: all 0.2s ease;
 }
@@ -89,13 +90,14 @@ form{
         padding: 5px 0px;
         background-color: var(--fondoBotones);
         color: var(--colortexto2);
+        font-family: 'Montserrat';
         font-size: 0.9rem;
         text-align: center;
-        transition: all 0.3s ease;
 
-            &:hover{
-                background-color: #0035a7;
-            }
+        &:hover{
+            color: var(--colortexto2);
+            background-color: var(--fondoBotones);
+        }
         
     }
 }
@@ -111,11 +113,6 @@ form{
         font-size: 0.8rem;
         color: var(--colortexto2);
         text-align: center;
-        transition: all 0.3s ease;
-
-            &:hover{
-                background-color: rgb(235, 1, 1);
-            }
     }
 }
 
@@ -175,6 +172,59 @@ table {
     background-color: rgb(224, 224, 226);
   }
 
+/*
+------------------------------------------------------------------
+----------EDITAR EL CONTENEDOR DE ACCIONES Y SUS BOTONES----------
+------------------------------------------------------------------
+*/
+
+.acciones-container{
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    button{
+        margin: 0 5px;
+        padding: 0;
+        text-align: center;
+    }
+}
+
+
+/*
+-----------------------------------------------------
+----------FORMULARIO PARA EDITAR EL USUARIO----------
+-----------------------------------------------------
+*/
+
+.containerFormUser{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    transform: scale(0);
+    transition: all .15s linear;
+
+    form{
+        width: 30%;
+        padding: 5px 10px;
+        border-radius: 5px;
+        background-color: var(--fondoBotones);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        position: relative;
+        top: 15%;
+    }
+}
+
+.visible{
+    transform: scale(1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 
 @media screen and (min-width: 1000px){
@@ -183,179 +233,44 @@ table {
     }
 
     aside{
-        width: 30%;
-        border: 2px solid red;
+        width: 20%;
     }
 
     .content{
-        width: 70%;
-        border: 2px solid green;
+        width: 80%;
     }
 
     main{
         flex-direction: row;
     }
-}
 
-/* main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--fondoBotones);
-}
+    form > button.btn-enviar{
+        transition: all 0.3s ease;
 
-.izquierda-derecha{
-    padding: 20px 0px;
-}
-
-
-.user-info{
-    border: 2px solid green;
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-    width: 90vw;
-
-    h1{
-        width: 100%;
-        color: var(--colortexto2);
-    }
-}
-
-.derecha{
-    display: none;
-}
-
-.label-input{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 5px 0px;
-    padding: 0px 10px;
-
-    label{
-        color: var(--colortexto2);
+            &:hover{
+                background-color: #0035a7;
+            }
     }
 
-    input{
-        width: 100%;
-        margin: 5px 0px;
-        padding: 7px 20px;
-        border: none;
-        border-radius: 5px;
-        background-color: rgba(255, 255, 255, .75);
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-    }
-}
+    #formCerrarSesion > button{
+        transition: all 0.3s ease;
 
-
-.user-reservas{
-    width: 90vw;
-}
-
-.user-reservas > h1{
-    color: var(--colortexto2);
-}
-
-.card-reserva{
-    margin: 10px 5px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, .75);
-
-    & .img-reserva{
-        background-size: cover;
-        background-position: center;
-    }
-}
-
-.img-reserva{
-    border-radius: 10px 10px 0px 0px;
-}
-
-.content-reserva{
-    padding: 10px 5px;
-
-    h1,p{
-        color: var(--fondoBotones);
-    }
-}
-
-
-
-
-
-@media screen and (min-width: 1000px){
-
-    .izquierda-derecha{
-        display: flex;
-        margin: 10px 0px;
+            &:hover{
+                background-color: rgb(235, 1, 1);
+            }
     }
 
-    .user-info{
-        width: 30vw;
+    table > tbody tr:hover{
+        background-color: rgba(0, 53, 167, 0.3);
+    }
 
-        h1{
-            text-align: center;
+    .acciones-container{
+        align-self: center;
+        justify-content: space-around;
+        width: 70%;
+
+        button{
+            padding: 2.5px 0;
         }
     }
-
-    .derecha{
-        border: 3px solid orange;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 40vw;
-        height: 88vh;
-        border-radius: 0px 10px 10px 0px;
-        background-image: url('../ASSETS/campo-futbol2.jpeg');
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-
-        h1{
-            color: var(--fondoBotones);
-        }
-
-        p{
-            color: var(--colortexto2);
-        }
-    }
-
-    
-
-    .user-reservas{
-        width: 100vw;
-
-    }
-
-    .user-reservas > h1{
-        position: relative;
-        left: 5%;
-        margin: 2% 0;
-        
-    }
-
-    .card-reserva{
-        display: flex;
-        width: 45%;
-
-        & .img-reserva{
-            width: 40%;
-            height: max-content;
-            border-radius: 10px 0px 0px 10px;
-        }
-    }
-
-    .reservas-container{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-
-    .content-reserva{
-        margin: 0px 15px;
-    }
-
-} */
+}

@@ -25,7 +25,12 @@ export function crearTabla(headers, data) {
         let tr = document.createElement("tr");
         row.forEach(cell => {
             let td = document.createElement("td");
-            td.textContent = cell;
+            
+            if (cell instanceof HTMLElement) {
+                td.appendChild(cell); // Si es un elemento HTML, lo añadimos directamente
+            } else {
+                td.textContent = cell; // Si es texto, lo asignamos como textContent
+            }
             tr.appendChild(td);
         });
         tbody.appendChild(tr);

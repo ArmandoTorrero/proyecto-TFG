@@ -41,6 +41,7 @@ class Reservas extends EmptyModel
 
     public function getInfoRservas() {
         $sql = "SELECT
+                usuario_id,
                 pista.id AS pista_id,
                 pista.nombre AS nombre_pista,
                 pista.precio_hora,

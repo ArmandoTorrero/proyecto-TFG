@@ -23,6 +23,8 @@ export function cardUserInfo(rol) {
             
             // recogemos la información del usuario que devuelve la promesa
             let user_info = info.info
+            console.log(user_info);
+            
     
             // creamos el titulo de la sección
             let titulo = crearTituloSeccion("Información de usuario"); 

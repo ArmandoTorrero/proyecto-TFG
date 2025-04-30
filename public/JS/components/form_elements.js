@@ -1,6 +1,18 @@
 import { alerta } from "../components/alerta";
+import { crearBoton } from "../components/boton";
 
 
+/**
+ * Crear boton para enviar formulario
+ * @returns 
+ */
+function crearBotonSubmit() {
+    let boton = crearBoton(); 
+    boton.textContent = "Guardar cambios"; 
+    boton.type = "submit"; 
+    
+    return boton
+}
 
 /**
  * Función para crear un input  
@@ -8,10 +20,11 @@ import { alerta } from "../components/alerta";
  * @param {*} type 
  * @returns 
  */
-export function crearInput(name, type) {
+export function crearInput(name, type, input_value = "") {
     let input = document.createElement("input");
     input.type = type;
     input.name = name; 
+    input.value = input_value; 
 
     return input;
 }
@@ -42,6 +55,7 @@ export function editarUsuarioForm(form) {
         ev.preventDefault(); 
 
         const formData = new FormData(form); // recogemos los datos del formulario
+        formData.append('id_usuario', form.getAttribute('data-id-usuario'));
 
         try {
             const response = await fetch(form.getAttribute('action'), { // enviamos los datos al servidor
@@ -49,7 +63,9 @@ export function editarUsuarioForm(form) {
                 body: formData
             })
             
-            const result = await response.json(); // convertimos la respuesta a json
+            const result = await response.text(); // convertimos la respuesta a json
+            console.log(result);
+            
             
             if (result.exito) {
                 alerta(result.mensaje, alerta_verde); // mostramos la alerta de exito
@@ -64,3 +80,36 @@ export function editarUsuarioForm(form) {
         }        
     })    
 }
+
+/**
+ * Función para crear un formulario dinámico
+ * @param {*} labels 
+ * @param {*} names 
+ * @param {*} types 
+ * @param {*} action 
+ * @returns 
+ */
+export function crearFormulario(labels, names, types, values, action) {
+
+    // Crear un nuevo formulario
+    const form = document.createElement("form");
+    form.setAttribute('action', action);
+
+    labels.forEach((labelText, index) => {
+        const label = crearLabel(labelText);
+        const input = crearInput(names[index], types[index], values[index]);
+
+        let input_label_container = document.createElement("article"); 
+        input_label_container.classList.add("input-label-container");
+        input_label_container.append(label, input);
+
+        form.appendChild(input_label_container);
+    });
+
+    form.appendChild(crearBotonSubmit());
+
+    editarUsuarioForm(form); // Asocia la funcionalidad de edición al formulario
+
+    return form;
+}
+

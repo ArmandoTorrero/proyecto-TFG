@@ -18,6 +18,15 @@
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_ASSOC);
         }
+
+        public function getByEmail($email) {
+            $sql = "SELECT * FROM usuario WHERE email = :email";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':email', $email);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+            
+        }
         
     }
 ?>

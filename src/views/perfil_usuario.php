@@ -16,6 +16,8 @@
             <button id="btn_user_reservas" ><i class="fa-solid fa-calendar-days"></i>Ver reservas</button>
         </aside>
         <section class="content"></section>
+        
+        <section class="containerFormUser"></section>
     </main>
 
     <script type="module" src="public/JS/perfil.js"></script>

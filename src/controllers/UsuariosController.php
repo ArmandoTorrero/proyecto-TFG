@@ -27,9 +27,10 @@ class UsuariosController
         exit;
     }
 
-    public function cerrarSesion() {
+    public function cerrarSesion()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $this->logout(); 
+            $this->logout();
         }
     }
 
@@ -209,7 +210,21 @@ class UsuariosController
             );
 
             if ($camposValidados) {
-                echo json_encode(['exito' => true, 'mensaje' => 'Datos validados correctamente']);
+                $usuarioExistente = $this->usuariosModel->getByEmail($_POST['email']);
+                if ($usuarioExistente && $usuarioExistente['id'] != $_POST['id_usuario']) {
+                    echo json_encode(['exito' => false, 'mensaje' => 'El correo electrónico ya está registrado por otro usuario']);
+                    return;
+                }
+
+                $this->usuariosModel->update(
+                    [
+                        'nombre' => $_POST["nombre"],
+                        'email' => $_POST["email"],
+                        'tlf' => $_POST["tlf"]
+                    ],
+                    $_POST["id_usuario"] ?? $_SESSION["id_usuario"]
+                );
+                echo json_encode(['exito' => true, 'mensaje' => 'Usuario editado correctamente']);
             } else {
                 echo json_encode(['exito' => false, 'mensaje' => 'Los datos no son válidos']);
             }
@@ -237,10 +252,15 @@ class UsuariosController
 
     public function getUserInfo()
     {
-        echo json_encode(['info' => $this->usuariosModel->getById($_SESSION["id_usuario"])]);
+
+        $datos = json_decode(file_get_contents("php://input"), true);
+
+
+        echo (!$datos) ? json_encode(['info' => $this->usuariosModel->getById($_SESSION["id_usuario"])]) : json_encode(['info' => $this->usuariosModel->getById($datos['id_usuario'])]);
     }
 
-    public function getAllUsers() {
+    public function getAllUsers()
+    {
         echo json_encode(['usuarios' => $this->usuariosModel->getAll()]);
     }
 }

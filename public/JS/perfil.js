@@ -4,7 +4,6 @@ import { cambiarPerfil, addBtnCerrarSesion } from "./components/acciones_perfil"
 
 document.addEventListener("DOMContentLoaded", () => {
     logueado().then(response => {    
-        console.log(response);
         cambiarPerfil(response.rol)
         addBtnCerrarSesion(response.rol)
     })

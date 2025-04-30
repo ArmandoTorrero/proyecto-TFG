@@ -40,3 +40,19 @@ export async function getUsuarios() {
         console.error(error);
     }
 }
+
+
+export async function userInfoBySendingId(id) {
+    try {
+        const response = await fetch('/TFG/userInfo', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id_usuario: id })
+        }); 
+        return await response.json();
+    } catch (error) {
+        console.log(error);
+    }
+}

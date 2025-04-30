@@ -1,4 +1,3 @@
-
 function validarInput(input,span,regex) { // funcion para validar el input
     
         if (regex.test(input.value)) {
