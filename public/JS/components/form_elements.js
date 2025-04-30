@@ -55,7 +55,7 @@ export function editarUsuarioForm(form) {
         ev.preventDefault(); 
 
         const formData = new FormData(form); // recogemos los datos del formulario
-        formData.append('id_usuario', form.getAttribute('data-id-usuario'));
+        formData.append('usuario_id', form.getAttribute('data-usuario-id')); 
 
         try {
             const response = await fetch(form.getAttribute('action'), { // enviamos los datos al servidor
@@ -63,7 +63,7 @@ export function editarUsuarioForm(form) {
                 body: formData
             })
             
-            const result = await response.text(); // convertimos la respuesta a json
+            const result = await response.json(); // convertimos la respuesta a json
             console.log(result);
             
             

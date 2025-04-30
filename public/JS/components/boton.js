@@ -77,8 +77,11 @@ export function containerFormUser(id) {
             values.push(info_usuario[name]); 
         });
 
-        const form = crearFormulario(labels, names, types, values,'/TFG/editarUsuario');
-        form.setAttribute('data-id-usuario', id); // Añadimos el ID del usuario al formulario
+        const form = crearFormulario(labels, names, types, values,'/TFG/editarUsuarioVersionAdmin');
+        form.setAttribute('data-usuario-id', id); // Añadimos el ID del usuario al formulario
+        console.log(form.getAttribute('data-usuario-id'));
+        
+        
 
         // Añadir botón de cierre dentro del formulario
         const closeButton = document.createElement("button");

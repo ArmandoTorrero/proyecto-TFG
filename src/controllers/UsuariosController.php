@@ -222,8 +222,45 @@ class UsuariosController
                         'email' => $_POST["email"],
                         'tlf' => $_POST["tlf"]
                     ],
-                    $_POST["id_usuario"] ?? $_SESSION["id_usuario"]
+                    $_SESSION["id_usuario"]
                 );
+
+
+                echo json_encode(['exito' => true, 'mensaje' => 'Usuario editado correctamente']);
+            } else {
+                echo json_encode(['exito' => false, 'mensaje' => 'Los datos no son válidos']);
+            }
+        } else {
+            echo json_encode(['exito' => false, 'mensaje' => 'Error al enviar los datos']);
+        }
+    }
+
+    public function editarUsuarioVersionAdmin()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $camposValidados = Validador::validarCamposEditarUsuario(
+                $_POST["nombre"],
+                $_POST["email"],
+                $_POST["tlf"]
+            );
+
+            if ($camposValidados) {
+                $usuarioExistente = $this->usuariosModel->getByEmail($_POST['email']);
+                if ($usuarioExistente && $usuarioExistente['id'] != $_POST['id_usuario']) {
+                    echo json_encode(['exito' => false, 'mensaje' => 'El correo electrónico ya está registrado por otro usuario']);
+                    return;
+                }
+
+                $this->usuariosModel->update(
+                    [
+                        'nombre' => $_POST["nombre"],
+                        'email' => $_POST["email"],
+                        'tlf' => $_POST["tlf"]
+                    ],
+                    $_POST["usuario_id"]
+                );
+
+
                 echo json_encode(['exito' => true, 'mensaje' => 'Usuario editado correctamente']);
             } else {
                 echo json_encode(['exito' => false, 'mensaje' => 'Los datos no son válidos']);

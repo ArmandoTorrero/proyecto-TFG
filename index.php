@@ -12,6 +12,7 @@
     $router->add('/login','UsuariosController@login');
     $router->add('/validarLogin','UsuariosController@validarDatosLogin');
     $router->add('/editarUsuario', 'UsuariosController@editarUsuario');  
+    $router->add('/editarUsuarioVersionAdmin', 'UsuariosController@editarUsuarioVersionAdmin');  
     $router->add('/cerrarSesion','UsuariosController@cerrarSesion');     
     $router->add('/PyR','UsuariosController@PyR');
     $router->add('/perfil', 'UsuariosController@perfil'); 
