@@ -56,3 +56,20 @@ export async function userInfoBySendingId(id) {
         console.log(error);
     }
 }
+
+export async function eliminarUsuario(id) {
+    try {
+        const response = await fetch('/TFG/eliminarUsuario', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id_usuario: id })
+        })
+
+        return await response.json(); 
+    } catch (error) {
+        console.log(error);
+        
+    }
+}

@@ -62,6 +62,43 @@
             echo json_encode($campos); 
         }
 
+
+        /**
+         * Mandar la información al JS de una pista deportiva a traves del id que nos manda el JS
+         * @return void
+         */
+        public function getCampoById() {
+            $datos = json_decode(file_get_contents("php://input"), true);
+            echo json_encode(['campo' => $this->campoModel->getById($datos['id_campo'])]); 
+        }
+
+        /**
+         * Función para editar un campo
+         * @return void
+         */
+        public function editCampo() {
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                echo json_encode(['exito' => true, 'mensaje' => 'El campo fue editado', 'campo_id' => $_POST["campo_id"]]);
+            }else {
+                echo json_encode(['exito' => true, 'mensaje' => 'Error al editar el campo']);
+            }
+        }
+
+        /**
+         * Función para eliinar un campo
+         * @return void
+         */
+        public function eliminarCampo() {
+            $datos = json_decode(file_get_contents("php://input"), true);
+
+            if ($datos) {
+                echo json_encode(['exito' => true, 'mensaje' => 'El campo ha sido eliminado', 'data' => $this->campoModel->getById($datos['id_campo'])]); 
+            }else{
+                echo json_encode(['exito' => true, 'mensaje' => 'Error al eliminar el campo']);
+            }
+        }
+
         /**
          * Mandar el nombre del campo al JS
          * @return void
@@ -79,9 +116,6 @@
             $precio = [$this->campoModel->getById($_SESSION["id_campo"])['precio_hora']];
             echo json_encode($precio);  
         }
-
-
-        
 
         /**
          * Mandar al cliente una lista de campos segun el id de la modalidad

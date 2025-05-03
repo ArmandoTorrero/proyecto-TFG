@@ -26,6 +26,21 @@
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
+        public function getHorariosActualizados() {
+            $sql = "select 
+                franja_horaria.id, 
+                franja_horaria.fecha,
+                franja_horaria.hora_inicio, 
+                franja_horaria.disponible, 
+                pista.nombre
+            from franja_horaria 
+            JOIN pista ON franja_horaria.pista_id = pista.id
+            WHERE fecha >= curdate() and hora_inicio >= curtime()";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
     }
 
     

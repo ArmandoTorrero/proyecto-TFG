@@ -46,6 +46,63 @@ export async function getCampos() {
     }
 }
 
+
+/**
+ * Funcion que devuelve la informacion de un campo a partir de un id
+ * @param {*} campo_id 
+ * @returns 
+ */
+export async function getCampoById(campo_id) {
+
+    const datos = {
+        id_campo: campo_id
+    }
+
+    try {
+        const respose = await fetch('/TFG/getCampoById', {
+            method: "POST",
+            headers: {
+                'Content-type':'application/JSON'
+            },
+            body: JSON.stringify(datos)
+        })
+
+        return await respose.json(); 
+    } catch (error) {
+        console.log("Error al enviar los datos", error);
+        
+    }
+}
+
+/**
+ * Funcion que elimina un campo a partir de un id
+ * @param {*} campo_id 
+ * @returns 
+ */
+export async function eliminarCampo(campo_id) {
+
+    const datos = {
+        id_campo: campo_id
+    }
+
+    try {
+        const respose = await fetch('/TFG/eliminarCampo', {
+            method: "POST",
+            headers: {
+                'Content-type':'application/JSON'
+            },
+            body: JSON.stringify(datos)
+        })
+
+        return await respose.json(); 
+    } catch (error) {
+        console.log("Error al enviar los datos", error);
+        
+    }
+}
+
+
+
 /**
  * Funcion que devuelve una lista de campos segun su modalidad
  * @returns 

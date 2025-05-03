@@ -1,11 +1,12 @@
-import { getUsuarios } from "../services/usuario";
-import { getCampos } from "../services/campo";
-import { getReservas } from "../services/reservas";
-import { accionesContainer, containerFormUser } from "../components/boton";
-import { crearTabla } from "../components/tabla";
-import { crearTituloSeccion } from "../components/acciones_perfil";
-
-
+import { getUsuarios} from "./../services/usuario";
+import { getCampos } from "./../services/campo";
+import { getReservas } from "./../services/reservas";
+import { getAll } from "./../services/franja_horaria";
+import { accionesContainer, crearBoton} from "./boton";
+import { crearTabla } from "./tabla";
+import { crearTituloSeccion } from "./acciones_perfil";
+import { editUser, editarCampo } from "./admin/editar";
+import { deleteUser, deleteCampo } from "./admin/eliminar";
 
 
 /**
@@ -15,15 +16,13 @@ export function mostrarTablaUsuarios() {
 
     const userInfoContainer = document.createElement("section");
     userInfoContainer.classList.add("user-info-container");
+    // creamos el titulo de la sección
+    let titulo = crearTituloSeccion("Lista de usuarios")
+    userInfoContainer.appendChild(titulo); // añadimos el titulo al contenedor
 
     // Recogemos todos los usuarios registrados y creamos una tabla con su informacion
     getUsuarios().then(usuarios => {
         let lista_usuarios = usuarios.usuarios;
-
-        // creamos el titulo de la sección
-        let titulo = crearTituloSeccion("Lista de usuarios")
-
-        userInfoContainer.appendChild(titulo); // añadimos el titulo al contenedor
 
         // creamos la tabla para mostrar los usuarios
         let headers = ['ID', 'Nombre', 'Email', 'Telefono', 'Acciones'];
@@ -38,19 +37,14 @@ export function mostrarTablaUsuarios() {
         let tabla_usuarios = crearTabla(headers, data);
         userInfoContainer.appendChild(tabla_usuarios); // añadimos la tabla al contenedor
 
-        // Asignamos el evento click a los botones de editar después de que la tabla esté en el DOM
-        const botones_editar = userInfoContainer.querySelectorAll(".acciones-container button");
-        botones_editar.forEach(boton => {
-            boton.addEventListener('click', (event) => {
-                const fila = event.target.closest('tr'); // Encuentra la fila más cercana al botón
-                const id = fila.querySelector('td').textContent; // Obtiene el contenido del primer td
-                containerFormUser(id); 
-            });
-        });
+        // Llamar a las funciones para editar y eliminar usuarios
+        editUser(); 
+        deleteUser(); 
     });
-
+    
     return userInfoContainer; 
 }
+
 
 /**
  * Crear tabla para ver las reservas
@@ -59,12 +53,11 @@ export function mostrarTablaReservas() {
 
     const tabla_reservas_container = document.createElement("section");
     tabla_reservas_container.classList.add("reservas-container");
+    let titulo = crearTituloSeccion("Lista de reservas")
+    tabla_reservas_container.appendChild(titulo); // añadimos el titulo al contenedor
 
     getReservas().then(reservas => {        
                 
-        let titulo = crearTituloSeccion("Lista de reservas")
-        tabla_reservas_container.appendChild(titulo); // añadimos el titulo al contenedor
-
         let listas_reservas = reservas.reservas; // recogemos las reservas de la BBDD
         let headers = ['ID usuario','ID Pista', 'Campo', 'Fecha', 'Hora Inicio'];
         let data = listas_reservas.map(reserva => [reserva.usuario_id,reserva.pista_id, reserva.nombre_pista, reserva.fecha, reserva.hora_inicio.slice(0, -3)]); 
@@ -84,12 +77,11 @@ export function mostrarTablaCampos() {
 
     const tabla_campos_contaier = document.createElement("section");
     tabla_campos_contaier.classList.add("campos-container");
+    let titulo = crearTituloSeccion("Lista de campos"); 
+    tabla_campos_contaier.appendChild(titulo); // añadimos el titulo al contenedor
 
     getCampos().then(campos => {
-
-        let titulo = crearTituloSeccion("Lista de campos"); 
-        tabla_campos_contaier.appendChild(titulo); // añadimos el titulo al contenedor
-
+        
         let headers = ['ID', 'Pista', 'Precio/Hora', 'Modalidad','Acciones'];
         let data = campos.map(campo => [
             campo.id, 
@@ -102,12 +94,44 @@ export function mostrarTablaCampos() {
         let tabla_campos = crearTabla(headers, data); // creamos la tabla con los datos
         tabla_campos_contaier.appendChild(tabla_campos); // añadimos la tabla al contenedor
 
+        // llamamos a las funciones de editar y eliminar campo
+        editarCampo(); 
+        deleteCampo(); 
+
     });
 
     return tabla_campos_contaier;
 }
 
+export function mostrarTablaHorarios() {
 
+    const tabla_horarios_container = document.createElement("section"); 
+    tabla_horarios_container.classList.add("horarios_container"); 
+    let titulo = crearTituloSeccion("Lista de horarios"); 
+    tabla_horarios_container.appendChild(titulo); 
+
+    getAll().then(horarios => {
+
+        let listaHorarios = horarios.horarios;         
+
+        let headers = ['ID', 'Fecha', 'Hora de inicio', 'Disponible', 'Campo', 'Acciones']; 
+        let data = listaHorarios.map(horario => [
+            horario.id, 
+            horario.fecha, 
+            horario.hora_inicio.slice(0, -3), 
+            horario.disponible === 1 ? 'Si' : 'No', 
+            horario.nombre, 
+            accionesContainer()
+        ]); 
+
+        tabla_horarios_container.appendChild(crearTabla(headers, data));  
+        
+    })
+
+    return tabla_horarios_container; 
+
+
+}
 
 
 /**
@@ -141,9 +165,19 @@ export function AsideBtns() {
         content.append(mostrarTablaCampos()); // mostramos los campos
     });
 
+    // creamos el boton para ver las franjas horarias
+    let btn_horarios = document.createElement("button");
+    btn_horarios.innerHTML = '<i class="fa-solid fa-clock"></i> Ver horarios'; 
+
+    btn_horarios.addEventListener("click", () => {
+        content.innerHTML = ''; 
+        content.append(mostrarTablaHorarios()); 
+    })
+
     let aside = document.querySelector("aside");
     if (aside) {
         aside.appendChild(btn_campos); // añadimos el botón al aside
+        aside.appendChild(btn_horarios); 
     }
 }
 

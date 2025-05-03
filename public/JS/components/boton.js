@@ -1,5 +1,6 @@
-import { crearFormulario } from "../components/form_elements";
+import { crearFormulario, editar } from "../components/form_elements";
 import { userInfoBySendingId } from "../services/usuario";
+import { getCampoById } from "./../services/campo";
 
 
 /**
@@ -79,7 +80,7 @@ export function containerFormUser(id) {
 
         const form = crearFormulario(labels, names, types, values,'/TFG/editarUsuarioVersionAdmin');
         form.setAttribute('data-usuario-id', id); // Añadimos el ID del usuario al formulario
-        console.log(form.getAttribute('data-usuario-id'));
+        editar(form); // llamamos a la funcion de editar para editar el usuario y le añadimos el form que acabamos de crear
         
         
 
@@ -95,6 +96,50 @@ export function containerFormUser(id) {
 
         containerFormUser.appendChild(form);
     });
+}
+
+export function containerFormCampo(id) {
+
+    let containerFormCampo = document.querySelector(".containerFormCampo"); 
+    containerFormCampo.classList.toggle("visible"); 
+
+    const existingForm = containerFormCampo.querySelector("form");
+    if (existingForm) {
+        existingForm.remove();
+    }
+
+    
+    getCampoById(id).then(campo => {
+
+        let info_campo = campo.campo; 
+        
+        let labels = ['Nombre pista', 'Precio/Hora', 'Modalidad','Disponibilidad']; 
+        let names = ['nombre', 'precio_hora', 'modalidad_id','disponible']; 
+        let types =['text', 'number', 'number', 'number']; 
+        let values = []; 
+
+        names.forEach(name => {
+            values.push(info_campo[name])            
+        })
+            
+        const form = crearFormulario(labels, names, types, values, '/TFG/editCampo'); 
+        form.setAttribute('data-campo-id', id);
+        editar(form)
+
+        // Añadir botón de cierre dentro del formulario
+        const closeButton = document.createElement("button");
+        closeButton.textContent = "Cerrar";
+        closeButton.type = "button"; // Evitar que actúe como submit
+        closeButton.classList.add("close-button");
+        closeButton.addEventListener("click", () => {
+            containerFormCampo.classList.remove("visible");
+        });
+        form.appendChild(closeButton);
+
+        containerFormCampo.appendChild(form)
+        
+    })
+
 }
 
 

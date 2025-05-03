@@ -1,7 +1,7 @@
 import { userInfo } from "../services/usuario";
 import { crearBoton } from "../components/boton";
 import { getReservasByUserId } from "../services/reservas";
-import { crearInput, crearLabel, editarUsuarioForm } from "./form_elements";
+import { crearInput, crearLabel, editar } from "./form_elements";
 import { crearTabla } from "../components/tabla";
 import { crearTituloSeccion } from "../components/acciones_perfil";
 
@@ -14,6 +14,7 @@ export function cardUserInfo(rol) {
 
     // Comprobar si el rol es falso, si es así, no se mostrará la información del usuario
     if (!rol) {
+        window.location.href = '/TFG/';
         let titulo = document.createElement("h2");
         titulo.textContent = "Inicia sesión para ver tu información";
 
@@ -71,7 +72,7 @@ export function cardUserInfo(rol) {
 
             formulario.appendChild(boton);
 
-            editarUsuarioForm(formulario)
+            editar(formulario)
             
     
             // Adjuntamos la información al contenedor

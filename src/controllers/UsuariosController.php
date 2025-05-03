@@ -211,7 +211,7 @@ class UsuariosController
 
             if ($camposValidados) {
                 $usuarioExistente = $this->usuariosModel->getByEmail($_POST['email']);
-                if ($usuarioExistente && $usuarioExistente['id'] != $_POST['id_usuario']) {
+                if ($usuarioExistente && $usuarioExistente['id'] != $_SESSION["id_usuario"]) {
                     echo json_encode(['exito' => false, 'mensaje' => 'El correo electrónico ya está registrado por otro usuario']);
                     return;
                 }
@@ -246,7 +246,7 @@ class UsuariosController
 
             if ($camposValidados) {
                 $usuarioExistente = $this->usuariosModel->getByEmail($_POST['email']);
-                if ($usuarioExistente && $usuarioExistente['id'] != $_POST['id_usuario']) {
+                if ($usuarioExistente && $usuarioExistente['id'] != $_POST['usuario_id']) {
                     echo json_encode(['exito' => false, 'mensaje' => 'El correo electrónico ya está registrado por otro usuario']);
                     return;
                 }
@@ -270,6 +270,17 @@ class UsuariosController
         }
     }
 
+    public function eliminarUsuario() {
+        
+        $datos = json_decode(file_get_contents("php://input"), true);
+        if ($datos) {
+            echo json_encode(['exito'=> true,'info' => $this->usuariosModel->getById($datos['id_usuario'])]); 
+        }else{
+            echo json_encode(['exito' => false,'Error' => "error al recibir los datos"]); 
+        }
+
+    }
+
 
 
     /**
@@ -291,7 +302,6 @@ class UsuariosController
     {
 
         $datos = json_decode(file_get_contents("php://input"), true);
-
 
         echo (!$datos) ? json_encode(['info' => $this->usuariosModel->getById($_SESSION["id_usuario"])]) : json_encode(['info' => $this->usuariosModel->getById($datos['id_usuario'])]);
     }

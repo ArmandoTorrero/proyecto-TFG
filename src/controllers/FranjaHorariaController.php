@@ -8,6 +8,10 @@
             $this->franjaHorariaModel = new FranjaHoraria;
         }
 
+        public function getHorarios() {
+            echo json_encode(['horarios' => $this->franjaHorariaModel->getHorariosActualizados()]); 
+        }
+
         /**
          * Mandar al JS las fechas dinamicas de un campo
          * @return void

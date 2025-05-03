@@ -24,6 +24,7 @@ aside{
     align-items: flex-start;
     width: 100%;
     padding: 0 10px;
+
 }
 
 /*
@@ -31,8 +32,8 @@ aside{
 ----------BOTONES DE LA BARRA LATERAL----------
 -----------------------------------------------
 */
-button{
-    width: 80%;
+aside > button{
+    width: 40%;
     margin: 7px 0px;
     padding: 7px 10px;
     border: none;
@@ -108,9 +109,12 @@ form{
     border: none;
 
     button{
-        padding: 5px 0;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 10px;
         background-color: red;
         font-size: 0.8rem;
+        font-weight: bold;
         color: var(--colortexto2);
         text-align: center;
     }
@@ -184,8 +188,9 @@ table {
     width: 100%;
 
     button{
+        width: 80%;
         margin: 0 5px;
-        padding: 0;
+        padding: 7px 10px; 
         text-align: center;
     }
 }
@@ -197,7 +202,7 @@ table {
 -----------------------------------------------------
 */
 
-.containerFormUser{
+.containerFormUser, .containerFormCampo{
     width: 100%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
@@ -226,14 +231,22 @@ table {
 }
 
 
-
-@media screen and (min-width: 1000px){
+/*
+-------------------------------------
+----------DISEÑO ESCRITORIO----------
+-------------------------------------
+*/
+@media screen and (min-width: 1200px){
     #alerta-verde, #alerta-roja{
         left: 50%;
     }
 
     aside{
         width: 20%;
+
+        button{
+            width: 80%;
+        }
     }
 
     .content{
@@ -252,7 +265,12 @@ table {
             }
     }
 
+    #formCerrarSesion{
+        width: 50%;
+    }
+
     #formCerrarSesion > button{
+        width: 100%;
         transition: all 0.3s ease;
 
             &:hover{
@@ -267,7 +285,7 @@ table {
     .acciones-container{
         align-self: center;
         justify-content: space-around;
-        width: 70%;
+        width: 100%;
 
         button{
             padding: 2.5px 0;

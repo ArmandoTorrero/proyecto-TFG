@@ -18,9 +18,12 @@
         <section class="content"></section>
         
         <section class="containerFormUser"></section>
+        <section class="containerFormCampo"></section>
+
     </main>
 
     <script type="module" src="public/JS/perfil.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php 
     $content = ob_get_clean(); 
     require __DIR__ . '/../views/LAYOUTS/main.php';

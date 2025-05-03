@@ -1,6 +1,6 @@
-import { alerta } from "../components/alerta";
-import { crearBoton } from "../components/boton";
-
+import { alerta } from "./alerta";
+import { crearBoton } from "./boton";
+import { crearOption } from "./crearOption";
 
 /**
  * Crear boton para enviar formulario
@@ -41,11 +41,12 @@ export function crearLabel(texoLabel) {
     return label;
 }
 
+
 /**
  * Función para editar el usuario, recoge los datos del formulario y los envía al servidor
  * @param {*} form 
  */
-export function editarUsuarioForm(form) {
+export function editar(form) {
     // recogemos las alertas
     let alerta_verde = document.getElementById("alerta-verde");
     let alerta_roja = document.getElementById("alerta-roja"); 
@@ -55,10 +56,19 @@ export function editarUsuarioForm(form) {
         ev.preventDefault(); 
 
         const formData = new FormData(form); // recogemos los datos del formulario
-        formData.append('usuario_id', form.getAttribute('data-usuario-id')); 
+        const usuarioId = form.getAttribute("data-usuario-id");
+        const campo_id = form.getAttribute("data-campo-id");
+
+        if (usuarioId) {
+            formData.append("usuario_id", usuarioId);
+        }
+
+        if (campo_id) {
+            formData.append("campo_id", campo_id);
+        }
 
         try {
-            const response = await fetch(form.getAttribute('action'), { // enviamos los datos al servidor
+            const response = await fetch(form.getAttribute("action"), { // enviamos los datos al servidor
                 method: 'POST',
                 body: formData
             })
@@ -68,6 +78,8 @@ export function editarUsuarioForm(form) {
             
             
             if (result.exito) {
+                const content = document.querySelector(".content");
+
                 alerta(result.mensaje, alerta_verde); // mostramos la alerta de exito
                 
             }else {
@@ -96,8 +108,28 @@ export function crearFormulario(labels, names, types, values, action) {
     form.setAttribute('action', action);
 
     labels.forEach((labelText, index) => {
+        const name = names[index];
+        const type = types[index];
+        const value = values[index];
+
         const label = crearLabel(labelText);
-        const input = crearInput(names[index], types[index], values[index]);
+        let input;
+
+        // Hacemos estas comprobaciones para saber si estamos editando un usuario o una pista deportiva 
+        if (name === "disponible") {
+            input = document.createElement("select");
+            input.name = name;
+            input.appendChild(crearOption("Disponible", 1));
+            input.appendChild(crearOption("No disponible", 0));
+        } else if (name === "modalidad_id") {
+            input = document.createElement("select");
+            input.name = name;
+            input.appendChild(crearOption("Fútbol", 1));
+            input.appendChild(crearOption("Tenis", 2));
+            input.appendChild(crearOption("Pádel", 3));
+        } else {
+            input = crearInput(name, type, value);
+        }
 
         let input_label_container = document.createElement("article"); 
         input_label_container.classList.add("input-label-container");
@@ -108,8 +140,8 @@ export function crearFormulario(labels, names, types, values, action) {
 
     form.appendChild(crearBotonSubmit());
 
-    editarUsuarioForm(form); // Asocia la funcionalidad de edición al formulario
-
     return form;
 }
+
+
 

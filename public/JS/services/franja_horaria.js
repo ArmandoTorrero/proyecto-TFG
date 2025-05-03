@@ -1,3 +1,18 @@
+
+/**
+ * Función que devuelve todos los registros de franja_horaria
+ * @returns 
+ */
+export async function getAll() {
+    try {
+        const response = await fetch('/TFG/getHorarios'); 
+        return await response.json(); 
+    } catch (error) {
+        console.log(error);
+    } 
+}
+
+
 /**
  * Funcion para devolver las fechas de un campo determinado
  * @returns 
