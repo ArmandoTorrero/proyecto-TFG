@@ -86,7 +86,7 @@ class Validador
         return (self::validarNombre($userName) && self::validarEmail($correo) && self::validarPassword($password) && self::validarTelefono($telefono));
     }
 
-    public static function existelUsuarioRegistro(array $array_usuarios, string $correo, string $userName): bool
+    public static function existelUsuarioRegistro(array $array_usuarios, string $correo): bool
     {
         foreach ($array_usuarios as $usuario) {
             if ($usuario['email'] === $correo) {
@@ -151,7 +151,8 @@ class Validador
         return self::validarNumTarjeta($numTarjeta) && self::validarFechaTarjeta($fecha) && self::validarCVC($cvc) && self::validarTitular($titular);
     }
 
-    public static function validarFechaHorario($fecha){
+    public static function validarFechaHorario($fecha)
+    {
         $fechaActual = date('Y-m-d'); // Obtener la fecha actual en formato YYYY-MM-DD
         $patter_fecha = '/^\d{4}-\d{2}-\d{2}$/'; // Validar formato de fecha YYYY-MM-DD
 
@@ -164,5 +165,26 @@ class Validador
         }
 
         return true; // La fecha es válida
+    }
+
+    public static function validarNombrePistaDeportiva($nombrePista)
+    {
+        $patter_nombre = '/^\s*[a-zA-Z0-9\s]+\s*$/'; // Permite espacios en blanco al inicio, final y entre palabras
+        return preg_match($patter_nombre, $nombrePista);
+    }
+
+    public static function validarPrecioCampo($precio)
+    {
+        $pattern_precio = '/^([0-9]{2})$/'; // Formato NN, número exacto entre 01 y 99
+
+        if (preg_match($pattern_precio, $precio)) {
+            $entero = (int)$precio;
+
+            if ($entero >= 1 && $entero <= 99) {
+                return true; // Precio válido
+            }
+        }
+
+        return false; // Precio inválido
     }
 }

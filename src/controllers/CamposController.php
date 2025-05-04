@@ -1,5 +1,8 @@
-<?php 
-    use Core\utilities\Sessions; 
+<?php
+
+use Core\utilities\Validador;
+
+    require_once __DIR__ . '/../../core/utilities/Validador.php'; 
     require_once __DIR__ . '/../models/campo.php';
     class CamposController{
         private $campoModel; 
@@ -79,7 +82,31 @@
         public function editCampo() {
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                echo json_encode(['exito' => true, 'mensaje' => 'El campo fue editado', 'campo_id' => $_POST["campo_id"]]);
+
+                if (!Validador::validarNombrePistaDeportiva(trim($_POST["nombre"]))) {
+                    echo json_encode(['exito' => false, 'mensaje' => 'El nombre debe tener entre 3 y 100 caracteres']);
+                    return; 
+                }
+
+                if (!Validador::validarPrecioCampo($_POST["precio_hora"])) {
+                    echo json_encode(['exito' => false, 'mensaje' => 'El precio debe estar entre 1€ y 99€ y no debe tener decimales']);
+                    return; 
+                }
+
+                $this->campoModel->update(
+                    [
+                        'nombre' => trim($_POST["nombre"]),
+                        'precio_hora' => $_POST["precio_hora"],
+                        'disponible' => $_POST["disponible"],
+                        'modalidad_id' => $_POST["modalidad_id"]
+                    ], 
+                    $_POST["campo_id"]
+                ); 
+                 
+
+                $datos = [trim($_POST["nombre"]), $_POST["precio_hora"], $_POST["modalidad_id"], $_POST["disponible"]]; 
+                echo json_encode(['exito' => true, 'mensaje' => 'El campo fue editado', 'id' => $_POST["campo_id"], 'datos' => $datos]);
+
             }else {
                 echo json_encode(['exito' => true, 'mensaje' => 'Error al editar el campo']);
             }

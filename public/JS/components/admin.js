@@ -82,12 +82,13 @@ export function mostrarTablaCampos() {
 
     getCampos().then(campos => {
         
-        let headers = ['ID', 'Pista', 'Precio/Hora', 'Modalidad','Acciones'];
+        let headers = ['ID', 'Pista', 'Precio/Hora', 'Modalidad','Disponibilidad','Acciones'];
         let data = campos.map(campo => [
             campo.id, 
             campo.nombre, 
             `${campo.precio_hora}€`, 
             campo.modalidad_id === 1 ? 'Futbol' : campo.modalidad_id === 2 ? 'Tenis' : 'Padel',
+            campo.disponible === 1 ? 'Si' : 'No', 
             accionesContainer()
         ]);
 

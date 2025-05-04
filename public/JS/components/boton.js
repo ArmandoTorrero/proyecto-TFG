@@ -108,6 +108,9 @@ export function containerFormUser(id) {
 
 export function containerFormCampo(id) {
 
+    console.log(id);
+    
+
     let containerFormCampo = document.querySelector(".containerFormCampo"); 
     containerFormCampo.classList.toggle("visible"); 
 

@@ -73,7 +73,6 @@ use Core\utilities\Validador;
         public function editHorario() {
 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $datos = [$_POST["fecha"], $_POST["hora_inicio"], $_POST["disponible"]]; 
                 
                 // validamos la fecha para saber si es anterior a la actual
                 if (Validador::validarFechaHorario($_POST["fecha"])) {
