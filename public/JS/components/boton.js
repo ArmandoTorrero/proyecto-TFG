@@ -1,6 +1,7 @@
-import { crearFormulario, editar } from "../components/form_elements";
-import { userInfoBySendingId } from "../services/usuario";
+import { crearFormulario, editar } from "./../components/form_elements";
+import { userInfoBySendingId } from "./../services/usuario";
 import { getCampoById } from "./../services/campo";
+import { getHorarioById } from "./../services/franja_horaria";
 
 
 /**
@@ -13,6 +14,22 @@ export function crearBoton(clase = 'btn') {
     boton.classList.add('btn', clase)
 
     return boton; 
+}
+
+
+export function btnCerrar(contenedor) {
+    const closeButton = crearBoton(); 
+    closeButton.textContent = "Cerrar";
+    closeButton.type = "button"; // Evitar que actúe como submit
+    closeButton.classList.add("close-button");
+    closeButton.addEventListener("click", () => {
+        contenedor.classList.remove("visible");
+        document.body.style.overflowY = "auto" // cuando se haga click evitamos el scroll
+    });
+
+
+
+    return closeButton
 }
 
 /**
@@ -72,27 +89,18 @@ export function containerFormUser(id) {
         let labels = ['Nombre', 'Email','Telefono']; 
         let names = ['nombre', 'email', 'tlf']; 
         let types = ['text', 'email', 'number']; 
+        let placeholders = ['Introduce el nombre', 'Introduce el email', 'Introduce el teléfono'];
         let values = []; 
 
         names.forEach(name => {
             values.push(info_usuario[name]); 
         });
 
-        const form = crearFormulario(labels, names, types, values,'/TFG/editarUsuarioVersionAdmin');
+        const form = crearFormulario(labels, names, types, values, placeholders, '/TFG/editarUsuarioVersionAdmin');
         form.setAttribute('data-usuario-id', id); // Añadimos el ID del usuario al formulario
         editar(form); // llamamos a la funcion de editar para editar el usuario y le añadimos el form que acabamos de crear
         
-        
-
-        // Añadir botón de cierre dentro del formulario
-        const closeButton = document.createElement("button");
-        closeButton.textContent = "Cerrar";
-        closeButton.type = "button"; // Evitar que actúe como submit
-        closeButton.classList.add("close-button");
-        closeButton.addEventListener("click", () => {
-            containerFormUser.classList.remove("visible");
-        });
-        form.appendChild(closeButton);
+        form.appendChild(btnCerrar(containerFormUser));
 
         containerFormUser.appendChild(form);
     });
@@ -116,30 +124,56 @@ export function containerFormCampo(id) {
         let labels = ['Nombre pista', 'Precio/Hora', 'Modalidad','Disponibilidad']; 
         let names = ['nombre', 'precio_hora', 'modalidad_id','disponible']; 
         let types =['text', 'number', 'number', 'number']; 
+        let placeholders = ['Introduce el nombre de la pista', 'Introduce el precio por hora', 'Selecciona la modalidad', 'Selecciona la disponibilidad'];
         let values = []; 
 
         names.forEach(name => {
             values.push(info_campo[name])            
         })
             
-        const form = crearFormulario(labels, names, types, values, '/TFG/editCampo'); 
+        const form = crearFormulario(labels, names, types, values, placeholders, '/TFG/editCampo'); 
         form.setAttribute('data-campo-id', id);
         editar(form)
 
-        // Añadir botón de cierre dentro del formulario
-        const closeButton = document.createElement("button");
-        closeButton.textContent = "Cerrar";
-        closeButton.type = "button"; // Evitar que actúe como submit
-        closeButton.classList.add("close-button");
-        closeButton.addEventListener("click", () => {
-            containerFormCampo.classList.remove("visible");
-        });
-        form.appendChild(closeButton);
+        form.append(btnCerrar(containerFormCampo));
 
         containerFormCampo.appendChild(form)
         
     })
+}
 
+export function containerFormHorario(id) {
+    
+    let containerFormHorario = document.querySelector(".containerFormHorario");   
+      
+    containerFormHorario.classList.toggle("visible");
+
+    const existingForm = containerFormHorario.querySelector("form");
+    if (existingForm) {
+        existingForm.remove();
+    }
+
+    getHorarioById(id).then(horario => {                
+        let infoHorario = horario.info; 
+
+        let labels = ['Fecha', 'Hora de inicio', 'Disponible']; 
+        let names = ['fecha', 'hora_inicio','disponible']; 
+        let types = ['date', 'text', 'number']; 
+        let placeholders = ['Introduce la fecha', 'Introduce la hora de inicio', 'Selecciona la disponibilidad'];
+        let values = [];
+
+        names.forEach(name => {
+            values.push(infoHorario[name])            
+        })
+
+        const form = crearFormulario(labels, names, types, values, placeholders, '/TFG/editarHorario');
+        form.setAttribute('data-horario-id', id);
+        editar(form); 
+
+        form.append(btnCerrar(containerFormHorario)); 
+
+        containerFormHorario.appendChild(form)
+    })
 }
 
 

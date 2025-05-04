@@ -58,6 +58,7 @@ export function editar(form) {
         const formData = new FormData(form); // recogemos los datos del formulario
         const usuarioId = form.getAttribute("data-usuario-id");
         const campo_id = form.getAttribute("data-campo-id");
+        const horarioId = form.getAttribute("data-horario-id");
 
         if (usuarioId) {
             formData.append("usuario_id", usuarioId);
@@ -65,6 +66,10 @@ export function editar(form) {
 
         if (campo_id) {
             formData.append("campo_id", campo_id);
+        }
+
+        if (horarioId) {
+            formData.append("horarioId", horarioId);
         }
 
         try {
@@ -78,8 +83,6 @@ export function editar(form) {
             
             
             if (result.exito) {
-                const content = document.querySelector(".content");
-
                 alerta(result.mensaje, alerta_verde); // mostramos la alerta de exito
                 
             }else {
@@ -101,7 +104,7 @@ export function editar(form) {
  * @param {*} action 
  * @returns 
  */
-export function crearFormulario(labels, names, types, values, action) {
+export function crearFormulario(labels, names, types, values, placeholders, action) {
 
     // Crear un nuevo formulario
     const form = document.createElement("form");
@@ -111,6 +114,7 @@ export function crearFormulario(labels, names, types, values, action) {
         const name = names[index];
         const type = types[index];
         const value = values[index];
+        const placeholder = placeholders[index];
 
         const label = crearLabel(labelText);
         let input;
@@ -127,8 +131,18 @@ export function crearFormulario(labels, names, types, values, action) {
             input.appendChild(crearOption("Fútbol", 1));
             input.appendChild(crearOption("Tenis", 2));
             input.appendChild(crearOption("Pádel", 3));
+        } else if (name === "hora_inicio") {
+            input = document.createElement("select");
+            input.name = name;
+            const horarios = ["16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+            horarios.forEach(horario => {
+                input.appendChild(crearOption(horario, `${horario}:00`));
+            });
         } else {
             input = crearInput(name, type, value);
+            if (placeholder) {
+                input.placeholder = placeholder;
+            }
         }
 
         let input_label_container = document.createElement("article"); 

@@ -5,8 +5,8 @@ import { getAll } from "./../services/franja_horaria";
 import { accionesContainer, crearBoton} from "./boton";
 import { crearTabla } from "./tabla";
 import { crearTituloSeccion } from "./acciones_perfil";
-import { editUser, editarCampo } from "./admin/editar";
-import { deleteUser, deleteCampo } from "./admin/eliminar";
+import { editUser, editarCampo, editarHorario } from "./admin/editar";
+import { deleteUser, deleteCampo, deleteHorario } from "./admin/eliminar";
 
 
 /**
@@ -125,11 +125,14 @@ export function mostrarTablaHorarios() {
         ]); 
 
         tabla_horarios_container.appendChild(crearTabla(headers, data));  
+
+        //llamamos a las funciones de editar y eliminar horario
+        editarHorario(); 
+        deleteHorario(); 
         
     })
 
     return tabla_horarios_container; 
-
 
 }
 

@@ -25,7 +25,6 @@
     $router->add('/modalidades','CamposController@modalidades'); 
     $router->add('/camposDeportivos', 'CamposController@index'); 
     $router->add('/reservarCampo','CamposController@reservarCampo'); 
-    
     $router->add('/pagarCampo','ReservasController@pagarCampo'); 
     
     
@@ -49,10 +48,9 @@
     $router->add('/getHorarios', 'FranjaHorariaController@getHorarios'); 
     $router->add('/fechasCampo', 'FranjaHorariaController@mandarFechasCampo'); 
     $router->add('/horarioInfo', 'FranjaHorariaController@getHorarioInfo');
-    
-
-
-
+    $router->add('/getHorarioById', 'FranjaHorariaController@getHorarioById');
+    $router->add('/editarHorario', 'FranjaHorariaController@editHorario');
+    $router->add('/eliminarHorario', 'FranjaHorariaController@eliminarHorario');
 
     $requestUri = isset($_GET['url']) ? '/' . trim($_GET['url'], '/') : '/';
     // Simulación de petición

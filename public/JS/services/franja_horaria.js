@@ -60,7 +60,7 @@ export async function horariosDinamicos(value) {
 
 
 /**
- * Funcion para conseguir un horario determinado
+ * Funcion para conseguir la informacion de un horario determinado
  * @returns 
  */
 export async function getHorarioInfo() {
@@ -71,5 +71,54 @@ export async function getHorarioInfo() {
     } catch (error) {
         console.log(error);
     }
-    
+}
+
+
+export async function getHorarioById(horario_id) {
+
+    const datos = {
+        id_horario: horario_id
+    }
+
+    try {
+        const respose = await fetch('/TFG/getHorarioById', {
+            method: "POST",
+            headers: {
+                'Content-type':'application/JSON'
+            },
+            body: JSON.stringify(datos)
+        })
+
+        return await respose.json(); 
+    } catch (error) {
+        console.log("Error al enviar los datos", error);
+        
+    }
+}
+
+
+/**
+ * Función para eliminar un horario
+ * @param {*} horario_id 
+ * @returns 
+ */
+export async function eliminarHorario(horario_id) {
+    const datos = {
+        id_horario: horario_id
+    }
+
+    try {
+        const respose = await fetch('/TFG/eliminarHorario', {
+            method: "POST",
+            headers: {
+                'Content-type':'application/JSON'
+            },
+            body: JSON.stringify(datos)
+        })
+
+        return await respose.json(); 
+    } catch (error) {
+        console.log("Error al enviar los datos", error);
+        
+    }
 }

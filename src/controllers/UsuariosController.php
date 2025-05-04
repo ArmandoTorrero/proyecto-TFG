@@ -238,6 +238,7 @@ class UsuariosController
     public function editarUsuarioVersionAdmin()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            
             $camposValidados = Validador::validarCamposEditarUsuario(
                 $_POST["nombre"],
                 $_POST["email"],
@@ -274,7 +275,7 @@ class UsuariosController
         
         $datos = json_decode(file_get_contents("php://input"), true);
         if ($datos) {
-            echo json_encode(['exito'=> true,'info' => $this->usuariosModel->getById($datos['id_usuario'])]); 
+            echo json_encode(['exito'=> true,'info' => $this->usuariosModel->delete($datos['id_usuario'])]); 
         }else{
             echo json_encode(['exito' => false,'Error' => "error al recibir los datos"]); 
         }

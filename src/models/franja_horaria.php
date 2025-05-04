@@ -35,8 +35,27 @@
                 pista.nombre
             from franja_horaria 
             JOIN pista ON franja_horaria.pista_id = pista.id
-            WHERE fecha >= curdate() and hora_inicio >= curtime()";
+            WHERE fecha >= curdate() AND hora_inicio >= curtime()";
             $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            // Convertir la fecha de formato YY-MM-DD a DD-MM-YY
+            foreach ($result as &$data) {
+                if (isset($data['fecha'])) {
+                    $fechaOriginal = $data['fecha'];
+                    $data['fecha'] = date('d-m-Y', strtotime($fechaOriginal));
+                }
+            }
+
+            return $result;
+        }
+
+        public function getHorarioByFechaHora($fecha, $hora) {
+            $sql = "SELECT * FROM franja_horaria WHERE fecha = :fecha AND hora_inicio = :hora"; 
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':hora', $hora);
+            $stmt->bindParam(':fecha', $fecha);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }

@@ -9,5 +9,5 @@ export function alerta(mensaje, alerta) {
     alerta.style.top = "5%"; // mostramos la alerta
     setTimeout(() => {
         alerta.style.top = "-10%";
-    }, 1000); // ocultamos la alerta tras 1 segundo
+    }, 4000); // ocultamos la alerta tras 4 segundos
 }

@@ -1,5 +1,6 @@
 import { eliminarUsuario } from "./../../services/usuario";
 import { eliminarCampo } from "./../../services/campo";
+import { eliminarHorario } from "./../../services/franja_horaria";
 
 /**
  * Función para eliminar usuario
@@ -103,4 +104,50 @@ export function deleteCampo() {
         });
     });
     
+}
+
+export function deleteHorario() {
+    
+    const tablaHorariosContainer = document.querySelector(".horarios_container"); 
+
+    const botonesEliminar = tablaHorariosContainer.querySelectorAll(".acciones-container .btn-danger");
+    botonesEliminar.forEach(boton => {
+        boton.addEventListener("click", (event) => {
+            const fila = event.target.closest("tr"); // Encuentra la fila más cercana al botón
+            if (!fila) {
+                console.error("No se encontró la fila correspondiente al botón de eliminar.");
+                return;
+            }
+
+            const id = fila.querySelector("td").textContent; // Obtiene el ID del usuario
+            if (!id) {
+                console.error("No se encontró el ID del horario en la fila.");
+                return;
+            }
+
+            Swal.fire({
+                title: "¿Estás seguro de que quieres eliminar este horario?",
+                text: "No podrás revertirlo.",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Eliminar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    eliminarHorario(id).then(info => {
+                        console.log(info);
+                        if (info.exito) {
+                            fila.remove(); // Elimina la fila de la tabla
+                            Swal.fire("Horario eliminado!", info.mensaje, "success");
+                        } else {
+                            Swal.fire("Error", info.mensaje, "error");
+                        }
+                    });
+                }
+            });
+        });
+    });
+
+
 }

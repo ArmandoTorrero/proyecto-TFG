@@ -93,7 +93,7 @@
             $datos = json_decode(file_get_contents("php://input"), true);
 
             if ($datos) {
-                echo json_encode(['exito' => true, 'mensaje' => 'El campo ha sido eliminado', 'data' => $this->campoModel->getById($datos['id_campo'])]); 
+                echo json_encode(['exito' => true, 'mensaje' => 'El campo ha sido eliminado', 'data' => $this->campoModel->delete($datos['id_campo'])]); 
             }else{
                 echo json_encode(['exito' => true, 'mensaje' => 'Error al eliminar el campo']);
             }
