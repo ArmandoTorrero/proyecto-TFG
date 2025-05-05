@@ -327,7 +327,7 @@
         width: 22.5%; 
         height: 30vw;
         border-radius: 5px;
-        background-image: url('../ASSETS/basket.webp');
+        background-image: url('./../ASSETS/balon-futbol.jpeg');
         background-size: cover;
         background-position: center;
     }

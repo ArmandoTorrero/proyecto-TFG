@@ -33,6 +33,7 @@
     $router->add('/userInfo','UsuariosController@getUserInfo');  
     $router->add('/usuarios', 'UsuariosController@getAllUsers');
     $router->add('/eliminarUsuario', 'UsuariosController@eliminarUsuario');
+    $router->add('/buscarUsuario', 'UsuariosController@buscarUsuario');    
     $router->add('/getCampos', 'CamposController@getCampos');  
     $router->add('/getCampoById', 'CamposController@getCampoById');  
     $router->add('/editCampo', 'CamposController@editCampo'); 
@@ -46,6 +47,7 @@
     $router->add('/horariosDinamicos', 'FranjaHorariaController@mandarHorariosDinamicos'); 
     $router->add('/reservas', 'ReservasController@getAllReservas');
     $router->add('/getHorarios', 'FranjaHorariaController@getHorarios'); 
+    $router->add('/crearHorario', 'FranjaHorariaController@crearHorario');     
     $router->add('/fechasCampo', 'FranjaHorariaController@mandarFechasCampo'); 
     $router->add('/horarioInfo', 'FranjaHorariaController@getHorarioInfo');
     $router->add('/getHorarioById', 'FranjaHorariaController@getHorarioById');

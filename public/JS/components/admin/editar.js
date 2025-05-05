@@ -93,13 +93,17 @@ export function editarHorario() {
                 return;
             }
 
+            
+
             const id = fila.querySelector("td").textContent; // Obtiene el ID del usuario
+            const nombre_campo = fila.querySelector("td:nth-of-type(5)").textContent;  
+            
             if (!id) {
                 console.error("No se encontró el ID del usuario en la fila.");
                 return;
             }
 
-            containerFormHorario(id); 
+            containerFormHorario(id, nombre_campo); 
         });
     })
     

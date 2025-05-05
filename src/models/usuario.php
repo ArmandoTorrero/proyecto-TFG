@@ -27,6 +27,23 @@
             return $stmt->fetch(PDO::FETCH_ASSOC);
             
         }
+
+        public function getByUsername($username) {
+
+            try {
+                $sql = "SELECT * FROM usuario WHERE nombre LIKE :username";
+                $stmt = $this->db->prepare($sql);
+                $palabra = trim($username) . '%'; 
+                $stmt->bindParam(':username', $palabra);
+                $stmt->execute();
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                error_log('Error en la busqueda: ' . $e->getMessage()); 
+                return []; 
+            }
+
+            
+        }
         
     }
 ?>

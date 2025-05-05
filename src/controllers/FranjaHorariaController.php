@@ -60,9 +60,37 @@ use Core\utilities\Validador;
             if ($datos) {
                 echo json_encode(['info' => $this->franjaHorariaModel->getById($datos['id_horario'])]); 
             }else{
-                echo json_encode(['exito' => true, 'mensaje' => 'Error al recibir el horario']);
+                echo json_encode(['exito' => false, 'mensaje' => 'Error al recibir el horario']);
             }
 
+        }
+
+        public function crearHorario() {
+            if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                $datos = [$_POST["fecha"], $_POST["hora_inicio"], $_POST["pista_id"]]; 
+
+                if (!Validador::validarFechaHorario($_POST["fecha"])) {
+                    echo json_encode(['exito' => false, 'mensaje' => 'La fecha tiene que ser actual o posterior']);
+                    return; 
+                }
+
+                if ($this->franjaHorariaModel->getHorarioByFechaHoraPistaId($_POST["pista_id"], $_POST["fecha"], $_POST["hora_inicio"])) {
+                    echo json_encode(['exito' => false, 'mensaje' => 'Este horario ya existe']);
+                    return; 
+                }
+
+                $this->franjaHorariaModel->create(
+                    [
+                        'fecha' => $_POST["fecha"], 
+                        'hora_inicio' => $_POST["hora_inicio"], 
+                        'pista_id' => $_POST["pista_id"]
+                    ]
+                ); 
+
+                echo json_encode(['exito' => true, 'mensaje' => 'Horario creado correctamente', 'datos' => $datos]);
+            }else {
+                echo json_encode(['exito' => false, 'mensaje' => 'Error al recibir los datos']);
+            }
         }
 
 
@@ -73,18 +101,53 @@ use Core\utilities\Validador;
         public function editHorario() {
 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $datos = [$_POST["horarioId"], $_POST["fecha"], $_POST["hora_inicio"]]; 
                 
                 // validamos la fecha para saber si es anterior a la actual
                 if (Validador::validarFechaHorario($_POST["fecha"])) {
 
-                    // comprobamos que el horario introducido por el admin existe 
-                    $fecha = $this->franjaHorariaModel->getHorarioByFechaHora($_POST["fecha"], $_POST["hora_inicio"]); 
+                     
+                    $horario = $this->franjaHorariaModel->getHorarioCampoByFechaHora(
+                        $_POST["fecha"], 
+                        $_POST["hora_inicio"], 
+                        $_POST["nombre_campo"]
+                    );
 
-                    if (!$fecha) {
+                    // comprobamos que el horario introducido por el admin existe
+                    if ($horario) {
+
+                        // comprobamos si esta sobreescribiendo el campo 'disponible'
+                        if ($horario[0]['disponible'] == 1 && $_POST["disponible"] == 1) {
+                            echo json_encode(['exito' => false, 'mensaje' => 'Este horario ya existe', 'disponible' => $horario[0]['disponible']]);
+                            return; 
+                        }
+
+                        
+                        if (($horario[0]['disponible'] == 0 && $_POST["disponible"] == 1) || ($horario[0]['disponible'] == 1 && $_POST["disponible"] == 0) ) {
+
+                            $this->franjaHorariaModel->update(
+                                [
+                                    'fecha' => $_POST["fecha"],
+                                    'hora_inicio' => $_POST["hora_inicio"], 
+                                    'disponible' => $_POST["disponible"]
+                                ],
+                                $_POST["horarioId"]
+                            ); 
+                            
+                            echo json_encode([
+                                'exito' => true, 
+                                'mensaje' => 'Horario editado correctamente', 
+                                'horario' => $horario, 
+                                'campo' => $_POST["nombre_campo"]
+                            ]);
+                        }
+
+
+                    }else { // si no existe un horario igual a los datos introducidos editamos el horario
 
                         $this->franjaHorariaModel->update(
                             [
-                                'fecha' => $_POST["fecha"], 
+                                'fecha' => $_POST["fecha"],
                                 'hora_inicio' => $_POST["hora_inicio"], 
                                 'disponible' => $_POST["disponible"]
                             ],
@@ -93,11 +156,10 @@ use Core\utilities\Validador;
 
                         echo json_encode([
                             'exito' => true, 
-                            'mensaje' => 'Horario editado con exito',
-                            'id_horario' => $_POST["horarioId"]
-                        ]); 
-                    }else {
-                        echo json_encode(['exito' => false, 'mensaje' => 'Este horario ya existe']);
+                            'mensaje' => 'Horario editado correctamente', 
+                            'horario' => $horario, 
+                            'campo' => $_POST["nombre_campo"]
+                        ]);
                     }
 
                 }else {

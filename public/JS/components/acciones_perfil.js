@@ -83,7 +83,7 @@ function perfil_admin() {
     const content = document.querySelector(".content"); 
     content.appendChild(Admin.mostrarTablaUsuarios()); // mostramos la tabla de usuarios    
     Admin.AsideBtns(); 
-    
+
 }
 
 

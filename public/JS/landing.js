@@ -5,7 +5,7 @@ import { logueado } from "./services/usuario";
 /**
  * Modificar la landing cuando el usuario se registra
  */
-function landingUsuario() {
+function landingUsuarioRegistrado() {
     const preeFooterButtons = document.querySelector(".pre-footer > .buttons")
     preeFooterButtons.children[0].style.display = "none"; 
 }
@@ -29,9 +29,9 @@ function landingInvitado() {
 function modificarLandingPage(rol) {
 
     if (rol != false) {
-        rol == 1 ? landingUsuario() : ''; 
+        landingUsuarioRegistrado();  
     }else{
-        landingInvitado()
+        landingInvitado(); 
     }
 }
 

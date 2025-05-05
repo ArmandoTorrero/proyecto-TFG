@@ -1,4 +1,4 @@
-import { crearFormulario, editar } from "./../components/form_elements";
+import { crearFormulario, editar } from "./form_elements";
 import { userInfoBySendingId } from "./../services/usuario";
 import { getCampoById } from "./../services/campo";
 import { getHorarioById } from "./../services/franja_horaria";
@@ -9,8 +9,9 @@ import { getHorarioById } from "./../services/franja_horaria";
  * @param {*} clase 
  * @returns 
  */
-export function crearBoton(clase = 'btn') {
-    let boton = document.createElement("button")
+export function crearBoton(texto,clase = 'btn') {
+    let boton = document.createElement("button"); 
+    boton.textContent = texto; 
     boton.classList.add('btn', clase)
 
     return boton; 
@@ -18,17 +19,13 @@ export function crearBoton(clase = 'btn') {
 
 
 export function btnCerrar(contenedor) {
-    const closeButton = crearBoton(); 
-    closeButton.textContent = "Cerrar";
+    const closeButton = crearBoton("Cerrar"); 
     closeButton.type = "button"; // Evitar que actúe como submit
     closeButton.classList.add("close-button");
     closeButton.addEventListener("click", () => {
         contenedor.classList.remove("visible");
-        document.body.style.overflowY = "auto" // cuando se haga click evitamos el scroll
+        document.body.style.overflowY = "auto" // cuando se haga click devolvemos el scroll
     });
-
-
-
     return closeButton
 }
 
@@ -38,7 +35,7 @@ export function btnCerrar(contenedor) {
  * @returns 
  */
 export function btnEditar(clase = 'btn-success') {
-    let boton = crearBoton(clase); 
+    let boton = crearBoton("",clase); 
     boton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>'; 
     return boton; 
 }
@@ -49,7 +46,7 @@ export function btnEditar(clase = 'btn-success') {
  * @returns 
  */
 export function btnEliminar(clase = 'btn-danger') {
-    let boton = crearBoton(clase); 
+    let boton = crearBoton("",clase); 
     boton.innerHTML = '<i class="fa-solid fa-trash"></i>';  
     return boton;
 }
@@ -106,6 +103,10 @@ export function containerFormUser(id) {
     });
 }
 
+/**
+ * Al pulsar en el boton de editar creamos un formulario para editar el campo
+ * @param {*} id 
+ */
 export function containerFormCampo(id) {
 
     console.log(id);
@@ -145,7 +146,12 @@ export function containerFormCampo(id) {
     })
 }
 
-export function containerFormHorario(id) {
+
+/**
+ * Al pulsar en el boton de editar creamos un formulario para editar el horario
+ * @param {*} id 
+ */
+export function containerFormHorario(id, nombre_campo) {
     
     let containerFormHorario = document.querySelector(".containerFormHorario");   
       
@@ -171,12 +177,42 @@ export function containerFormHorario(id) {
 
         const form = crearFormulario(labels, names, types, values, placeholders, '/TFG/editarHorario');
         form.setAttribute('data-horario-id', id);
+        form.setAttribute('data-nombre-campo', nombre_campo)
         editar(form); 
 
         form.append(btnCerrar(containerFormHorario)); 
 
         containerFormHorario.appendChild(form)
     })
+}
+
+
+export function crearHorario() {
+
+    let containerFormHorario = document.querySelector(".containerFormHorario");   
+    let btn_crear_horario = document.querySelector(".crear-horario"); 
+
+    btn_crear_horario.addEventListener("click", () => {
+
+        containerFormHorario.classList.toggle("visible");
+        const existingForm = containerFormHorario.querySelector("form");
+        if (existingForm) {
+            existingForm.remove();
+        }    
+
+        let labels = ["Fecha", "Hora inicio", "Pista"]; 
+        let names = ["fecha", "hora_inicio", "pista_id"]; 
+        let types = ["date", "number", "number"]; 
+
+        const form = crearFormulario(labels,names,types,[],[],'/TFG/crearHorario');
+        editar(form);  
+        form.append(btnCerrar(containerFormHorario)); 
+
+        containerFormHorario.append(form); 
+
+ 
+    })
+
 }
 
 

@@ -124,8 +124,7 @@ class UsuariosController
 
             $usuarioEncontrado = Validador::existelUsuarioRegistro(
                 $this->usuariosModel->getAll(),
-                $_POST["correo"],
-                $_POST["username"]
+                $_POST["correo"]
             );
 
             if (!$camposValidados) {
@@ -271,6 +270,11 @@ class UsuariosController
         }
     }
 
+    /**
+     * 
+     * Funcion para eliminar un usuario
+     * @return void
+     */
     public function eliminarUsuario() {
         
         $datos = json_decode(file_get_contents("php://input"), true);
@@ -280,6 +284,16 @@ class UsuariosController
             echo json_encode(['exito' => false,'Error' => "error al recibir los datos"]); 
         }
 
+    }
+
+    public function buscarUsuario() {
+        $datos = json_decode(file_get_contents("php://input"), true);
+
+        if ($datos) {
+            echo json_encode(['usuario' => $this->usuariosModel->getByUsername($datos['usuario'])]); 
+        }else {
+            echo json_encode(['error' => 'Error al recibir los datos']); 
+        }
     }
 
 

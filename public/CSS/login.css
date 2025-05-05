@@ -220,6 +220,10 @@ form{
     
 }
 
+.passwd > a{
+    font-size: 0.8rem;
+}
+
 .verde{
     border: 1px solid green;
 }

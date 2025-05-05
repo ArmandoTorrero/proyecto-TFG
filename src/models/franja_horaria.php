@@ -51,9 +51,28 @@
             return $result;
         }
 
-        public function getHorarioByFechaHora($fecha, $hora) {
-            $sql = "SELECT * FROM franja_horaria WHERE fecha = :fecha AND hora_inicio = :hora"; 
+        public function getHorarioCampoByFechaHora($fecha, $hora, $campo) {
+            $sql = "select 
+                franja_horaria.id, 
+                franja_horaria.fecha,
+                franja_horaria.hora_inicio, 
+                franja_horaria.disponible, 
+                pista.nombre
+                from franja_horaria 
+                JOIN pista ON franja_horaria.pista_id = pista.id
+                WHERE franja_horaria.fecha = :fecha AND franja_horaria.hora_inicio = :hora AND pista.nombre = :pista"; 
             $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':fecha', $fecha);
+            $stmt->bindParam(':hora', $hora);
+            $stmt->bindParam(':pista', $campo); 
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public function getHorarioByFechaHoraPistaId($id_pista,$fecha, $hora) {
+            $sql = "SELECT * FROM franja_horaria WHERE pista_id = :id_pista AND fecha = :fecha AND hora_inicio = :hora"; 
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":id_pista", $id_pista); 
             $stmt->bindParam(':hora', $hora);
             $stmt->bindParam(':fecha', $fecha);
             $stmt->execute();

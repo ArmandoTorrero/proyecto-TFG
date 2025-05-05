@@ -2,9 +2,10 @@ import { getUsuarios} from "./../services/usuario";
 import { getCampos } from "./../services/campo";
 import { getReservas } from "./../services/reservas";
 import { getAll } from "./../services/franja_horaria";
-import { accionesContainer, crearBoton} from "./boton";
-import { crearTabla } from "./tabla";
 import { crearTituloSeccion } from "./acciones_perfil";
+import { buscadorUsuario } from "./buscador";
+import { accionesContainer, crearBoton, crearHorario} from "./boton";
+import { crearTabla } from "./tabla";
 import { editUser, editarCampo, editarHorario } from "./admin/editar";
 import { deleteUser, deleteCampo, deleteHorario } from "./admin/eliminar";
 
@@ -18,7 +19,7 @@ export function mostrarTablaUsuarios() {
     userInfoContainer.classList.add("user-info-container");
     // creamos el titulo de la sección
     let titulo = crearTituloSeccion("Lista de usuarios")
-    userInfoContainer.appendChild(titulo); // añadimos el titulo al contenedor
+    userInfoContainer.append(titulo, buscadorUsuario()); // añadimos el titulo al contenedor
 
     // Recogemos todos los usuarios registrados y creamos una tabla con su informacion
     getUsuarios().then(usuarios => {
@@ -97,9 +98,11 @@ export function mostrarTablaCampos() {
 
         // llamamos a las funciones de editar y eliminar campo
         editarCampo(); 
-        deleteCampo(); 
+        deleteCampo();  
 
     });
+
+    
 
     return tabla_campos_contaier;
 }
@@ -110,6 +113,7 @@ export function mostrarTablaHorarios() {
     tabla_horarios_container.classList.add("horarios_container"); 
     let titulo = crearTituloSeccion("Lista de horarios"); 
     tabla_horarios_container.appendChild(titulo); 
+    tabla_horarios_container.appendChild(crearBoton("Crear horario", "crear-horario"))
 
     getAll().then(horarios => {
 
@@ -130,6 +134,7 @@ export function mostrarTablaHorarios() {
         //llamamos a las funciones de editar y eliminar horario
         editarHorario(); 
         deleteHorario(); 
+        crearHorario(); 
         
     })
 

@@ -41,7 +41,11 @@ export async function getUsuarios() {
     }
 }
 
-
+/**
+ * Obtener el usuario a partir de un id
+ * @param {*} id 
+ * @returns 
+ */
 export async function userInfoBySendingId(id) {
     try {
         const response = await fetch('/TFG/userInfo', {
@@ -57,6 +61,12 @@ export async function userInfoBySendingId(id) {
     }
 }
 
+
+/**
+ * Función para eliminar un usuario
+ * @param {*} id 
+ * @returns 
+ */
 export async function eliminarUsuario(id) {
     try {
         const response = await fetch('/TFG/eliminarUsuario', {
@@ -65,6 +75,23 @@ export async function eliminarUsuario(id) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ id_usuario: id })
+        })
+
+        return await response.json(); 
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
+
+export async function buscarUsuario(username) {
+    try {
+        const response = await fetch('/TFG/buscarUsuario', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ usuario: username })
         })
 
         return await response.json(); 

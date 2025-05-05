@@ -27,7 +27,7 @@ aside{
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    padding: 0 10px;
+    padding: 10px;
 
 }
 
@@ -107,6 +107,11 @@ form{
     }
 }
 
+/*
+-------------------------------------------------
+----------FORMULARIO PARA CERRAR SESIÓN----------
+-------------------------------------------------
+*/
 #formCerrarSesion{
     width: 40%;
     padding: 0;
@@ -153,13 +158,14 @@ form{
 
 
 /*
--------------------------------------
-----------TABLA DE RESERVAS----------
--------------------------------------
+--------------------------
+----------TABLAS----------
+--------------------------
 */
 
 table {
     width: 100%;
+    margin: 10px 0;
     border-collapse: separate;       /* Para permitir el border-radius */
     border-spacing: 0;               /* Elimina el espacio entre celdas */
     border: 1px solid #ccc;
@@ -253,11 +259,38 @@ table {
     }
 }
 
+
 .visible{
     transform: scale(1);
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.crear-horario{
+    border: none;
+    background-color: var(--fondoBotones);
+    font-weight: 500;
+    color: white;
+
+    &:hover{
+        background-color: var(--fondoBotones);   
+        color: white;     
+    }
+}
+
+.buscador{
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--fondoBotones);
+    color: var(--colortexto2);
+
+    &::placeholder{
+        color: white;
+    }
+
+    
 }
 
 
@@ -323,3 +356,12 @@ table {
     }
 
 }
+
+.crear-horario{
+
+    &:hover{
+        background-color: #0035a7;   
+    }
+}
+
+
