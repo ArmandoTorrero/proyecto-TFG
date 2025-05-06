@@ -35,7 +35,7 @@ function modificarLandingPage(rol) {
     }
 }
 
-logueado().then((data) => {
+logueado().then((data) => {    
     
     modificarLandingPage(data.rol)
     

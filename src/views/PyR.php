@@ -2,7 +2,7 @@
     ob_start(); 
 ?>
     <head>
-        <link rel="stylesheet" href="public/CSS/PyR.css">
+        <link rel="stylesheet" href="./public/CSS/PyR.css">
     </head>
     <main>
         

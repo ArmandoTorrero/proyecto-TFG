@@ -2,7 +2,7 @@
     ob_start(); 
 ?>
     <head>
-        <link rel="stylesheet" href="public/CSS/landing.css">
+        <link rel="stylesheet" href="./public/CSS/landing.css">
     </head>
 
     <!-- Hero section -->
@@ -133,7 +133,7 @@
         </article>
     </section>
 
-    <script type="module" src="public/JS/landing.js"></script>
+    <script type="module" src="./public/JS/landing.js"></script>
     
 
 <?php 

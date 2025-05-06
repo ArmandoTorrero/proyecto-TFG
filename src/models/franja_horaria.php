@@ -15,10 +15,13 @@
 
          public function getHorariosActualizadosByPistaId($id_campo,$fecha) {
             $sql = "SELECT * FROM franja_horaria WHERE pista_id = :id_campo 
-            AND disponible = 1 
-            AND fecha = :fecha 
-            AND fecha >= CURDATE()
-            AND hora_inicio >= CURTIME()";
+            AND fecha = :fecha
+            AND fecha > CURDATE() -- Fechas futuras (posteriores a hoy)
+            OR 
+            (
+                fecha = :fecha -- Para hoy
+                AND hora_inicio > CURTIME() -- Horas posteriores a la actual
+            )";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':id_campo', $id_campo);
             $stmt->bindParam(':fecha', $fecha);
@@ -35,7 +38,14 @@
                 pista.nombre
             from franja_horaria 
             JOIN pista ON franja_horaria.pista_id = pista.id
-            WHERE fecha >= curdate() AND hora_inicio >= curtime()";
+            WHERE 
+                fecha > CURDATE() -- Fechas futuras (posteriores a hoy)
+                OR 
+                (
+                    fecha = CURDATE() -- Para hoy
+                    AND hora_inicio > CURTIME() -- Horas posteriores a la actual
+                )
+            ORDER BY fecha, hora_inicio";
             $stmt = $this->db->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

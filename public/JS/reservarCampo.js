@@ -1,7 +1,7 @@
 import { crearBtnHora } from "./components/crearBotonHora";
 import { crearOption } from "./components/crearOption";
 import { getNombreCampo, getModalidadId } from "./services/campo";
-import { getFechas, horariosDinamicos } from "./services/franja_horaria";
+import { getFechasActualizadas, horariosDinamicos } from "./services/franja_horaria";
 
 
 
@@ -10,7 +10,7 @@ function cambiarSelect() {
 
     let select = document.getElementById("fecha")
     
-    getFechas().then(fechas => {
+    getFechasActualizadas().then(fechas => {
         console.log(fechas);
         
         let array_fechas = fechas.fechas;
@@ -44,12 +44,14 @@ function cambiarSelect() {
         const horariosSection = document.getElementById("horarios"); 
         
         // le añadimos un evento al select 
-        select.addEventListener("change", (ev) => {            
+        select.addEventListener("change", (ev) => {       
+            console.log(ev.target.value);
+                 
 
             // cuando se seleccione una fecha en el option se mostraran los horarios de la fecha seleccionada 
             horariosDinamicos(ev.target.value).then(info => {
                 console.log(info);
-
+                
                 let horarios = info.horarios; // recogemos toda la informacion de esa fecha
                 
                 horariosSection.innerHTML = ''; // borramos los botones que haya anteriormente

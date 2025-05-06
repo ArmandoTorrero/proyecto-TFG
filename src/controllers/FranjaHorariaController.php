@@ -12,6 +12,10 @@ use Core\utilities\Validador;
             $this->franjaHorariaModel = new FranjaHoraria;
         }
 
+        /**
+         * Función para enviar al JS los horarios actualizados a la fecha y hora actual
+         * @return void
+         */
         public function getHorarios() {
             echo json_encode(['horarios' => $this->franjaHorariaModel->getHorariosActualizados()]); 
         }
@@ -65,20 +69,28 @@ use Core\utilities\Validador;
 
         }
 
+        /**
+         * Función para crear un horario
+         * @return void
+         */
         public function crearHorario() {
+
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $datos = [$_POST["fecha"], $_POST["hora_inicio"], $_POST["pista_id"]]; 
 
+                // Validamos si la fecha es anterior a la introducida
                 if (!Validador::validarFechaHorario($_POST["fecha"])) {
                     echo json_encode(['exito' => false, 'mensaje' => 'La fecha tiene que ser actual o posterior']);
                     return; 
                 }
 
+                // Validamos si los datos introducidos no corresponden a otra fecha existente
                 if ($this->franjaHorariaModel->getHorarioByFechaHoraPistaId($_POST["pista_id"], $_POST["fecha"], $_POST["hora_inicio"])) {
                     echo json_encode(['exito' => false, 'mensaje' => 'Este horario ya existe']);
                     return; 
                 }
 
+                // Si no se cumplen ninguno de los dos 'if' se crea el horario y se lo indicamos al usuario
                 $this->franjaHorariaModel->create(
                     [
                         'fecha' => $_POST["fecha"], 
@@ -95,7 +107,7 @@ use Core\utilities\Validador;
 
 
         /**
-         * Editar un horario mediante se ID
+         * Editar un horario mediante su ID
          * @return void
          */
         public function editHorario() {
@@ -106,7 +118,6 @@ use Core\utilities\Validador;
                 // validamos la fecha para saber si es anterior a la actual
                 if (Validador::validarFechaHorario($_POST["fecha"])) {
 
-                     
                     $horario = $this->franjaHorariaModel->getHorarioCampoByFechaHora(
                         $_POST["fecha"], 
                         $_POST["hora_inicio"], 

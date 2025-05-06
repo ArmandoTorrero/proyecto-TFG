@@ -1,7 +1,7 @@
 import { getUsuarios} from "./../services/usuario";
 import { getCampos } from "./../services/campo";
 import { getReservas } from "./../services/reservas";
-import { getAll } from "./../services/franja_horaria";
+import { getAll, getFechasActualizadas } from "./../services/franja_horaria";
 import { crearTituloSeccion } from "./acciones_perfil";
 import { buscadorUsuario } from "./buscador";
 import { accionesContainer, crearBoton, crearHorario} from "./boton";
@@ -19,7 +19,8 @@ export function mostrarTablaUsuarios() {
     userInfoContainer.classList.add("user-info-container");
     // creamos el titulo de la sección
     let titulo = crearTituloSeccion("Lista de usuarios")
-    userInfoContainer.append(titulo, buscadorUsuario()); // añadimos el titulo al contenedor
+    userInfoContainer.appendChild(titulo); // añadimos el titulo al contenedor
+    userInfoContainer.appendChild(buscadorUsuario())
 
     // Recogemos todos los usuarios registrados y creamos una tabla con su informacion
     getUsuarios().then(usuarios => {
@@ -38,6 +39,7 @@ export function mostrarTablaUsuarios() {
         let tabla_usuarios = crearTabla(headers, data);
         userInfoContainer.appendChild(tabla_usuarios); // añadimos la tabla al contenedor
 
+
         // Llamar a las funciones para editar y eliminar usuarios
         editUser(); 
         deleteUser(); 
@@ -54,16 +56,35 @@ export function mostrarTablaReservas() {
 
     const tabla_reservas_container = document.createElement("section");
     tabla_reservas_container.classList.add("reservas-container");
-    let titulo = crearTituloSeccion("Lista de reservas")
-    tabla_reservas_container.appendChild(titulo); // añadimos el titulo al contenedor
 
-    getReservas().then(reservas => {        
-                
+    let titulo = crearTituloSeccion("Lista de reservas"); 
+    let select = document.createElement("select"); 
+    tabla_reservas_container.appendChild(titulo); // añadimos el titulo al contenedor
+    tabla_reservas_container.appendChild(select); 
+
+    getReservas().then(reservas => {     
+        
         let listas_reservas = reservas.reservas; // recogemos las reservas de la BBDD
+
         let headers = ['ID usuario','ID Pista', 'Campo', 'Fecha', 'Hora Inicio'];
         let data = listas_reservas.map(reserva => [reserva.usuario_id,reserva.pista_id, reserva.nombre_pista, reserva.fecha, reserva.hora_inicio.slice(0, -3)]); 
 
         let tabla_reservas = crearTabla(headers, data); // creamos la tabla con los datos
+
+        // creamos los options para el select 
+        listas_reservas.forEach(reserva => {
+            let option = document.createElement("option"); 
+            option.textContent = reserva.fecha; 
+            option.value = reserva.fecha
+            select.appendChild(option); 
+        });
+
+        select.addEventListener("change", (ev) => {
+            console.log(ev.target.value);
+            
+        })
+
+
         tabla_reservas_container.appendChild(tabla_reservas); // añadimos la tabla al contenedor
         
     })

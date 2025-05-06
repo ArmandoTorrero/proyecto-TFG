@@ -8,6 +8,3 @@ document.addEventListener("DOMContentLoaded", () => {
         addBtnCerrarSesion(response.rol)
     })
 })
-
-
-

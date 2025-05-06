@@ -10,7 +10,7 @@
         <section class="campos-container"></section>
     </main>
 
-    <script type="module" src="public/JS/camposModalidad.js"></script>
+    <script type="module" src="./public/JS/camposModalidad.js"></script>
 
 <?php 
     $content = ob_get_clean(); 

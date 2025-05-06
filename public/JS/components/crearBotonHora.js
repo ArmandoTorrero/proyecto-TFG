@@ -9,7 +9,7 @@ import { crearBoton } from "./boton";
 
 export function crearBtnHora(id_hora,hora_inicio,disponible) {
 
-    const boton = crearBoton("hora")
+    const boton = crearBoton("", 'hora')
     
     const enlace = document.createElement("a"); 
     enlace.href = `/TFG/pagarCampo?id_horario=${id_hora}`; 

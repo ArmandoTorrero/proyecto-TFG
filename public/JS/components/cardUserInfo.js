@@ -1,9 +1,9 @@
-import { userInfo } from "../services/usuario";
-import { crearBoton } from "../components/boton";
-import { getReservasByUserId } from "../services/reservas";
+import { userInfo } from "./../services/usuario";
+import { crearBoton } from "./boton";
+import { getReservasByUserId } from "./../services/reservas";
 import { crearInput, crearLabel, editar } from "./form_elements";
-import { crearTabla } from "../components/tabla";
-import { crearTituloSeccion } from "../components/acciones_perfil";
+import { crearTabla } from "./tabla";
+import { crearTituloSeccion } from "./acciones_perfil";
 
 
 
@@ -66,8 +66,7 @@ export function cardUserInfo(rol) {
             }
 
             // creamos un botón para enviar el formulario
-            let boton = crearBoton('btn-enviar'); 
-            boton.textContent = "Guardar cambios";
+            let boton = crearBoton('Guardar cambios','btn-enviar'); 
             boton.type = "submit";
 
             formulario.appendChild(boton);

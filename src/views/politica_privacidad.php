@@ -3,7 +3,7 @@
 ?>
 
 <head>
-    <link rel="stylesheet" href="public/CSS/politicaPrivacidad.css">
+    <link rel="stylesheet" href="./public/CSS/politicaPrivacidad.css">
 </head>
 
 <main> 

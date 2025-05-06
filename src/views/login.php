@@ -3,7 +3,7 @@
 ?>
 
     <head>
-        <link rel="stylesheet" href="public/CSS/login.css">
+        <link rel="stylesheet" href="./public/CSS/login.css">
     </head>
 
     <main>
@@ -60,7 +60,7 @@
         </section>
     </main>
 
-    <script type="module" src="public/JS/login.js"></script>
+    <script type="module" src="./public/JS/login.js"></script>
 
 <?php 
     $content = ob_get_clean(); 

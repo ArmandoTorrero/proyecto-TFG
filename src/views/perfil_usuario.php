@@ -2,7 +2,7 @@
     ob_start();
 ?>
     <head>
-        <link rel="stylesheet" href="public/CSS/perfil.css">
+        <link rel="stylesheet" href="./public/CSS/perfil.css">
     </head>
     
     <main>
@@ -23,7 +23,7 @@
 
     </main>
 
-    <script type="module" src="public/JS/perfil.js"></script>
+    <script type="module" src="./public/JS/perfil.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php 
     $content = ob_get_clean(); 

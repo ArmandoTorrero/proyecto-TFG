@@ -15,7 +15,7 @@ function validarInput(input,span,regex) { // funcion para validar el input
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
-    const buttonSubmit = document.querySelector(".enviar");
+    const buttonSubmit = document.querySelector(".enviar");    
 
     // recogemos el input y el span del email
     const inputEmail = document.getElementById("correo")

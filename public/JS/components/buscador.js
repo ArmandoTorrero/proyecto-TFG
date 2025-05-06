@@ -11,12 +11,20 @@ export function buscadorUsuario() {
     input.placeholder = "Buscar usuario"; 
     input.classList.add("buscador"); 
 
-    const content = document.querySelector(".content"); 
-
+    
     input.addEventListener("input", (ev) => {
         buscarUsuario(ev.target.value).then(user => {
+
+            // Capturar el contenedor .user-info-container
+            const userInfoContainer = document.querySelector(".user-info-container");
+
+            if (!userInfoContainer) {
+                console.error("No se encontró el contenedor .user-info-container.");
+                return;
+            }
+
             // Eliminar solo la tabla existente si la hay
-            const existingTable = content.querySelector("table");
+            const existingTable = userInfoContainer.querySelector("table");
             if (existingTable) {
                 existingTable.remove();
             }
@@ -33,13 +41,13 @@ export function buscadorUsuario() {
                 ]);
 
                 let tabla_usuarios = crearTabla(headers, data);
-                content.appendChild(tabla_usuarios);
+                userInfoContainer.appendChild(tabla_usuarios);
+
+                // Llamar a las funciones editUser y deleteUser después de añadir la tabla
+                editUser();
+                deleteUser();
             }
         });
-
-        // Llamar a las funciones editUser y deleteUser
-        editUser();
-        deleteUser();
     });
 
     return input; 

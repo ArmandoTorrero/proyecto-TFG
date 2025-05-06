@@ -14,10 +14,10 @@ export async function getAll() {
 
 
 /**
- * Funcion para devolver las fechas de un campo determinado
+ * Funcion para devolver las fechas actualizadas de un campo determinado
  * @returns 
  */
-export async function getFechas() {
+export async function getFechasActualizadas() {
     try {
         const response = await fetch('/TFG/fechasCampo'); 
         return await response.json(); 

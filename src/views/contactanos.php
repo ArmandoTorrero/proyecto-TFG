@@ -3,7 +3,7 @@
 ?>
 
 <head>
-    <link rel="stylesheet" href="public/CSS/contactanos.css">
+    <link rel="stylesheet" href="./public/CSS/contactanos.css">
 </head>
 
 <main>

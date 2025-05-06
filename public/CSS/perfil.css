@@ -281,16 +281,7 @@ table {
 
 .buscador{
     padding: 5px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--fondoBotones);
-    color: var(--colortexto2);
-
-    &::placeholder{
-        color: white;
-    }
-
-    
+    border-radius: 5px;    
 }
 
 
@@ -363,5 +354,3 @@ table {
         background-color: #0035a7;   
     }
 }
-
-

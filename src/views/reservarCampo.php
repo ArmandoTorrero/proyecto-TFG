@@ -2,7 +2,7 @@
     ob_start(); 
 ?>
     <head>
-        <link rel="stylesheet" href="public/CSS/reservarCampo.css">
+        <link rel="stylesheet" href="./public/CSS/reservarCampo.css">
     </head>
 
     <section class="reservar">
@@ -24,7 +24,7 @@
     </section>
 
 
-    <script type="module" src="public/JS/reservarCampo.js"></script>
+    <script type="module" src="./public/JS/reservarCampo.js"></script>
 
 <?php 
     $content = ob_get_clean(); 

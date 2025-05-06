@@ -3,7 +3,7 @@
 ?>
 
     <head>
-        <link rel="stylesheet" href="public/CSS/pagarCampo.css">
+        <link rel="stylesheet" href="./public/CSS/pagarCampo.css">
     </head>
 
     <main>
@@ -55,7 +55,7 @@
 
     </main>
 
-    <script type="module" src="public/JS/pagarCampo.js"></script>
+    <script type="module" src="./public/JS/pagarCampo.js"></script>
 
 <?php 
     $content = ob_get_clean(); 

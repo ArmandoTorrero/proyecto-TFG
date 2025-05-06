@@ -3,15 +3,8 @@
 ?>
 
     <head>
-        <link rel="stylesheet" href="public/CSS/camposDeportivos.css">
+        <link rel="stylesheet" href="./public/CSS/camposDeportivos.css">
     </head>
-
-    <select name="modalidad_id" id="modalidad_id">
-        <option value="" selected hidden >Elige una modalidad</option>
-        <option value="1">Futbol</option>
-        <option value="2">Tenis</option>
-        <option value="3">Padel</option>
-    </select>
 
     <section class="campos-container"></section>
 
@@ -23,7 +16,7 @@
         </button>
     </section>
 
-    <script type="module" src="public/JS/camposDeportivos.js"></script>
+    <script type="module" src="./public/JS/camposDeportivos.js"></script>
 
 <?php 
     $content = ob_get_clean(); 

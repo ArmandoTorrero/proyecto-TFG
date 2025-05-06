@@ -67,7 +67,7 @@ class Validador
 
     public static function validarPassword($password)
     {
-        $pattern_passwd = '/^[a-zA-Z0-9]{5,}$/';
+        $pattern_passwd = '/^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};\':"\\|,.<>\/?]{5,}$/'; // Permitir caracteres especiales
         if (!preg_match($pattern_passwd, $password)) {
             return false;
         } else {

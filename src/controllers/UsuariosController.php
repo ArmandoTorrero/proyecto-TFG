@@ -127,15 +127,16 @@ class UsuariosController
                 $_POST["correo"]
             );
 
+            if ($usuarioEncontrado) {
+                echo json_encode(['exito' => false, 'mensaje' => 'El usuario ya está registrado']);
+                return;
+            }
+            
             if (!$camposValidados) {
                 echo json_encode(['exito' => false, 'mensaje' => 'Los campos no son válidos']);
                 return;
             }
 
-            if ($usuarioEncontrado) {
-                echo json_encode(['exito' => false, 'mensaje' => 'El usuario ya está registrado']);
-                return;
-            }
 
             Sessions::crearSesionLogueado();
             Sessions::crearSesionUsername($_POST["username"]);

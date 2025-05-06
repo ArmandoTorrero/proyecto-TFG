@@ -2,7 +2,7 @@
     ob_start(); 
 ?>
     <head>
-        <link rel="stylesheet" href="public/CSS/registro.css">
+        <link rel="stylesheet" href="./public/CSS/registro.css">
     </head>
 
     <main>
@@ -77,7 +77,7 @@
     </main>
 
 
-    <script type="module" src="public/JS/registro.js"></script>
+    <script type="module" src="./public/JS/registro.js"></script>
 
 
 <?php 
