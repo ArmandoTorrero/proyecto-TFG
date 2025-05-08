@@ -195,5 +195,10 @@ use Core\utilities\Validador;
                 echo json_encode(['exito' => true, 'mensaje' => 'Error al eliminar el horario']);
             }
         }
+
+
+        public function getInfoPistaHorarioByIdHorario()  {
+            echo json_encode(['info' => $this->franjaHorariaModel->getInfoPistaHorarioByIdHorario($_SESSION["id_horario"])]); 
+        }
     }
 ?>

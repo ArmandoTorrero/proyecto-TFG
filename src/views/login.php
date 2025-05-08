@@ -8,13 +8,9 @@
 
     <main>
 
-        <div class="alert alert-success" role="alert" id="alerta-verde">
-            Inicio de sesión correcto.
-        </div>
+        <div class="alert alert-success" role="alert" id="alerta-verde"></div>
 
-        <div class="alert alert-danger" role="alert" id="alerta-roja">
-            Credenciales incorrectas.
-        </div>
+        <div class="alert alert-danger" role="alert" id="alerta-roja"></div>
 
         <section class="form-container">
 
@@ -39,6 +35,8 @@
                     <input type="password" name="passwd" id="passwd">
                     <span class="passwdSpan">La contraseña debe de tener minimo 5 caracteres</span>
                 </article>
+                <input type="checkbox" name="mostrar_passwd" id="mostrar_passwd">
+                <label for="">Mostrar contraseña</label>
 
                 <button type="submit" class="enviar disabled" disabled >Iniciar sesión</button>
 

@@ -131,8 +131,8 @@ export function containerFormCampo(id) {
         let placeholders = ['Introduce el nombre de la pista', 'Introduce el precio por hora', 'Selecciona la modalidad', 'Selecciona la disponibilidad'];
         let values = []; 
 
-        names.forEach(name => {
-            values.push(info_campo[name])            
+        names.forEach(name => { // si el name es 'precio_hora' le quitamos los decimales en el input
+            name == 'precio_hora' ? values.push(info_campo[name].slice(0, -3)) : values.push(info_campo[name]);             
         })
             
         const form = crearFormulario(labels, names, types, values, placeholders, '/TFG/editCampo'); 

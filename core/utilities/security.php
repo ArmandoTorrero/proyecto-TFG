@@ -10,13 +10,13 @@
                 $sessionTTl = time() - $_SESSION["timeout"]; 
                 if ($sessionTTl > $inactividad) {
                     session_destroy(); 
-                    header(''); 
+                    header('Location: /TFG/'); 
                 }
             } 
 
             $_SESSION["timeout"] = time(); 
         }
-        public static function redirigirusuario($logged) { // comprobar si el usuario ha iniciado sesion
+        public static function userLogged($logged) { // comprobar si el usuario ha iniciado sesion
             if (isset($logged) && $logged) {
                 session_regenerate_id(); 
             }else {
@@ -25,9 +25,18 @@
             }
         }
 
+        public static function redirigir($destino) {
+            header("Location: $destino"); 
+        }
+
         public static function estaLogueado() {
             return (isset($_SESSION["logueado"]) && $_SESSION["logueado"]) ? true : false; 
         }
+
+        public static function sanitizeString($input) {
+            return htmlspecialchars(strip_tags(trim($input)));
+        }
+        
         
     }
 

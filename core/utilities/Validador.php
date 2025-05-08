@@ -91,7 +91,6 @@ class Validador
         foreach ($array_usuarios as $usuario) {
             if ($usuario['email'] === $correo) {
                 return true; // Email duplicado.
-                break;
             }
         }
         return false;
@@ -110,7 +109,6 @@ class Validador
                 Sessions::crearSesionUsername($usuario['nombre']);
                 Sessions::crearSesionRol($usuario['rol_id']);
                 return true;
-                break;
             }
         }
         return false;

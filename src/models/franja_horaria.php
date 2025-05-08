@@ -13,6 +13,23 @@
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
+        public function getInfoPistaHorarioByIdHorario($id_horario) {
+            $sql = "select 
+            franja_horaria.id, 
+            franja_horaria.fecha,
+            franja_horaria.hora_inicio, 
+            franja_horaria.disponible, 
+            pista.nombre,
+            pista.precio_hora
+            from franja_horaria 
+            JOIN pista ON franja_horaria.pista_id = pista.id
+            WHERE franja_horaria.id = :id_horario"; 
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':id_horario', $id_horario);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+
          public function getHorariosActualizadosByPistaId($id_campo,$fecha) {
             $sql = "SELECT * FROM franja_horaria WHERE pista_id = :id_campo 
             AND fecha = :fecha

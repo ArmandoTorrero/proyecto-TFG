@@ -1,7 +1,14 @@
-<?php 
+<?php
+
+use Core\Utilities\Security;
+
     require_once './core/router.php';
+    require_once './vendor/autoload.php'; 
 
     session_start(); 
+
+    Security::comprobarInactividad(); 
+
     
     $router = new Router();
 
@@ -36,6 +43,7 @@
     $router->add('/buscarUsuario', 'UsuariosController@buscarUsuario');    
     $router->add('/getCampos', 'CamposController@getCampos');  
     $router->add('/getCampoById', 'CamposController@getCampoById');  
+    $router->add('/infoCampo', 'CamposController@infoCampo');  
     $router->add('/editCampo', 'CamposController@editCampo'); 
     $router->add('/eliminarCampo','CamposController@eliminarCampo'); 
     $router->add('/modalidadCampos','CamposController@getCamposByModalidad'); 
@@ -44,8 +52,9 @@
     $router->add('/modalidadId', 'CamposController@getModalidadIdByIdCampo');
     $router->add('/modalidad', 'CamposController@getModalidad');
     $router->add('/reservasUsuario', 'ReservasController@getReservasByUserId');
-    $router->add('/horariosDinamicos', 'FranjaHorariaController@mandarHorariosDinamicos'); 
     $router->add('/reservas', 'ReservasController@getAllReservas');
+    $router->add('/reservasByFecha', 'ReservasController@getReservasByFecha');
+    $router->add('/horariosDinamicos', 'FranjaHorariaController@mandarHorariosDinamicos'); 
     $router->add('/getHorarios', 'FranjaHorariaController@getHorarios'); 
     $router->add('/crearHorario', 'FranjaHorariaController@crearHorario');     
     $router->add('/fechasCampo', 'FranjaHorariaController@mandarFechasCampo'); 
@@ -53,6 +62,7 @@
     $router->add('/getHorarioById', 'FranjaHorariaController@getHorarioById');
     $router->add('/editarHorario', 'FranjaHorariaController@editHorario');
     $router->add('/eliminarHorario', 'FranjaHorariaController@eliminarHorario');
+    $router->add('/getInfoPistaHorarioByIdHorario', 'FranjaHorariaController@getInfoPistaHorarioByIdHorario');
 
     $requestUri = isset($_GET['url']) ? '/' . trim($_GET['url'], '/') : '/';
     // Simulación de petición

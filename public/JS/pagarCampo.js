@@ -1,5 +1,3 @@
-import { getHorarioInfo } from "./services/franja_horaria";
-import { getNombreCampo, getPrecioHora } from "./services/campo";
 import { info } from "./components/infoReserva";
 
 function validarInput(input,span,regex) {
@@ -17,20 +15,25 @@ function validarInput(input,span,regex) {
     }
 }
 
+async function infoPistaHorario() {
+    try {
+        const response = await fetch('/TFG/getInfoPistaHorarioByIdHorario'); 
+        return await response.json(); 
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
 
-getHorarioInfo().then(horario => {
-    let horarioInfo = horario.info
-
-    getNombreCampo().then(nombreCampo => {
-
-        getPrecioHora().then(precio => {
-            info(nombreCampo.nombre,horarioInfo.fecha,horarioInfo.hora_inicio,precio[0])
-
-        })
-
-    })
+infoPistaHorario().then(response => {
+    let informacion = response.info
+    console.log(response.info);
+    info(informacion.nombre, informacion.fecha, informacion.hora_inicio.slice(0, 5), informacion.precio_hora)
     
 })
+
+
+
 
 const buttonConfirmar = document.querySelector(".form-container .confirmar")
 

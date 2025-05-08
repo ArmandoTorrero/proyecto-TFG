@@ -1,3 +1,5 @@
+import { logueado } from "./../services/usuario";
+
 
 /**
  * En la seccion de pistas destacadas usar los 3 primeros campos e ir cambiando su contenido
@@ -14,7 +16,17 @@
 export function cartaCampoDestacado(id,nombreCampo,precio,categoria_id,h2,imgContainer,spanPrecio,enlace,categoriaParrafo) {
     h2.textContent = nombreCampo; 
     spanPrecio.textContent = `${precio}€`; 
-    enlace.href = `/TFG/reservarCampo?id_campo=${id}&nombre_campo=${nombreCampo}`; 
+
+    logueado().then(rol => {
+        if (rol.rol == 1) {
+            enlace.textContent = 'Ver detalles'; 
+            enlace.href = `/TFG/reservarCampo?id_campo=${id}`; 
+        }else{
+            enlace.textContent = 'Editar'; 
+            enlace.href = `/TFG/perfil`;
+        }
+        
+    })
 
     switch (categoria_id) {
         case 1:

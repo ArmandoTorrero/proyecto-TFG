@@ -1,6 +1,6 @@
 import { crearBtnHora } from "./components/crearBotonHora";
 import { crearOption } from "./components/crearOption";
-import { getNombreCampo, getModalidadId } from "./services/campo";
+import { getNombreCampo, getModalidadId, getCampoById } from "./services/campo";
 import { getFechasActualizadas, horariosDinamicos } from "./services/franja_horaria";
 
 
@@ -11,7 +11,6 @@ function cambiarSelect() {
     let select = document.getElementById("fecha")
     
     getFechasActualizadas().then(fechas => {
-        console.log(fechas);
         
         let array_fechas = fechas.fechas;
         let array_fechas_formateado = [];   
@@ -45,22 +44,30 @@ function cambiarSelect() {
         
         // le añadimos un evento al select 
         select.addEventListener("change", (ev) => {       
-            console.log(ev.target.value);
-                 
-
+                
             // cuando se seleccione una fecha en el option se mostraran los horarios de la fecha seleccionada 
             horariosDinamicos(ev.target.value).then(info => {
-                console.log(info);
-                
+
                 let horarios = info.horarios; // recogemos toda la informacion de esa fecha
                 
                 horariosSection.innerHTML = ''; // borramos los botones que haya anteriormente
 
-                // por cada hora creamos un boton
-                horarios.forEach(horario_info => {
-                    horariosSection.appendChild(crearBtnHora(horario_info.id, horario_info.hora_inicio, horario_info.disponible))
+                if (info.horarios.length != 0) {
+                    // por cada hora creamos un boton
+                    horarios.forEach(horario_info => {
+                        horariosSection.appendChild(crearBtnHora(horario_info.id, horario_info.hora_inicio, horario_info.disponible))
+                        
+                    });
+                }else{
+
+                    // Si no hay horarios se lo indicamos al usuario mediante un texto 
+                    let titulo = document.createElement("h2"); 
+                    titulo.textContent = "No hay horarios para esta fecha";
+                    titulo.style.color = "#fff";  
+                    horariosSection.appendChild(titulo)
                     
-                });
+                }
+                
                 
             })
         })
@@ -68,40 +75,49 @@ function cambiarSelect() {
 }
 
 /**
- * Funcion para cambiar la imagen del campo dependiendo de la modalidad
- * @param {*} element 
+ * Función para conseguir la informacion del campo
+ * @returns 
  */
-function changeImgByModalidadId(element) {
-    getModalidadId().then(info => {
-        let id_modalidad = info.id_modalidad;
-
-        // Cambiar la imagen según el id de modalidad
+async function infoCampo() {
+    try {
+        const response = await fetch('/TFG/infoCampo'); 
+        return await response.json(); 
+    } catch (error) {
+        console.log(error);
         
-        switch (id_modalidad) {
-            case 1:
-                element.style.backgroundImage = "url('./PUBLIC/ASSETS/balon-futbol.jpeg')";
-                break;
-        
-            default:
-                break;
-        }
-        
-    })
+    }
 }
 
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // Introducir el titulo del campo en el h1
-    getNombreCampo().then(nombreCampo => {
-        let titulo = document.querySelector(".content > h1")
-        titulo.textContent = nombreCampo.nombre
+
+    infoCampo().then(info => {
+        let titulo = document.querySelector(".content > h1"); 
+        titulo.textContent = info.info.nombre
+
+        let modalidad = info.info.modalidad_id; 
+        let img = document.querySelector(".reservar > .img");
+        
+        switch (modalidad) {
+            case 1:
+                img.style.backgroundImage = "url('./PUBLIC/ASSETS/balon-futbol.jpeg')";
+                break;
+            
+            case 2: 
+            img.style.backgroundImage = "url('./PUBLIC/ASSETS/tenis.jpeg')";
+                break;
+                
+            case 3: 
+            img.style.backgroundImage = "url('./PUBLIC/ASSETS/padel.jpeg')";
+                break; 
+            default:
+                break;
+        }
+        
+        
     })
-    
+        
     cambiarSelect()
 
-    let img = document.querySelector(".reservar > .img");
-    
-    changeImgByModalidadId(img)
 })

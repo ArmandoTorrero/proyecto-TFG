@@ -181,6 +181,7 @@ footer{
     hr{
         width: 90%;
         height: 4px;
+        border-radius: 5px;
         background-color: #fff;
         
     }
@@ -203,6 +204,7 @@ footer{
     }
 
     .derechos{
+        margin: 10px 0px;
         color: var(--colortexto2);
     }
 }
@@ -305,7 +307,10 @@ footer{
     }
 
     footer .links-1,.links-2, .RRSS{
-        height: 10vw;
+
+        a{
+            margin: 10px 0;
+        }
     }
 
     

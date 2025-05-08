@@ -13,8 +13,8 @@ export function buscadorUsuario() {
 
     
     input.addEventListener("input", (ev) => {
-        buscarUsuario(ev.target.value).then(user => {
-
+        buscarUsuario(ev.target.value.toLowerCase()).then(user => {            
+        
             // Capturar el contenedor .user-info-container
             const userInfoContainer = document.querySelector(".user-info-container");
 
@@ -29,9 +29,9 @@ export function buscadorUsuario() {
                 existingTable.remove();
             }
 
+            let headers = ['ID', 'Nombre', 'Email', 'Telefono', 'Acciones'];
             // Crear una nueva tabla si hay usuarios
             if (user.usuario && user.usuario.length > 0) {
-                let headers = ['ID', 'Nombre', 'Email', 'Telefono', 'Acciones'];
                 let data = user.usuario.map(usuario => [
                     usuario.id,
                     usuario.nombre,
@@ -46,6 +46,10 @@ export function buscadorUsuario() {
                 // Llamar a las funciones editUser y deleteUser después de añadir la tabla
                 editUser();
                 deleteUser();
+            }else{
+                console.log("no existe");
+                userInfoContainer.appendChild(crearTabla(headers, []));
+                userInfoContainer.querySelector("table").textContent = "No existe";                      
             }
         });
     });

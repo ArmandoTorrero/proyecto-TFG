@@ -68,7 +68,7 @@
                     <article class="precio-button">
                         <span class="precio"></span>
                         <button class="ver-detalles" >
-                            <a href="#" target="_self">Ver detalles</a>
+                            <a href="#" target="_self"></a>
                         </button>
                     </article>
                 </section>
@@ -86,7 +86,7 @@
                     <article class="precio-button">
                         <span class="precio"></span>
                         <button class="ver-detalles" >
-                            <a href="#" target="_self">Ver detalles</a>
+                            <a href="#" target="_self"></a>
                         </button>
                     </article>
                 </section>
@@ -104,7 +104,7 @@
                     <article class="precio-button">
                         <span class="precio"></span>
                         <button class="ver-detalles" >
-                            <a href="#" target="_self">Ver detalles</a>
+                            <a href="#" target="_self"></a>
                         </button>
                     </article>
                 </section>

@@ -180,26 +180,33 @@ class UsuariosController
         $datos = json_decode(file_get_contents("php://input"), true);
 
         if ($datos) {
-            $camposValidados = Validador::validarCamposLoginUsuario($datos["correo"], password: $datos["passwd"]);
+            $camposValidados = Validador::validarCamposLoginUsuario(
+                Security::sanitizeString($datos["correo"]), password: 
+                Security::sanitizeString($datos["passwd"])
+            );
 
             if ($camposValidados) {
                 $encontrado = Validador::existeUsuarioLogin(
                     $this->usuariosModel->getAll(),
-                    $datos["correo"],
-                    $datos["passwd"]
+                    Security::sanitizeString($datos["correo"]),
+                    security::sanitizeString($datos["passwd"])
                 );
             }
 
             if ($encontrado) {
-                echo json_encode(['existe' => true]);
+                echo json_encode(['existe' => true, 'mensaje' => 'Inicio de sesión correcto']);
             } else {
-                echo json_encode(['existe' => false]);
+                echo json_encode(['existe' => false, 'mensaje' => 'Las credenciales no son validas']);
             }
         } else {
             echo json_encode(['error' => 'No se han recibido datos']);
         }
     }
 
+    /**
+     * Funcion para que el usuario pueda editarse a si mismo
+     * @return void
+     */
     public function editarUsuario()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -235,6 +242,11 @@ class UsuariosController
         }
     }
 
+    /**
+     * 
+     * Funcion para que un admin pueda editar un usuario
+     * @return void
+     */
     public function editarUsuarioVersionAdmin()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -279,6 +291,7 @@ class UsuariosController
     public function eliminarUsuario() {
         
         $datos = json_decode(file_get_contents("php://input"), true);
+        
         if ($datos) {
             echo json_encode(['exito'=> true,'info' => $this->usuariosModel->delete($datos['id_usuario'])]); 
         }else{
@@ -287,6 +300,10 @@ class UsuariosController
 
     }
 
+    /**
+     * Función para buscar un usuario por su nombre
+     * @return void
+     */
     public function buscarUsuario() {
         $datos = json_decode(file_get_contents("php://input"), true);
 
@@ -314,6 +331,10 @@ class UsuariosController
         }
     }
 
+    /**
+     * Enviar la información de un usuario al JS
+     * @return void
+     */
     public function getUserInfo()
     {
 
@@ -322,6 +343,10 @@ class UsuariosController
         echo (!$datos) ? json_encode(['info' => $this->usuariosModel->getById($_SESSION["id_usuario"])]) : json_encode(['info' => $this->usuariosModel->getById($datos['id_usuario'])]);
     }
 
+    /**
+     * Enviar la información de todos los usuarios al JS
+     * @return void
+     */
     public function getAllUsers()
     {
         echo json_encode(['usuarios' => $this->usuariosModel->getAll()]);

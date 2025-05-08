@@ -12,7 +12,7 @@
         <h1>Todas tus dudas aclaradas</h1>
         <p>En este apartado resolvemos las dudas acerca de temas de reenbolso, pagos y reserva de pistas deportivas</p>
         <button>
-            <a href="#" target="_self">Saber mas</a>
+            <a href="/TFG/PyR" target="_self">Saber mas</a>
         </button>
     </section>
 

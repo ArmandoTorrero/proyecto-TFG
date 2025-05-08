@@ -259,7 +259,11 @@ table {
     }
 }
 
-
+/*
+----------------------------------------------------------------
+----------CLASE PARA MOSTRAR LOS FORMULARIOS DE EDICÓN----------
+---------------------------------------------------------------
+*/
 .visible{
     transform: scale(1);
     display: flex;
@@ -267,7 +271,13 @@ table {
     align-items: center;
 }
 
-.crear-horario{
+
+/*
+--------------------------------------------------------------------------------------------------------
+----------BOTON DE CREAR HORARIO, INPUT PARA FILTRAR RESERVAS POR FECHA Y BUSCADOR DE USUARIOS----------
+--------------------------------------------------------------------------------------------------------
+*/
+.crear-horario, #input_fecha, .buscador{
     border: none;
     background-color: var(--fondoBotones);
     font-weight: 500;
@@ -279,9 +289,27 @@ table {
     }
 }
 
+#input_fecha, .buscador{
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+
+/*
+--------------------------------------------
+----------ESTILOS PARA EL BUSCADOR----------
+--------------------------------------------
+*/
+
 .buscador{
-    padding: 5px 15px;
-    border-radius: 5px;    
+    font-weight: 500;
+    color: var(--colortexto2);
+
+    &::placeholder{
+        color: rgba(255, 255, 255, .5);
+    }
+
+    
 }
 
 

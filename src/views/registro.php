@@ -36,6 +36,8 @@
                     <input type="password" name="passwd" id="passwd">
                     <span class="passwdSpan">La contraseña debe de tener mínimo 5 caracteres</span>
                 </article>
+                <input type="checkbox" name="mostrar_passwd" id="mostrar_passwd">
+                <label for="">Mostrar contraseña</label>
 
 
                 <article class="label-input">

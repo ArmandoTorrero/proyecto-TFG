@@ -1,8 +1,10 @@
 <?php
 
-use Core\utilities\Sessions;
-use Core\utilities\Validador;
+    use Core\Utilities\Security;
+    use Core\utilities\Sessions;
+    use Core\utilities\Validador;
 
+    require_once __DIR__ . '/../../vendor/autoload.php';
     require_once __DIR__ . '/../models/reserva.php';
     require_once __DIR__ . '/../models/franja_horaria.php';
     require_once __DIR__ . '/../../core/utilities/sessions.php';
@@ -24,6 +26,11 @@ use Core\utilities\Validador;
          * @return void
          */
         public function pagarCampo() {
+
+            if (!$this->franjaHorariaModel->getById($_GET["id_horario"])) {
+                 Security::redirigir('/TFG/camposDeportivos'); 
+            }
+
             // creamos la sesion de la franja horaria que ha seleccionado el usuario
             Sessions::crearSesionFranjaHorariaId($_GET["id_horario"]); 
 
@@ -54,13 +61,29 @@ use Core\utilities\Validador;
                 require __DIR__ . '/../views/pagarCampo.php';
             }
         }
-    
+        
+        /**
+         * Obtener las reservas del usuario
+         * @return void
+         */
         public function getReservasByUserId() {
             echo json_encode(['reservas' => $this->reservasModel->getReservasByUserId($_SESSION["id_usuario"])]); 
         }
 
+        /**
+         * Obtener todas las reservas
+         * @return void
+         */
         public function getAllReservas() {
-            echo json_encode(['reservas' => $this->reservasModel->getInfoRservas()]); 
+            echo json_encode(['reservas' => $this->reservasModel->getInfoReservas()]); 
+        }
+
+        public function getReservasByFecha() {
+            $datos = json_decode(file_get_contents("php://input"), true);
+            
+            if ($datos) {
+                echo json_encode(['reservas' => $this->reservasModel->getReservasByFecha($datos['fecha'])]); 
+            }
         }
     }
 ?>

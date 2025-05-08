@@ -1,3 +1,8 @@
+import { alerta } from "./components/alerta";
+import { mostrarPasswd } from "./components/mostrar_passwd";
+
+mostrarPasswd(); 
+
 function validarInput(input,span,regex) { // funcion para validar el input
     
         if (regex.test(input.value)) {
@@ -63,46 +68,45 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     // evento para el submit del formulario
     const form = document.getElementById("miForm"); 
-    form.addEventListener("submit", (ev) => {
+    form.addEventListener("submit", async (ev) => {
         ev.preventDefault(); 
 
         const email = document.getElementById("correo").value;
         const passwd = document.getElementById("passwd").value;
-        fetch("/TFG/validarLogin", {
-            method: "POST", 
-            body: JSON.stringify({
-                correo: email,
-                passwd: passwd
-            })
-        })
-        .then(respuesta => respuesta.json())
-        .then(result => {
-            console.log(result);
+
+        try {
+            const respuesta = await fetch("/TFG/validarLogin", {
+                method: "POST", 
+                body: JSON.stringify({
+                    correo: email,
+                    passwd: passwd
+                })
+            });
+
+            const result = await respuesta.json();
+
             if (result.existe) {
                 let alerta_verde = document.getElementById("alerta-verde"); 
-                alerta_verde.style.top = "5%"; 
-                
+                alerta(result.mensaje, alerta_verde); 
+
                 setTimeout(() => {
-                     window.location.href = "/TFG/perfil"; 
+                    window.location.href = "/TFG/perfil"; 
                 }, 1000);
-                
-            }else{
-                let alerta_roja = document.getElementById("alerta-roja")
-                alerta_roja.style.top = "5%"; 
-                setTimeout(() => {
-                    alerta_roja.style.top = "-10%"; 
-                }, 1000);
+
+            } else {
+                let alerta_roja = document.getElementById("alerta-roja");
+                alerta(result.mensaje, alerta_roja); 
             }
-            
-        })
-        .catch(error => {
+        } catch (error) {
             console.error("Error:", error);
-        })
-    })    
+        }
+    });    
 
 })
 
+document.addEventListener("click", () => {
 
+})
 
 
 

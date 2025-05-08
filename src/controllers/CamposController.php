@@ -1,8 +1,10 @@
 <?php
 
+use Core\Utilities\Security;
 use Core\utilities\Validador;
 
     require_once __DIR__ . '/../../core/utilities/Validador.php'; 
+    require_once __DIR__ . '/../../vendor/autoload.php';
     require_once __DIR__ . '/../models/campo.php';
     class CamposController{
         private $campoModel; 
@@ -32,6 +34,11 @@ use Core\utilities\Validador;
          * @return void
          */
         public function camposModalidad() {
+
+            if ($_GET["modalidad"] != 1) {
+                Security::redirigir('/TFG/modalidades'); 
+            }
+
             $_SESSION["modalidad"] = $_GET["modalidad"]; // guardamos la modalidad en la sesion para poder usarla en la extraccion de los campos segun su modalidad, con JS
             require __DIR__ . '/../views/camposModalidad.php'; 
         }
@@ -49,9 +56,13 @@ use Core\utilities\Validador;
          * @return void
          */
         public function reservarCampo() {
-            // Sessions::crearSesionIdCampo($_GET["id_campo"] ?? ''); 
-            $_SESSION["id_campo"] = $_GET["id_campo"]; 
-            $_SESSION["nombre_campo"] = $_GET["nombre_campo"]; ; 
+            // Sessions::crearSesionIdCampo($_GET["id_campo"] ?? '');               
+            if ($this->campoModel->getById($_GET["id_campo"])) {
+                $_SESSION["id_campo"] = $_GET["id_campo"]; 
+            }else {
+                Security::redirigir('/TFG/camposDeportivos'); 
+            }
+
 
             require __DIR__ . '/../views/reservarCampo.php';
         }
@@ -72,6 +83,7 @@ use Core\utilities\Validador;
          */
         public function getCampoById() {
             $datos = json_decode(file_get_contents("php://input"), true);
+            
             echo json_encode(['campo' => $this->campoModel->getById($datos['id_campo'])]); 
         }
 
@@ -142,6 +154,11 @@ use Core\utilities\Validador;
         public function mandarPrecioCampo() {
             $precio = [$this->campoModel->getById($_SESSION["id_campo"])['precio_hora']];
             echo json_encode($precio);  
+        }
+
+        
+        public function infoCampo() {
+            echo json_encode(['info' => $this->campoModel->getById($_SESSION["id_campo"])]); 
         }
 
         /**

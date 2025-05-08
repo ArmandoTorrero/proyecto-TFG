@@ -9,12 +9,12 @@
     <main>
 
         <section class="form-container">
-            <h1>introduce los datos de tu tarjeta</h1>
+            <h1>Introduce los datos de tu tarjeta</h1>
 
             <form action="" method="post">
 
                 <article class="label-input">
-                    <label for="">Numero de la tarjeta</label>
+                    <label for="">Número de la tarjeta</label>
                     <input type="text" name="numTarjeta" id="numTarjeta" placeholder="0000-0000-0000-0000">
                     <span class="tarjetaSpan">El formato de la tarjeta no es correcto</span>
                 </article>

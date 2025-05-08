@@ -1,4 +1,5 @@
 import Validador from "./components/validador";
+import { mostrarPasswd } from "./components/mostrar_passwd";
 
 const buttonSubmit = document.querySelector(".enviar");
 
@@ -113,7 +114,12 @@ form.addEventListener("submit", async (ev) => {
         console.error("Error al enviar el formulario:", error);
     }
 
-    
+})
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    mostrarPasswd(); 
 })
 
 

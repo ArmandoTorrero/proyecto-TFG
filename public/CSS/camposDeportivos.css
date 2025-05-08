@@ -16,7 +16,6 @@
     width: 100%; 
     height: 300px;
     border-radius: 5px;
-    background-image: url('../ASSETS/balon-futbol.jpeg');
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center;
@@ -117,6 +116,10 @@
     .campo{
         width: 25%;
         margin: 1%;
+
+        h2{
+            font-size: 1.3rem;
+        }
     }
 
     .campo button{

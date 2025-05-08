@@ -76,14 +76,14 @@ main{
 }
 
 .campo:first-of-type > .img{
-    background-image: url('../ASSETS/campo-futbol4.jpeg');
+    background-image: url('./../ASSETS/campo-futbol4.jpeg');
 }
 
 .campo:nth-of-type(2){
     opacity: 0.5;
 
     .img{
-        background-image: url('../ASSETS/tenis.jpeg')
+        background-image: url('./../ASSETS/tenis.jpeg')
     }
     
 }
@@ -92,7 +92,7 @@ main{
     opacity: 0.5;
 
     .img{
-        background-image: url('../ASSETS/padel.jpeg')
+        background-image: url('./../ASSETS/padel.jpeg')
 
     }
 }

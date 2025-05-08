@@ -6,6 +6,7 @@ import { crearTituloSeccion } from "./acciones_perfil";
 import { buscadorUsuario } from "./buscador";
 import { accionesContainer, crearBoton, crearHorario} from "./boton";
 import { crearTabla } from "./tabla";
+import { crearInput } from "./form_elements";
 import { editUser, editarCampo, editarHorario } from "./admin/editar";
 import { deleteUser, deleteCampo, deleteHorario } from "./admin/eliminar";
 
@@ -58,29 +59,65 @@ export function mostrarTablaReservas() {
     tabla_reservas_container.classList.add("reservas-container");
 
     let titulo = crearTituloSeccion("Lista de reservas"); 
-    let select = document.createElement("select"); 
+    let input_fecha = crearInput('fecha', 'date', ''); 
+    input_fecha.id = "input_fecha"; 
     tabla_reservas_container.appendChild(titulo); // añadimos el titulo al contenedor
-    tabla_reservas_container.appendChild(select); 
+    tabla_reservas_container.appendChild(input_fecha); 
 
     getReservas().then(reservas => {     
         
         let listas_reservas = reservas.reservas; // recogemos las reservas de la BBDD
 
-        let headers = ['ID usuario','ID Pista', 'Campo', 'Fecha', 'Hora Inicio'];
-        let data = listas_reservas.map(reserva => [reserva.usuario_id,reserva.pista_id, reserva.nombre_pista, reserva.fecha, reserva.hora_inicio.slice(0, -3)]); 
+        let headers = ['ID usuario','Campo', 'Fecha', 'Hora inicio'];
+        let data = listas_reservas.map(reserva => [
+            reserva.usuario_id,
+            reserva.nombre_pista, 
+            reserva.fechaHora.slice(0, -8),
+            reserva.hora_inicio.slice(0, -3)
+        ]); 
 
         let tabla_reservas = crearTabla(headers, data); // creamos la tabla con los datos
 
-        // creamos los options para el select 
-        listas_reservas.forEach(reserva => {
-            let option = document.createElement("option"); 
-            option.textContent = reserva.fecha; 
-            option.value = reserva.fecha
-            select.appendChild(option); 
-        });
-
-        select.addEventListener("change", (ev) => {
+        input_fecha.addEventListener("input", async (ev) => {
             console.log(ev.target.value);
+            try {
+                const response = await fetch('/TFG/reservasByFecha', {
+                    method: 'POST', 
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }, 
+                    body:JSON.stringify({
+                        fecha: ev.target.value 
+                    }) 
+                }); 
+
+                const data = await response.json(); 
+                console.log(data.reservas.length);
+
+                if (data.reservas.length != 0) {
+                    let tabla = tabla_reservas_container.querySelector("table"); 
+                    
+                    if (tabla) {
+                        tabla_reservas_container.querySelector("table").remove(); 
+                    }
+                      
+                    let datos_tabla = data.reservas.map(reserva => [
+                        reserva.usuario_id,
+                        reserva.nombre_pista, 
+                        reserva.fechaHora.slice(0, -8),
+                        reserva.hora_inicio.slice(0, -3)
+                    ])
+                    
+                    tabla_reservas_container.appendChild(crearTabla(headers,datos_tabla))
+                }else{
+                    tabla_reservas_container.querySelector("table").textContent = "No hay reservas para esta fecha"
+                }
+                
+
+            } catch (error) {
+                console.log(error);
+                
+            }
             
         })
 
@@ -104,7 +141,7 @@ export function mostrarTablaCampos() {
 
     getCampos().then(campos => {
         
-        let headers = ['ID', 'Pista', 'Precio/Hora', 'Modalidad','Disponibilidad','Acciones'];
+        let headers = ['ID', 'Pista', 'Precio/Hora', 'Modalidad','Disponible','Acciones'];
         let data = campos.map(campo => [
             campo.id, 
             campo.nombre, 
