@@ -14,7 +14,7 @@ export function cardUserInfo(rol) {
 
     // Comprobar si el rol es falso, si es así, no se mostrará la información del usuario
     if (!rol) {
-        window.location.href = '/TFG/';
+        window.location.href = '/TFG/login';
         let titulo = document.createElement("h2");
         titulo.textContent = "Inicia sesión para ver tu información";
 
@@ -23,9 +23,7 @@ export function cardUserInfo(rol) {
         userInfo().then(info => {
             
             // recogemos la información del usuario que devuelve la promesa
-            let user_info = info.info
-            console.log(user_info);
-            
+            let user_info = info.info            
     
             // creamos el titulo de la sección
             let titulo = crearTituloSeccion("Información de usuario"); 
@@ -100,15 +98,19 @@ export function reservasUsuario(rol) {
         let titulo = crearTituloSeccion("Tus reservas"); 
 
         getReservasByUserId().then(reservas => {
-            
+
             let reservas_usuario = reservas.reservas; // recogemos las reservas del usuario
             
             let headers = ['Pista', 'Fecha', 'Hora', 'Precio'];
-            let data = reservas_usuario.map(reserva => [reserva.nombre_pista, reserva.fecha, reserva.hora_inicio, reserva.precio_hora]); 
-            
-            
+            let data = reservas_usuario.map(reserva => [reserva.nombre_pista, reserva.fecha, reserva.hora_inicio.slice(0, -3), `${reserva.precio_hora}€`]); 
+                        
             let tabla_reservas = crearTabla(headers, data); // creamos la tabla con los datos
             tabla_reservas_container.append(titulo,tabla_reservas); // añadimos la tabla al contenedor            
+
+            if (reservas.reservas.length == 0) {
+                let noRservas = crearTituloSeccion("No tienes reservas")
+                tabla_reservas_container.appendChild(noRservas);     
+            }
 
         })
     }

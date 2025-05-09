@@ -2,6 +2,7 @@
 main{
     display: flex;
     flex-direction: column;
+    padding: 10px;
 }
 
 #alerta-verde, #alerta-roja{

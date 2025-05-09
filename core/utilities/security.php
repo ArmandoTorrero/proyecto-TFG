@@ -3,6 +3,10 @@
     namespace Core\Utilities;
     class Security{
         
+        /**
+         * Comprobar la incatividad del usuario
+         * @return void
+         */
         public static function comprobarInactividad() { // funcion para comprobar la inactividad de un usuario
             $inactividad = 600; 
 
@@ -25,14 +29,28 @@
             }
         }
 
+        /**
+         * Redirigir al usuario a un destino
+         * @param mixed $destino
+         * @return void
+         */
         public static function redirigir($destino) {
             header("Location: $destino"); 
         }
 
+        /**
+         * Comprobar que el usuario este logueado
+         * @return bool
+         */
         public static function estaLogueado() {
             return (isset($_SESSION["logueado"]) && $_SESSION["logueado"]) ? true : false; 
         }
 
+        /**
+         * Limpiar los input de posibles codigo malicioso
+         * @param mixed $input
+         * @return string
+         */
         public static function sanitizeString($input) {
             return htmlspecialchars(strip_tags(trim($input)));
         }

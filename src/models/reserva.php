@@ -103,6 +103,17 @@ class Reservas extends EmptyModel
         return $result;
     
     }
+
+    public function getReservaByHorarioId($horario_id) {
+        $sql = "SELECT * FROM reserva WHERE franja_horaria_id = :horario_id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':horario_id', $horario_id);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+        return $result;   
+    }
+
+    
     
 }
 

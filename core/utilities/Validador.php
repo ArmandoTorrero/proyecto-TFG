@@ -7,6 +7,11 @@ use Core\utilities\Sessions;
 class Validador
 {
 
+    /**
+     * Validar nombre
+     * @param mixed $nombre
+     * @return bool
+     */
     public static function validarNombre($nombre)
     {
         $patter_nombre = '/^[a-zA-Z0-9]{3,15}$/';
@@ -22,7 +27,11 @@ class Validador
         }
     }
 
-
+    /**
+     * Validar email
+     * @param mixed $correo
+     * @return bool
+     */
     public static function validarEmail($correo)
     { // funcion para validar email
         if (empty($correo)) {
@@ -36,6 +45,11 @@ class Validador
         }
     }
 
+    /**
+     * Validar dirección
+     * @param mixed $direccion
+     * @return bool
+     */
     public static function validarDireccion($direccion)
     {
         $pattern_direccion = '/^[a-zA-Z0-9]{5,}$/';
@@ -50,6 +64,11 @@ class Validador
         }
     }
 
+    /**
+     * Validar numero de télefono
+     * @param mixed $n_telefono
+     * @return bool
+     */
     public static function validarTelefono($n_telefono)
     {
         $pattern_telefono = '/^[0-9]{9}$/';
@@ -64,7 +83,11 @@ class Validador
         }
     }
 
-
+    /**
+     * Validar contraseña
+     * @param mixed $password
+     * @return bool
+     */
     public static function validarPassword($password)
     {
         $pattern_passwd = '/^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};\':"\\|,.<>\/?]{5,}$/'; // Permitir caracteres especiales
@@ -75,17 +98,37 @@ class Validador
         }
     }
 
+    /**
+     * Validar el hash de la contraseña
+     * @param mixed $password
+     * @param mixed $password_hash
+     * @return bool
+     */
     public static function validarHash($password, $password_hash)
     {
         return password_verify($password, $password_hash);
     }
 
 
+    /**
+     * Validar los inputs de la pagina de registro
+     * @param mixed $userName
+     * @param mixed $correo
+     * @param mixed $password
+     * @param mixed $telefono
+     * @return bool
+     */
     public static function validarCamposRegistroUsuario($userName, $correo, $password, $telefono)
     {
         return (self::validarNombre($userName) && self::validarEmail($correo) && self::validarPassword($password) && self::validarTelefono($telefono));
     }
 
+    /**
+     * Comprobar si el email introducido en el registro ya existe
+     * @param array $array_usuarios
+     * @param string $correo
+     * @return bool
+     */
     public static function existelUsuarioRegistro(array $array_usuarios, string $correo): bool
     {
         foreach ($array_usuarios as $usuario) {
@@ -96,10 +139,24 @@ class Validador
         return false;
     }
 
+    /**
+     * Validar los inputs de la pagina de login
+     * @param mixed $correo
+     * @param mixed $password
+     * @return bool
+     */
     public static function validarCamposLoginUsuario($correo, $password)
     {
         return (self::validarEmail($correo) && self::validarPassword($password));
     }
+
+    /**
+     * Comprobar que el usuario existe al insertar los campos en el login 
+     * @param mixed $array_usuarios
+     * @param mixed $correo
+     * @param mixed $password
+     * @return bool
+     */
     public static function existeUsuarioLogin($array_usuarios, $correo, $password)
     {
         foreach ($array_usuarios as $usuario) {
@@ -114,41 +171,80 @@ class Validador
         return false;
     }
 
+    /**
+     * Validar los inputs al editar un ususario
+     * @param mixed $userName
+     * @param mixed $correo
+     * @param mixed $telefono
+     * @return bool
+     */
     public static function validarCamposEditarUsuario($userName, $correo, $telefono)
     {
         return (self::validarNombre($userName) && self::validarEmail($correo) && self::validarTelefono($telefono));
     }
 
-
+    /**
+     * Validar numero de tarjeta
+     * @param mixed $numTarjeta
+     * @return bool|int
+     */
     public static function validarNumTarjeta($numTarjeta)
     {
         $patterTarjeta = '/^\d{4} ?\d{4} ?\d{4} ?\d{1,7}$/';
         return preg_match($patterTarjeta, $numTarjeta);
     }
 
+    /**
+     * Validar fecha de expiración de la tarjeta 
+     * @param mixed $fecha
+     * @return bool|int
+     */
     public static function validarFechaTarjeta($fecha)
     {
         $patterFecha = '/^(0[1-9]|1[0-2])\/\d{2}$/';
         return preg_match($patterFecha, $fecha);
     }
 
+    /**
+     * Validar CVC
+     * @param mixed $cvc
+     * @return bool|int
+     */
     public static function validarCVC($cvc)
     {
         $patterCVC = '/^\d{3}$/';
         return preg_match($patterCVC, $cvc);
     }
 
+    /**
+     * validar titular de la tarjeta
+     * @param mixed $titular
+     * @return bool|int
+     */
     public static function validarTitular($titular)
     {
         $patterTitular = '/^[A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ\s]{2,50}$/i';
         return preg_match($patterTitular, $titular);
     }
 
+    /**
+     * Validar los inputs de la tarjeta de credito
+     * @param mixed $numTarjeta
+     * @param mixed $fecha
+     * @param mixed $cvc
+     * @param mixed $titular
+     * @return bool
+     */
     public static function validarCamposTarjetaCredito($numTarjeta, $fecha, $cvc, $titular)
     {
         return self::validarNumTarjeta($numTarjeta) && self::validarFechaTarjeta($fecha) && self::validarCVC($cvc) && self::validarTitular($titular);
     }
 
+    /**
+     * Validar que la fecha sea actual
+     * @param mixed $fecha
+     * @return bool
+     */
     public static function validarFechaHorario($fecha)
     {
         $fechaActual = date('Y-m-d'); // Obtener la fecha actual en formato YYYY-MM-DD
@@ -171,6 +267,11 @@ class Validador
         return preg_match($patter_nombre, $nombrePista);
     }
 
+    /**
+     * Validar el precio de un campo
+     * @param mixed $precio
+     * @return bool
+     */
     public static function validarPrecioCampo($precio)
     {
         $pattern_precio = '/^([0-9]{2})$/'; // Formato NN, número exacto entre 01 y 99

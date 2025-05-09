@@ -1,27 +1,27 @@
 import { alerta } from "./components/alerta";
 import { mostrarPasswd } from "./components/mostrar_passwd";
 
-mostrarPasswd(); 
 
-function validarInput(input,span,regex) { // funcion para validar el input
-    
-        if (regex.test(input.value)) {
-            input.style.borderColor = "green"; 
-            span.style.opacity = 0; 
-            return true; 
-            
-        }else{
-            input.style.borderColor = "red"; 
-            span.style.opacity = 1; 
-            return false; 
-            
-        }
-    
+export function validarInput(input,span,regex) { // funcion para validar el input
+    if (regex.test(input.value)) {
+        input.style.borderColor = "green"; 
+        input.style.boxShadow = "0 0 5px green"; // Agregar box-shadow si coincide el regex
+        span.style.opacity = 0; 
+        return true; 
+    } else {
+        input.style.borderColor = "red"; 
+        input.style.boxShadow = "0 0 5px red"; // Agregar box-shadow si no coincide el regex
+        span.style.opacity = 1; 
+        return false; 
+    }
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
-    const buttonSubmit = document.querySelector(".enviar");    
 
+    // al pulsar en el checkbox se muestra/oculta la contraseña
+    mostrarPasswd();
+
+    const buttonSubmit = document.querySelector(".enviar");    
     // recogemos el input y el span del email
     const inputEmail = document.getElementById("correo")
     const spanEmail = document.querySelector(".emailSpan")
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     })
 
 
-    // evento para el submit del formulario
+    // evento para el submit del formulario y realizar el login
     const form = document.getElementById("miForm"); 
     form.addEventListener("submit", async (ev) => {
         ev.preventDefault(); 
@@ -104,9 +104,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 })
 
-document.addEventListener("click", () => {
 
-})
 
 
 

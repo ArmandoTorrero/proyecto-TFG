@@ -27,7 +27,8 @@
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':id_horario', $id_horario);
             $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_ASSOC);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result; 
         }
 
          public function getHorariosActualizadosByPistaId($id_campo,$fecha) {

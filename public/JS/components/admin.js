@@ -79,7 +79,6 @@ export function mostrarTablaReservas() {
         let tabla_reservas = crearTabla(headers, data); // creamos la tabla con los datos
 
         input_fecha.addEventListener("input", async (ev) => {
-            console.log(ev.target.value);
             try {
                 const response = await fetch('/TFG/reservasByFecha', {
                     method: 'POST', 
@@ -92,7 +91,6 @@ export function mostrarTablaReservas() {
                 }); 
 
                 const data = await response.json(); 
-                console.log(data.reservas.length);
 
                 if (data.reservas.length != 0) {
                     let tabla = tabla_reservas_container.querySelector("table"); 

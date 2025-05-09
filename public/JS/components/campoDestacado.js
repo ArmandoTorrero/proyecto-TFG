@@ -18,7 +18,8 @@ export function cartaCampoDestacado(id,nombreCampo,precio,categoria_id,h2,imgCon
     spanPrecio.textContent = `${precio}€`; 
 
     logueado().then(rol => {
-        if (rol.rol == 1) {
+        if (rol.rol != 2) {
+            
             enlace.textContent = 'Ver detalles'; 
             enlace.href = `/TFG/reservarCampo?id_campo=${id}`; 
         }else{

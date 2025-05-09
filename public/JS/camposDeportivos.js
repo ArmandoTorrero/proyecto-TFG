@@ -4,7 +4,7 @@ import { cartaCampo } from "./components/cardCampo";
 document.addEventListener("DOMContentLoaded", () => {
     
     getCampos().then(array_campos => {
-        array_campos.forEach(campo => {
+        array_campos.forEach(campo => { // por cada campo cramos una carta para el. 
                         
             const camposContainer = document.querySelector(".campos-container"); 
             camposContainer.appendChild(cartaCampo(

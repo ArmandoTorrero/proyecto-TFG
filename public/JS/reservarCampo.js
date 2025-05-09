@@ -1,16 +1,19 @@
 import { crearBtnHora } from "./components/crearBotonHora";
 import { crearOption } from "./components/crearOption";
-import { getNombreCampo, getModalidadId, getCampoById } from "./services/campo";
 import { getFechasActualizadas, horariosDinamicos } from "./services/franja_horaria";
 
 
-
+/**
+ * Funcion para que aparezcan los horarios segun la fecha seleccionada
+ */
 function cambiarSelect() {
 
 
     let select = document.getElementById("fecha")
     
     getFechasActualizadas().then(fechas => {
+        console.log(fechas);
+        
         
         let array_fechas = fechas.fechas;
         let array_fechas_formateado = [];   

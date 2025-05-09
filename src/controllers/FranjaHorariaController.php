@@ -80,7 +80,7 @@ use Core\utilities\Validador;
 
                 // Validamos si la fecha es anterior a la introducida
                 if (!Validador::validarFechaHorario($_POST["fecha"])) {
-                    echo json_encode(['exito' => false, 'mensaje' => 'La fecha tiene que ser actual o posterior']);
+                    echo json_encode(['exito' => false, 'mensaje' => 'La fecha tiene que ser actual o posterior a hoy']);
                     return; 
                 }
 

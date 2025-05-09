@@ -3,6 +3,7 @@
 ?>
     <head>
         <link rel="stylesheet" href="./public/CSS/landing.css">
+        
     </head>
 
     <!-- Hero section -->
@@ -120,6 +121,7 @@
 
     </section>
 
+    
     <section class="pre-footer">
         <h1>¡Comienza a disfrutar del deporte hoy mismo!</h1>
         <p>Reserva tu primera instalación deportiva en minutos y descubre lo fácil que es con CampoLibre.</p>
@@ -132,9 +134,11 @@
             </button>
         </article>
     </section>
-
-    <script type="module" src="./public/JS/landing.js"></script>
     
+    <section class="tiempo"></section>
+    
+    <script type="module" src="./public/JS/landing.js"></script>
+    <script type="module" src="./public/JS/api_tiempo.js"></script>
 
 <?php 
     $content = ob_get_clean(); 

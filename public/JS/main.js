@@ -19,6 +19,10 @@ function cambiarBtnregistro() {
     btnRegistro.href = "/TFG/perfil"; 
 }
 
+/**
+ * Función para modificar el nav dependiendo del rol
+ * @param {*} rol 
+ */
 function modificarNav(rol) {
     if (rol == 1 || rol == 2) { // si es admin o usuario
         modificarDesplegable()
@@ -26,8 +30,10 @@ function modificarNav(rol) {
     }
 }
 
-
-logueado().then(data => {    
-    modificarNav(data.rol)
-    
+document.addEventListener("DOMContentLoaded", () => {
+    logueado().then(data => {    
+        modificarNav(data.rol)
+        
+    })
 })
+

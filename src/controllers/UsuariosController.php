@@ -194,6 +194,7 @@ class UsuariosController
             }
 
             if ($encontrado) {
+                session_regenerate_id(true); 
                 echo json_encode(['existe' => true, 'mensaje' => 'Inicio de sesión correcto']);
             } else {
                 echo json_encode(['existe' => false, 'mensaje' => 'Las credenciales no son validas']);
@@ -216,12 +217,16 @@ class UsuariosController
                 $_POST["tlf"]
             );
 
-            if ($camposValidados) {
+            if ($camposValidados) { 
+
+                // comprobar que al cambiar el email el email ya esta asignado a otro usuario
                 $usuarioExistente = $this->usuariosModel->getByEmail($_POST['email']);
                 if ($usuarioExistente && $usuarioExistente['id'] != $_SESSION["id_usuario"]) {
                     echo json_encode(['exito' => false, 'mensaje' => 'El correo electrónico ya está registrado por otro usuario']);
                     return;
                 }
+
+                // si el email no esta asignado a otro usuario actualizamos el usuario
 
                 $this->usuariosModel->update(
                     [

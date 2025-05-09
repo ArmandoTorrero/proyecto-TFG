@@ -27,9 +27,16 @@
          */
         public function pagarCampo() {
 
-            if (!$this->franjaHorariaModel->getById($_GET["id_horario"])) {
-                 Security::redirigir('/TFG/camposDeportivos'); 
+            $existeHorario = $this->franjaHorariaModel->getById($_GET["id_horario"]); 
+            $horarioEnReserva = $this->reservasModel->getReservaByHorarioId($_GET["id_horario"]);   
+
+            // si el horario pasado por GET no existe o ya esta en una reserva se redirige al usuario a la pagina de campos
+            if (!$existeHorario || !empty($horarioEnReserva)) {
+                Security::redirigir('/TFG/camposDeportivos'); 
+                exit(); 
             }
+
+            
 
             // creamos la sesion de la franja horaria que ha seleccionado el usuario
             Sessions::crearSesionFranjaHorariaId($_GET["id_horario"]); 
