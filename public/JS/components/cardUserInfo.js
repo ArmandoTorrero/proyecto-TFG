@@ -1,6 +1,6 @@
 import { userInfo } from "./../services/usuario";
 import { crearBoton } from "./boton";
-import { getReservasByUserId } from "./../services/reservas";
+import { getReservasByUserId, eliminarReserva } from "./../services/reservas";
 import { crearInput, crearLabel, editar } from "./form_elements";
 import { crearTabla } from "./tabla";
 import { crearTituloSeccion } from "./acciones_perfil";
@@ -92,29 +92,83 @@ export function reservasUsuario(rol) {
     tabla_reservas_container.classList.add("reservas-usuario-container");
 
     if (!rol) {
-        console.log('patata');
-    }else{
+        window.location.href = '/TFG/login'; 
+    } else {
 
-        let titulo = crearTituloSeccion("Tus reservas"); 
+        let titulo = crearTituloSeccion("Tus reservas");
 
         getReservasByUserId().then(reservas => {
 
             let reservas_usuario = reservas.reservas; // recogemos las reservas del usuario
-            
-            let headers = ['Pista', 'Fecha', 'Hora', 'Precio'];
-            let data = reservas_usuario.map(reserva => [reserva.nombre_pista, reserva.fecha, reserva.hora_inicio.slice(0, -3), `${reserva.precio_hora}€`]); 
-                        
-            let tabla_reservas = crearTabla(headers, data); // creamos la tabla con los datos
-            tabla_reservas_container.append(titulo,tabla_reservas); // añadimos la tabla al contenedor            
 
+            let headers = ['ID reserva', 'Pista', 'Fecha - Hora de reserva', 'Hora del partido', 'Cancelar'];
+            let data = reservas_usuario.map(reserva => {
+
+                // Creamos el botón de cancelar la reserva
+                let cancelarButton = document.createElement("button");
+                cancelarButton.textContent = "Cancelar";
+
+                // Comprobamos si se puede cancelar la reserva
+                const fechaReserva = new Date(reserva.fechaHora);
+                const fechaActual = new Date();
+                const diferenciaHoras = (fechaActual - fechaReserva) / (1000 * 60 * 60);
+
+                // si se puede cancelar le asignamos la clase 'cancelable'
+                if (diferenciaHoras <= 24) {
+                    cancelarButton.classList.add("cancelable");
+
+                    // Añadimos el evento click al botón
+                    cancelarButton.addEventListener("click", (ev) => {      
+                        
+                        // Le mostramos una alerta para saber si esta seguro de que quiere eliminar la reserva
+                        Swal.fire({
+                            title: "¿Estás seguro de que quieres cancelar la reserva?",
+                            text: "No podrás revertirlo.",
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#3085d6",
+                            cancelButtonColor: "#d33",
+                            confirmButtonText: "Eliminar"
+                        }).then((result) => {
+                            if (result.isConfirmed) { // si confirma la cancelacion enviamos el id de la reserva y del horario
+                                eliminarReserva(reserva.id, reserva.franja_horaria_id).then(response => {
+                                    if (response.exito) { // si la respuesta es exitosa se lo indicamos por pantalla y eliminamos la fila 
+                                        ev.target.parentElement.parentElement.remove(); 
+                                        Swal.fire("Reserva cancelada!", response.mensaje, "success");
+                                    }else{
+                                        Swal.fire("Error", response.mensaje, "error");
+                                    }
+                                    
+                                })
+                            }
+                        });   
+                                        
+                    });
+                } else {
+                    cancelarButton.classList.add("no-cancelable");
+                }
+
+                // devolvemos la información necesario para la tabla
+                return [
+                    reserva.id,
+                    reserva.nombre_pista,
+                    reserva.fechaHora,
+                    reserva.hora_inicio.slice(0, -3),
+                    cancelarButton
+                ];
+            });
+
+            let tabla_reservas = crearTabla(headers, data); // creamos la tabla con los datos
+            tabla_reservas_container.append(titulo, tabla_reservas); // añadimos la tabla al contenedor
+
+            // si el usuario no tiene reservas se lo hacemos saber 
             if (reservas.reservas.length == 0) {
-                let noRservas = crearTituloSeccion("No tienes reservas")
-                tabla_reservas_container.appendChild(noRservas);     
+                let noReservas = crearTituloSeccion("No tienes reservas");
+                tabla_reservas_container.appendChild(noReservas);
             }
 
-        })
+        });
     }
 
     return tabla_reservas_container; // devolvemos el contenedor con la tabla de reservas
-
 }

@@ -3,7 +3,7 @@
 ?>
 
     <head>
-        <link rel="stylesheet" href="public/CSS/camposModalidad.css">
+        <link rel="stylesheet" href="./public/CSS/camposModalidad.css">
     </head>
 
     <main>

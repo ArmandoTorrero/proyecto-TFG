@@ -19,6 +19,9 @@ export function editUser() {
 
                 document.body.style.overflowY = "hidden"; // cuando se haga click evitamos el scroll
 
+                // Hacer scroll hacia arriba para que el administrador vea el formulario
+                window.scrollTo({ top: 0, behavior: "smooth" });
+
                 const fila = event.target.closest("tr"); // Encuentra la fila más cercana al botón
                 if (!fila) {
                     console.error("No se encontró la fila correspondiente al botón de editar.");
@@ -54,6 +57,9 @@ export function editarCampo() {
 
             document.body.style.overflowY = "hidden"; // cuando se haga click evitamos el scroll
 
+            // Hacer scroll hacia arriba para que el administrador vea el formulario
+            window.scrollTo({ top: 0, behavior: "smooth" });
+
             const fila = event.target.closest("tr"); // Encuentra la fila más cercana al botón
             if (!fila) {
                 console.error("No se encontró la fila correspondiente al botón de editar.");
@@ -86,6 +92,10 @@ export function editarHorario() {
     botonesEditar.forEach(boton => {
         boton.addEventListener("click", (event) => {
 
+            document.body.style.overflowY = "hidden"; // cuando se haga click evitamos el scroll
+
+            // Hacer scroll hacia arriba para que el administrador vea el formulario
+            window.scrollTo({ top: 0, behavior: "smooth" });
 
             const fila = event.target.closest("tr"); // Encuentra la fila más cercana al botón
             if (!fila) {

@@ -27,19 +27,6 @@
          */
         public function pagarCampo() {
 
-            $existeHorario = $this->franjaHorariaModel->getById($_GET["id_horario"]); 
-            $horarioEnReserva = $this->reservasModel->getReservaByHorarioId($_GET["id_horario"]);   
-
-            // si el horario pasado por GET no existe o ya esta en una reserva se redirige al usuario a la pagina de campos
-            if (!$existeHorario || !empty($horarioEnReserva)) {
-                Security::redirigir('/TFG/camposDeportivos'); 
-                exit(); 
-            }
-
-            
-
-            // creamos la sesion de la franja horaria que ha seleccionado el usuario
-            Sessions::crearSesionFranjaHorariaId($_GET["id_horario"]); 
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') { // comprobamos que llegan cosas por POST
 
@@ -58,15 +45,29 @@
                         'disponible' => 0
                     ], $_SESSION["id_horario"]);
 
-                    header('Location: /TFG/perfil'); 
-                    exit();
+                    echo json_encode(['exito' => true ,'mensaje' => 'Reserva realizada con exito']);  
                     
                 }else {
-                    echo "error"; 
+                    echo json_encode(['false' => true ,'mensaje' => 'Los datos introducidos no son validos']); 
                 }
-            }else{
-                require __DIR__ . '/../views/pagarCampo.php';
+            }else {
+                echo json_encode(['false' => true ,'mensaje' => 'Error en el servidor']);
             }
+        }
+
+        public function pagarCampoVista() {
+            $existeHorario = $this->franjaHorariaModel->getById($_GET["id_horario"]); 
+            $horarioEnReserva = $this->reservasModel->getReservaByHorarioId($_GET["id_horario"]);   
+
+            // si el horario pasado por GET no existe o ya esta en una reserva se redirige al usuario a la pagina de campos
+            if (!$existeHorario || !empty($horarioEnReserva)) {
+                Security::redirigir('/TFG/camposDeportivos'); 
+                exit(); 
+            }
+            // creamos la sesion de la franja horaria que ha seleccionado el usuario
+            Sessions::crearSesionFranjaHorariaId($_GET["id_horario"]); 
+
+            require __DIR__ . '/../views/pagarCampo.php';
         }
         
         /**
@@ -90,6 +91,20 @@
             
             if ($datos) {
                 echo json_encode(['reservas' => $this->reservasModel->getReservasByFecha($datos['fecha'])]); 
+            }
+        }
+
+        public function eliminarReserva() {
+            $datos = json_decode(file_get_contents("php://input"), true);
+
+            if ($datos) {
+                
+                // si han llegado los datos eliminamos la reserva y volvemos a poner disponinble el horario que antes no estaba
+                $this->reservasModel->delete($datos['reserva_id']);
+                $this->franjaHorariaModel->update(['disponible' => 1], $datos['horario_id']);  
+                echo json_encode(['exito' => true ,'mensaje' => 'Tu reserva ha sido cancelada', 'datos' => $datos]); 
+            }else {
+                echo json_encode(['exito' => false ,'mensaje' => 'Error al cancelar la reserva']);
             }
         }
     }

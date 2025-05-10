@@ -1,7 +1,43 @@
 import { info } from "./components/infoReserva";
 import { logueado } from "./services/usuario";
 import { validarInput } from "./login";
+import { alerta } from "./components/alerta";
 
+
+/**
+ * Función para realizar una reserva
+ */
+function realizarReserva() {
+    const form = document.querySelector("form");
+
+
+    // evento para el formulario 
+    form.addEventListener("submit", async (ev) => {
+        ev.preventDefault();
+
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch('/TFG/pagarCampo', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (result.exito) {
+                alerta(result.mensaje, document.getElementById("alerta-verde"));
+                setTimeout(() => {
+                    window.location.href = "/TFG/perfil";
+                }, 1000);
+            } else {
+                alerta(result.mensaje, document.getElementById("alerta-roja"));
+            }
+        } catch (error) {
+            console.error("Error al realizar la reserva:", error);
+        }
+    });
+}
 
 /**
  * Funcion para msotrar la informacion de la reserva que va a hacer el usuario
@@ -36,6 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 // En caso de que un administrador o usuario invitado quiera hacer una reserva se les redigira a otra pagina
                 rol.rol == false ? window.location.href = '/TFG/login' : window.location.href = '/TFG/perfil';
             })
+        }else{
+            realizarReserva(); 
         }
         
     })
@@ -100,6 +138,10 @@ document.addEventListener("DOMContentLoaded", () => {
         comprobarEstadoInputs()    
         
     })
+
+
+    
+
 })
 
 

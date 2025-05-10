@@ -84,6 +84,11 @@ export async function eliminarUsuario(id) {
     }
 }
 
+/**
+ * Función para buscar un usuario 
+ * @param {*} username 
+ * @returns 
+ */
 export async function buscarUsuario(username) {
     try {
         const response = await fetch('/TFG/buscarUsuario', {

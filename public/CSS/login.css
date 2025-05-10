@@ -94,7 +94,7 @@ form{
 }
 
 .label-input label{
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -161,10 +161,6 @@ form{
     main{
         flex-direction: row;
         background-image: none;
-    }
-
-    #alerta-verde, #alerta-roja{
-        left: 50%;
     }
 
     .form-container{

@@ -6,8 +6,9 @@
  */
 export function alerta(mensaje, alerta) {
     alerta.textContent = mensaje; // mostramos el mensaje de exito
-    alerta.style.top = "5%"; // mostramos la alerta
+    alerta.style.top = "15%"; // mostramos la alerta
+    alerta.style.left = "50%"; 
     setTimeout(() => {
         alerta.style.top = "-10%";
-    }, 4000); // ocultamos la alerta tras 4 segundos
+    }, 2000); // ocultamos la alerta tras 2 segundos
 }

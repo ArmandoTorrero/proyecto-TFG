@@ -1,5 +1,6 @@
 import Validador from "./components/validador";
 import { mostrarPasswd } from "./components/mostrar_passwd";
+import { alerta } from "./components/alerta";
 
 const buttonSubmit = document.querySelector(".enviar");
 
@@ -97,15 +98,16 @@ form.addEventListener("submit", async (ev) => {
         
 
         if (result.exito) { // si la respuesta es correcta, redirigimos a la pagina de perfil
-            window.location.href = "/TFG/perfil";
+            let alerta_verde = document.getElementById("alerta-verde"); 
+            alerta(result.mensaje, alerta_verde); 
+
+            setTimeout(() => {
+                window.location.href = "/TFG/perfil"; 
+            }, 1000);
 
         }else{ // si la respuesta es incorrecta, mostramos el mensaje de error
-            spanMsgError.textContent = result.mensaje;
-            spanMsgError.style.opacity = 1; 
-            setTimeout(() => {
-                spanMsgError.style.opacity = 0; 
-                spanMsgError.textContent = "";
-            }, 3000);
+            let alerta_roja = document.getElementById("alerta-roja");
+            alerta(result.mensaje, alerta_roja); 
         }
 
         console.log(result);

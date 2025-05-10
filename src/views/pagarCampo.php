@@ -8,6 +8,9 @@
 
     <main>
 
+        <div class="alert alert-success" role="alert" id="alerta-verde"></div>
+
+        <div class="alert alert-danger" role="alert" id="alerta-roja"></div>
         <section class="form-container">
             <h1>Introduce los datos de tu tarjeta</h1>
 

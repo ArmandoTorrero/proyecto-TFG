@@ -33,6 +33,7 @@ use Core\Utilities\Security;
     $router->add('/camposDeportivos', 'CamposController@index'); 
     $router->add('/reservarCampo','CamposController@reservarCampo'); 
     $router->add('/pagarCampo','ReservasController@pagarCampo'); 
+    $router->add('/pasarelaPago','ReservasController@pagarCampoVista'); 
     
     
     // Rutas que mandan json_encode
@@ -53,6 +54,7 @@ use Core\Utilities\Security;
     $router->add('/modalidad', 'CamposController@getModalidad');
     $router->add('/reservasUsuario', 'ReservasController@getReservasByUserId');
     $router->add('/reservas', 'ReservasController@getAllReservas');
+    $router->add('/eliminarReserva', 'ReservasController@eliminarReserva');
     $router->add('/reservasByFecha', 'ReservasController@getReservasByFecha');
     $router->add('/horariosDinamicos', 'FranjaHorariaController@mandarHorariosDinamicos'); 
     $router->add('/getHorarios', 'FranjaHorariaController@getHorarios'); 

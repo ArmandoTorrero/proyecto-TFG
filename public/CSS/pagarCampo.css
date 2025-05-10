@@ -1,4 +1,10 @@
 
+#alerta-verde, #alerta-roja{
+    position: absolute;
+    top: -10%;
+    transition: all 0.2s ease;
+}
+
 main{
     padding: 20px 0px;
     background-image: url('./../ASSETS/campo-futbol.jpg');

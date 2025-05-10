@@ -19,3 +19,27 @@ export async function getReservas() {
         console.error(error);
     }
 }
+/**
+ * Funcion para eliminar una reserva 
+ * @param {*} id_reserva 
+ * @param {*} id_horario 
+ * @returns 
+ */
+export async function eliminarReserva(id_reserva, id_horario) {
+    try {
+        const response = await fetch('/TFG/eliminarReserva', {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+                reserva_id: id_reserva, 
+                horario_id: id_horario 
+            })
+        });
+        return await response.json();  
+    } catch (error) {
+        console.log(error);
+        
+    }
+}

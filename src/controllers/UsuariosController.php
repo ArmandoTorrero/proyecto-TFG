@@ -23,8 +23,7 @@ class UsuariosController
     {
         session_unset(); // Elimina todas las variables de sesión
         session_destroy(); // Destruye la sesión completamente
-        $this->landingPage(); // Reddireccion a la landing page
-        exit;
+        exit(); 
     }
 
     public function cerrarSesion()
