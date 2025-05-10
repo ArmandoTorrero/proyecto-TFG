@@ -15,6 +15,9 @@
                 <option value="" selected hidden >Elige una fecha</option>
             </select>
             
+            <input type="date" name="calendario" id="calendario"> 
+
+
             <section class="horarios" id="horarios"></section>
 
         </article>

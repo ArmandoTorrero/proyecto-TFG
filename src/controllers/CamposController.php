@@ -58,7 +58,7 @@ use Core\utilities\Validador;
         public function reservarCampo() {
             // Sessions::crearSesionIdCampo($_GET["id_campo"] ?? '');               
             if ($this->campoModel->getById($_GET["id_campo"])) {
-                $_SESSION["id_campo"] = $_GET["id_campo"]; 
+                $_SESSION["id_campo"] = $_GET["id_campo"];
             }else {
                 Security::redirigir('/TFG/camposDeportivos'); 
             }

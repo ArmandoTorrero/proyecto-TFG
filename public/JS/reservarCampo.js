@@ -11,9 +11,7 @@ function cambiarSelect() {
 
     let select = document.getElementById("fecha")
     
-    getFechasActualizadas().then(fechas => {
-        console.log(fechas);
-        
+    getFechasActualizadas().then(fechas => {        
         
         let array_fechas = fechas.fechas;
         let array_fechas_formateado = [];   
@@ -49,8 +47,8 @@ function cambiarSelect() {
         select.addEventListener("change", (ev) => {       
                 
             // cuando se seleccione una fecha en el option se mostraran los horarios de la fecha seleccionada 
-            horariosDinamicos(ev.target.value).then(info => {
-
+            horariosDinamicos(ev.target.value).then(info => {                
+                
                 let horarios = info.horarios; // recogemos toda la informacion de esa fecha
                 
                 horariosSection.innerHTML = ''; // borramos los botones que haya anteriormente
@@ -74,7 +72,26 @@ function cambiarSelect() {
                 
             })
         })
+
+        /*
+        let input_date = document.getElementById("calendario"); 
+        input_date.addEventListener("change", (ev)=> {
+            horariosDinamicos(ev.target.value).then(info => {
+                console.log(info);
+                
+                horariosSection.innerHTML = '';
+                let array_horarios = info.horarios;  
+                array_horarios.forEach(horario_info => {
+                    horariosSection.appendChild(crearBtnHora(horario_info.id, horario_info.hora_inicio, horario_info.disponible))
+                        
+                });
+                
+                
+            })
+        })
+        */
     })
+
 }
 
 /**

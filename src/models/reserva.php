@@ -42,6 +42,8 @@ class Reservas extends EmptyModel
         return $result;
     }
 
+    
+
     public function getInfoReservas() {
         $sql = "SELECT
                 usuario_id,

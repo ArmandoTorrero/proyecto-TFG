@@ -11,6 +11,8 @@ import { editUser, editarCampo, editarHorario } from "./admin/editar";
 import { deleteUser, deleteCampo, deleteHorario } from "./admin/eliminar";
 
 
+
+
 /**
  * Crear tabla para ver los usuarios
  */
@@ -134,7 +136,9 @@ export function mostrarTablaCampos() {
 
     const tabla_campos_contaier = document.createElement("section");
     tabla_campos_contaier.classList.add("campos-container");
-    let titulo = crearTituloSeccion("Lista de campos"); 
+
+    let titulo = crearTituloSeccion("Lista de campos");
+
     tabla_campos_contaier.appendChild(titulo); // añadimos el titulo al contenedor
 
     getCampos().then(campos => {
@@ -167,35 +171,92 @@ export function mostrarTablaHorarios() {
 
     const tabla_horarios_container = document.createElement("section"); 
     tabla_horarios_container.classList.add("horarios_container"); 
-    let titulo = crearTituloSeccion("Lista de horarios"); 
+
+    let titulo = crearTituloSeccion("Lista de horarios");
+
     tabla_horarios_container.appendChild(titulo); 
-    tabla_horarios_container.appendChild(crearBoton("Crear horario", "crear-horario"))
+    tabla_horarios_container.appendChild(crearBoton("Crear horario", "crear-horario")); 
 
     getAll().then(horarios => {
 
         let listaHorarios = horarios.horarios;         
 
         let headers = ['ID', 'Fecha', 'Hora de inicio', 'Disponible', 'Campo', 'Acciones']; 
-        let data = listaHorarios.map(horario => [
-            horario.id, 
-            horario.fecha, 
-            horario.hora_inicio.slice(0, -3), 
-            horario.disponible === 1 ? 'Si' : 'No', 
-            horario.nombre, 
-            accionesContainer()
-        ]); 
 
-        tabla_horarios_container.appendChild(crearTabla(headers, data));  
+        // Variables para la paginación
+        const itemsPerPage = 5;
+        let currentPage = 1;
+        const totalPages = Math.ceil(listaHorarios.length / itemsPerPage);
 
-        //llamamos a las funciones de editar y eliminar horario
-        editarHorario(); 
-        deleteHorario(); 
+        function renderPage(page) {
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const data = listaHorarios.slice(start, end).map(horario => [
+                horario.id, 
+                horario.fecha, 
+                horario.hora_inicio.slice(0, -3), 
+                horario.disponible === 1 ? 'Si' : 'No', 
+                horario.nombre, 
+                accionesContainer()
+            ]);
+
+            // Limpiar tabla existente
+            const existingTable = tabla_horarios_container.querySelector("table");
+            if (existingTable) existingTable.remove();
+
+            // Añadir nueva tabla
+            tabla_horarios_container.appendChild(crearTabla(headers, data));
+
+            // Llamar a las funciones de editar y eliminar horario después de renderizar la tabla
+            editarHorario(); 
+            deleteHorario(); 
+        }
+
+        function renderPagination() {
+            const paginationContainer = document.createElement("div");
+            paginationContainer.classList.add("pagination-container");
+
+            for (let i = 1; i <= totalPages; i++) {
+                const pageButton = document.createElement("button");
+                pageButton.textContent = i;
+                pageButton.classList.add("page-button");
+                pageButton.classList.add('btn'); 
+                if (i === currentPage) pageButton.classList.add("active");
+
+                pageButton.addEventListener("click", () => {
+                    currentPage = i;
+                    renderPage(currentPage);
+
+                    // Actualizar botones activos
+                    document.querySelectorAll(".page-button").forEach(btn => btn.classList.remove("active"));
+                    pageButton.classList.add("active");
+                });
+
+                paginationContainer.appendChild(pageButton);
+            }
+
+            // Limpiar paginación existente
+            const existingPagination = tabla_horarios_container.querySelector(".pagination-container");
+            if (existingPagination) existingPagination.remove();
+
+            // Añadir nueva paginación debajo del botón "Crear horario"
+            const crearHorarioButton = tabla_horarios_container.querySelector(".crear-horario");
+            if (crearHorarioButton) {
+                crearHorarioButton.insertAdjacentElement("afterend", paginationContainer);
+            } else {
+                tabla_horarios_container.appendChild(paginationContainer);
+            }
+        }
+
+        // Renderizar la primera página y la paginación
+        renderPage(currentPage);
+        renderPagination();
+
+        // Llamar a las funciones de crear horario
         crearHorario(); 
-        
-    })
+    });
 
     return tabla_horarios_container; 
-
 }
 
 

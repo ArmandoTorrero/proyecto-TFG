@@ -279,7 +279,7 @@ table {
 ----------BOTON DE CREAR HORARIO, INPUT PARA FILTRAR RESERVAS POR FECHA Y BUSCADOR DE USUARIOS----------
 --------------------------------------------------------------------------------------------------------
 */
-.crear-horario, #input_fecha, .buscador{
+.crear-horario, #input_fecha, #input_fecha_horario , .buscador{
     border: none;
     background-color: var(--fondoBotones);
     font-weight: 500;
@@ -311,7 +311,6 @@ table {
         color: rgba(255, 255, 255, .5);
     }
 
-    
 }
 
 /*
@@ -335,6 +334,28 @@ table {
 .cancelable{
     background-color: red;
 }
+
+/*
+--------------------------------------------------------------
+----------ESTILOS PARA EL INPUT DATE DE LOS HORARIOS----------
+--------------------------------------------------------------
+*/
+
+#input_fecha_horario{
+    margin: 0 10px;
+}
+
+
+/*
+----------------------------------------------------------
+----------ESTILOS PARA LOS BOTONES DE PAGINACIÓN----------
+----------------------------------------------------------
+*/
+
+.page-button{
+    margin: 10px 0;
+}
+
 
 
 /*

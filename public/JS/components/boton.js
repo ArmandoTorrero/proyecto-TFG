@@ -189,10 +189,15 @@ export function containerFormHorario(id, nombre_campo) {
 
 export function crearHorario() {
 
+    
     let containerFormHorario = document.querySelector(".containerFormHorario");   
     let btn_crear_horario = document.querySelector(".crear-horario"); 
-
+    
     btn_crear_horario.addEventListener("click", () => {
+        document.body.style.overflowY = "hidden"; // cuando se haga click evitamos el scroll
+    
+        // Hacer scroll hacia arriba para que el administrador vea el formulario
+        window.scrollTo({ top: 0, behavior: "smooth" });
 
         containerFormHorario.classList.toggle("visible");
         const existingForm = containerFormHorario.querySelector("form");

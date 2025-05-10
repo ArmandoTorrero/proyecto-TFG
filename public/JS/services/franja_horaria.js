@@ -122,3 +122,21 @@ export async function eliminarHorario(horario_id) {
         
     }
 }
+
+export async function getHorarioByFecha(fecha) {
+    try {
+        const response = await fetch('/TFG/getHorariosByFecha', {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json'
+            }, 
+            body:JSON.stringify({ fecha: fecha }) 
+        }); 
+
+        return await response.json();
+                
+    } catch (error) {
+        console.log(error);
+            
+    }
+}

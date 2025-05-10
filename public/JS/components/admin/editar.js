@@ -102,9 +102,6 @@ export function editarHorario() {
                 console.error("No se encontró la fila correspondiente al botón de editar.");
                 return;
             }
-
-            
-
             const id = fila.querySelector("td").textContent; // Obtiene el ID del usuario
             const nombre_campo = fila.querySelector("td:nth-of-type(5)").textContent;  
             
