@@ -75,8 +75,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 
     // variables para comprobar si estan validados los inputs
-    let emailValidado = validarInput(inputEmail,spanEmail,emailRegex); // Validar al cargar la página
-    let passwdValidada = validarInput(inputPasswd,spanPasswd,passwdRegex); // Validar al cargar la página
+    let emailValidado = false; 
+    let passwdValidada = false; 
 
     // Actualizar el estado del botón al cargar la página
     if (emailValidado && passwdValidada) {

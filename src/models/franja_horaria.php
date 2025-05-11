@@ -45,7 +45,8 @@ class FranjaHoraria extends EmptyModel
                 pista_id = :id_campo AND
                 fecha = :fecha -- Para hoy
                 AND hora_inicio > CURTIME() -- Horas posteriores a la actual
-            )";
+            )
+            ORDER BY fecha";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':id_campo', $id_campo);
         $stmt->bindParam(':fecha', $fecha);
@@ -70,7 +71,7 @@ class FranjaHoraria extends EmptyModel
                     fecha = CURDATE() -- Para hoy
                     AND hora_inicio > CURTIME() -- Horas posteriores a la actual
                 )
-            ORDER BY fecha, hora_inicio";
+            ORDER BY fecha,id";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

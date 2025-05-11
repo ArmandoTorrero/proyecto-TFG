@@ -18,7 +18,7 @@
 
                 <article class="label-input">
                     <label for="">Número de la tarjeta</label>
-                    <input type="text" name="numTarjeta" id="numTarjeta" placeholder="0000-0000-0000-0000">
+                    <input type="text" name="numTarjeta" id="numTarjeta" placeholder="0000 0000 0000 0000">
                     <span class="tarjetaSpan">El formato de la tarjeta no es correcto</span>
                 </article>
 

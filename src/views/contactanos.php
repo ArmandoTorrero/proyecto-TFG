@@ -37,6 +37,9 @@
     </section>
 </main>
 
+    <script type="module" src="./public/JS/contactanos.js"></script>
+
+
 <?php 
     $content = ob_get_clean(); 
     require __DIR__ . '/../views/LAYOUTS/main.php';

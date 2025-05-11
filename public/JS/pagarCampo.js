@@ -53,13 +53,14 @@ async function infoPistaHorario() {
     }
 }
 
-infoPistaHorario().then(response => {    
-    let informacion = response.info; 
-    info(informacion.nombre, informacion.fecha, informacion.hora_inicio.slice(0, -3), informacion.precio_hora); 
-    
-})
 
 document.addEventListener("DOMContentLoaded", () => {
+    
+    infoPistaHorario().then(response => {    
+        let informacion = response.info; 
+        info(informacion.nombre, informacion.fecha, informacion.hora_inicio.slice(0, -3), informacion.precio_hora); 
+        
+    });
 
     const buttonConfirmar = document.querySelector(".form-container .confirmar"); 
     const form = document.querySelector("form"); 
@@ -138,10 +139,6 @@ document.addEventListener("DOMContentLoaded", () => {
         comprobarEstadoInputs()    
         
     })
-
-
-    
-
 })
 
 

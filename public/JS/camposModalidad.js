@@ -1,5 +1,6 @@
 import { cartaCampo } from "./components/cardCampo";
 import { modalidad, getCamposByModalidadId } from "./services/campo.js";
+import { aplicarAnimacion } from "./components/animaciones.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
             });
             
+            aplicarAnimacion('.campo', 'fadeIn');
         })
         
     })

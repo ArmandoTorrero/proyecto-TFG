@@ -24,7 +24,8 @@ export function btnCerrar(contenedor) {
     closeButton.classList.add("close-button");
     closeButton.addEventListener("click", () => {
         contenedor.classList.remove("visible");
-        document.body.style.overflowY = "auto" // cuando se haga click devolvemos el scroll
+        document.documentElement.style.overflowY = "auto";
+        document.body.style.overflowY = "auto"; // cuando se haga click devolvemos el scroll
     });
     return closeButton
 }

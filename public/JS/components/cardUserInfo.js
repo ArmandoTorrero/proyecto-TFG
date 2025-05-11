@@ -100,8 +100,10 @@ export function reservasUsuario(rol) {
         getReservasByUserId().then(reservas => {
 
             let reservas_usuario = reservas.reservas; // recogemos las reservas del usuario
-
-            let headers = ['ID reserva', 'Pista', 'Fecha - Hora de reserva', 'Hora del partido', 'Cancelar'];
+            
+            console.log(reservas_usuario);
+            
+            let headers = ['ID reserva', 'Pista', 'Fecha - Hora de reserva', 'Fecha del partido', 'Hora del partido' ,'Cancelar'];
             let data = reservas_usuario.map(reserva => {
 
                 // Creamos el botón de cancelar la reserva
@@ -153,7 +155,8 @@ export function reservasUsuario(rol) {
                     reserva.id,
                     reserva.nombre_pista,
                     reserva.fechaHora,
-                    reserva.hora_inicio.slice(0, -3),
+                    reserva.fecha,
+                    reserva.hora_inicio.slice(0, -3), 
                     cancelarButton
                 ];
             });

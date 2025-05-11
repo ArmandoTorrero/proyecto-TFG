@@ -9,7 +9,7 @@
     <!-- Hero section -->
     <section class="hero">
         
-        <article class="hero-content">
+        <article class="hero-content animate__animated animate__fadeInLeft">
             <h1>Reservar campos deportivos <b>más facil que nunca</b></h1>
             <p>Descubre la máxima comodidad al reservar campos deportivos de fútbol, pádel, tenis y baloncesto. Nuestra plataforma intuitiva te permite reservar tu plaza en tan solo unos clics.</p>
             <button>
@@ -17,7 +17,7 @@
             </button>
         </article>   
 
-        <article class="img"></article>
+        <article class="img animate__animated animate__fadeInRight"></article>
 
     </section>
 

@@ -1,4 +1,5 @@
 import { cartaCampoDestacado } from "./components/campoDestacado";
+import { aplicarAnimacion } from "./components/animaciones";
 import { getCampos } from "./services/campo";
 import { logueado } from "./services/usuario";
 
@@ -32,6 +33,12 @@ function modificarLandingPage(rol) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    aplicarAnimacion('.info > h1',  'fadeIn');
+    aplicarAnimacion('.info > p',  'fadeIn');  
+    aplicarAnimacion('.container', 'fadeInRight'); 
+    aplicarAnimacion('.pista', 'fadeInLeft'); 
+    aplicarAnimacion('.pre-footer', 'fadeIn'); 
 
     logueado().then((data) => {    
         

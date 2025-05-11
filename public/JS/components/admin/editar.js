@@ -1,5 +1,19 @@
 import { containerFormUser, containerFormCampo, containerFormHorario } from "./../boton";
 
+
+function quitarScroll() {
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+                
+    // Scroll suave con compatibilidad para Firefox
+    requestAnimationFrame(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
+
 /**
  * Función para editar usuario
  * @returns 
@@ -17,10 +31,7 @@ export function editUser() {
         botonesEditar.forEach(boton => {
             boton.addEventListener("click", (event) => {
 
-                document.body.style.overflowY = "hidden"; // cuando se haga click evitamos el scroll
-
-                // Hacer scroll hacia arriba para que el administrador vea el formulario
-                window.scrollTo({ top: 0, behavior: "smooth" });
+                quitarScroll(); 
 
                 const fila = event.target.closest("tr"); // Encuentra la fila más cercana al botón
                 if (!fila) {
@@ -55,10 +66,7 @@ export function editarCampo() {
     botonesEditar.forEach(boton => {
         boton.addEventListener("click", (event) => {
 
-            document.body.style.overflowY = "hidden"; // cuando se haga click evitamos el scroll
-
-            // Hacer scroll hacia arriba para que el administrador vea el formulario
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            quitarScroll(); 
 
             const fila = event.target.closest("tr"); // Encuentra la fila más cercana al botón
             if (!fila) {
@@ -92,10 +100,7 @@ export function editarHorario() {
     botonesEditar.forEach(boton => {
         boton.addEventListener("click", (event) => {
 
-            document.body.style.overflowY = "hidden"; // cuando se haga click evitamos el scroll
-
-            // Hacer scroll hacia arriba para que el administrador vea el formulario
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            quitarScroll(); 
 
             const fila = event.target.closest("tr"); // Encuentra la fila más cercana al botón
             if (!fila) {

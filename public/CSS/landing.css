@@ -11,6 +11,7 @@
     background-color: var(--fondoHeroSection);
     padding: 5% 0% 8%;
     text-align: center;
+    
 }
 
 .hero .hero-content{
@@ -349,6 +350,7 @@
     .hero{
         justify-content: space-around;
         text-align: left;
+        height: 90vh;
         padding: 2% 0;
     }
     
