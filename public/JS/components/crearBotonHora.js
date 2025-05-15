@@ -1,4 +1,4 @@
-import { crearBoton } from "./boton";
+import { crearBoton } from "./boton.js";
 
 /**
  * Crear el boton del horario del campo

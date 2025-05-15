@@ -54,7 +54,8 @@ class Reservas extends EmptyModel
                 pista.modalidad_id, 
                 franja_horaria.fecha,
                 franja_horaria.hora_inicio, 
-                reserva.fechaHora
+                reserva.fechaHora,
+                reserva.id
                 FROM reserva
                 JOIN franja_horaria ON reserva.franja_horaria_id = franja_horaria.id
                 JOIN pista ON franja_horaria.pista_id = pista.id";

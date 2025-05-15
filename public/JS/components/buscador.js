@@ -1,9 +1,9 @@
-import { crearInput } from "./form_elements";
-import { buscarUsuario } from "./../services/usuario";
-import { crearTabla } from "./tabla";
-import { editUser } from "./admin/editar";
-import { deleteUser } from "./admin/eliminar";
-import { accionesContainer } from "./boton";
+import { crearInput } from "./form_elements.js";
+import { buscarUsuario } from "./../services/usuario.js";
+import { crearTabla } from "./tabla.js";
+import { editUser } from "./admin/editar.js";
+import { deleteUser } from "./admin/eliminar.js";
+import { accionesContainer } from "./boton.js";
 
 
 export function buscadorUsuario() {

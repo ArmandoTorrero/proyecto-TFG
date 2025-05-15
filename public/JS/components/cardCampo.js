@@ -1,5 +1,4 @@
-import { CrearEtiquetaConClase } from "./crearEtiqueta-Clase";
-import { logueado } from "./../services/usuario";
+import { logueado } from "./../services/usuario.js";
 
 /**
  * Funcion para crear la carta de un campo en la seccion 'campos'

@@ -1,6 +1,6 @@
-import Validador from "./components/validador";
-import { mostrarPasswd } from "./components/mostrar_passwd";
-import { alerta } from "./components/alerta";
+import Validador from "./components/validador.js";
+import { mostrarPasswd } from "./components/mostrar_passwd.js";
+import { alerta } from "./components/alerta.js";
 
 const buttonSubmit = document.querySelector(".enviar");
 

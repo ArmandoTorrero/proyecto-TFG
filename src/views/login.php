@@ -30,7 +30,6 @@
                 <article class="label-input">
                     <article class="passwd">
                         <label for="">Contraseña</label>
-                        <a href="#" target="_self" >¿Olvidaste la contraseña?</a>
                     </article>
                     <input type="password" name="passwd" id="passwd">
                     <span class="passwdSpan">La contraseña debe de tener minimo 5 caracteres</span>

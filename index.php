@@ -1,15 +1,9 @@
 <?php
 
-use Core\Utilities\Security;
 
 require_once './core/router.php';
-require_once './vendor/autoload.php';
-
 
 session_start();
-
-Security::comprobarInactividad();
-
 
 $router = new Router();
 

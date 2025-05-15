@@ -1,4 +1,4 @@
-import { APIKEY } from "./components/apiKEY";
+import { APIKEY } from "./components/apiKEY.js";
 
 async function tiempo(ciudad) {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},ES&appid=${APIKEY}&units=metric&lang=es`;

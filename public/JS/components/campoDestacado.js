@@ -1,4 +1,4 @@
-import { logueado } from "./../services/usuario";
+import { logueado } from "./../services/usuario.js";
 
 
 /**
@@ -19,7 +19,6 @@ export function cartaCampoDestacado(id,nombreCampo,precio,categoria_id,h2,imgCon
 
     logueado().then(rol => {
         if (rol.rol != 2) {
-            
             enlace.textContent = 'Ver detalles'; 
             enlace.href = `/TFG/reservarCampo?id_campo=${id}`; 
         }else{

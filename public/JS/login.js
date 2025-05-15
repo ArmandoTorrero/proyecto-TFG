@@ -1,5 +1,5 @@
-import { alerta } from "./components/alerta";
-import { mostrarPasswd } from "./components/mostrar_passwd";
+import { alerta } from "./components/alerta.js";
+import { mostrarPasswd } from "./components/mostrar_passwd.js";
 
 
 export function validarInput(input,span,regex) { // funcion para validar el input

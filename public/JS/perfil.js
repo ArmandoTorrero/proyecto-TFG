@@ -1,5 +1,5 @@
-import { logueado } from "./services/usuario";
-import { cambiarPerfil, addBtnCerrarSesion } from "./components/acciones_perfil";
+import { logueado } from "./services/usuario.js";
+import { cambiarPerfil, addBtnCerrarSesion } from "./components/acciones_perfil.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {

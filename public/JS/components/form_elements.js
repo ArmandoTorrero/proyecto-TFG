@@ -1,7 +1,7 @@
-import { alerta } from "./alerta";
-import { crearBoton } from "./boton";
-import { crearOption } from "./crearOption";
-import { getCampos } from "./../services/campo";
+import { alerta } from "./alerta.js";
+import { crearBoton } from "./boton.js";
+import { crearOption } from "./crearOption.js";
+import { getCampos } from "./../services/campo.js";
 
 /**
  * Crear boton para enviar formulario

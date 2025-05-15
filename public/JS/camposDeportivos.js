@@ -1,10 +1,9 @@
-import { getCampos } from "./services/campo";
-import { cartaCampo } from "./components/cardCampo";
-import { aplicarAnimacion } from "./components/animaciones";
+import { getCampos } from "./services/campo.js";
+import { cartaCampo } from "./components/cardCampo.js";
+import { aplicarAnimacion } from "./components/animaciones.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    
-    
+        
     getCampos().then(array_campos => {
         array_campos.forEach(campo => { // por cada campo cramos una carta para el. 
             

@@ -1,6 +1,6 @@
-import { eliminarUsuario } from "./../../services/usuario";
-import { eliminarCampo } from "./../../services/campo";
-import { eliminarHorario } from "./../../services/franja_horaria";
+import { eliminarUsuario } from "./../../services/usuario.js";
+import { eliminarCampo } from "./../../services/campo.js";
+import { eliminarHorario } from "./../../services/franja_horaria.js";
 
 /**
  * Función para eliminar usuario

@@ -1,7 +1,7 @@
-import { cartaCampoDestacado } from "./components/campoDestacado";
-import { aplicarAnimacion } from "./components/animaciones";
-import { getCampos } from "./services/campo";
-import { logueado } from "./services/usuario";
+import { cartaCampoDestacado } from "./components/campoDestacado.js";
+import { aplicarAnimacion } from "./components/animaciones.js";
+import { getCampos } from "./services/campo.js";
+import { logueado } from "./services/usuario.js";
 
 /**
  * Modificar la landing cuando el usuario se registra
@@ -26,7 +26,7 @@ function landingInvitado() {
 function modificarLandingPage(rol) {
 
     if (rol != false) {
-        landingUsuarioRegistrado();  
+        landingUsuarioRegistrado();     
     }else{
         landingInvitado(); 
     }
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     aplicarAnimacion('.info > h1',  'fadeIn');
     aplicarAnimacion('.info > p',  'fadeIn');  
-    aplicarAnimacion('.container', 'fadeInRight'); 
+    aplicarAnimacion('.containers', 'fadeInRight'); 
     aplicarAnimacion('.pista', 'fadeInLeft'); 
     aplicarAnimacion('.pre-footer', 'fadeIn'); 
 

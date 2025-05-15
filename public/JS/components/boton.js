@@ -1,7 +1,7 @@
-import { crearFormulario, editar } from "./form_elements";
-import { userInfoBySendingId } from "./../services/usuario";
-import { getCampoById } from "./../services/campo";
-import { getHorarioById } from "./../services/franja_horaria";
+import { crearFormulario, editar } from "./form_elements.js";
+import { userInfoBySendingId } from "./../services/usuario.js";
+import { getCampoById } from "./../services/campo.js";
+import { getHorarioById } from "./../services/franja_horaria.js";
 
 
 /**

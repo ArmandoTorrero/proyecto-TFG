@@ -18,7 +18,7 @@ class FranjaHoraria extends EmptyModel
 
     public function getInfoPistaHorarioByIdHorario($id_horario)
     {
-        $sql = "select 
+        $sql = "SELECT 
             franja_horaria.id, 
             franja_horaria.fecha,
             franja_horaria.hora_inicio, 
@@ -46,7 +46,7 @@ class FranjaHoraria extends EmptyModel
                 fecha = :fecha -- Para hoy
                 AND hora_inicio > CURTIME() -- Horas posteriores a la actual
             )
-            ORDER BY fecha";
+            ORDER BY hora_inicio ASC";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':id_campo', $id_campo);
         $stmt->bindParam(':fecha', $fecha);
@@ -56,7 +56,7 @@ class FranjaHoraria extends EmptyModel
 
     public function getHorariosActualizados()
     {
-        $sql = "select 
+        $sql = "SELECT 
                 franja_horaria.id, 
                 franja_horaria.fecha,
                 franja_horaria.hora_inicio, 
@@ -65,7 +65,7 @@ class FranjaHoraria extends EmptyModel
             from franja_horaria 
             JOIN pista ON franja_horaria.pista_id = pista.id
             WHERE 
-                fecha > CURDATE() -- Fechas futuras (posteriores a hoy)
+                franja_horaria.fecha > CURDATE() -- Fechas futuras (posteriores a hoy)
                 OR 
                 (
                     fecha = CURDATE() -- Para hoy

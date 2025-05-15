@@ -1,4 +1,4 @@
-import { containerFormUser, containerFormCampo, containerFormHorario } from "./../boton";
+import { containerFormUser, containerFormCampo, containerFormHorario } from "./../boton.js";
 
 
 function quitarScroll() {

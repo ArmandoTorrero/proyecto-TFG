@@ -1,9 +1,9 @@
-import { userInfo } from "./../services/usuario";
-import { crearBoton } from "./boton";
-import { getReservasByUserId, eliminarReserva } from "./../services/reservas";
-import { crearInput, crearLabel, editar } from "./form_elements";
-import { crearTabla } from "./tabla";
-import { crearTituloSeccion } from "./acciones_perfil";
+import { userInfo } from "./../services/usuario.js";
+import { crearBoton } from "./boton.js";
+import { getReservasByUserId, eliminarReserva } from "./../services/reservas.js";
+import { crearInput, crearLabel, editar } from "./form_elements.js";
+import { crearTabla } from "./tabla.js";
+import { crearTituloSeccion } from "./acciones_perfil.js";
 
 
 

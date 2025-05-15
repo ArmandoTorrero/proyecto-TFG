@@ -157,6 +157,7 @@
 
 .pista{
     width: 85%;
+    max-width: 600px;
     margin: 10px 0px;
     border-radius: 10px;
     background-color: var(--fondoBody);
@@ -271,20 +272,20 @@
 
 .pre-footer .buttons{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 100%;
     margin: 5% 0 0;
 }
 
 .pre-footer .buttons > button{
     padding: 5px 20px;
-    border: none;
     border-radius: 5px;
+    border: none;
     background-color: var(--fondoBody);
-    margin: 2% 0%;
+    margin: 2% 5px;
     a{
-        font-size: 1.1rem;
+        font-size: 0.9rem;
         font-weight: 600;
         color: var(--fondoBotones);
     }

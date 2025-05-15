@@ -50,12 +50,12 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                    4. ¿Puedo cancelar o modificar una reserva?
+                    4. ¿Puedo cancelar una reserva?
                 </button>
                 </h2>
                 <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                    Sí, puedes cancelar o modificar tu reserva con al menos 24 horas de antelación a través de tu área de cliente. Las cancelaciones dentro de las 24 horas previas podrían tener cargos adicionales.
+                    Sí, puedes cancelar tu reserva con al menos 24 horas de antelación a través de tu perfil en la seccion de 'reservas'. 
                     </div>
                 </div>
             </div>

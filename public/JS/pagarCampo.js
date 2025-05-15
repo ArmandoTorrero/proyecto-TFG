@@ -1,7 +1,7 @@
-import { info } from "./components/infoReserva";
-import { logueado } from "./services/usuario";
-import { validarInput } from "./login";
-import { alerta } from "./components/alerta";
+import { info } from "./components/infoReserva.js";
+import { logueado } from "./services/usuario.js";
+import { validarInput } from "./login.js";
+import { alerta } from "./components/alerta.js";
 
 
 /**

@@ -49,12 +49,16 @@
             <section class="desplegable">
                 <a href="/TFG/modalidades" target="_self">Modalidades</a>
                 <a href="/TFG/camposDeportivos" target="_self">Campos</a>
-                <a href="#" target="_self">Contactanos</a>
+                <a href="/TFG/contactanos" target="_self">Contactanos</a>
                 <a href="/TFG/PyR" target="_self">Preguntas y respuestas</a>
                 <a href="/TFG/login" target="_self">Iniciar sesión</a>
             </section>
                 
         </nav>
+
+        <section class="loader-container">
+            <div class="loader"></div>
+        </section>
 
         <!-- Aquí se incluirá el contenido de las vistas -->
          <?php echo $content?>

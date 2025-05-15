@@ -1,14 +1,14 @@
-import { getUsuarios} from "./../services/usuario";
-import { getCampos } from "./../services/campo";
-import { getReservas } from "./../services/reservas";
-import { getAll, getFechasActualizadas } from "./../services/franja_horaria";
-import { crearTituloSeccion } from "./acciones_perfil";
-import { buscadorUsuario } from "./buscador";
-import { accionesContainer, crearBoton, crearHorario} from "./boton";
-import { crearTabla } from "./tabla";
-import { crearInput } from "./form_elements";
-import { editUser, editarCampo, editarHorario } from "./admin/editar";
-import { deleteUser, deleteCampo, deleteHorario } from "./admin/eliminar";
+import { getUsuarios} from "./../services/usuario.js";
+import { getCampos } from "./../services/campo.js";
+import { getReservas } from "./../services/reservas.js";
+import { getAll, getFechasActualizadas } from "./../services/franja_horaria.js";
+import { crearTituloSeccion } from "./acciones_perfil.js";
+import { buscadorUsuario } from "./buscador.js";
+import { accionesContainer, crearBoton, crearHorario} from "./boton.js";
+import { crearTabla } from "./tabla.js";
+import { crearInput } from "./form_elements.js";
+import { editUser, editarCampo, editarHorario } from "./admin/editar.js";
+import { deleteUser, deleteCampo, deleteHorario } from "./admin/eliminar.js";
 
 
 
@@ -70,12 +70,12 @@ export function mostrarTablaReservas() {
         
         let listas_reservas = reservas.reservas; // recogemos las reservas de la BBDD
 
-        let headers = ['ID usuario','Campo', 'Fecha', 'Hora inicio'];
+        let headers = ['ID reserva','ID usuario','Campo', 'Fecha y hora de la reserva'];
         let data = listas_reservas.map(reserva => [
+            reserva.id,
             reserva.usuario_id,
             reserva.nombre_pista, 
-            reserva.fechaHora.slice(0, -8),
-            reserva.hora_inicio.slice(0, -3)
+            reserva.fechaHora
         ]); 
 
         let tabla_reservas = crearTabla(headers, data); // creamos la tabla con los datos
@@ -104,8 +104,7 @@ export function mostrarTablaReservas() {
                     let datos_tabla = data.reservas.map(reserva => [
                         reserva.usuario_id,
                         reserva.nombre_pista, 
-                        reserva.fechaHora.slice(0, -8),
-                        reserva.hora_inicio.slice(0, -3)
+                        reserva.fechaHora
                     ])
                     
                     tabla_reservas_container.appendChild(crearTabla(headers,datos_tabla))

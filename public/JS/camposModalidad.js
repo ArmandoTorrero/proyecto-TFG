@@ -1,4 +1,4 @@
-import { cartaCampo } from "./components/cardCampo";
+import { cartaCampo } from "./components/cardCampo.js";
 import { modalidad, getCamposByModalidadId } from "./services/campo.js";
 import { aplicarAnimacion } from "./components/animaciones.js";
 

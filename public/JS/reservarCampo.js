@@ -1,6 +1,6 @@
-import { crearBtnHora } from "./components/crearBotonHora";
-import { crearOption } from "./components/crearOption";
-import { getFechasActualizadas, horariosDinamicos } from "./services/franja_horaria";
+import { crearBtnHora } from "./components/crearBotonHora.js";
+import { crearOption } from "./components/crearOption.js";
+import { getFechasActualizadas, horariosDinamicos } from "./services/franja_horaria.js";
 
 
 /**

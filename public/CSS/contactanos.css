@@ -28,9 +28,10 @@ main{
 
 .contact-container{
     display: flex;
-    flex-direction: column;
+    flex-flow: column wrap;
     align-items: center;
     width: 70%;
+    max-width: 400px;
     margin: 20px 0;
     padding: 3rem 1rem;
     border-radius: 5px;
