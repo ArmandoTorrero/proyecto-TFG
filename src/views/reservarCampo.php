@@ -3,6 +3,7 @@
 ?>
     <head>
         <link rel="stylesheet" href="./public/CSS/reservarCampo.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     </head>
 
     <section class="reservar">
@@ -10,13 +11,12 @@
         <article class="content">
 
             <h1></h1>
-
-            <select name="fecha" id="fecha">
-                <option value="" selected hidden >Elige una fecha</option>
-            </select>
             
-            <input type="date" name="calendario" id="calendario"> 
-
+            <section class="input-label">
+                <label for="">Escoge una fecha para tu reserva</label>
+                <input type="date" name="calendario" id="calendario" placeholder="Elige una fecha"> 
+                <p class="noHorarios">No hay horarios para esta fecha</p>
+            </section>
 
             <section class="horarios" id="horarios"></section>
 
@@ -26,8 +26,8 @@
 
     </section>
 
-
     <script type="module" src="./public/JS/reservarCampo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <?php 
     $content = ob_get_clean(); 

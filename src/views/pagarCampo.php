@@ -19,7 +19,7 @@
                 <article class="label-input">
                     <label for="">Número de la tarjeta</label>
                     <input type="text" name="numTarjeta" id="numTarjeta" placeholder="0000 0000 0000 0000">
-                    <span class="tarjetaSpan">El formato de la tarjeta no es correcto</span>
+                    <span class="tarjetaSpan">El formato no es correcto</span>
                 </article>
 
                 <article class="date-cvc">
@@ -27,7 +27,7 @@
                     <article class="label-input">
                         <label for="">Fecha de expiración</label>
                         <input type="text" name="fechaExp" id="fechaExp" placeholder="MM/YY">
-                        <span class="fechaSpan">El formato de la fecha no es correcto</span>
+                        <span class="fechaSpan">El formato no es correcto</span>
                     </article>
                     <article class="label-input">
                         <label for="">CVC</label>

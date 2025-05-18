@@ -103,7 +103,7 @@ export function reservasUsuario(rol) {
             
             console.log(reservas_usuario);
             
-            let headers = ['ID reserva', 'Pista', 'Fecha - Hora de reserva', 'Fecha del partido', 'Hora del partido' ,'Cancelar'];
+            let headers = ['Pista', 'Fecha partido', 'Hora partido' ,'Cancelar'];
             let data = reservas_usuario.map(reserva => {
 
                 // Creamos el botón de cancelar la reserva
@@ -152,9 +152,7 @@ export function reservasUsuario(rol) {
 
                 // devolvemos la información necesario para la tabla
                 return [
-                    reserva.id,
                     reserva.nombre_pista,
-                    reserva.fechaHora,
                     reserva.fecha,
                     reserva.hora_inicio.slice(0, -3), 
                     cancelarButton

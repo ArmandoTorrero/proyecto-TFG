@@ -1,6 +1,9 @@
 <?php
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../models/usuario.php';
+require_once __DIR__ . '/../../core/utilities/security.php';
+require_once __DIR__ . '/../../core/utilities/sessions.php'; 
+require_once __DIR__ . '/../../core/utilities/Validador.php'; 
 
 use Core\utilities\Validador;
 use Core\utilities\Sessions;
@@ -177,7 +180,7 @@ class UsuariosController
     public function validarDatosLogin()
     {
         $datos = json_decode(file_get_contents("php://input"), true);
-
+        
         if ($datos) {
             $camposValidados = Validador::validarCamposLoginUsuario(
                 Security::sanitizeString($datos["correo"]), password: 

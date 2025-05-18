@@ -33,12 +33,12 @@ main{
 .form-container .label-input{
     display: flex;
     flex-direction: column;
-    width: 55vw;
+    width: 60vw;
     margin: 1vw 0vw;
 
     label{
         margin: 1vw 0vw;
-        font-size: 1.2rem;
+        font-size: 1rem;
         color: var(--colortexto2);
     }
 
@@ -58,6 +58,8 @@ main{
     span{
         opacity: 0;
         color: red;
+        font-size: 0.8rem;
+        font-weight: 500;
     }
 
 }
@@ -100,7 +102,7 @@ form{
 
     .form-container .label-input{
         width: 25vw;
-        margin: 0.5vw auto;
+        margin: 0.25vw auto;
 
         label{
             margin: 0.5vw 0vw;

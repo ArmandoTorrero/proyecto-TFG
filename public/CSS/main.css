@@ -132,7 +132,7 @@ nav{
 }
 
 .desplegable{
-    display: flex;
+    display: none;
     flex-direction: column;
     width: 100vw;
     height: 100vh;
@@ -140,7 +140,7 @@ nav{
     position: absolute;
     z-index: 1;
     top: 0;
-    transform: translateX(200%);
+    transform: translateX(100%);
     transition: all .3s ease-in-out;
 
     a{
@@ -168,6 +168,7 @@ body:has(.menu-hamburguesa input:checked){
 
 body:has(.menu-hamburguesa input:checked) .desplegable{
     transform: translateX(0);
+    display: flex;
 
 }
 

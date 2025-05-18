@@ -4,6 +4,7 @@ use Core\Utilities\Security;
 use Core\utilities\Validador;
 
     require_once __DIR__ . '/../../core/utilities/Validador.php'; 
+    require_once __DIR__ . '/../../core/utilities/security.php'; 
     require_once __DIR__ . '/../../vendor/autoload.php';
     require_once __DIR__ . '/../models/campo.php';
     class CamposController{
