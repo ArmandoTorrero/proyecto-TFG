@@ -41,7 +41,7 @@ class UsuariosController
      * @return void
      */
     public function landingPage()
-    {
+    {    
         require __DIR__ . '/../views/landing.php';
     }
 

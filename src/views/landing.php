@@ -10,7 +10,7 @@
     <section class="hero">
         
         <article class="hero-content animate__animated animate__fadeInLeft">
-            <h1>Reservar campos deportivos <b>más facil que nunca</b></h1>
+            <h1>Reservar campos deportivos <b>más fácil que nunca</b></h1>
             <p>Descubre la máxima comodidad al reservar campos deportivos de fútbol, pádel, tenis y baloncesto. Nuestra plataforma intuitiva te permite reservar tu plaza en tan solo unos clics.</p>
             <button>
                 <a href="/TFG/camposDeportivos" target="_self">Reservar</a>

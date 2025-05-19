@@ -2,6 +2,7 @@ import { info } from "./components/infoReserva.js";
 import { logueado } from "./services/usuario.js";
 import { validarInput } from "./login.js";
 import { alerta } from "./components/alerta.js";
+import { getCookie, setCookie } from "./components/cookies.js";
 
 
 /**
@@ -66,10 +67,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("form"); 
     
     logueado().then(rol => {
+
+        // redirección instantanea a la página de perfil si el usuario es un admin
+        rol.rol == 2 ? window.location.href = '/TFG/perfil' : ''; 
+
         if (rol.rol != 1) { // si el rol no es de un usuario corriente desabilitamos el formulario
+
+            const url = new URL(window.location.href);
+            const id_horario = url.searchParams.get("id_horario");             
+        
+
             buttonConfirmar.disabled = true;
             form.addEventListener("submit", (ev)=> {
                 ev.preventDefault(); 
+
+                // si es invitado y no existe la cookie previamente la creamos
+                rol.rol == false && getCookie("id_horario") == null ? setCookie('id_horario', id_horario, {days: 1 , path: '/'}) : ''; 
+                
                 // En caso de que un administrador o usuario invitado quiera hacer una reserva se les redigira a otra pagina
                 rol.rol == false ? window.location.href = '/TFG/login' : window.location.href = '/TFG/perfil';
             })

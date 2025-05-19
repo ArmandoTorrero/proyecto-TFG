@@ -102,5 +102,7 @@
         <script type="module" src="./public/JS/main.js"></script>
         <script src="https://kit.fontawesome.com/bee72e8c16.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     </body>
 </html>

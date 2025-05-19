@@ -31,21 +31,32 @@ export function mostrarTablaUsuarios() {
 
         // creamos la tabla para mostrar los usuarios
         let headers = ['ID', 'Nombre', 'Email', 'Telefono', 'Acciones'];
-        let data = lista_usuarios.map(usuario => [
-            usuario.id, 
-            usuario.nombre, 
-            usuario.email, 
-            usuario.tlf,
-            accionesContainer()   
-        ]);
+        // let data = lista_usuarios.map(usuario => [
+        //     usuario.id, 
+        //     usuario.nombre, 
+        //     usuario.email, 
+        //     usuario.tlf,
+        //     accionesContainer()   
+        // ]);
+
+        let data = lista_usuarios.map(usuario => {
+
+            return [
+                usuario.id, 
+                usuario.nombre, 
+                usuario.email, 
+                usuario.tlf,
+                accionesContainer()
+            ]
+        }); 
 
         let tabla_usuarios = crearTabla(headers, data);
         userInfoContainer.appendChild(tabla_usuarios); // añadimos la tabla al contenedor
-
-
         // Llamar a las funciones para editar y eliminar usuarios
         editUser(); 
         deleteUser(); 
+
+
     });
     
     return userInfoContainer; 
@@ -81,10 +92,7 @@ export function mostrarTablaReservas() {
         let tabla_reservas = crearTabla(headers, data); // creamos la tabla con los datos
 
         input_fecha.addEventListener("input", async (ev) => {
-
-            console.log(ev.target.value);
             
-
             try {
                 const response = await fetch('/TFG/reservasByFecha', {
                     method: 'POST', 
@@ -149,12 +157,12 @@ export function mostrarTablaCampos() {
 
     getCampos().then(campos => {
         
-        let headers = ['ID', 'Pista', 'Precio/Hora', 'Modalidad','Disponible','Acciones'];
+        let headers = ['ID', 'Pista', 'Precio','Disponible','Acciones'];
         let data = campos.map(campo => [
             campo.id, 
             campo.nombre, 
             `${campo.precio_hora}€`, 
-            campo.modalidad_id === 1 ? 'Futbol' : campo.modalidad_id === 2 ? 'Tenis' : 'Padel',
+            // campo.modalidad_id === 1 ? 'Futbol' : campo.modalidad_id === 2 ? 'Tenis' : 'Padel',
             campo.disponible === 1 ? 'Si' : 'No', 
             accionesContainer()
         ]);

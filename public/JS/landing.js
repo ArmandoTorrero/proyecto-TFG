@@ -2,6 +2,7 @@ import { cartaCampoDestacado } from "./components/campoDestacado.js";
 import { aplicarAnimacion } from "./components/animaciones.js";
 import { getCampos } from "./services/campo.js";
 import { logueado } from "./services/usuario.js";
+import { panelCookies } from "./components/cookies.js";
 
 /**
  * Modificar la landing cuando el usuario se registra
@@ -34,19 +35,18 @@ function modificarLandingPage(rol) {
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    panelCookies(); 
+
     aplicarAnimacion('.info > h1',  'fadeIn');
     aplicarAnimacion('.info > p',  'fadeIn');  
     aplicarAnimacion('.containers', 'fadeInRight'); 
     aplicarAnimacion('.pista', 'fadeInLeft'); 
     aplicarAnimacion('.pre-footer', 'fadeIn'); 
 
-    logueado().then((data) => {    
-        
+    logueado().then((data) => {        
         modificarLandingPage(data.rol)
-        
     }).catch((err) => {
         console.log(err);
-        
     });
 
     getCampos().then(array_campos =>{
@@ -68,6 +68,14 @@ document.addEventListener("DOMContentLoaded", () => {
             
         }
     })
+
+    // Esperar a que el panel de cookies esté en el DOM y visible
+    setTimeout(() => {
+        const cookieContainer = document.querySelector('.cookieContainer');
+        if (cookieContainer && getComputedStyle(cookieContainer).display !== 'none' && !cookieContainer.classList.contains('hidden')) {
+            document.body.style.overflowY = 'hidden';
+        }
+    }, 100);
 })
 
 
