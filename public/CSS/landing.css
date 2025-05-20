@@ -215,7 +215,7 @@ section.hidden{
 
 .pista{
     width: 85%;
-    max-width: 400px;
+    max-width: 500px;
     margin: 10px 0px;
     border-radius: 10px;
     background-color: var(--fondoBody);
@@ -229,6 +229,18 @@ section.hidden{
     border-radius: 10px 10px 0px 0px;
     background-size: cover;
     background-position: center;
+}
+
+.pista:first-of-type .img{
+    background-image: url('./../ASSETS/img_futbol_sala.png');
+}
+
+.pista:nth-of-type(2) .img{
+    background-image: url('./../ASSETS/campo_futsal.jpg');
+}
+
+.pista:last-of-type .img{
+ background-image: url('./../ASSETS/campo-futbol4.jpeg');
 }
 
 .pista .content{
@@ -493,7 +505,7 @@ section.hidden{
     }
 
     .pistas{
-        justify-content: space-around;
+        justify-content: space-evenly;
         flex-flow: row wrap;
     }
 

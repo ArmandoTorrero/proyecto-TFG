@@ -1,4 +1,9 @@
 
+/*
+---------------------------------------------
+----------CONTAINER PARA LOS CAMPOS----------
+---------------------------------------------
+*/
 .campos-container{
     display: flex;
     flex-flow: column wrap;
@@ -6,11 +11,31 @@
     align-items: center;
 }
 
+/*
+------------------------------------------
+----------ESTILO PARA LOS CAMPOS----------
+------------------------------------------
+*/
+
 .campo{
     width: 80%;
     max-width: 500px;
     margin: 3% 0;
     text-align: center;
+    position: relative;
+}
+
+.campo .categoria{
+    width: min-content;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: var(--fondoBotones);
+    color: var(--colortexto2);
+    font-size: 0.7rem;
+    font-weight: bold;
+    position: absolute;
+    top: 4%;
+    right: 4%;
 }
 
 .campo .img{
@@ -20,6 +45,9 @@
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center;
+    background-image: url('./../ASSETS/img_futbol_sala.png');
+
+    
 }
 
 .campo .content{
@@ -59,7 +87,11 @@
     }
 }
 
-
+/*
+------------------------------------------------------
+----------SECCION DE PREGUNTAS Y RESPUESTAS----------
+------------------------------------------------------
+*/
 .PyR{
     display: flex;
     flex-direction: column;
@@ -107,6 +139,12 @@
     background-color: red;
 }
 
+
+/*
+-------------------------------------------
+----------ESTILOS PARA ESCRITORIO----------
+-------------------------------------------
+*/
 @media screen and (min-width: 1200px){
 
     .campos-container{

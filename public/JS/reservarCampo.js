@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // creamos un array con las fechas sin repetir
         let fechas_unicas = [...new Set(array_fechas_formateado)];
 
-        console.log(fechas_unicas);
         
         flatpickr("#calendario", {
             dateFormat: "Y-m-d",

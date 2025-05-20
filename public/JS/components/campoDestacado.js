@@ -30,15 +30,14 @@ export function cartaCampoDestacado(id,nombreCampo,precio,categoria_id,h2,imgCon
 
     switch (categoria_id) {
         case 1:
-            imgContainer.style.backgroundImage = "url('./PUBLIC/ASSETS/campo-futbol4.jpeg')";
-            categoriaParrafo.textContent = "Futbol"; 
+            categoriaParrafo.textContent = "Futsal"; 
             break;
         case 2: 
-            imgContainer.style.backgroundImage = "url('./PUBLIC/ASSETS/tenis.jpeg')"; 
+            imgContainer.style.backgroundImage = "url('./public/ASSETS/tenis.jpeg')"; 
             categoriaParrafo.textContent = "Tenis"; 
             break; 
         case 3:
-            imgContainer.style.backgroundImage = "url('./PUBLIC/ASSETS/padel.jpeg')"; 
+            imgContainer.style.backgroundImage = "url('./public/ASSETS/padel.jpeg')"; 
             categoriaParrafo.textContent = "Padel"; 
         break; 
     

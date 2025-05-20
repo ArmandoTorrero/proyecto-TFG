@@ -1,10 +1,20 @@
 
-
+/*
+--------------------------------
+----------ESTILOS MAIN----------
+--------------------------------
+*/
 main{
     display: flex;
     flex-direction: column;
     align-items: center;    
 }
+
+/*
+----------------------------------
+----------ESTILOS TITULO----------
+----------------------------------
+*/
 
 .title{
     padding: 5px;
@@ -18,7 +28,11 @@ main{
     }
 }
 
-
+/*
+-------------------------------------
+----------ESTILOS CONTAINER----------
+-------------------------------------
+*/
 .info-contact-containers{
     width: 100%;
     display: flex;
@@ -26,6 +40,11 @@ main{
     align-items: center;
 }
 
+/*
+-----------------------------------------------
+----------ESTILOS CONTENEDOR CONTACTO----------
+-----------------------------------------------
+*/
 .contact-container{
     display: flex;
     flex-flow: column wrap;
@@ -58,6 +77,11 @@ main{
     font-size: 2rem;
 }
 
+/*
+------------------------------------------
+----------ESTILOS REDES SOCIALES----------
+------------------------------------------
+*/
 .RRSS-container{
     display: flex;
     justify-content: space-around;
@@ -69,7 +93,11 @@ main{
 }
 
 
-
+/*
+-------------------------------------------
+----------ESTILOS PARA ESCRITORIO----------
+-------------------------------------------
+*/
 @media screen and (min-width: 1200px){
 
     .title > p{

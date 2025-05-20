@@ -1,10 +1,22 @@
 
+
+/*
+--------------------------------------------
+----------ESTILOS PARA LAS ALERTAS----------
+--------------------------------------------
+*/
 #alerta-verde, #alerta-roja{
     position: absolute;
     top: -10%;
     transition: all 0.2s ease;
 }
 
+
+/*
+--------------------------------
+----------ESTILOS MAIN----------
+--------------------------------
+*/
 main{
     padding: 20px 0px;
     background-image: url('./../ASSETS/campo-futbol.jpg');
@@ -14,7 +26,11 @@ main{
 }
 
 
-
+/*
+-------------------------------------------------------
+----------ESTILOS PARA EL CONTENEDOR DEL FORM----------
+-------------------------------------------------------
+*/
 .form-container{
     width: 80vw;
     padding: 15px 10px;
@@ -75,6 +91,12 @@ main{
     cursor: pointer;
 }
 
+/*
+----------------------------------------------
+----------ESTILOS PARA EL FORMULARIO----------
+----------------------------------------------
+*/
+
 form{
     display: flex;
     flex-direction: column;
@@ -86,7 +108,11 @@ form{
     display: none;
 }
 
-
+/*
+-------------------------------------------
+----------ESTILOS PARA ESCRITORIO----------
+-------------------------------------------
+*/
 @media screen and (min-width: 1000px){
 
     main{

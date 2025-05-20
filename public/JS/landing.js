@@ -1,4 +1,5 @@
 import { cartaCampoDestacado } from "./components/campoDestacado.js";
+import { cartaCampo } from "./components/cardCampo.js";
 import { aplicarAnimacion } from "./components/animaciones.js";
 import { getCampos } from "./services/campo.js";
 import { logueado } from "./services/usuario.js";

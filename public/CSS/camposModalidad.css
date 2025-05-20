@@ -1,13 +1,21 @@
 
+/*
+----------------------------------------
+----------ESTILOS PARA EL MAIN----------
+----------------------------------------
+*/
 main{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.img-aside{
-    display: none;
-}
+
+/*
+---------------------------------------------
+----------ESTILO PARA EL CONTENEDOR----------
+---------------------------------------------
+*/
 
 .campos-container{
     display: flex;
@@ -17,6 +25,12 @@ main{
     width: 90%;
 }
 
+
+/*
+------------------------------------------
+----------ESTILO PARA LOS CAMPOS----------
+------------------------------------------
+*/
 .campo{
     width: 90%;
     margin: 3% 0;
@@ -47,6 +61,10 @@ main{
     }
 }
 
+.categoria{
+    display: none;
+}
+
 .campo h2{
     margin: 4% 0;
     font-size: 1.2rem;
@@ -69,7 +87,11 @@ main{
     }
 }
 
-
+/*
+-------------------------------------------
+----------ESTILOS PARA ESCRITORIO----------
+-------------------------------------------
+*/
 
 @media screen and (min-width: 1000px){
 

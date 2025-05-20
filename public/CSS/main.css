@@ -12,6 +12,7 @@
     --colorTitulos2: #fff; 
     --colorTexto: #010100;
     --colortexto2: #fff;
+    --fondoHeroSection: #EFF4FE; 
     --fondoBotones: #2462EB; 
     --fondoFooter: #111827; 
 }
@@ -159,8 +160,7 @@ nav{
 
 
 body:has(.menu-hamburguesa input:checked){
-    overflow-y: hidden;
-
+    max-height: 100vh;
     nav > .menu-hamburguesa > div{
         background-color: var(--colortexto2);
     }
@@ -237,7 +237,11 @@ footer{
     }
 }
 
-
+/*
+-------------------------------------------
+----------ESTILOS PARA ESCRITORIO----------
+-------------------------------------------
+*/
 
 @media screen and (min-width: 1200px){
 

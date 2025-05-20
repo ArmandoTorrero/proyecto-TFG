@@ -19,11 +19,11 @@ export function cartaCampo(id,nombre,precio,disponible,modalidad) {
 
     // asignamos una foto en funcion de la modalidad
     if (modalidad == 1) {
-        divImg.style.backgroundImage = "url('./PUBLIC/ASSETS/balon-futbol.jpeg')"; 
+        divImg.style.backgroundImage = "url('./public/ASSETS/img_futbol_sala.png')"; 
     }else if (modalidad == 2) {
-        divImg.style.backgroundImage = "url('./PUBLIC/ASSETS/tenis.jpeg')";
+        divImg.style.backgroundImage = "url('./public/ASSETS/tenis.jpeg')";
     }else{
-        divImg.style.backgroundImage = "url('./PUBLIC/ASSETS/padel.jpeg')";
+        divImg.style.backgroundImage = "url('./public/ASSETS/padel.jpeg')";
     }
 
     // creamos la seccion de content
@@ -66,9 +66,13 @@ export function cartaCampo(id,nombre,precio,disponible,modalidad) {
         
     }
 
+    let categoria = document.createElement("span");
+    categoria.textContent = modalidad == 1 ? "Futsal" : modalidad == 2 ? "Tenis" : "Padel";
+    categoria.classList.add("categoria");
+
     button.appendChild(enlace);  
 
-    card.append(divImg,content,button);
+    card.append(divImg,content,button,categoria);
 
     return card; 
 }

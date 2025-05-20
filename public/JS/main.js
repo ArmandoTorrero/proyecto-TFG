@@ -38,19 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
     logueado().then(data => {    
         modificarNav(data.rol)
     })
-
-    // Controlar el overflow según el estado del menú hamburguesa
-    const inputMenu = document.querySelector('.menu-hamburguesa input[type="checkbox"]');
-    function actualizarOverflow() {
-        if (inputMenu && inputMenu.checked) {
-            document.body.style.overflowY = 'hidden';
-        } else {
-            document.body.style.overflowY = 'auto';
-        }
-    }
-    if (inputMenu) {
-        inputMenu.addEventListener('change', actualizarOverflow);
-        actualizarOverflow(); // Comprobar estado inicial
-    }
+    
 })
 
