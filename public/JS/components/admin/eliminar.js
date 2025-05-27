@@ -38,7 +38,8 @@ export function deleteUser() {
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Eliminar"
+                confirmButtonText: "Eliminar",
+                cancelButtonText: "Cancelar"
             }).then((result) => {
                 if (result.isConfirmed) {
                     eliminarUsuario(id).then(info => {
@@ -87,7 +88,8 @@ export function deleteCampo() {
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Eliminar"
+                confirmButtonText: "Eliminar",
+                cancelButtonText: "Cancelar"
             }).then((result) => {
                 if (result.isConfirmed) {
                     eliminarCampo(id).then(info => {
@@ -132,7 +134,8 @@ export function deleteHorario() {
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Eliminar"
+                confirmButtonText: "Eliminar",
+                cancelButtonText: "Cancelar"
             }).then((result) => {
                 if (result.isConfirmed) {
                     eliminarHorario(id).then(info => {

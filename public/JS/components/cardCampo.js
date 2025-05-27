@@ -58,6 +58,7 @@ export function cartaCampo(id,nombre,precio,disponible,modalidad) {
         }
     })
 
+    // si el campo no esta disponible cambiamos el color del boton y evitamos que funcione el enlace
     if (disponible != 1) {
         button.style.backgroundColor = "rgb(36, 98, 235, 0.5)"; 
         enlace.addEventListener("click", (ev) => {

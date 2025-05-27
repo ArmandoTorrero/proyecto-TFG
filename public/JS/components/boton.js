@@ -2,6 +2,7 @@ import { crearFormulario, editar } from "./form_elements.js";
 import { userInfoBySendingId } from "./../services/usuario.js";
 import { getCampoById } from "./../services/campo.js";
 import { getHorarioById } from "./../services/franja_horaria.js";
+import { aplicarAnimacion } from "./animaciones.js";
 
 
 /**
@@ -195,7 +196,7 @@ export function crearHorario() {
     let btn_crear_horario = document.querySelector(".crear-horario"); 
     
     btn_crear_horario.addEventListener("click", () => {
-        document.body.style.overflowY = "hidden"; // cuando se haga click evitamos el scroll
+        document.body.style.overflow = "hidden"; // cuando se haga click evitamos el scroll
     
         // Hacer scroll hacia arriba para que el administrador vea el formulario
         window.scrollTo({ top: 0, behavior: "smooth" });

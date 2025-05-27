@@ -1,9 +1,5 @@
 import { crearBtnHora } from "./components/crearBotonHora.js";
-import { crearOption } from "./components/crearOption.js";
 import { getFechasActualizadas, horariosDinamicos } from "./services/franja_horaria.js";
-
-
-
 
 /**
  * Mostrar los horarios dependiendo de la fecha

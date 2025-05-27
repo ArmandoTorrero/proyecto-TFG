@@ -1,5 +1,3 @@
-
-
 /**
  *
  * Funcion que se encarga de gestionar el panel de cookies 
@@ -17,15 +15,14 @@ export function panelCookies() {
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Acepto las cookies"
+                confirmButtonText: "Aceptar todas",
+                cancelButtonText: "Rechazar todas",
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Swal.fire({
-                    title: "Cookies aceptadas",
-                    icon: "success"
-                    });
                     setCookie("cookies", true, { days: 30 , path: "/"});
 
+                }else{
+                    setCookie("cookies", false, { days: 30 , path: "/"});
                 }
             });
         }, 3000);
@@ -88,4 +85,26 @@ export function setCookie(name, value, options = {}) {
     if (options.sameSite) cookie += `; sameSite=${options.sameSite}`;
     
     document.cookie = cookie;
+}
+
+
+/**
+ * Elimina una cookie estableciendo su fecha de expiración en el pasado
+ * @param {string} name - Nombre de la cookie a eliminar
+ * @param {Object} [options] - Opciones adicionales (deben coincidir con las usadas al crear la cookie)
+ * @param {string} [options.path] - Ruta donde se estableció la cookie (por defecto '/')
+ * @param {string} [options.domain] - Dominio donde se estableció la cookie
+ * @param {boolean} [options.secure] - Si la cookie era segura (solo HTTPS)
+ * @param {string} [options.sameSite] - Política SameSite (Lax/Strict/None)
+ */
+export function deleteCookie(name, options = {}) {
+    // Configuración básica para invalidar la cookie
+    document.cookie = [
+        encodeURIComponent(name) + '=', // Nombre codificado
+        '; expires=Thu, 01 Jan 1970 00:00:00 GMT', // Fecha en el pasado
+        '; path=' + (options.path || '/'), // Misma ruta que al crearse
+        options.domain ? '; domain=' + options.domain : '', // Dominio si se especificó
+        options.secure ? '; secure' : '', // Flag secure si era true
+        options.sameSite ? '; SameSite=' + options.sameSite : '' // SameSite si se usó (con mayúsculas)
+    ].join('');
 }

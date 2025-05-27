@@ -57,14 +57,13 @@ use Core\utilities\Validador;
          * @return void
          */
         public function reservarCampo() {
-            // Sessions::crearSesionIdCampo($_GET["id_campo"] ?? '');               
-            if ($this->campoModel->getById($_GET["id_campo"])) {
-                $_SESSION["id_campo"] = $_GET["id_campo"];
-            }else {
-                Security::redirigir('/TFG/camposDeportivos'); 
-            }
 
+            $campo = $this->campoModel->getById($_GET["id_campo"]); 
+            
+            // comprobamos que el campo existe y esta disponoble, en caso contrario redirgimos al usuario
 
+            $campo && $campo['disponible'] == 1 ? $_SESSION["id_campo"] = $_GET["id_campo"] : Security::redirigir('/TFG/camposDeportivos'); 
+            
             require __DIR__ . '/../views/reservarCampo.php';
         }
 

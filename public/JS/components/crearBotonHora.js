@@ -14,7 +14,7 @@ export function crearBtnHora(id_hora,hora_inicio,disponible) {
     const enlace = document.createElement("a"); 
     enlace.href = `/TFG/pasarelaPago?id_horario=${id_hora}`; 
     enlace.target = "_self"; 
-    hora_inicio = `${hora_inicio.split(":")[0]}:${hora_inicio.split(":")[1]}`; // le quito los segundos
+    hora_inicio = `${hora_inicio.slice(0, 5)}`; // le quito los segundos
     enlace.textContent = hora_inicio; 
 
     // desactivo el enlace en caso de que la hora no este disponible 

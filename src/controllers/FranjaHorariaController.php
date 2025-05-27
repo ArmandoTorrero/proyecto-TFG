@@ -74,6 +74,59 @@ class FranjaHorariaController
         }
     }
 
+    public function prueba()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $fecha = $_POST["fecha"];
+            $horarios = $_POST["hora_inicio"] ?? []; // array de horarios
+            $pista_id = $_POST["pista_id"];
+            $ya_existen = [];
+            $creados = [];
+
+            if (empty($horarios)) {
+                echo json_encode(['exito' => false, 'mensaje' => 'No se han recibido horarios']);
+                return;
+            }
+
+
+            foreach ($horarios as $hora) {
+                // Validar la fecha
+                if (!Validador::validarFechaHorario($fecha)) {
+                    echo json_encode(['exito' => false, 'mensaje' => 'La fecha tiene que ser actual o posterior a hoy']);
+                    return;
+                }
+                // Comprobar si ya existe ese horario
+                if ($this->franjaHorariaModel->getHorarioByFechaHoraPistaId($pista_id, $fecha, $hora)) {
+                    $ya_existen[] = $hora;
+                } else {
+                    // Crear el horario
+                     $this->franjaHorariaModel->create([
+                         'fecha' => $fecha,
+                         'hora_inicio' => $hora,
+                         'pista_id' => $pista_id
+                    ]);
+                    $creados[] = $hora;
+                }
+            }
+
+            $mensaje = '';
+            $exito = false;
+            if (count($creados) > 0) {
+                $mensaje .= 'Horarios creados correctamente ';
+                $exito = true; 
+                
+            }
+            if (count($ya_existen) > 0) {
+                $mensaje .= ' salvo ' . implode(', ', $ya_existen) . ' ya existen';
+            }
+
+            echo json_encode([
+                'exito' => $exito,
+                'mensaje' => $mensaje,
+            ]);
+        }
+    }
+
     /**
      * Función para crear un horario
      * @return void
@@ -120,7 +173,6 @@ class FranjaHorariaController
     {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $datos = [$_POST["horarioId"], $_POST["fecha"], $_POST["hora_inicio"]];
 
             // validamos la fecha para saber si es anterior a la actual
             if (Validador::validarFechaHorario($_POST["fecha"])) {

@@ -92,45 +92,50 @@ export function mostrarTablaReservas() {
         let tabla_reservas = crearTabla(headers, data); // creamos la tabla con los datos
 
         input_fecha.addEventListener("input", async (ev) => {
-            
-            try {
-                const response = await fetch('/TFG/reservasByFecha', {
-                    method: 'POST', 
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }, 
-                    body:JSON.stringify({
-                        fecha: ev.target.value 
-                    }) 
-                }); 
 
-                const data = await response.json(); 
-                console.log(data);
+            if (ev.target.value == "") {
                 
-
-                if (data.reservas.length != 0) {
-                    let tabla = tabla_reservas_container.querySelector("table"); 
-                    
-                    if (tabla) {
-                        tabla_reservas_container.querySelector("table").remove(); 
+                tabla_reservas_container.querySelector("table").remove();
+                tabla_reservas_container.appendChild(tabla_reservas); // añadimos la tabla al contenedor
+                
+            }else{
+                try {
+                    const response = await fetch('/TFG/reservasByFecha', {
+                        method: 'POST', 
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }, 
+                        body:JSON.stringify({
+                            fecha: ev.target.value 
+                        }) 
+                    }); 
+    
+                    const data = await response.json();                     
+    
+                    if (data.reservas.length != 0) {
+                        let tabla = tabla_reservas_container.querySelector("table"); 
+                        
+                        if (tabla) {
+                            tabla_reservas_container.querySelector("table").remove(); 
+                        }
+                          
+                        let datos_tabla = data.reservas.map(reserva => [
+                            reserva.id,
+                            reserva.usuario_id,
+                            reserva.nombre_pista, 
+                            reserva.fechaHora
+                        ])
+                        
+                        tabla_reservas_container.appendChild(crearTabla(headers,datos_tabla))
+                    }else{
+                        tabla_reservas_container.querySelector("table").textContent = "No hay reservas para esta fecha"
                     }
-                      
-                    let datos_tabla = data.reservas.map(reserva => [
-                        reserva.id,
-                        reserva.usuario_id,
-                        reserva.nombre_pista, 
-                        reserva.fechaHora
-                    ])
                     
-                    tabla_reservas_container.appendChild(crearTabla(headers,datos_tabla))
-                }else{
-                    tabla_reservas_container.querySelector("table").textContent = "No hay reservas para esta fecha"
+    
+                } catch (error) {
+                    console.log(error);
+                    
                 }
-                
-
-            } catch (error) {
-                console.log(error);
-                
             }
             
         })
@@ -191,7 +196,7 @@ export function mostrarTablaHorarios() {
     tabla_horarios_container.appendChild(titulo); 
     tabla_horarios_container.appendChild(crearBoton("Crear horario", "crear-horario")); 
 
-    getAll().then(horarios => {
+    getAll().then(horarios => {        
 
         let listaHorarios = horarios.horarios;         
 

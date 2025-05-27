@@ -27,6 +27,10 @@ body{
     overflow-x: hidden;
 }
 
+body.noScroll {
+  overflow-y: hidden;
+}
+
 h1{
     font-family: var(--titulos);
     font-weight: 500;
@@ -160,7 +164,7 @@ nav{
 
 
 body:has(.menu-hamburguesa input:checked){
-    max-height: 100vh;
+    overflow-y: hidden;
     nav > .menu-hamburguesa > div{
         background-color: var(--colortexto2);
     }

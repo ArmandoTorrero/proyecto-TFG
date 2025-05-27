@@ -64,6 +64,8 @@ $router->add('/eliminarHorario', 'FranjaHorariaController@eliminarHorario');
 $router->add('/getInfoPistaHorarioByIdHorario', 'FranjaHorariaController@getInfoPistaHorarioByIdHorario');
 $router->add('/getHorariosByFecha', 'FranjaHorariaController@getHorariosByFecha');
 
+$router->add('/prueba', 'FranjaHorariaController@prueba'); 
+
 $requestUri = isset($_GET['url']) ? '/' . trim($_GET['url'], '/') : '/';
 // Simulación de petición
 $router->dispatch($requestUri);

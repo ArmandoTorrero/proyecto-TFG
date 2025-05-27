@@ -57,63 +57,7 @@
         <h1>Instalaciones destacadas</h1>
         <p class="descripcion" >Descubre algunas de nuestras mejores instalaciones deportivas</p>
 
-        <section class="pistas">
-
-            <article class="pista">
-
-                <article class="img"></article>
-
-                <section class="content">
-                    <h2></h2>
-    
-                    <article class="precio-button">
-                        <span class="precio"></span>
-                        <button class="ver-detalles" >
-                            <a href="#" target="_self"></a>
-                        </button>
-                    </article>
-                </section>
-                <p class="categoria"></p>
-
-            </article>
-
-            <article class="pista">
-
-                <article class="img"></article>
-
-                <section class="content">
-                    <h2></h2>
-    
-                    <article class="precio-button">
-                        <span class="precio"></span>
-                        <button class="ver-detalles" >
-                            <a href="#" target="_self"></a>
-                        </button>
-                    </article>
-                </section>
-                <p class="categoria"></p>
-
-            </article>
-
-            <article class="pista">
-
-                <article class="img"></article>
-
-                <section class="content">
-                    <h2></h2>
-    
-                    <article class="precio-button">
-                        <span class="precio"></span>
-                        <button class="ver-detalles" >
-                            <a href="#" target="_self"></a>
-                        </button>
-                    </article>
-                </section>
-                <p class="categoria"></p>
-
-            </article>
-
-        </section>
+        <section class="pistas"></section>
 
         <button class="ver-campos">
             <a href="/TFG/camposDeportivos" target="_self">Ver todos los campos</a>

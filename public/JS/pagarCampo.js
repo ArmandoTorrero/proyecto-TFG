@@ -58,7 +58,11 @@ async function infoPistaHorario() {
 document.addEventListener("DOMContentLoaded", () => {
     
     infoPistaHorario().then(response => {    
-        let informacion = response.info; 
+        console.log(response);
+        let informacion = response.info;
+        
+        // si el campo no esta disponible hacemos la redireccion
+        informacion.pista_disponible == 0 ? window.location.href = '/TFG/camposDeportivos': '';  
         info(informacion.nombre, informacion.fecha, informacion.hora_inicio.slice(0, -3), informacion.precio_hora); 
         
     });
@@ -68,24 +72,27 @@ document.addEventListener("DOMContentLoaded", () => {
     
     logueado().then(rol => {
 
-        // redirección instantanea a la página de perfil si el usuario es un admin
-        rol.rol == 2 ? window.location.href = '/TFG/perfil' : ''; 
+        
 
         if (rol.rol != 1) { // si el rol no es de un usuario corriente desabilitamos el formulario
 
+            // Captamos el parametro get 
             const url = new URL(window.location.href);
-            const id_horario = url.searchParams.get("id_horario");             
-        
+            const id_horario = url.searchParams.get("id_horario");       
 
+            if (rol.rol == false) { // si el usuario es invitado lo redirigimos a la pagina de login y creamos la cookie
+                getCookie("cookies") == 'true' ? setCookie('id_horario', id_horario, {days: 1 , path: '/'}) : ''; 
+                window.location.href = '/TFG/login';
+
+            }else{ // si es admin lo redirigimos al perfil
+                window.location.href = '/TFG/perfil';
+            }
+
+                
             buttonConfirmar.disabled = true;
             form.addEventListener("submit", (ev)=> {
                 ev.preventDefault(); 
 
-                // si es invitado y no existe la cookie previamente la creamos
-                rol.rol == false && getCookie("id_horario") == null ? setCookie('id_horario', id_horario, {days: 1 , path: '/'}) : ''; 
-                
-                // En caso de que un administrador o usuario invitado quiera hacer una reserva se les redigira a otra pagina
-                rol.rol == false ? window.location.href = '/TFG/login' : window.location.href = '/TFG/perfil';
             })
         }else{
             realizarReserva(); 
@@ -123,12 +130,35 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const inputFechaCaducidad = document.getElementById("fechaExp")
     const spanFecha = document.querySelector(".fechaSpan")
-    let fechaRegex = /^(0[1-9]|1[0-2])\/\d{2}$/; 
-    
+    let fechaRegex = /^(0[1-9]|1[0-2])\/(\d{2})$/;
+    // Validación adicional para el año
+    function validarFechaExp(input, span) {
+        const match = input.value.match(fechaRegex);
+        if (match) {
+            const inputYear = parseInt('20' + match[2], 10);
+            const currentYear = new Date().getFullYear();
+            if (inputYear >= currentYear) {
+                input.style.borderColor = "green";
+                input.style.boxShadow = "0 0 5px green";
+                span.style.opacity = 0;
+                return true;
+            } else {
+                input.style.borderColor = "red";
+                input.style.boxShadow = "0 0 5px red";
+                span.style.opacity = 1;
+                return false;
+            }
+        } else {
+            input.style.borderColor = "red";
+            input.style.boxShadow = "0 0 5px red";
+            span.style.opacity = 1;
+            return false;
+        }
+    }
+
     inputFechaCaducidad.addEventListener("input", () => {
-        fechaCaducidadValida = validarInput(inputFechaCaducidad,spanFecha,fechaRegex)
-        comprobarEstadoInputs()
-    
+        fechaCaducidadValida = validarFechaExp(inputFechaCaducidad, spanFecha);
+        comprobarEstadoInputs();
     })
     
     

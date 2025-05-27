@@ -1,5 +1,6 @@
 import { logueado } from "./services/usuario.js";
 import { cargarLoader } from "./components/loader.js";
+import { getCookie } from "./components/cookies.js";
 
 /**
  * Modificar el desplegable del menu hamburguesa
@@ -32,8 +33,8 @@ function modificarNav(rol) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    cargarLoader(); 
+    
+    cargarLoader();     
 
     logueado().then(data => {    
         modificarNav(data.rol)

@@ -1,6 +1,6 @@
 import { alerta } from "./components/alerta.js";
 import { mostrarPasswd } from "./components/mostrar_passwd.js";
-import { getCookie } from "./components/cookies.js";
+import { getCookie, deleteCookie } from "./components/cookies.js";
 
 
 export function validarInput(input,span,regex) { // funcion para validar el input
@@ -45,7 +45,14 @@ function login() {
 
                 setTimeout(() => {
                     // si el usuario ha visitado algun horario al iniciar sesion lo redirigimos a la pasarela de pago
-                    window.location.href = getCookie("id_horario") != null ? `/TFG/pasarelaPago?id_horario=${getCookie("id_horario")}` : "/TFG/perfil"; 
+
+                    if (getCookie("id_horario") != null) {
+                        window.location.href = `/TFG/pasarelaPago?id_horario=${getCookie("id_horario")}`; 
+                        deleteCookie("id_horario");
+                    }else{
+                        window.location.href = "/TFG/perfil"; 
+                    }
+                    
                 }, 1000);
 
             } else {
