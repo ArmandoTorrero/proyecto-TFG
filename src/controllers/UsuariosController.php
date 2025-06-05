@@ -12,6 +12,7 @@ use Core\Utilities\Security;
 class UsuariosController
 {
     private $usuariosModel;
+    private $email;
 
     public function __construct()
     {

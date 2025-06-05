@@ -16,5 +16,8 @@
             "Core\\": "core/", 
             "Src\\": "src/"
         }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.10"
     }
 }

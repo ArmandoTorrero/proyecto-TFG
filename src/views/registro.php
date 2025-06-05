@@ -24,7 +24,7 @@
                 <article class="label-input">
                     <label for="">Nombre usuario</label>
                     <input type="text" name="username" id="username">
-                    <span class="userSpan">El nombre de usuario debe tener entre 3 y 15 caracteres</span>
+                    <span class="userSpan">El nombre debe tener entre 3 y 15 caracteres</span>
                 </article>
                 
                 <article class="label-input">
@@ -45,7 +45,7 @@
                 <article class="label-input">
                     <label for="">Teléfono</label>
                     <input type="text" name="tlf" id="tlf">
-                    <span class="tlfSpan">El numero de teléfono debe de tener 9 numeros</span>
+                    <span class="tlfSpan">El teléfono debe de tener 9 numeros</span>
                 </article>
 
                 <article class="militar">

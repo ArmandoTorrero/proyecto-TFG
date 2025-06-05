@@ -21,11 +21,8 @@ function landingUsuarioRegistrado() {
  */
 function modificarLandingPage(rol) {
 
-    if (rol != false) {
-        landingUsuarioRegistrado();     
-    }else{
-        landingInvitado(); 
-    }
+    rol != false ? landingUsuarioRegistrado() : ''; 
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {
