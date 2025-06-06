@@ -186,6 +186,9 @@ export function mostrarTablaCampos() {
     return tabla_campos_contaier;
 }
 
+/**
+ * Mostrar tabla de horarios
+ */
 export function mostrarTablaHorarios() {
 
     const tabla_horarios_container = document.createElement("section"); 

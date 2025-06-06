@@ -58,7 +58,6 @@ async function infoPistaHorario() {
 document.addEventListener("DOMContentLoaded", () => {
     
     infoPistaHorario().then(response => {    
-        console.log(response);
         let informacion = response.info;
         
         // si el campo no esta disponible hacemos la redireccion
@@ -71,8 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("form"); 
     
     logueado().then(rol => {
-
-        
 
         if (rol.rol != 1) { // si el rol no es de un usuario corriente desabilitamos el formulario
 

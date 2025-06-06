@@ -2,6 +2,15 @@ import { logueado } from "./../services/usuario.js";
 import { CrearEtiquetaConClase } from "./crearEtiqueta-Clase.js";
 
 
+/**
+ * Funcion para crear una carta de un campo destacado
+ * @param {*} id_campo 
+ * @param {*} nombre 
+ * @param {*} precio 
+ * @param {*} categoria_id 
+ * @param {*} disponible 
+ * @returns 
+ */
 export function cardCampoDestacado(id_campo,nombre,precio,categoria_id, disponible){
     
     let card_pista = CrearEtiquetaConClase('article', 'pista'); 

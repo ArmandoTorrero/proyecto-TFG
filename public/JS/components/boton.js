@@ -2,7 +2,6 @@ import { crearFormulario, editar } from "./form_elements.js";
 import { userInfoBySendingId } from "./../services/usuario.js";
 import { getCampoById } from "./../services/campo.js";
 import { getHorarioById } from "./../services/franja_horaria.js";
-import { aplicarAnimacion } from "./animaciones.js";
 
 
 /**
@@ -110,10 +109,7 @@ export function containerFormUser(id) {
  * @param {*} id 
  */
 export function containerFormCampo(id) {
-
-    console.log(id);
     
-
     let containerFormCampo = document.querySelector(".containerFormCampo"); 
     containerFormCampo.classList.toggle("visible"); 
 
@@ -188,7 +184,9 @@ export function containerFormHorario(id, nombre_campo) {
     })
 }
 
-
+/**
+ * Función para crear un horario
+ */
 export function crearHorario() {
 
     

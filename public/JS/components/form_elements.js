@@ -85,7 +85,6 @@ export function editar(form) {
             })
             
             const result = await response.json(); // convertimos la respuesta a json
-            console.log(result);
             
             
             if (result.exito) {

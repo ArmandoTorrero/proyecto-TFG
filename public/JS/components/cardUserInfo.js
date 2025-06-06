@@ -6,7 +6,11 @@ import { crearTabla } from "./tabla.js";
 import { crearTituloSeccion } from "./acciones_perfil.js";
 
 
-
+/**
+ * Función para crear una tarjeta de información del usuario.
+ * @param {*} rol 
+ * @returns 
+ */
 export function cardUserInfo(rol) {
 
     const userInfoContainer = document.createElement("section");
@@ -100,9 +104,7 @@ export function reservasUsuario(rol) {
         getReservasByUserId().then(reservas => {
 
             let reservas_usuario = reservas.reservas; // recogemos las reservas del usuario
-            
-            console.log(reservas_usuario);
-            
+                        
             let headers = ['Pista', 'Fecha partido', 'Hora partido' ,'Cancelar'];
             let data = reservas_usuario.map(reserva => {
 

@@ -43,7 +43,6 @@ export function deleteUser() {
             }).then((result) => {
                 if (result.isConfirmed) {
                     eliminarUsuario(id).then(info => {
-                        console.log(info);
                         if (info.exito) {
                             fila.remove(); // Elimina la fila de la tabla
                             Swal.fire("¡Usuario eliminado!", "El usuario ha sido eliminado.", "success");
@@ -93,7 +92,6 @@ export function deleteCampo() {
             }).then((result) => {
                 if (result.isConfirmed) {
                     eliminarCampo(id).then(info => {
-                        console.log(info);
                         if (info.exito) {
                             fila.remove(); // Elimina la fila de la tabla
                             Swal.fire("Campo eliminado!", info.mensaje, "success");
@@ -139,7 +137,6 @@ export function deleteHorario() {
             }).then((result) => {
                 if (result.isConfirmed) {
                     eliminarHorario(id).then(info => {
-                        console.log(info);
                         if (info.exito) {
                             fila.remove(); // Elimina la fila de la tabla
                             Swal.fire("Horario eliminado!", info.mensaje, "success");

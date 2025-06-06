@@ -82,15 +82,15 @@ document.addEventListener("DOMContentLoaded", () => {
         
         switch (modalidad) {
             case 1:
-                img.style.backgroundImage = "url('./PUBLIC/ASSETS/balon-futbol.jpeg')";
+                img.style.backgroundImage = "url('./public/ASSETS/balon-futbol.jpeg')";
                 break;
             
             case 2: 
-            img.style.backgroundImage = "url('./PUBLIC/ASSETS/tenis.jpeg')";
+            img.style.backgroundImage = "url('./public/ASSETS/tenis.jpeg')";
                 break;
                 
             case 3: 
-            img.style.backgroundImage = "url('./PUBLIC/ASSETS/padel.jpeg')";
+            img.style.backgroundImage = "url('./public/ASSETS/padel.jpeg')";
                 break; 
             default:
                 break;

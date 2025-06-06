@@ -5,7 +5,10 @@ import { editUser } from "./admin/editar.js";
 import { deleteUser } from "./admin/eliminar.js";
 import { accionesContainer } from "./boton.js";
 
-
+/**
+ * Función para crear un buscador de usuarios
+ * @returns HTMLInputElement
+ */
 export function buscadorUsuario() {
     let input = crearInput('palabta', 'text', ""); 
     input.placeholder = "Buscar usuario"; 
@@ -47,7 +50,6 @@ export function buscadorUsuario() {
                 editUser();
                 deleteUser();
             }else{
-                console.log("no existe");
                 userInfoContainer.appendChild(crearTabla(headers, []));
                 userInfoContainer.querySelector("table").textContent = "No existe";                      
             }

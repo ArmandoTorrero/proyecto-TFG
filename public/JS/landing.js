@@ -13,8 +13,6 @@ function landingUsuarioRegistrado() {
 }
 
 
-
-
 /**
  * Funcion para modificar la landing page en funcion del rol
  * @param {*} rol 
